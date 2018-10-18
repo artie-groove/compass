@@ -1,0 +1,11 @@
+include mixins.pug
+doctype html
+html(lang='en')
+	head
+		include includes/head.pug
+	body
+		block body
+			block header
+			block content
+			block footer
+		include includes/scripts-delayed.pug

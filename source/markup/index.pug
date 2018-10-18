@@ -1,0 +1,41 @@
+extends ../templates/html.tpl.pug
+
+block header
+	header
+		.container
+			.row.justify-content-between
+				.col-lg-2
+					.logo
+						img(src='assets/img/logo.svg', width='135', height='45', alt='logo')
+				.col-lg-2
+					.label Город
+					.nav
+						.nav-item.dropdown
+							a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+								| г. Благовещенск
+							.dropdown-menu
+								a.dropdown-item(href='#') г. Хабаровск
+								a.dropdown-item(href='#') г. Владивосток
+								a.dropdown-item(href='#') г. Иркутск
+								a.dropdown-item(href='#') г. Артём
+				.col-lg-4
+					.label Адрес нашего офиса
+					.address 
+							div г. Благовещенск, площадь Ленина, 1
+							small#addressDetails гостиница "Юбилейная", 2 этаж, офис 220
+				.col-lg-4.text-right
+					.d-xl-inline-block.ml-xl-auto.text-left
+						.label Телефон
+						.phone.font-weight-bold 8 (4162) 21-54-21
+							a.callback-link.d-lg-inline-block.ml-lg-4(href='#') Перезвоните мне
+
+
+
+block content
+	
+
+block footer
+	//include ../templates/includes/footer.pug
+
+
+

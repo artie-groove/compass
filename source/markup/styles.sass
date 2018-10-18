@@ -1,0 +1,89 @@
+// Your variable overrides
+// $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
+// $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+
+// sizes
+// $grid-gutter-width: 24px
+// $font-size-base: 1rem
+
+$font-family-base: 'Montserrat', sans-serif
+// $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
+// $custom-select-indicator-color: #fff
+// $custom-select-color: #fff
+// $custom-select-bg: transparent
+// $custom-select-border-color: transparent
+// $custom-select-focus-border-color: transparent
+// $custom-select-focus-box-shadow: none
+// $custom-select-padding-x: 0
+
+// Bootstrap and its default variables
+@import "../builder/node_modules/bootstrap/scss/bootstrap"
+
+html
+	font-size: 14px
+
+body
+	margin: 0 auto
+	header
+		background: url('../img/bg-top.jpg') 0% 100% / cover
+		padding-top: 20px
+		padding-bottom: 20px
+		.label
+			font-size: 10px
+			letter-spacing: .8px
+			color: #fff
+			opacity: .5
+			margin-bottom: 6px
+		.dropdown
+			a
+				font-size: 12px
+				&.dropdown-toggle-custom
+					&::after
+						content: ' '
+						display: inline-block
+						margin-left: 6px
+						width: 6px
+						height: 8px
+						background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
+						background-repeat: no-repeat
+				&.nav-link
+					color: #fff
+					position: relative
+					padding-top: 0
+					padding-left: 0
+					&::before
+						content: ' '
+						display: block
+						height: 1px
+						background-color: rgba(255, 255, 255, .5)
+						opacity: .8
+						position: absolute
+						bottom: 0
+		.address
+			color: #fff
+			font-weight: 500
+		.phone
+			font-size: 19px
+			color: #fff
+		.callback-link
+			color: #FF9F01
+			font-size: 13px
+			font-weight: 600
+			vertical-align: text-top
+			display: inline-block
+			&:hover
+				text-decoration: none
+			&::after
+				content: ' '
+				display: block
+				height: 1px
+				background-color: #ff9f01
+				opacity: .5
+
+.logo
+	margin-top: 10px
+	
+
+
+footer
+	margin: 5rem 0
