@@ -12,10 +12,11 @@ const imageminGuetzli = require('imagemin-guetzli');
 const pngquant = require('gulp-pngquant');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
-
-
+let yaml = require('js-yaml');
 
 var config = null;
+let data = null;
+let bs;
 
 var io = new function() {
 	this.readSync = file => {
@@ -45,6 +46,19 @@ var io = new function() {
 				var obj = csvjson.toObject(data, { delimiter: ';' });
 				return Promise.resolve(obj);
 			});
+	}
+	this.readYAML = (file) => {
+		return this.read(file)
+			.then( data => {
+				try {
+					let obj = yaml.safeLoad(data);
+					return Promise.resolve(obj);
+				}
+				catch (e) {
+					console.log(e);
+					return Promise.reject(e);
+				}
+			})
 	}
 	this.save = (file, data) => {
 		var idx = file.lastIndexOf('/');
@@ -153,16 +167,18 @@ class Router {
 	}
 }
 
-gulp.task('init', () => {
-	let bs = Bootstrapper.create();
+gulp.task('init', (cb) => {
+	bs = Bootstrapper.create();
 	console.log(bs.router);
+	let db = `${bs.router.srcPath}/data.yaml`;
+	io.readYAML(db).then( (jsObj) => {
+		data = jsObj;
+		cb();
+	});
 });
 
 
 gulp.task('watch', (cb) => {
-
-	let bs = Bootstrapper.create();
-	// console.log(bs.router);
 
 	watch(`${bs.router.srcMarkupPath}/*.pug`, (changedFile) => {
 		console.log(`Changed: ${changedFile.path}`);
@@ -181,6 +197,8 @@ gulp.task('watch', (cb) => {
 	});
 
 	cb();
+
+	
 	
 	//	let base = bs.router.srcAssetsPath;
 	//	watch(`${bs.router.srcAssetsPath}/**/*`, (changedFile) => {
@@ -192,10 +210,8 @@ gulp.task('watch', (cb) => {
 });
 
 
-gulp.task('develop', gulp.parallel('watch', () => {
+gulp.task('develop', gulp.series('init', gulp.parallel('watch'), () => {
 
-	let bs = Bootstrapper.create();
-	console.log(bs.router);
 
 	compilePages(`${bs.router.srcMarkupPath}/*.pug`, `${bs.router.buildPath}`);
 	compileStyles(`${bs.router.srcMarkupPath}/*.sass`, `${bs.router.dstStylesPath}`);
@@ -210,6 +226,7 @@ gulp.task('develop', gulp.parallel('watch', () => {
 	            path: bs.router.buildPath
 	        }
 		}));
+
 }));
 
 gulp.task('default', gulp.series('develop', () => {
@@ -218,7 +235,7 @@ gulp.task('default', gulp.series('develop', () => {
 
 function compilePages(glob, dest) {
 	gulp.src(glob)
-		.pipe(pug({ locals: { data: null }, pretty: true }))  
+		.pipe(pug({ locals: { data: data }, pretty: true }))  
 		.pipe(rename(function (path) {
 			//path.basename = path.basename.slice(0, -3);
 		}))

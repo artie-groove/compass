@@ -3,31 +3,45 @@ extends ../templates/html.tpl.pug
 block header
 	header
 		.container
-			.row.justify-content-between
-				.col-lg-2
+			.row
+				.col.flex-grow-0
 					.logo
 						img(src='assets/img/logo.svg', width='135', height='45', alt='logo')
-				.col-lg-2
-					.label Город
-					.nav
-						.nav-item.dropdown
-							a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
-								| г. Благовещенск
-							.dropdown-menu
-								a.dropdown-item(href='#') г. Хабаровск
-								a.dropdown-item(href='#') г. Владивосток
-								a.dropdown-item(href='#') г. Иркутск
-								a.dropdown-item(href='#') г. Артём
-				.col-lg-4
-					.label Адрес нашего офиса
-					.address 
-							div г. Благовещенск, площадь Ленина, 1
-							small#addressDetails гостиница "Юбилейная", 2 этаж, офис 220
-				.col-lg-4.text-right
-					.d-xl-inline-block.ml-xl-auto.text-left
-						.label Телефон
-						.phone.font-weight-bold 8 (4162) 21-54-21
-							a.callback-link.d-lg-inline-block.ml-lg-4(href='#') Перезвоните мне
+				.col.order-2.order-md-1
+					.row
+						.col-md-8.col-lg-7
+							.row
+								.col-md-5.col-lg-4.col-xl-3
+									.label Город
+									.nav.city
+										.nav-item.dropdown
+											a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+												| #{data.cityToAddressMap[0].name}
+											.dropdown-menu
+												- let moreCities = data.cityToAddressMap.slice(1)
+												each city in moreCities
+													a.dropdown-item(href='#') #{city.name}
+								.col-md-7.col-lg-8.col-xl-9
+									.label Адрес нашего офиса
+									.address 
+										.nav
+											.nav-item.dropdown
+												a.nav-link(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+													div #{data.cityToAddressMap[0].addresses[0].address}
+													small.addressDetails #{data.cityToAddressMap[0].addresses[0].details}
+												if data.cityToAddressMap.length > 1
+													.dropdown-menu
+														- let moreAddresses = data.cityToAddressMap[0].addresses.slice(1)
+														each item in moreAddresses 
+															a.dropdown-item(href='#')
+																div #{item.address}
+																small.addressDetails #{item.details}
+						.col-md-4.col-lg-5.text-right
+							.d-md-inline-block.ml-md-auto.text-left
+								.label Телефон
+								.phone.font-weight-bold 8 (4162) 21-54-21
+									br.d-md-inline.d-lg-none
+									a.callback-link.d-xl-inline-block.ml-lg-4(href='#') Перезвоните мне
 
 
 

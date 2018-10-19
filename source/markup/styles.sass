@@ -1,6 +1,7 @@
 // Your variable overrides
-// $container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
-// $grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+//$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
+$container-max-widths: (sm: 365px, md: 758px, lg: 1014px, xl: 1200px)
+$grid-breakpoints: (xs: 0, sm: 375px, md: 768px, lg: 1024px, xl: 1200px)
 
 // sizes
 // $grid-gutter-width: 24px
@@ -35,33 +36,57 @@ body
 			opacity: .5
 			margin-bottom: 6px
 		.dropdown
+			%caret
+				&::after
+					content: ' '
+					display: inline-block
+					margin-left: 6px
+					width: 6px
+					height: 8px
+					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
+					background-repeat: no-repeat			
 			a
 				font-size: 12px
-				&.dropdown-toggle-custom
-					&::after
-						content: ' '
-						display: inline-block
-						margin-left: 6px
-						width: 6px
-						height: 8px
-						background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
-						background-repeat: no-repeat
 				&.nav-link
 					color: #fff
 					position: relative
 					padding-top: 0
 					padding-left: 0
-					&::before
-						content: ' '
-						display: block
-						height: 1px
-						background-color: rgba(255, 255, 255, .5)
-						opacity: .8
-						position: absolute
-						bottom: 0
+		.city
+			.dropdown-toggle-custom
+				@extend %caret
+			.nav-item::before
+				content: ' '
+				display: block
+				position: absolute
+				background: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%229%22%20height%3D%2210%22%20viewBox%3D%220%200%209%2010%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M4.5%200C6.97959%200%209%201.89655%209%204.22414C9%206.81034%206.15306%208.27586%204.5%2010C2.84694%208.18966%200%206.81034%200%204.22414C0%201.89655%202.02041%200%204.5%200ZM4.5%202.15517C5.60204%202.15517%206.52041%203.01724%206.52041%204.05172C6.52041%205.08621%205.60204%205.94828%204.5%205.94828C3.39796%205.94828%202.47959%205.08621%202.47959%204.05172C2.47959%203.01724%203.39796%202.15517%204.5%202.15517Z%22%20fill%3D%22%23FF8E02%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat
+				width: 9px
+				height: 10px
+				left: -14px
+				top: 5px
+			.nav-link
+				padding-bottom: 0
+				white-space: nowrap
+				&::before
+					content: ' '
+					display: block
+					height: .5px
+					background-color: rgba(255, 255, 255, 0.5)
+					opacity: .8
+					position: absolute
+					bottom: 0
+					width: 100%
+					padding-right: 25px
+					background-clip: content-box
+
+
 		.address
 			color: #fff
 			font-weight: 500
+			a
+				font-size: 16px
+			div:first-child:not(:last-child)
+				@extend %caret
 		.phone
 			font-size: 19px
 			color: #fff
@@ -82,7 +107,7 @@ body
 
 .logo
 	margin-top: 10px
-	
+	padding-right: 25px
 
 
 footer

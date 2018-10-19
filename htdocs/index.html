@@ -7,32 +7,50 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Компас</title>
+    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, проспект Карибский, 12","details":"бизнес-центр \"Успех\", 91 этаж, офис 910"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Иркутск","addresses":[{"address":"г. Иркутск, улица Мира, 15","details":"гостиница \"Межнациональная\", 15 этаж, офис 1502"},{"address":"г. Иркутск, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]},{"name":"г. Владивосток","addresses":[{"address":"г. Владивосток, улица Приморская, 280","details":"бизнес-центр \"Дальний Восток\", 3 этаж, офис 308"}]}]</script>
   </head>
   <body>
     <header>
       <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-2">
+        <div class="row">
+          <div class="col flex-grow-0">
             <div class="logo"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></div>
           </div>
-          <div class="col-lg-2">
-            <div class="label">Город</div>
-            <div class="nav">
-              <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
-                <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Хабаровск</a><a class="dropdown-item" href="#">г. Владивосток</a><a class="dropdown-item" href="#">г. Иркутск</a><a class="dropdown-item" href="#">г. Артём</a></div>
+          <div class="col order-2 order-md-1">
+            <div class="row">
+              <div class="col-md-8 col-lg-7">
+                <div class="row">
+                  <div class="col-md-5 col-lg-4 col-xl-3">
+                    <div class="label">Город</div>
+                    <div class="nav city">
+                      <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Иркутск</a><a class="dropdown-item" href="#">г. Владивосток</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-7 col-lg-8 col-xl-9">
+                    <div class="label">Адрес нашего офиса</div>
+                    <div class="address"> 
+                      <div class="nav">
+                        <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">
+                              <div>г. Благовещенск, проспект Карибский, 12</div><small class="addressDetails">бизнес-центр &quot;Успех&quot;, 91 этаж, офис 910</small></a><a class="dropdown-item" href="#">
+                              <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="label">Адрес нашего офиса</div>
-            <div class="address"> 
-              <div>г. Благовещенск, площадь Ленина, 1</div><small id="addressDetails">гостиница "Юбилейная", 2 этаж, офис 220</small>
-            </div>
-          </div>
-          <div class="col-lg-4 text-right">
-            <div class="d-xl-inline-block ml-xl-auto text-left">
-              <div class="label">Телефон</div>
-              <div class="phone font-weight-bold">8 (4162) 21-54-21<a class="callback-link d-lg-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+              <div class="col-md-4 col-lg-5 text-right">
+                <div class="d-md-inline-block ml-md-auto text-left">
+                  <div class="label">Телефон</div>
+                  <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-md-inline d-lg-none"><a class="callback-link d-xl-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
