@@ -4,44 +4,99 @@ block header
 	header
 		.container
 			.row
-				.col.flex-grow-0
+				.col.flex-grow-0.order-1
 					.logo
 						img(src='assets/img/logo.svg', width='135', height='45', alt='logo')
-				.col.order-2.order-md-1
-					.row
-						.col-md-8.col-lg-7
-							.row
-								.col-md-5.col-lg-4.col-xl-3
-									.label Город
-									.nav.city
-										.nav-item.dropdown
-											a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
-												| #{data.cityToAddressMap[0].name}
-											.dropdown-menu
-												- let moreCities = data.cityToAddressMap.slice(1)
-												each city in moreCities
-													a.dropdown-item(href='#') #{city.name}
-								.col-md-7.col-lg-8.col-xl-9
-									.label Адрес нашего офиса
-									.address 
-										.nav
+				.col-12.col-md.order-2
+					nav.address-nav
+						.row
+							.col-md-8.col-lg-7.d-none.d-md-block
+								.row
+									.col-md-5.col-lg-4.col-xl-3
+										.label Город
+										.nav.city
 											.nav-item.dropdown
-												a.nav-link(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
-													div #{data.cityToAddressMap[0].addresses[0].address}
-													small.addressDetails #{data.cityToAddressMap[0].addresses[0].details}
-												if data.cityToAddressMap.length > 1
-													.dropdown-menu
-														- let moreAddresses = data.cityToAddressMap[0].addresses.slice(1)
-														each item in moreAddresses 
-															a.dropdown-item(href='#')
-																div #{item.address}
-																small.addressDetails #{item.details}
-						.col-md-4.col-lg-5.text-right
-							.d-md-inline-block.ml-md-auto.text-left
-								.label Телефон
-								.phone.font-weight-bold 8 (4162) 21-54-21
-									br.d-md-inline.d-lg-none
-									a.callback-link.d-xl-inline-block.ml-lg-4(href='#') Перезвоните мне
+												a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+													| #{data.cityToAddressMap[0].name}
+												.dropdown-menu
+													- let moreCities = data.cityToAddressMap.slice(1)
+													each city in moreCities
+														a.dropdown-item(href='#') #{city.name}
+									.col-md-7.col-lg-8.col-xl-9
+										.label Адрес нашего офиса
+										.address 
+											.nav
+												.nav-item.dropdown
+													a.nav-link(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+														div #{data.cityToAddressMap[0].addresses[0].address}
+														small.addressDetails #{data.cityToAddressMap[0].addresses[0].details}
+													if data.cityToAddressMap.length > 1
+														.dropdown-menu
+															- let moreAddresses = data.cityToAddressMap[0].addresses.slice(1)
+															each item in moreAddresses 
+																a.dropdown-item(href='#')
+																	div #{item.address}
+																	small.addressDetails #{item.details}
+							.col-md-4.col-lg-5.text-right
+								.d-md-inline-block.ml-md-auto.text-center.text-md-left
+									.label.d-none.d-md-block Телефон
+									.phone.font-weight-bold 8 (4162) 21-54-21
+										br.d-none.d-md-inline.d-lg-none
+										a.callback-link.d-none.d-md-inline-block.ml-lg-4(href='#') Перезвоните мне
+		
+		
+				.col-12.order-0.order-md-3
+					nav.navbar.navbar-dark.navbar-expand-md.p-md-0.mt-md-4
+						button.navbar-toggler.ml-auto(type='button', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Раскрыть')
+							span.navbar-toggler-icon
+						.collapse.navbar-collapse#menu
+							h6.d-md-none Меню
+							ul.navbar-nav.w-100.justify-content-between.text-md-center
+								li.nav-item
+									a.nav-link(href='#') Главная
+								li.nav-item.dropdown
+									a.nav-link.dropdown-toggle-custom(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Куда поехать
+									ul.dropdown-menu
+										li
+											a.dropdown-item(href='#') В Италию
+										li.dropdown-submenu
+											a.dropdown-item.dropdown-toggle-custom(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+												| В Испанию
+											.dropdown-menu
+												a.dropdown-item(href='#') Мадрид
+												a.dropdown-item(href='#') Барселона
+												a.dropdown-item(href='#') Валенсия
+												a.dropdown-item(href='#') Севилья
+												a.dropdown-item(href='#') Гибралтар
+										li
+											a.dropdown-item(href='#') На Мальту
+										li
+											a.dropdown-item(href='#') На Мальдивы
+								li.nav-item.dropdown
+									a.nav-link.dropdown-toggle-custom(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+										| Визы
+									.dropdown-menu
+										a.dropdown-item(href='#') В Японию
+										a.dropdown-item(href='#') В Китай
+										a.dropdown-item(href='#') В Австралию
+										a.dropdown-item(href='#') В США
+								li.nav-item
+									a.nav-link(href='#') Отели
+								li.nav-item
+									a.nav-link(href='#') Авиабилеты
+								li.nav-item
+									a.nav-link(href='#') Круизы
+								li.nav-item.d-md-inline-block.d-lg-none
+									a.nav-link(href='#') Ещё
+								li.nav-item.d-md-none.d-lg-inline-block
+									a.nav-link(href='#') Страхование
+								li.nav-item.d-md-none.d-lg-inline-block
+									a.nav-link(href='#') О нас
+								li.nav-item.d-none.d-md-inline-block
+									a.nav-link.request(href='#') Оставить заявку
+										span.d-md-none.d-lg-inline  на тур
+
+		hr.d-block.d-md-none.w-100
 
 
 

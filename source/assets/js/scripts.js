@@ -1,4 +1,7 @@
 $(document).ready( function() {
+
+	// This block can be safely removed
+	// Address switchers handlers 
 	$('.city .dropdown-item').click( function() {
 		let i = 0;
 		let city = $(this).html();
@@ -18,6 +21,32 @@ $(document).ready( function() {
 		// Bubble up the selected one
 
 		// Drown the current one
-		
+
 	});
+
+	// ^ This block can be safely removed
+
+	// Dropdown submenus handlers
+
+	$('.dropdown-submenu > a').on("click", function(e) {
+	    var submenu = $(this);
+	    $('.dropdown-submenu .dropdown-menu').removeClass('show');
+	    submenu.next('.dropdown-menu').addClass('show');
+	    submenu.parent().addClass('show');
+	    e.stopPropagation();
+	});
+
+	$('.dropdown').on("hidden.bs.dropdown", function() {
+	    // hide any open menus when parent closes
+	    $('.dropdown-menu.show').removeClass('show');
+	    $('.dropdown-submenu.show').removeClass('show');
+	});
+
+	// Mobile menu handler
+
+	$('.navbar-toggler').on('click', function() {
+		$(this).toggleClass('show');
+		$(this).next('.collapse').toggleClass('show');
+	});
+
 });

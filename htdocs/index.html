@@ -13,48 +13,82 @@
     <header>
       <div class="container">
         <div class="row">
-          <div class="col flex-grow-0">
+          <div class="col flex-grow-0 order-1">
             <div class="logo"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></div>
           </div>
-          <div class="col order-2 order-md-1">
-            <div class="row">
-              <div class="col-md-8 col-lg-7">
-                <div class="row">
-                  <div class="col-md-5 col-lg-4 col-xl-3">
-                    <div class="label">Город</div>
-                    <div class="nav city">
-                      <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Иркутск</a><a class="dropdown-item" href="#">г. Владивосток</a>
+          <div class="col-12 col-md order-2">
+            <nav class="address-nav">
+              <div class="row">
+                <div class="col-md-8 col-lg-7 d-none d-md-block">
+                  <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3">
+                      <div class="label">Город</div>
+                      <div class="nav city">
+                        <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Иркутск</a><a class="dropdown-item" href="#">г. Владивосток</a>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-7 col-lg-8 col-xl-9">
-                    <div class="label">Адрес нашего офиса</div>
-                    <div class="address"> 
-                      <div class="nav">
-                        <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
-                          <div class="dropdown-menu"><a class="dropdown-item" href="#">
-                              <div>г. Благовещенск, проспект Карибский, 12</div><small class="addressDetails">бизнес-центр &quot;Успех&quot;, 91 этаж, офис 910</small></a><a class="dropdown-item" href="#">
-                              <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                    <div class="col-md-7 col-lg-8 col-xl-9">
+                      <div class="label">Адрес нашего офиса</div>
+                      <div class="address"> 
+                        <div class="nav">
+                          <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                              <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">
+                                <div>г. Благовещенск, проспект Карибский, 12</div><small class="addressDetails">бизнес-центр &quot;Успех&quot;, 91 этаж, офис 910</small></a><a class="dropdown-item" href="#">
+                                <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-4 col-lg-5 text-right">
-                <div class="d-md-inline-block ml-md-auto text-left">
-                  <div class="label">Телефон</div>
-                  <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-md-inline d-lg-none"><a class="callback-link d-xl-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                <div class="col-md-4 col-lg-5 text-right">
+                  <div class="d-md-inline-block ml-md-auto text-center text-md-left">
+                    <div class="label d-none d-md-block">Телефон</div>
+                    <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-none d-md-inline d-lg-none"><a class="callback-link d-none d-md-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </nav>
+          </div>
+          <div class="col-12 order-0 order-md-3">
+            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4">
+              <button class="navbar-toggler ml-auto" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="menu">
+                <h6 class="d-md-none">Меню</h6>
+                <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                  <li class="nav-item"><a class="nav-link" href="#">Главная</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Куда поехать</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">В Италию</a></li>
+                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">В Испанию</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Мадрид</a><a class="dropdown-item" href="#">Барселона</a><a class="dropdown-item" href="#">Валенсия</a><a class="dropdown-item" href="#">Севилья</a><a class="dropdown-item" href="#">Гибралтар</a></div>
+                      </li>
+                      <li><a class="dropdown-item" href="#">На Мальту</a></li>
+                      <li><a class="dropdown-item" href="#">На Мальдивы</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Визы</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="#">В Японию</a><a class="dropdown-item" href="#">В Китай</a><a class="dropdown-item" href="#">В Австралию</a><a class="dropdown-item" href="#">В США</a></div>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="#">Отели</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Авиабилеты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="#">Круизы</a></li>
+                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="#">Ещё</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="#">Страхование</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="#">О нас</a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" href="#">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a></li>
+                </ul>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
+      <hr class="d-block d-md-none w-100">
     </header>
     <!--include ../templates/includes/footer.pug-->
     <!-- Optional JavaScript-->

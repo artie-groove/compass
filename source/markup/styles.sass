@@ -1,3 +1,7 @@
+// Custom variables
+$navbar-item-bg-color: #FF8E02
+
+
 // Your variable overrides
 //$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
 $container-max-widths: (sm: 365px, md: 758px, lg: 1014px, xl: 1200px)
@@ -8,6 +12,16 @@ $grid-breakpoints: (xs: 0, sm: 375px, md: 768px, lg: 1024px, xl: 1200px)
 // $font-size-base: 1rem
 
 $font-family-base: 'Montserrat', sans-serif
+$navbar-nav-link-padding-x: 10px
+$navbar-dark-color: #fff
+$navbar-dark-hover-color: $navbar-dark-color
+$navbar-dark-toggler-border-color: transparent
+$dropdown-padding-y: 0
+$dropdown-bg: $navbar-item-bg-color
+$dropdown-border-radius: 0
+$dropdown-box-shadow: none
+$dropdown-border-width: 0
+$dropdown-spacer: 0
 // $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
 // $custom-select-indicator-color: #fff
 // $custom-select-color: #fff
@@ -22,6 +36,7 @@ $font-family-base: 'Montserrat', sans-serif
 
 html
 	font-size: 14px
+	min-height: 101%
 
 body
 	margin: 0 auto
@@ -35,79 +50,231 @@ body
 			color: #fff
 			opacity: .5
 			margin-bottom: 6px
-		.dropdown
-			%caret
-				&::after
-					content: ' '
-					display: inline-block
-					margin-left: 6px
-					width: 6px
-					height: 8px
-					background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
-					background-repeat: no-repeat			
-			a
-				font-size: 12px
-				&.nav-link
-					color: #fff
-					position: relative
-					padding-top: 0
-					padding-left: 0
-		.city
-			.dropdown-toggle-custom
-				@extend %caret
-			.nav-item::before
+	hr
+		height: 0
+		border-top: 1px solid #fff
+		opacity: .3
+		margin-top: 20px
+
+=caret-image($color)
+	background-image: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22#{$color}%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22#{$color}%22%2F%3E%0A%3C%2Fsvg%3E"), "#", "%23")
+
+=caret
+	content: ' '
+	display: inline-block
+	margin-left: 6px
+	width: 6px
+	height: 8px
+	background-repeat: no-repeat
+	
+.address-nav
+	.dropdown
+		a
+			font-size: 12px
+			&.nav-link
+				color: #fff
+				position: relative
+				padding-top: 0
+				padding-left: 0
+	.city
+		.nav-item::before
+			content: ' '
+			display: block
+			position: absolute
+			background: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%229%22%20height%3D%2210%22%20viewBox%3D%220%200%209%2010%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M4.5%200C6.97959%200%209%201.89655%209%204.22414C9%206.81034%206.15306%208.27586%204.5%2010C2.84694%208.18966%200%206.81034%200%204.22414C0%201.89655%202.02041%200%204.5%200ZM4.5%202.15517C5.60204%202.15517%206.52041%203.01724%206.52041%204.05172C6.52041%205.08621%205.60204%205.94828%204.5%205.94828C3.39796%205.94828%202.47959%205.08621%202.47959%204.05172C2.47959%203.01724%203.39796%202.15517%204.5%202.15517Z%22%20fill%3D%22%23FF8E02%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat
+			width: 9px
+			height: 10px
+			left: -14px
+			top: 5px
+		.nav-link
+			padding-bottom: 0
+			white-space: nowrap
+			&::before
 				content: ' '
 				display: block
+				height: .5px
+				background-color: rgba(255, 255, 255, 0.5)
+				opacity: .8
 				position: absolute
-				background: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%229%22%20height%3D%2210%22%20viewBox%3D%220%200%209%2010%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M4.5%200C6.97959%200%209%201.89655%209%204.22414C9%206.81034%206.15306%208.27586%204.5%2010C2.84694%208.18966%200%206.81034%200%204.22414C0%201.89655%202.02041%200%204.5%200ZM4.5%202.15517C5.60204%202.15517%206.52041%203.01724%206.52041%204.05172C6.52041%205.08621%205.60204%205.94828%204.5%205.94828C3.39796%205.94828%202.47959%205.08621%202.47959%204.05172C2.47959%203.01724%203.39796%202.15517%204.5%202.15517Z%22%20fill%3D%22%23FF8E02%22%2F%3E%0A%3C%2Fsvg%3E") no-repeat
-				width: 9px
-				height: 10px
-				left: -14px
-				top: 5px
-			.nav-link
-				padding-bottom: 0
-				white-space: nowrap
-				&::before
-					content: ' '
-					display: block
-					height: .5px
-					background-color: rgba(255, 255, 255, 0.5)
-					opacity: .8
-					position: absolute
-					bottom: 0
-					width: 100%
-					padding-right: 25px
-					background-clip: content-box
+				bottom: 0
+				width: 100%
+				padding-right: 25px
+				background-clip: content-box
 
 
-		.address
-			color: #fff
-			font-weight: 500
-			a
-				font-size: 16px
-			div:first-child:not(:last-child)
-				@extend %caret
-		.phone
-			font-size: 19px
-			color: #fff
-		.callback-link
-			color: #FF9F01
-			font-size: 13px
-			font-weight: 600
-			vertical-align: text-top
-			display: inline-block
-			&:hover
-				text-decoration: none
+	.address
+		color: #fff
+		font-weight: 500
+		a
+			font-size: 16px
+		div:first-child:not(:last-child)
 			&::after
-				content: ' '
-				display: block
-				height: 1px
-				background-color: #ff9f01
-				opacity: .5
+				+caret()
+				+caret-image(#fff)
+	.dropdown-menu
+		background-color: #fff
+		.dropdown-link
+			color: #000
+	.phone
+		font-size: 19px
+		color: #fff
+		+media-breakpoint-down(sm)
+			font-size: 32px
+			margin-top: 20px
+	.callback-link
+		color: #FF9F01
+		font-size: 13px
+		font-weight: 600
+		vertical-align: text-top
+		display: inline-block
+		&:hover
+			text-decoration: none
+		&::after
+			content: ' '
+			display: block
+			height: 1px
+			background-color: #ff9f01
+			opacity: .5
+
+.dropdown-toggle-custom
+	&::after
+		+caret()
+		+caret-image(#fff)
+		+media-breakpoint-down(sm)
+			+caret-image($navbar-item-bg-color)
 
 .logo
 	margin-top: 10px
 	padding-right: 25px
+
+.navbar
+	border-radius: 5px
+	+media-breakpoint-up(md)
+		background-color: rgba(0, 0, 0, .3)
+	+media-breakpoint-down(sm)
+		position: absolute
+		width: 100%
+
+	.nav-link
+		font-size: 14px
+		font-weight: 500
+		padding: 15px
+		&:hover
+			background-color: $navbar-item-bg-color
+		&.request
+			background-color: $navbar-item-bg-color
+			+media-breakpoint-up(lg)
+				&::after
+					content: ' '
+					display: inline-block
+					vertical-align: text-bottom
+					margin-left: 10px
+					width: 12.69px
+					height: 13.5px
+					background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2214%22%20viewBox%3D%220%200%2013%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0%205.79541H11.0048V7.70459H0V5.79541Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M6.01874%2012.15L11.577%205.4L12.6887%206.75L7.13039%2013.5L6.01874%2012.15Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M11.577%208.1L6.01874%201.35L7.13039%200L12.6887%206.75L11.577%208.1Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E')
+					background-repeat: no-repeat
+	.nav-item
+		flex-grow: 1
+		&:first-child
+			.nav-link
+				border-radius: 5px 0 0 5px
+		&:last-child
+			.nav-link
+				border-radius: 0 5px 5px 0
+		.nav-link
+			white-space: nowrap
+	.dropdown-menu
+		background-color: $navbar-item-bg-color
+		min-width: 100%
+		.dropdown-item
+			color: #fff
+			font-weight: 500
+			border-top: 1px solid rgba(255, 255, 255, .2)
+			padding: 15px
+			&:hover
+				background-color: #fff
+				color: #000
+	.dropdown.show
+		.nav-link
+			background-color: $navbar-item-bg-color
+			+media-breakpoint-down(sm)
+				background-color: unset
+				&.dropdown-toggle-custom
+					&::after
+						+caret-image('#000')
+	.navbar-toggler
+		outline: none
+		margin-top: 10px
+		margin-right: -.75rem
+		&.show
+			margin-top: 0
+			.navbar-toggler-icon
+				background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2229%22%20height%3D%2229%22%20viewBox%3D%220%200%2029%2029%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.06043%201.62563C1.64622%201.03985%202.59597%201.03985%203.18175%201.62563L26.5163%2024.9602C27.1021%2025.5459%2027.1021%2026.4957%2026.5163%2027.0815C25.9305%2027.6673%2024.9807%2027.6673%2024.395%2027.0815L1.06043%203.74695C0.474647%203.16117%200.474647%202.21142%201.06043%201.62563Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.76769%2027.0815C1.18191%2026.4957%201.18191%2025.5459%201.76769%2024.9602L25.1022%201.62563C25.688%201.03984%2026.6377%201.03984%2027.2235%201.62563C27.8093%202.21142%2027.8093%203.16116%2027.2235%203.74695L3.88901%2027.0815C3.30323%2027.6673%202.35348%2027.6673%201.76769%2027.0815Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+	.collapse
+		h6
+			font-size: 28px
+			font-weight: 700
+			padding-left: 10px
+		+media-breakpoint-down(sm)
+			position: absolute
+			top: 45px
+			left: 0
+			width: 95%
+			margin: 0 auto
+			background-color: #fff
+			padding: 30px 20px
+			border-radius: 4px
+
+.navbar-dark.navbar
+	.navbar-nav
+		.nav-link
+			+media-breakpoint-down(sm)
+				color: #000
+				padding-left: 12px
+				padding-right: 10px
+				&:hover
+					background-color: transparent
+
+
+				
+.dropdown-submenu
+	position: relative
+	&.show
+		background-color: #fff
+		.dropdown-item
+			color: #000
+		.dropdown-toggle-custom
+			&::after
+				+caret-image(#000)
+
+
+	.dropdown-menu
+		top: 0
+		left: 100%
+		margin-top: -1px
+		background-color: #fff
+		color: #000
+		.dropdown-item
+			border-top: 1px solid #E4E4E4
+			background-clip: padding-box
+			&:first-child
+				border-top-color: transparent
+			&:hover
+				background-color: $navbar-item-bg-color
+				color: #fff
+				border-top-color: transparent
+				& + .dropdown-item
+					border-top-color: $navbar-item-bg-color
+	.dropdown-toggle-custom
+		&::after
+			transform: rotate(-90deg)
+			+media-breakpoint-down(sm)
+				transform: none
+				+caret-image(#fff)
+		&:hover
+			&::after
+				+caret-image(#000)
+
 
 
 footer
