@@ -1,6 +1,6 @@
 // Custom variables
 $theme-color-primary: #FF8E02
-
+$postheader-block-overlap-y: 180px
 
 // Your variable overrides
 //$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
@@ -55,7 +55,7 @@ body
 	header
 		background: url('../img/bg-top.jpg') 0% 100% / cover
 		padding-top: 20px
-		padding-bottom: 20px
+		padding-bottom: 20px + $postheader-block-overlap-y
 		.label
 			font-size: 10px
 			letter-spacing: .8px
@@ -312,6 +312,8 @@ button[type='submit']
 	text-align: left
 	position: relative
 	margin-top: 25px
+	&:hover
+		cursor: pointer
 	&::after
 		+rarr-image
 		float: right
@@ -343,6 +345,8 @@ button[type='submit']
 	background-color: transparent
 	border: 0
 	opacity: .5
+	&:hover
+		cursor: pointer
 	.modal-close-icon
 		display: block
 		+close-image
@@ -357,5 +361,56 @@ button[type='submit']
 		max-width: 600px
 
 
+// Typography
+h1
+	margin-top: 50px
+	margin-bottom: 30px
+	color: #fff
+	font-weight: 700
+	text-align: center
+	font-size: 32px
+	small
+		display: block
+		margin-top: 15px
+		font-size: 14px
+	+media-breakpoint-only(md)
+		font-size: 38px
+		small
+			font-size: 15px
+	+media-breakpoint-up(lg)
+		font-size: 46px
+		small
+			font-size: 15px
+
+h2
+	font-size: 28px
+	margin-bottom: 25px
+	+media-breakpoint-only(md)
+		font-size: 32px
+	+media-breakpoint-up(lg)
+		font-size: 36px
+
+
+
+
+
+// blocks
+#tourvisor
+	border: 1px solid #999
+	margin: 50px 0
+	padding: 30px 50px
+	background-color: rgba(255, 255, 255, .5)
+
+#tours
+	+media-breakpoint-up(md)
+		margin-top: -$postheader-block-overlap-y
+		h2
+			color: #fff
+	.card
+		height: 225px
+		margin-bottom: 30px
+
+
 footer
 	margin: 5rem 0
+	
