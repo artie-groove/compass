@@ -100,7 +100,7 @@ block header
 		.container
 			.row
 				.col-12
-					h1 Поиск Путешествия
+					h1 Поиск путешествия
 						small Выберите город вылета и страну
 					#tourvisor
 						| Виджет "Турвизор"
@@ -109,10 +109,16 @@ block header
 			.row
 				.col-12
 					h2 Наши туры
-					.card
-						.card-body
-							.card-title
-								| Card
+					.row
+						+tours-card('#', 'Путешествия по России')
+						+tours-card('#', 'Санкт-Петербург')
+						+tours-card('cruises.html', 'Морские круизы')
+						+tours-card('#', 'Термальные ист. Бейго')
+						+tours-card('#', 'Бейдайхэ 2018')
+						+tours-card('#', 'Туры по России')
+						
+										
+
 block content
 	
 
