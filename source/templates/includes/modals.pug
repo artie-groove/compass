@@ -1,0 +1,21 @@
+#request.modal(tabindex='-1' role='dialog')
+	.modal-dialog(role='document')
+		.modal-content
+			button.modal-close(type='button' data-dismiss='modal' aria-label='Закрыть')
+				span.modal-close-icon
+			.modal-body
+				.modal-title
+					| Оставьте заявку на тур
+					small И мы вам перезвоним в течение 15 минут
+				form
+					.form-group
+						input#customerName.form-control(type='text' placeholder='Введите ваше имя')
+					.form-group
+						input#customerPhone.form-control(type='text' placeholder='Введите ваше имя')
+					.form-group
+						textarea#customerWishes.form-control(placeholder='Пожелания к туру')
+					.custom-control.custom-checkbox
+						input#agreedToProcessPersonalData.custom-control-input(type='checkbox' value='')
+						label.custom-control-label(for='agreedToProcessPersonalData')
+							| Я даю согласие на обработку моих персональных данных
+					button.btn.w-100(type='submit') Отправить

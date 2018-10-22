@@ -81,7 +81,7 @@
                   <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="#">Ещё</a></li>
                   <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="#">Страхование</a></li>
                   <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="#">О нас</a></li>
-                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" href="#">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a></li>
                 </ul>
               </div>
             </nav>
@@ -97,5 +97,31 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="assets/js/scripts.js"></script>
+    <div class="modal" id="request" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalData" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalData">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn w-100" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

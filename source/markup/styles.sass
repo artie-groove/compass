@@ -1,5 +1,5 @@
 // Custom variables
-$navbar-item-bg-color: #FF8E02
+$theme-color-primary: #FF8E02
 
 
 // Your variable overrides
@@ -17,11 +17,23 @@ $navbar-dark-color: #fff
 $navbar-dark-hover-color: $navbar-dark-color
 $navbar-dark-toggler-border-color: transparent
 $dropdown-padding-y: 0
-$dropdown-bg: $navbar-item-bg-color
+$dropdown-bg: $theme-color-primary
 $dropdown-border-radius: 0
 $dropdown-box-shadow: none
 $dropdown-border-width: 0
 $dropdown-spacer: 0
+$modal-inner-padding: 50px 50px
+$border-radius: 5px
+$border-radius-lg: 3px
+$form-group-margin-bottom: 25px
+$input-padding-x: 20px
+$input-padding-y: 25px
+$component-active-bg: $theme-color-primary
+$custom-control-indicator-size: 1.85rem
+$custom-checkbox-indicator-border-radius: 3px
+$input-btn-padding-y: 1.8rem
+$input-btn-padding-x: $input-padding-x
+
 // $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
 // $custom-select-indicator-color: #fff
 // $custom-select-color: #fff
@@ -66,6 +78,19 @@ body
 	width: 6px
 	height: 8px
 	background-repeat: no-repeat
+
+=rarr-image
+	content: ' '
+	width: 12.69px
+	height: 13.5px
+	background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2214%22%20viewBox%3D%220%200%2013%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0%205.79541H11.0048V7.70459H0V5.79541Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M6.01874%2012.15L11.577%205.4L12.6887%206.75L7.13039%2013.5L6.01874%2012.15Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M11.577%208.1L6.01874%201.35L7.13039%200L12.6887%206.75L11.577%208.1Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E')
+	background-repeat: no-repeat
+
+=close-image
+	background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2229%22%20height%3D%2229%22%20viewBox%3D%220%200%2029%2029%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.06043%201.62563C1.64622%201.03985%202.59597%201.03985%203.18175%201.62563L26.5163%2024.9602C27.1021%2025.5459%2027.1021%2026.4957%2026.5163%2027.0815C25.9305%2027.6673%2024.9807%2027.6673%2024.395%2027.0815L1.06043%203.74695C0.474647%203.16117%200.474647%202.21142%201.06043%201.62563Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.76769%2027.0815C1.18191%2026.4957%201.18191%2025.5459%201.76769%2024.9602L25.1022%201.62563C25.688%201.03984%2026.6377%201.03984%2027.2235%201.62563C27.8093%202.21142%2027.8093%203.16116%2027.2235%203.74695L3.88901%2027.0815C3.30323%2027.6673%202.35348%2027.6673%201.76769%2027.0815Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+
+.nav-link:hover
+	cursor: pointer
 	
 .address-nav
 	.dropdown
@@ -141,7 +166,7 @@ body
 		+caret()
 		+caret-image(#fff)
 		+media-breakpoint-down(sm)
-			+caret-image($navbar-item-bg-color)
+			+caret-image($theme-color-primary)
 
 .logo
 	margin-top: 10px
@@ -160,19 +185,16 @@ body
 		font-weight: 500
 		padding: 15px
 		&:hover
-			background-color: $navbar-item-bg-color
+			background-color: $theme-color-primary
 		&.request
-			background-color: $navbar-item-bg-color
+			background-color: $theme-color-primary
 			+media-breakpoint-up(lg)
 				&::after
-					content: ' '
+					+rarr-image
 					display: inline-block
 					vertical-align: text-bottom
 					margin-left: 10px
-					width: 12.69px
-					height: 13.5px
-					background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2213%22%20height%3D%2214%22%20viewBox%3D%220%200%2013%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0%205.79541H11.0048V7.70459H0V5.79541Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M6.01874%2012.15L11.577%205.4L12.6887%206.75L7.13039%2013.5L6.01874%2012.15Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M11.577%208.1L6.01874%201.35L7.13039%200L12.6887%206.75L11.577%208.1Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E')
-					background-repeat: no-repeat
+
 	.nav-item
 		flex-grow: 1
 		&:first-child
@@ -184,7 +206,7 @@ body
 		.nav-link
 			white-space: nowrap
 	.dropdown-menu
-		background-color: $navbar-item-bg-color
+		background-color: $theme-color-primary
 		min-width: 100%
 		.dropdown-item
 			color: #fff
@@ -196,7 +218,7 @@ body
 				color: #000
 	.dropdown.show
 		.nav-link
-			background-color: $navbar-item-bg-color
+			background-color: $theme-color-primary
 			+media-breakpoint-down(sm)
 				background-color: unset
 				&.dropdown-toggle-custom
@@ -209,7 +231,7 @@ body
 		&.show
 			margin-top: 0
 			.navbar-toggler-icon
-				background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2229%22%20height%3D%2229%22%20viewBox%3D%220%200%2029%2029%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.06043%201.62563C1.64622%201.03985%202.59597%201.03985%203.18175%201.62563L26.5163%2024.9602C27.1021%2025.5459%2027.1021%2026.4957%2026.5163%2027.0815C25.9305%2027.6673%2024.9807%2027.6673%2024.395%2027.0815L1.06043%203.74695C0.474647%203.16117%200.474647%202.21142%201.06043%201.62563Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.76769%2027.0815C1.18191%2026.4957%201.18191%2025.5459%201.76769%2024.9602L25.1022%201.62563C25.688%201.03984%2026.6377%201.03984%2027.2235%201.62563C27.8093%202.21142%2027.8093%203.16116%2027.2235%203.74695L3.88901%2027.0815C3.30323%2027.6673%202.35348%2027.6673%201.76769%2027.0815Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A')
+				+close-image
 	.collapse
 		h6
 			font-size: 28px
@@ -260,11 +282,11 @@ body
 			&:first-child
 				border-top-color: transparent
 			&:hover
-				background-color: $navbar-item-bg-color
+				background-color: $theme-color-primary
 				color: #fff
 				border-top-color: transparent
 				& + .dropdown-item
-					border-top-color: $navbar-item-bg-color
+					border-top-color: $theme-color-primary
 	.dropdown-toggle-custom
 		&::after
 			transform: rotate(-90deg)
@@ -275,6 +297,64 @@ body
 			&::after
 				+caret-image(#000)
 
+
+// Forms
+
+.custom-checkbox
+	margin-bottom: 25px
+	.custom-control-label
+		padding-left: 15px
+
+button[type='submit']
+	background-color: $theme-color-primary
+	color: #fff
+	font-size: 15px
+	text-align: left
+	position: relative
+	margin-top: 25px
+	&::after
+		+rarr-image
+		float: right
+		display: block
+		right: 30px
+		margin-top: 5px
+
+// Modals
+
+.modal-dialog
+	margin-top: 280px
+
+.modal-title
+	text-align: center
+	font-size: 36px
+	font-weight: 700
+	margin-bottom: 25px
+	small
+		display: block
+		font-size: 14px
+		margin-top: 15px
+
+
+
+.modal-close
+	position: absolute
+	right: -50px
+	top: -45px
+	background-color: transparent
+	border: 0
+	opacity: .5
+	.modal-close-icon
+		display: block
+		+close-image
+		background-size: contain
+		background-repeat: no-repeat
+		height: 29px
+		width: 29px
+
+
+#request
+	.modal-dialog
+		max-width: 600px
 
 
 footer
