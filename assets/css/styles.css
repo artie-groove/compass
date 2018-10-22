@@ -6370,7 +6370,7 @@ body {
   body header {
     background: url("../img/bg-top.jpg") 0% 100%/cover;
     padding-top: 20px;
-    padding-bottom: 20px; }
+    padding-bottom: 200px; }
     body header .label {
       font-size: 10px;
       letter-spacing: .8px;
@@ -6609,6 +6609,8 @@ button[type='submit'] {
   text-align: left;
   position: relative;
   margin-top: 25px; }
+  button[type='submit']:hover {
+    cursor: pointer; }
   button[type='submit']::after {
     content: ' ';
     width: 12.69px;
@@ -6640,6 +6642,8 @@ button[type='submit'] {
   background-color: transparent;
   border: 0;
   opacity: .5; }
+  .modal-close:hover {
+    cursor: pointer; }
   .modal-close .modal-close-icon {
     display: block;
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2229%22%20height%3D%2229%22%20viewBox%3D%220%200%2029%2029%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.06043%201.62563C1.64622%201.03985%202.59597%201.03985%203.18175%201.62563L26.5163%2024.9602C27.1021%2025.5459%2027.1021%2026.4957%2026.5163%2027.0815C25.9305%2027.6673%2024.9807%2027.6673%2024.395%2027.0815L1.06043%203.74695C0.474647%203.16117%200.474647%202.21142%201.06043%201.62563Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.76769%2027.0815C1.18191%2026.4957%201.18191%2025.5459%201.76769%2024.9602L25.1022%201.62563C25.688%201.03984%2026.6377%201.03984%2027.2235%201.62563C27.8093%202.21142%2027.8093%203.16116%2027.2235%203.74695L3.88901%2027.0815C3.30323%2027.6673%202.35348%2027.6673%201.76769%2027.0815Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E%0A");
@@ -6650,6 +6654,54 @@ button[type='submit'] {
 
 #request .modal-dialog {
   max-width: 600px; }
+
+h1 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+  font-size: 32px; }
+  h1 small {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px; }
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    h1 {
+      font-size: 38px; }
+      h1 small {
+        font-size: 15px; } }
+  @media (min-width: 1024px) {
+    h1 {
+      font-size: 46px; }
+      h1 small {
+        font-size: 15px; } }
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 25px; }
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    h2 {
+      font-size: 32px; } }
+  @media (min-width: 1024px) {
+    h2 {
+      font-size: 36px; } }
+
+#tourvisor {
+  border: 1px solid #999;
+  margin: 50px 0;
+  padding: 30px 50px;
+  background-color: rgba(255, 255, 255, 0.5); }
+
+@media (min-width: 768px) {
+  #tours {
+    margin-top: -180px; }
+    #tours h2 {
+      color: #fff; } }
+
+#tours .card {
+  height: 225px;
+  margin-bottom: 30px; }
 
 footer {
   margin: 5rem 0; }
