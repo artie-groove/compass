@@ -49,4 +49,25 @@ $(document).ready( function() {
 		$(this).next('.collapse').toggleClass('show');
 	});
 
+	//https://www.youtube.com/embed/1dGCSqNZbRk
+	$('#ytplayer').on('show.bs.modal', function(e) {
+		let ytvid = $(e.relatedTarget).data('ytvid');
+		let src = `https://www.youtube.com/embed/${ytvid}?&autoplay=1`;
+		$(this).find('iframe').attr('src', src);
+	});
+
+	$('#ytplayer').on('hide.bs.modal', function(e) {
+		$(this).find('iframe').removeAttr('src');
+	});
+
+	$('.audio-cover').on('click', function() {
+		if ( $(this).hasClass('playing') ) {
+			$(this).toggleClass('playing');
+		}
+		else {
+			$('.audio-cover').removeClass('playing');
+			$(this).addClass('playing');
+		}
+	});
+
 });

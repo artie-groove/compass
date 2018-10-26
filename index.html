@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Компас</title>
-    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, проспект Карибский, 12","details":"бизнес-центр \"Успех\", 91 этаж, офис 910"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Иркутск","addresses":[{"address":"г. Иркутск, улица Мира, 15","details":"гостиница \"Межнациональная\", 15 этаж, офис 1502"},{"address":"г. Иркутск, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]},{"name":"г. Владивосток","addresses":[{"address":"г. Владивосток, улица Приморская, 280","details":"бизнес-центр \"Дальний Восток\", 3 этаж, офис 308"}]}]</script>
+    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Свободный","addresses":[{"address":"г. Свободный, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]}]</script>
   </head>
   <body>
     <header>
@@ -25,7 +25,7 @@
                       <div class="label">Город</div>
                       <div class="nav city">
                         <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
-                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Иркутск</a><a class="dropdown-item" href="#">г. Владивосток</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Свободный</a>
                           </div>
                         </div>
                       </div>
@@ -37,7 +37,6 @@
                           <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                               <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
                             <div class="dropdown-menu"><a class="dropdown-item" href="#">
-                                <div>г. Благовещенск, проспект Карибский, 12</div><small class="addressDetails">бизнес-центр &quot;Успех&quot;, 91 этаж, офис 910</small></a><a class="dropdown-item" href="#">
                                 <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
                             </div>
                           </div>
@@ -93,7 +92,10 @@
         <div class="row">
           <div class="col-12">
             <h1>Поиск путешествия<small>Выберите город вылета и страну</small></h1>
-            <div id="tourvisor">Виджет "Турвизор"</div>
+            <div id="tourvisor">
+              <div class="placeholder-block">Виджет "Турвизор"
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -104,27 +106,27 @@
           <div class="col-12">
             <h2>Наши туры</h2>
             <div class="row">
-              <div class="col-12 col-md-4"><a class="card" href="#">
+              <div class="col-12 col-md-4"><a class="card cover" href="#">
                   <div class="card-footer">
                     <h5 class="card-title">Путешествия по России</h5><small>Подробнее</small>
                   </div></a></div>
-              <div class="col-12 col-md-4"><a class="card" href="#">
+              <div class="col-12 col-md-4"><a class="card cover" href="#">
                   <div class="card-footer">
                     <h5 class="card-title">Санкт-Петербург</h5><small>Подробнее</small>
                   </div></a></div>
-              <div class="col-12 col-md-4"><a class="card" href="cruises.html">
+              <div class="col-12 col-md-4"><a class="card cover" href="cruises.html">
                   <div class="card-footer">
                     <h5 class="card-title">Морские круизы</h5><small>Подробнее</small>
                   </div></a></div>
-              <div class="col-12 col-md-4"><a class="card" href="#">
+              <div class="col-12 col-md-4"><a class="card cover" href="#">
                   <div class="card-footer">
                     <h5 class="card-title">Термальные ист. Бейго</h5><small>Подробнее</small>
                   </div></a></div>
-              <div class="col-12 col-md-4"><a class="card" href="#">
+              <div class="col-12 col-md-4"><a class="card cover" href="#">
                   <div class="card-footer">
                     <h5 class="card-title">Бейдайхэ 2018</h5><small>Подробнее</small>
                   </div></a></div>
-              <div class="col-12 col-md-4"><a class="card" href="#">
+              <div class="col-12 col-md-4"><a class="card cover" href="#">
                   <div class="card-footer">
                     <h5 class="card-title">Туры по России</h5><small>Подробнее</small>
                   </div></a></div>
@@ -133,7 +135,266 @@
         </div>
       </div>
     </section>
+    <section id="news">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>Новости дня</h2>
+            <div class="placeholder-block">Виджет "Твиттер"
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="subscribe">
+      <div class="container">
+        <div class="row">
+          <div class="col flex-grow-0 d-none d-lg-flex"><img src="assets/img/whatsapp.png" alt="img"></div>
+          <div class="col">
+            <h3>Подпишитесь на рассылку</h3>
+            <p>Чтобы первым узнавать горящие предложения от нашей компании</p>
+            <form class="form-inline flex-nowrap">
+              <input class="form-control d-none d-md-inline-block flex-fill" id="subscriberName" type="text" placeholder="Введите ваше имя">
+              <input class="form-control flex-fill" id="subscriberPhone" type="text" placeholder="Введите ваш телефон">
+              <button class="btn flex-md-fill text-center" type="submit"><span class="d-none d-md-inline">Подписаться</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="position-relative" id="cruises"><img src="assets/img/cruises/gallery/01.jpg">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-11 col-md-6 col-lg-5 col-xl-4">
+            <h2>Круизы в&nbsp;любую точку мира</h2>
+            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="btn rarr" href="cruises.html">Смотреть все круизы</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="media">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="wrapper">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="media-block audios">
+                      <h2>Подкасты</h2>
+                      <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="audio-cover"><img src="assets/img/audio/01.jpg"/></div>
+                          <div class="summary">
+                            <div class="artist">Дмитрий Перелётов</div>
+                            <div class="title">Летаем далеко</div>
+                            <div class="audio-timeline">
+                              <div class="progress">
+                                <div class="progress-bar w-25" role="progressbar"></div>
+                              </div>
+                              <div class="current-pos">14:31</div>
+                              <div class="duration">34:05</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="audio-cover"><img src="assets/img/audio/02.jpg"/></div>
+                          <div class="summary">
+                            <div class="artist">Подводный странник</div>
+                            <div class="title">Сноркелинг-рай на Бали</div>
+                            <div class="audio-timeline">
+                              <div class="progress">
+                                <div class="progress-bar w-25" role="progressbar"></div>
+                              </div>
+                              <div class="current-pos">14:31</div>
+                              <div class="duration">21:38</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="audio-cover"><img src="assets/img/audio/03.jpg"/></div>
+                          <div class="summary">
+                            <div class="artist">Александр Скороход</div>
+                            <div class="title">По ту сторону океана</div>
+                            <div class="audio-timeline">
+                              <div class="progress">
+                                <div class="progress-bar w-25" role="progressbar"></div>
+                              </div>
+                              <div class="current-pos">14:31</div>
+                              <div class="duration">34:18</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="audio-cover"><img src="assets/img/audio/06.jpg"/></div>
+                          <div class="summary">
+                            <div class="artist">Костя-на-драйве</div>
+                            <div class="title">Загран-туса, или &quot;Рейд по пляжам Тайланда&quot;</div>
+                            <div class="audio-timeline">
+                              <div class="progress">
+                                <div class="progress-bar w-25" role="progressbar"></div>
+                              </div>
+                              <div class="current-pos">14:31</div>
+                              <div class="duration">58:04</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="media-block-footer"><a class="rarr" href="audio.html">Все подкасты</a></div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media-block videos">
+                      <h2>Видео</h2>
+                      <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="card cover" data-toggle="modal" data-target="#ytplayer" data-ytvid="2-KVPLwRkCA">
+                        <div class="thumb-wrapper">
+                          <div class="trimmer"><img src="http://i3.ytimg.com/vi/2-KVPLwRkCA/hqdefault.jpg"/></div>
+                        </div>
+                        <div class="card-img-overlay">
+                          <div class="card-footer">
+                            <h5 class="card-title">Мальдивы. Лучший в Мире Отдых. Рай на Земле</h5>
+                          </div>
+                        </div></a><a class="card cover" data-toggle="modal" data-target="#ytplayer" data-ytvid="4STCHNvB_QI">
+                        <div class="thumb-wrapper">
+                          <div class="trimmer"><img src="http://i3.ytimg.com/vi/4STCHNvB_QI/hqdefault.jpg"/></div>
+                        </div>
+                        <div class="card-img-overlay">
+                          <div class="card-footer">
+                            <h5 class="card-title">Бухта Ха Лонг. Вьетнам</h5>
+                          </div>
+                        </div></a>
+                      <div class="media-block-footer"><a class="rarr" href="video.html">Все видео</a></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="articles">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>Статьи</h2>
+            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-article">
+              <div class="thumb-wrapper">
+                <div class="trimmer"><img class="card-img-top" src="assets/img/article/thumbs/01.jpg" alt="Лиссабон"/></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Лиссабон</h5>
+                <p class="card-text">Лиссабон — самая западная столица Европы. Европейский континент обрывается на мысе Рока недалеко от города, а далее за ним простирается лишь бескрайний Атлантический океан.
+                </p><a class="rarr" href="article.html">Подробнее</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card card-article">
+              <div class="thumb-wrapper">
+                <div class="trimmer"><img class="card-img-top" src="assets/img/article/thumbs/02.jpg" alt="Париж"/></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Париж</h5>
+                <p class="card-text">Париж — город, о котором мечтают. Количество всемирно известных достопримечательностей здесь просто зашкаливает: Эйфелева башня, Нотр-Дам-де-Пари, Лувр, Мулен Руж, Монмартр...
+                </p><a class="rarr" href="article.html">Подробнее</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 d-none d-lg-block">
+            <div class="card card-article">
+              <div class="thumb-wrapper">
+                <div class="trimmer"><img class="card-img-top" src="assets/img/article/thumbs/03.jpg" alt="Мадрид"/></div>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Мадрид</h5>
+                <p class="card-text">Столица Испании по праву считается одним из красивейших городов мира. Здесь приятно гулять по извилистым улицам, рассматривая храмы разных эпох, здания в стиле барокко и образцы архитектуры ар-нуво.
+                </p><a class="rarr" href="article.html">Подробнее</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-dark" id="paymentMethods">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>Способы оплаты туров</h2>
+            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="bg-dark" id="instagram">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>Инстаграм</h2>
+            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <!--include ../templates/includes/footer.pug-->
+    <footer>
+      <div class="container">
+        <section id="footerLinks">
+          <div class="row">
+            <div class="col order-0">
+              <h5>Куда поехать</h5>
+              <nav><a href="#">Бейдайхэ</a><a href="#">Бэйго</a><a href="#">Вьетнам</a><a href="#">Индия</a><a href="#">Германия</a><a href="#">Испания</a><a href="#">Австрия</a><a href="#">Маврикийы</a></nav>
+            </div>
+            <div class="col links-visas order-7 order-md-3">
+              <h5>Визы</h5>
+              <nav><a href="#">Австралия</a><a href="#">Австрия</a><a href="#">Германия</a><a href="#">Греция</a><a href="#">Испания</a><a href="#">Италия</a><a href="#">Китай</a><a href="#">Финляндия</a><a href="#">Чехия</a><a href="#">Япония</a><a href="#">Франция</a><a href="#">Сингапур</a><a href="#">США</a><a href="#">Болгария</a></nav>
+            </div>
+            <div class="col order-4">
+              <h5>Оплата туров</h5>
+              <nav><a href="#">Онлайн оплата картой</a><a href="#">Онлайн оплата картой</a><a href="#">Рассрочка от ОТП Банк</a><a href="#">Рассрочка от Почта Банк</a><a href="#">Рассрочка от Home Credit</a><a href="#">Способы оплаты</a></nav>
+            </div>
+            <div class="col order-5">
+              <h5>Сервисы</h5>
+              <nav><a href="#">Авиабилеты</a><a href="#">Отели</a><a href="#">Аренда автомобилей</a><a href="#">Апартаменты</a></nav>
+            </div>
+            <div class="col order-6">
+              <h5>Ещё</h5>
+              <nav><a href="#">Расписание поездов Китая</a><a href="#">Полезные советы</a><a href="#">Запрет на выезд</a><a href="#">Дневник туриста</a><a href="#">Будь в тренде</a><a href="#">Вопрос/ответ</a><a href="#">Контакты</a><a href="#">Попутчики</a><a href="#">База отелей</a><a href="#">Голосования</a><a href="#">Фотоконкурсы</a></nav>
+            </div>
+            <div class="col insurance order-1 order-lg-7">
+              <h5>Страхование</h5>
+              <nav><a href="#">О страховании ВСК</a><a href="#">Расcчитать стоимость	</a></nav>
+            </div>
+          </div>
+        </section>
+        <section id="footerBottom">
+          <div class="row">
+            <div class="col">
+              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство КОМПАС&raquo;</div>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-end flex-column flex-md-row" id="exchangeRates">
+                <div class="date">27.10.18</div>
+                <div class="usd">USD<span class="arrow increase">65.80</span></div>
+                <div class="eur">EUR<span class="arrow decrease">75.08</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
     <!-- Optional JavaScript-->
     <!-- jQuery first, then Popper.js, then Bootstrap JS-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -162,6 +423,16 @@
               </div>
               <button class="btn w-100" type="submit">Отправить</button>
             </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="ytplayer" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="trimmer">
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
       </div>
