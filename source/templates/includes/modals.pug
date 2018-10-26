@@ -19,3 +19,11 @@
 						label.custom-control-label(for='agreedToProcessPersonalData')
 							| Я даю согласие на обработку моих персональных данных
 					button.btn.w-100(type='submit') Отправить
+
+#ytplayer.modal(tabindex='-1' role='dialog')
+	.modal-dialog(role='document')
+		.modal-content
+			button.modal-close(type='button' data-dismiss='modal' aria-label='Закрыть')
+				span.modal-close-icon
+			.trimmer
+				iframe(allow="autoplay; encrypted-media" allowfullscreen)

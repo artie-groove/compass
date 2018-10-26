@@ -1,6 +1,8 @@
 // Custom variables
-$theme-color-primary: #FF8E02
+$theme-color-primary: #FF8E02 // orange
+$theme-color-secondary: #014A7C // blue
 $postheader-block-overlap-y: 180px
+$btn-hover-bg-color: darken($theme-color-primary, 5%)
 
 // Your variable overrides
 //$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
@@ -33,6 +35,7 @@ $custom-control-indicator-size: 1.85rem
 $custom-checkbox-indicator-border-radius: 3px
 $input-btn-padding-y: 1.8rem
 $input-btn-padding-x: $input-padding-x
+
 
 // $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
 // $custom-select-indicator-color: #fff
@@ -98,9 +101,28 @@ body
 	height: 13.5px
 	background-repeat: no-repeat
 
+.rarr
+	position: relative
+	padding-right: 60px
+	&::after
+		+rarr-image-params
+		display: block
+		position: absolute
+		padding-right: 30px
+		top: 50%
+		right: 0
+		transform: translateY(-40%)
+		background-position: 0 50%
+
+.bg-dark
+	background-color: #2C2043 !important
+	color: #fff
+		
+
 @function close-image($color)
 	$base64: "%3Csvg%20width%3D%2229%22%20height%3D%2229%22%20viewBox%3D%220%200%2029%2029%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.06043%201.62563C1.64622%201.03985%202.59597%201.03985%203.18175%201.62563L26.5163%2024.9602C27.1021%2025.5459%2027.1021%2026.4957%2026.5163%2027.0815C25.9305%2027.6673%2024.9807%2027.6673%2024.395%2027.0815L1.06043%203.74695C0.474647%203.16117%200.474647%202.21142%201.06043%201.62563Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M1.76769%2027.0815C1.18191%2026.4957%201.18191%2025.5459%201.76769%2024.9602L25.1022%201.62563C25.688%201.03984%2026.6377%201.03984%2027.2235%201.62563C27.8093%202.21142%2027.8093%203.16116%2027.2235%203.74695L3.88901%2027.0815C3.30323%2027.6673%202.35348%2027.6673%201.76769%2027.0815Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E%0A"
 	@return svg-image($base64, $color)
+
 
 .nav-link:hover
 	cursor: pointer
@@ -202,6 +224,9 @@ body
 			background-color: $theme-color-primary
 		&.request
 			background-color: $theme-color-primary
+			&:hover
+				transition: background-color 0.15s ease-in-out
+				background-color: $btn-hover-bg-color
 			+media-breakpoint-up(lg)
 				&::after
 					+rarr-image-params
@@ -329,9 +354,9 @@ button[type='submit']
 	font-size: 15px
 	text-align: left
 	position: relative
-	margin-top: 25px
 	&:hover
 		cursor: pointer
+		background-color: $btn-hover-bg-color
 	&::after
 		+rarr-image-params
 		background-image: rarr-image(#fff)
@@ -343,7 +368,7 @@ button[type='submit']
 // Modals
 
 .modal-dialog
-	margin-top: 280px
+	margin-top: 100px
 
 .modal-title
 	text-align: center
@@ -354,8 +379,6 @@ button[type='submit']
 		display: block
 		font-size: 14px
 		margin-top: 15px
-
-
 
 .modal-close
 	position: absolute
@@ -374,11 +397,31 @@ button[type='submit']
 		height: 29px
 		width: 29px
 
+#ytplayer
+	.modal-dialog
+		max-width: 1200px
+		width: 85%
+	.modal-content
+		border: 0
+	iframe
+		display: block
+		position: absolute
+		top: 0
+		width: 100%
+		height: 100%
+		border: 0
+
 
 #request
 	.modal-dialog
 		max-width: 600px
+	button[type='submit']
+		margin-top: 25px
 
+
+// General layout styles
+section
+	padding: 30px 0
 
 // Typography
 h1
@@ -403,19 +446,245 @@ h1
 
 h2
 	font-size: 28px
-	margin-bottom: 25px
+	margin-bottom: 15px
 	font-weight: 700
 	+media-breakpoint-only(md)
 		font-size: 32px
 	+media-breakpoint-up(lg)
 		font-size: 36px
 
+h3
+	font-size: 15px
+	font-weight: 700
+	+media-breakpoint-only(md)
+		font-size: 16px
+	+media-breakpoint-up(lg)
+		font-size: 18px
 
 
+// utilities
+.trimmer
+	position: relative
+	padding-top: 9 / 16 * 100%
+	overflow: hidden
+	img
+		position: absolute
+		width: 100%
+		height: auto
+		top: 50%
+		transform: translateY(-50%)
+
+=thumb-wrapper($thumb-height)
+	width: $thumb-height * 16 / 9
+
+
+
+// cards
+.cover
+	height: 225px
+	margin-bottom: 30px
+	background-color: unset
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	background-size: cover
+	border: none
+	color: #fff
+	justify-content: flex-end
+	border-radius: 10px
+	.card-title
+		font-size: 15px
+		font-weight: 700
+		+media-breakpoint-only(md)
+			font-size: 16px
+		+media-breakpoint-up(lg)
+			font-size: 18px
+	.card-footer
+		border-top: none
+		background-color: unset
+	small
+		color: $theme-color-primary
+		font-size: 14px
+		font-weight: 500
+		&::after
+			+rarr-image-params
+			background-image: rarr-image($theme-color-primary)
+			position: absolute
+			right: 30px
+			margin-top: 3px
+	&:hover
+		text-decoration: none
+		cursor: pointer
+		color: #fff
+		filter: brightness(110%)
+		transition: filter .25s ease
+
+
+
+.videos
+	$icon-size: 60px
+	$gutter: 10px
+	$thumb-height: 235px
+	.cover
+		position: relative
+		height: $thumb-height
+		border-radius: 20px
+		overflow: hidden
+		.thumb-wrapper
+			+thumb-wrapper($thumb-height)
+			+media-breakpoint-up(xl)
+				width: 100%
+		.card-img-overlay
+			top: unset
+			padding: 20px 30px
+		.card-footer
+			padding: 0
+			height: $icon-size
+			display: flex
+			align-items: center
+		.card-title
+			position: relative
+			padding-left: $icon-size + $gutter
+			margin: 0
+			color: #fff
+			font-size: 18px
+			padding-bottom: 3px
+			&::before
+				content: ' '
+				display: block
+				border-radius: 50%
+				background-color: #fff
+				position: absolute
+				width: $icon-size
+				height: $icon-size
+				left: 0
+				top: 50%
+				transform: translateY(-50%)
+			&::after
+				content: ' '
+				display: block
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				left: $icon-size / 2 - 3px
+				border: 8px solid transparent
+				border-left: 10px solid $theme-color-primary
+
+.audios
+	.card
+		border: 0
+		border-bottom: 1px solid #F5F5F5
+	.card-body
+		display: flex
+		flex-wrap: nowrap
+		padding: 0 0 15px
+		align-items: center
+	.audio-cover
+		$size: 92px
+		width: $size
+		height: $size
+		overflow: hidden
+		border-radius: 50%
+		position: relative
+		flex-shrink: 0
+		margin-right: 22px
+		img
+			width: 100%
+		&:hover
+			cursor: pointer
+			img
+				filter: brightness(105%)
+				transition: filter .25s ease
+		&::after
+			content: ' '
+			display: block
+			position: absolute
+			border: $size / 5 solid transparent
+			border-left: $size / 4 solid #fff
+			margin-left: 12px
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%)
+		&.playing
+			&::after
+				margin-left: 0
+				border: none
+				border-left: 5px solid #fff
+				border-right: 5px solid #fff
+				height: $size / 3
+				width: $size / 5
+
+	.summary
+		width: 100%
+	.author
+		font-size: 13px
+	.title
+		font-size: 15px
+		line-height: 18px
+		font-weight: 700
+		+media-breakpoint-only(md)
+			font-size: 16px
+			line-height: 20px
+		+media-breakpoint-up(lg)
+			font-size: 18px
+			line-height: 22px
+	.audio-timeline
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		font-size: 10px
+	.progress
+		width: 100%
+		height: 1px
+		margin: 0 -10px
+		padding: 10px
+		box-sizing: content-box
+		background-clip: content-box
+		overflow: visible
+		&:hover
+			cursor: pointer
+	.progress-bar
+		background-color: $theme-color-primary
+		height: 3px
+		margin-top: -1px
+
+.card-article
+	border: 0
+	overflow: hidden
+	margin-bottom: 35px
+	border-radius: 3px
+	border-bottom: 1px solid #DEDEDE
+	.thumb-wrapper
+		+thumb-wrapper(214px)
+	.card-body
+		border: 1px solid #DEDEDE
+		border-bottom: 0
+		padding: 35px
+	.card-title
+		margin-bottom: 18px
+		font-weight: 700
+		font-size: 15px
+		+media-breakpoint-only(md)
+			font-size: 16px
+		+media-breakpoint-up(lg)
+			font-size: 18px
+	.card-text
+		font-size: 14px
+		line-height: 22px
+		+media-breakpoint-up(md)
+			font-size: 15px
+			line-height: 24px
+			height: 101px
+			overflow: hidden
+	.rarr
+		color: $theme-color-primary
+		font-size: 15px
+		display: block
+		&::after
+			background-image: rarr-image($theme-color-primary)
 
 
 // blocks
-#tourvisor
+.placeholder-block
 	border: 1px solid #999
 	margin: 50px 0
 	padding: 30px 50px
@@ -428,40 +697,8 @@ h2
 		margin-top: -$postheader-block-overlap-y
 		h2
 			color: #fff
-	.card
-		height: 225px
-		margin-bottom: 30px
-		background-color: unset
-		background-repeat: no-repeat
-		background-position: 50% 50%
-		background-size: cover
-		border: none
-		color: #fff
-		justify-content: flex-end
-		border-radius: 10px
-		.card-title
-			font-size: 15px
-			font-weight: 700
-			+media-breakpoint-only(md)
-				font-size: 16px
-			+media-breakpoint-up(lg)
-				font-size: 18px
-		.card-footer
-			border-top: none
-			background-color: unset
-		small
-			color: $theme-color-primary
-			font-size: 14px
-			font-weight: 500
-			&::after
-				+rarr-image-params
-				background-image: rarr-image($theme-color-primary)
-				position: absolute
-				right: 30px
-				margin-top: 3px
-		&:hover
-			text-decoration: none
-
+	h2
+		margin-bottom: 25px
 	.row > div
 		@for $i from 1 through 6
 			&:nth-child(#{$i})
@@ -469,7 +706,203 @@ h2
 					background-image: url("../img/tours/0#{$i}.jpg")
 
 
+#subscribe
+	background-color: $theme-color-secondary
+	color: #fff
+	p
+		font-size: 14px
+		+media-breakpoint-up(md)
+			font-size: 15px
+	img
+		align-self: center
+	form
+		background-color: #fff
+		padding: 0
+		border-radius: 5px
+		border: 1px solid #EDEDED
+		overflow: hidden
+		+media-breakpoint-down(sm)
+			border: none
+		+media-breakpoint-up(md)
+			padding: 10px 10px 10px 0
+		button
+			font-size: 16px
+			padding: 15px 20px
+			+media-breakpoint-down(sm)
+				border-radius: 0
+				align-self: stretch
+				padding: 0
+				width: 54px
+				&::after
+					float: unset
+					margin: 0 auto
+
+	input.form-control
+		border-color: transparent
+		border-radius: 0
+		padding: 15px 20px
+		height: unset
+		color: #000
+		&:first-child
+			border-right: 1px solid #E4E4E4
+		&:focus
+			box-shadow: none
+		+media-breakpoint-down(sm)
+			border: none
+
+
+#cruises
+	padding: 0
+	color: #fff
+	height: 738px
+	overflow: hidden
+	+media-breakpoint-down(sm)
+		height: 445px
+	+media-breakpoint-up(md)
+		padding-bottom: $postheader-block-overlap-y
+	img
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		+media-breakpoint-only(md)
+			transform: translate(-55%, -50%)
+			height: 145%
+		+media-breakpoint-only(lg)
+			transform: translate(-62%, -50%)
+			height: 130%
+		+media-breakpoint-up(xl)
+			top: 0
+			left: 55%
+			transform: translate(-65%, -17%)
+			height: 121%
+		+media-breakpoint-down(sm)
+			transform: translate(-55%, -42%) rotate(16deg)
+			height: 180%	
+	.btn
+		margin-top: 25px
+		border: 1px solid #FFC702
+		color: #fff
+		&::after
+			background-image: rarr-image(#FFC702)
+		&:hover
+			background-color: rgba(255, 255, 255, .2)
+
+#media
+	+media-breakpoint-up(md)
+		padding: 0
+		position: relative
+		top: -$postheader-block-overlap-y
+		margin-bottom: -$postheader-block-overlap-y
+	.wrapper
+		border-radius: 25px
+		background-color: #fff
+		box-shadow: 0 10px 10px rgba(0, 0, 0, .2)	
+		.row > div:first-child
+			+media-breakpoint-down(sm)
+				border-bottom: 1px solid #E4E4E4
+			+media-breakpoint-up(md)
+				border-right: 1px solid #E4E4E4
+	.media-block
+		padding: 55px 20px 35px
+	.media-block-footer
+		a
+			color: $theme-color-primary
+			display: block
+			font-size: 15px
+			&::after
+				background-image: rarr-image($theme-color-primary)
+	.card
+		margin: 30px 0
+	.rarr::after
+		padding-right: 0
+		margin-top: 2px
+
+
+#articles
+	margin-top: 50px
+	h2 + p
+		margin-bottom: 45px
 
 footer
-	margin: 5rem 0
+	padding-top: 45px
 	
+#footerLinks
+	h5
+		font-size: 15px
+		font-weight: bold
+		margin-bottom: 26px
+		+media-breakpoint-only(md)
+			font-size: 16px
+		+media-breakpoint-up(lg)
+			font-size: 18px
+	nav
+		a
+			font-size: 13px
+			display: block
+			margin: 0 0 8px 0
+	.col
+		+media-breakpoint-up(lg)
+			flex-basis: 15%
+			&.links-visas
+				flex-basis: 10%
+
+		+media-breakpoint-down(md)
+			min-height: unset
+			margin-bottom: 30px
+			flex-grow: 0
+		+media-breakpoint-only(md)
+			width: 26.66%
+			&.links-visas
+				width: 20%
+		+media-breakpoint-down(sm)
+			width: 50%
+			text-align: center
+	
+	
+	.row
+		+media-breakpoint-down(md)
+			flex-direction: column
+		+media-breakpoint-only(md)
+			height: 450px
+		+media-breakpoint-down(sm)
+			height: 950px
+	
+
+
+
+#footerBottom
+	.copyright
+		font-size: 15px
+		color: #A7A7A7
+	#exchangeRates
+		font-size: 15px
+		font-weight: 700
+		div
+			margin-left: 15px
+		span
+			padding-left: 5px
+		.arrow
+			&::after
+				content: ' '
+				display: inline-block
+				background-position: 50% 50%
+				margin-left: 3px
+				background-repeat: no-repeat
+				$size: 12px
+				width: $size
+				height: $size
+
+	.date
+		color: #A7A7A7
+	.increase
+		color: #4CDF34
+		&::after
+			transform: rotate(-90deg)
+			background-image: rarr-image(#4CDF34)
+	.decrease
+		color: #FF4747
+		&::after
+			transform: rotate(90deg)
+			background-image: rarr-image(#FF4747)
+

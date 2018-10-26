@@ -1,6 +1,44 @@
 mixin tours-card(link, title)
 	.col-12.col-md-4
-		a.card(href=`${link}`)
+		a.card.cover(href=`${link}`)
 			.card-footer
 				h5.card-title #{title}
 				small Подробнее
+mixin video-card(ytvid, title)
+	a.card.cover(data-toggle='modal' data-target='#ytplayer' data-ytvid=`${ytvid}`)
+		.thumb-wrapper
+			.trimmer
+				img(src=`http://i3.ytimg.com/vi/${ytvid}/hqdefault.jpg`)
+		.card-img-overlay
+			.card-footer
+				h5.card-title #{title}
+
+mixin audio-card(aid, artist, title, duration)
+	.card
+		.card-body
+			.audio-cover
+				img(src=`assets/img/audio/${aid}.jpg`)
+			.summary
+				.artist #{artist}
+				.title #{title}
+				.audio-timeline
+					.progress
+						.progress-bar.w-25(role='progressbar')
+					.current-pos 14:31
+					.duration #{duration}
+
+mixin article-card(imgid, title)
+	.card.card-article
+		.thumb-wrapper
+			.trimmer
+				img.card-img-top(src=`assets/img/article/thumbs/${imgid}.jpg` alt=`${title}`)
+		.card-body
+			h5.card-title #{title}
+			p.card-text
+				block
+			a.rarr(href='article.html') Подробнее
+
+
+mixin placeholder-block
+	.placeholder-block
+		block

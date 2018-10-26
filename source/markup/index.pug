@@ -103,7 +103,8 @@ block header
 					h1 Поиск путешествия
 						small Выберите город вылета и страну
 					#tourvisor
-						| Виджет "Турвизор"
+						+placeholder-block
+							| Виджет "Турвизор"
 	section#tours
 		.container
 			.row
@@ -116,15 +117,186 @@ block header
 						+tours-card('#', 'Термальные ист. Бейго')
 						+tours-card('#', 'Бейдайхэ 2018')
 						+tours-card('#', 'Туры по России')
-						
-										
+
+	section#news
+		.container
+			.row
+				.col-12
+					h2 Новости дня
+					+placeholder-block
+						| Виджет "Твиттер"
+
+	section#subscribe
+		.container
+			.row
+				.col.flex-grow-0.d-none.d-lg-flex
+					img(src='assets/img/whatsapp.png' alt='img')
+				.col
+					h3 Подпишитесь на рассылку
+					p Чтобы первым узнавать горящие предложения от нашей компании
+					form.form-inline.flex-nowrap
+						input#subscriberName.form-control.d-none.d-md-inline-block.flex-fill(type='text' placeholder='Введите ваше имя')
+						input#subscriberPhone.form-control.flex-fill(type='text' placeholder='Введите ваш телефон')
+						button.btn.flex-md-fill.text-center(type='submit')
+							span.d-none.d-md-inline Подписаться
+	section#cruises.position-relative
+		img(src='assets/img/cruises/gallery/01.jpg')
+		.container.h-100
+			.row.h-100.align-items-center
+				.col-11.col-md-6.col-lg-5.col-xl-4
+					h2 Круизы в&nbsp;любую точку мира
+					p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+					a.btn.rarr(href='cruises.html') Смотреть все круизы
+	section#media
+		.container
+			.row
+				.col-12
+					.wrapper
+						.container-fluid
+							.row
+								.col-md-6
+									.media-block.audios
+										h2 Подкасты
+										p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+										+audio-card('01', 'Дмитрий Перелётов', 'Летаем далеко', '34:05')
+										+audio-card('02', 'Подводный странник', 'Сноркелинг-рай на Бали', '21:38')
+										+audio-card('03', 'Александр Скороход', 'По ту сторону океана', '34:18')
+										+audio-card('06', 'Костя-на-драйве', 'Загран-туса, или "Рейд по пляжам Тайланда"', '58:04')
+										.media-block-footer
+											a.rarr(href='audio.html') Все подкасты
+								.col-md-6
+									.media-block.videos
+										h2 Видео
+										p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+										+video-card('2-KVPLwRkCA', 'Мальдивы. Лучший в Мире Отдых. Рай на Земле')
+										+video-card('4STCHNvB_QI', 'Бухта Ха Лонг. Вьетнам')
+										.media-block-footer
+											a.rarr(href='video.html') Все видео
+
+	section#articles
+		.container
+			.row
+				.col-12
+					h2 Статьи
+					p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+			.row
+				.col-md-6.col-lg-4
+					+article-card('01', 'Лиссабон')
+						| Лиссабон — самая западная столица Европы. Европейский континент обрывается на мысе Рока недалеко от города, а далее за ним простирается лишь бескрайний Атлантический океан.
+				.col-md-6.col-lg-4
+					+article-card('02', 'Париж')
+						| Париж — город, о котором мечтают. Количество всемирно известных достопримечательностей здесь просто зашкаливает: Эйфелева башня, Нотр-Дам-де-Пари, Лувр, Мулен Руж, Монмартр...
+				.col-lg-4.d-none.d-lg-block
+					+article-card('03', 'Мадрид')
+						| Столица Испании по праву считается одним из красивейших городов мира. Здесь приятно гулять по извилистым улицам, рассматривая храмы разных эпох, здания в стиле барокко и образцы архитектуры ар-нуво.
+
+	section#paymentMethods.bg-dark
+		.container
+			.row
+				.col-12
+					h2 Способы оплаты туров
+					p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+
+	section#instagram.bg-dark
+		.container
+			.row
+				.col-12
+					h2 Инстаграм
+					p Придумать описание для этого блока, чтобы лучше раскрыть его суть
 
 block content
 	
 
 
+
+
 block footer
 	//include ../templates/includes/footer.pug
+	footer
+		.container
+			section#footerLinks
+				.row
+					.col.order-0
+						h5 Куда поехать
+						nav
+							a(href='#') Бейдайхэ
+							a(href='#') Бэйго
+							a(href='#') Вьетнам
+							a(href='#') Индия
+							a(href='#') Германия
+							a(href='#') Испания
+							a(href='#') Австрия
+							a(href='#') Маврикийы
+					.col.links-visas.order-7.order-md-3
+						h5 Визы
+						nav
+							a(href='#') Австралия
+							a(href='#') Австрия
+							a(href='#') Германия
+							a(href='#') Греция
+							a(href='#') Испания
+							a(href='#') Италия
+							a(href='#') Китай
+							a(href='#') Финляндия
+							a(href='#') Чехия
+							a(href='#') Япония
+							a(href='#') Франция
+							a(href='#') Сингапур
+							a(href='#') США
+							a(href='#') Болгария
+					.col.order-4
+						h5 Оплата туров
+						nav
+							a(href='#') Онлайн оплата картой
+							a(href='#') Онлайн оплата картой
+							a(href='#') Рассрочка от ОТП Банк
+							a(href='#') Рассрочка от Почта Банк
+							a(href='#') Рассрочка от Home Credit
+							a(href='#') Способы оплаты
+					.col.order-5
+						h5 Сервисы
+						nav
+							a(href='#') Авиабилеты
+							a(href='#') Отели
+							a(href='#') Аренда автомобилей
+							a(href='#') Апартаменты
+					.col.order-6
+						h5 Ещё
+						nav
+							a(href='#') Расписание поездов Китая
+							a(href='#') Полезные советы
+							a(href='#') Запрет на выезд
+							a(href='#') Дневник туриста
+							a(href='#') Будь в тренде
+							a(href='#') Вопрос/ответ
+							a(href='#') Контакты
+							a(href='#') Попутчики
+							a(href='#') База отелей
+							a(href='#') Голосования
+							a(href='#') Фотоконкурсы
+					.col.insurance.order-1.order-lg-7
+						h5 Страхование
+						nav
+							a(href='#') О страховании ВСК
+							a(href='#') Расcчитать стоимость	
+
+			section#footerBottom
+				.row
+					.col
+						.copyright © 2018 ООО &laquo;Туристическое агентство КОМПАС&raquo;
+					.col
+						#exchangeRates.d-flex.justify-content-end.flex-column.flex-md-row
+							.date 27.10.18
+							.usd USD
+								span.arrow.increase 65.80
+							.eur EUR
+								span.arrow.decrease 75.08
+
+
+
+
+
+
 
 
 
