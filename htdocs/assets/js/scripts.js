@@ -70,4 +70,43 @@ $(document).ready( function() {
 		}
 	});
 
+	function getRibbonParams(button) {
+		let ribbon = $($(button).attr('href'));
+		let ribbonInner = ribbon.find('.ribbon-inner');
+		let offset = ribbonInner.position().left;
+		let itemsPerStep = $(button).parent().data('items-per-step') || 1;
+		let itemWidth = ribbonInner.find('.ribbon-item').outerWidth();
+		let stepWidth = itemWidth * itemsPerStep;
+		return {
+			ribbon,
+			ribbonInner,
+			offset,
+			itemWidth,
+			stepWidth 
+		}
+	}
+
+	$('.ribbon-control-next').on('click', function(e) {
+		e.preventDefault();
+		let params = getRibbonParams(this);
+		let maxOffset = params.ribbonInner.children().length * params.itemWidth - params.ribbon.width();
+		if ( params.offset + maxOffset - params.stepWidth > 0 ) {
+			params.ribbonInner.animate({ left: params.offset - params.stepWidth });
+		}
+		else {
+			params.ribbonInner.animate({ left: -maxOffset });
+		}
+	});
+
+	$('.ribbon-control-prev').on('click', function(e) {
+		e.preventDefault();
+		let params = getRibbonParams(this);
+		if ( params.offset < 0 ) {
+			let newOffset = params.offset + params.stepWidth;
+			if ( params.offset + params.stepWidth > 0 ) newOffset = 0;
+			params.ribbonInner.animate({ left: newOffset });
+		}
+	});
+
+
 });

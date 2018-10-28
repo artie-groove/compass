@@ -7,7 +7,7 @@ mixin tours-card(link, title)
 mixin video-card(ytvid, title)
 	a.card.cover(data-toggle='modal' data-target='#ytplayer' data-ytvid=`${ytvid}`)
 		.thumb-wrapper
-			.trimmer
+			.mask.mask-16-9
 				img(src=`http://i3.ytimg.com/vi/${ytvid}/hqdefault.jpg`)
 		.card-img-overlay
 			.card-footer
@@ -30,13 +30,40 @@ mixin audio-card(aid, artist, title, duration)
 mixin article-card(imgid, title)
 	.card.card-article
 		.thumb-wrapper
-			.trimmer
+			.mask.mask-16-9
 				img.card-img-top(src=`assets/img/article/thumbs/${imgid}.jpg` alt=`${title}`)
 		.card-body
 			h5.card-title #{title}
 			p.card-text
 				block
 			a.rarr(href='article.html') Подробнее
+
+mixin payment-card(title, imgid)
+	.card
+		.content
+			img(src=`assets/img/payment-methods/${imgid}.png`)
+			.card-body
+				.note В нашем офисе
+				h5.card-title #{title}
+				.card-text
+					block
+
+mixin instagram-card(imgid)
+	.instagram-card
+		.content
+			a.mask.mask-square(href='#')
+				img(src=`assets/img/instagram/${imgid}.jpg`)
+
+mixin news-card(title, date)
+	.card
+		.content
+			.card-body
+				.date #{date}
+				a.card-title(href='#') #{title}
+				.card-text
+					block
+
+
 
 
 mixin placeholder-block

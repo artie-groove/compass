@@ -52,6 +52,7 @@ $input-btn-padding-x: $input-padding-x
 html
 	font-size: 14px
 	min-height: 101%
+	overflow-x: hidden
 
 body
 	margin: 0 auto
@@ -79,27 +80,21 @@ body
 @function svg-image($base64-string, $color)
 	@return str-replace(url("data:image/svg+xml;charset=utf8,#{svg-fill($base64-string, $color)}"), "#", "%23")
 
+@function info-image($color)
+	$base64: "%3Csvg%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.86582%2015C11.7009%2015%2014.8098%2011.6421%2014.8098%207.5C14.8098%203.35786%2011.7009%200%207.86582%200C4.03078%200%200.921875%203.35786%200.921875%207.5C0.921875%2011.6421%204.03078%2015%207.86582%2015ZM7.86582%2013.6364C11.0036%2013.6364%2013.5472%2010.889%2013.5472%207.5C13.5472%204.11098%2011.0036%201.36364%207.86582%201.36364C4.72806%201.36364%202.18441%204.11098%202.18441%207.5C2.18441%2010.889%204.72806%2013.6364%207.86582%2013.6364ZM7.07673%207.3303C7.07673%206.85919%207.4309%206.47727%207.86582%206.47727C8.30162%206.47727%208.6549%206.85745%208.6549%207.3303V10.7379C8.6549%2011.209%208.30073%2011.5909%207.86582%2011.5909C7.43002%2011.5909%207.07673%2011.2107%207.07673%2010.7379V7.3303ZM6.91892%204.43182C6.91892%203.86698%207.34392%203.40909%207.86582%203.40909C8.38878%203.40909%208.81272%203.86813%208.81272%204.43182C8.81272%204.99665%208.38771%205.45455%207.86582%205.45455C7.34286%205.45455%206.91892%204.99551%206.91892%204.43182Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E%0A"
+	@return svg-image($base64, $color)
+
 @function caret-image($color)
 	$base64: "%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E"
 	@return svg-image($base64, $color)
 
-=caret-image-params
-	content: ' '
-	display: inline-block
-	margin-left: 6px
-	width: 6px
-	height: 8px
-	background-repeat: no-repeat
+
 
 @function rarr-image($color)
 	$base64: "%3Csvg%20width%3D%2213%22%20height%3D%2214%22%20viewBox%3D%220%200%2013%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0%205.79541H11.0048V7.70459H0V5.79541Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M6.01874%2012.15L11.577%205.4L12.6887%206.75L7.13039%2013.5L6.01874%2012.15Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M11.577%208.1L6.01874%201.35L7.13039%200L12.6887%206.75L11.577%208.1Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E"
 	@return svg-image($base64, $color)
 
-=rarr-image-params
-	content: ' '
-	width: 12.69px
-	height: 13.5px
-	background-repeat: no-repeat
+@import '../templates/includes/sass/_mixins'
 
 .rarr
 	position: relative
@@ -461,21 +456,38 @@ h3
 	+media-breakpoint-up(lg)
 		font-size: 18px
 
+ul
+	padding-left: 15px
 
 // utilities
-.trimmer
+
+@function aspect-padding($width, $height)
+	@return $height / $width * 100% 
+
+.mask
+	display: block
 	position: relative
-	padding-top: 9 / 16 * 100%
 	overflow: hidden
+	// aspect ratio is set via padding-top attribute in the extention classes
 	img
 		position: absolute
 		width: 100%
 		height: auto
 		top: 50%
-		transform: translateY(-50%)
+		left: 50%
+		transform: translate(-50%, -50%)
+.mask-16-9
+	padding-top: aspect-padding(16, 9)
+.mask-square
+	padding-top: aspect-padding(1, 1)
+	img
+		width: auto
+		height: 100%
+
 
 =thumb-wrapper($thumb-height)
 	width: $thumb-height * 16 / 9
+
 
 
 
@@ -706,6 +718,37 @@ h3
 					background-image: url("../img/tours/0#{$i}.jpg")
 
 
+#news
+	h2
+		margin-bottom: 0
+	.ribbon-controls
+		background-color: $theme-color-secondary
+	.card
+		+aspect-ratio(320, 172)
+		width: 277px
+		margin-right: 10px
+		color: #000
+		+media-breakpoint-up(md)
+			width: 320px
+
+	.card-body
+		padding: 15px 20px
+		+media-breakpoint-up(md)
+			padding: 30px 50px
+	.date
+		color: #B1B1B1
+		font-size: 12px
+		margin-bottom: 4px
+	.card-title
+		display: block
+		color: #000
+		font-size: 16px
+		font-weight: 700
+		margin-bottom: 4px
+	.card-text
+		font-size: 14px
+
+
 #subscribe
 	background-color: $theme-color-secondary
 	color: #fff
@@ -823,6 +866,143 @@ h3
 	margin-top: 50px
 	h2 + p
 		margin-bottom: 45px
+
+
+.ribbon-controls
+	display: flex
+	border: 1px solid #E2E2E2
+	border-radius: 4px
+	margin-left: 20px
+	> a
+		display: inline-block
+		background-image: caret-image(#fff)
+		background-repeat: no-repeat
+		background-position: 50% 50%
+		=define-size($size)
+			width: $size
+			height: $size
+			background-size: $size / 5
+		+define-size(70px)
+		&:hover
+			background-color: rgba(255, 255, 255, .1)
+		+media-breakpoint-down(sm)
+			+define-size(40px)
+	.ribbon-control-prev
+		transform: rotate(90deg)
+		border-top: 1px solid #E2E2E2
+	.ribbon-control-next
+		transform: rotate(-90deg)
+
+.ribbon
+	margin: 30px 0
+	+media-breakpoint-up(md)
+		margin: 50px 0
+	.ribbon-inner
+		overflow-x: visible
+		white-space: nowrap
+		position: relative
+		left: 0
+	.ribbon-item
+		white-space: normal
+		display: inline-block
+
+#paymentMethods
+	padding-top: 30px
+	+media-breakpoint-up(md)
+		padding-top: 50px
+	.ribbon-controls
+		+media-breakpoint-down(sm)
+			display: none
+	.ribbon-inner
+		+media-breakpoint-down(sm)
+			white-space: normal
+			.ribbon-item
+				display: block
+	.card
+		+aspect-ratio(16, 9)
+		border: none
+		border-radius: 20px
+		color: #000
+		overflow: hidden
+		white-space: normal
+		width: 100%
+		+media-breakpoint-only(md)
+			width: 512px
+		+media-breakpoint-up(lg)
+			width: 553px
+		+media-breakpoint-down(sm)
+			margin-bottom: 20px
+		+media-breakpoint-up(md)
+			margin-right: 20px
+		img
+			position: absolute
+			right: 0
+			top: 50%
+			transform: translateY(-50%)
+			max-height: 60%
+			+media-breakpoint-up(md)
+				max-height: 80%
+		.card-body
+			padding: 25px
+			width: 75%
+			+media-breakpoint-only(md)
+				width: 65%
+			+media-breakpoint-up(lg)
+				width: 75%
+				padding: 30px 50px
+		.note
+			font-size: 14px
+			+media-breakpoint-up(md)
+				font-size: 15px
+			color: $theme-color-primary
+			margin-bottom: 10px
+			position: relative
+			padding-left: 20px
+			&::before
+				content: ' '
+				display: block
+				position: absolute
+				background-image: info-image($theme-color-primary)
+				background-repeat: no-repeat
+				background-size: cover
+				height: 14px
+				width: 14px
+				left: 0
+				top: 4px
+		.card-title
+			font-weight: 700
+			font-size: 15px
+			line-height: 18px
+			+media-breakpoint-up(md)
+				font-size: 28px
+				line-height: 34px
+		.card-text
+			font-size: 14px
+			line-height: 18px
+			+media-breakpoint-up(md)
+				font-size: 15px
+				line-height: 24px
+
+
+#instagram
+	.instagram-card
+		+aspect-ratio(1, 1)
+		width: 137px
+		margin-right: 8px
+		border-radius: 10px
+		overflow: hidden
+		+media-breakpoint-only(md)
+			width: 220px
+			margin-right: 14px
+		+media-breakpoint-up(lg)
+			width: 320px
+			margin-right: 20px
+		a:hover
+			img
+				filter: brightness(105%)
+
+
+
 
 footer
 	padding-top: 45px

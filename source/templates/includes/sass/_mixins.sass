@@ -1,0 +1,28 @@
+=aspect-ratio($width, $height) 
+	position: relative;
+	&:before
+		display: block
+		content: ""
+		width: 100%
+		padding-top: ($height / $width) * 100%
+	> .content
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		overflow: hidden
+
+=caret-image-params
+	content: ' '
+	display: inline-block
+	margin-left: 6px
+	width: 6px
+	height: 8px
+	background-repeat: no-repeat
+
+=rarr-image-params
+	content: ' '
+	width: 12.69px
+	height: 13.5px
+	background-repeat: no-repeat
