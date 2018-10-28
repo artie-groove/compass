@@ -139,8 +139,70 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2>Новости дня</h2>
-            <div class="placeholder-block">Виджет "Твиттер"
+            <div class="d-flex justify-content-between align-items-center flex-nowrap">
+              <h2>Новости дня</h2>
+              <div class="ribbon-controls" data-items-per-step="2"><a class="ribbon-control-prev" href="#ribbonNews" role="button" data-slide="prev">
+                  <div class="sr-only">Previous</div></a><a class="ribbon-control-next" href="#ribbonNews" role="button" data-slide="next">
+                  <div class="sr-only">Next</div></a></div>
+            </div>
+            <div class="ribbon" id="ribbonNews">
+              <div class="ribbon-inner">
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content">
+                      <div class="card-body">
+                        <div class="date">25 октября</div><a class="card-title" href="#">Каир назвали самым быстроразвивающимся городом для городских туристов</a>
+                        <div class="card-text">Каир получил первое место в рейтинге Всемирного совета по туризму и путешествиям, который оценивал темпы развития городов в сфере туризма. Согласно данным проводящих исследование, именно крупные города становятся локомотивами развития туристической отрасли, а количество посещений иностранными гостями самых известных мировых мегаполисов прев
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content">
+                      <div class="card-body">
+                        <div class="date">14 сентября</div><a class="card-title" href="#">Ныряй в море!</a>
+                        <div class="card-text">Разбегаешься, отталкиваешься, прыжок, группировка - плюх в воду! Да, это то, ради чего мы ходим в отпуск.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content">
+                      <div class="card-body">
+                        <div class="date">20 августа</div><a class="card-title" href="#">Рыба умеет плавать!</a>
+                        <div class="card-text">До недавнего времени оставалось загадкой, но уже сейчас британские учёные пришли к выводу: да, действительно, рыба плавает. Каким образом, ещё предстоить выяснить, ну а пока не упустите шанс посетить дельфинарий на Пхукете!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content">
+                      <div class="card-body">
+                        <div class="date">18 июля</div><a class="card-title" href="#">Улетел на Яву без денег</a>
+                        <div class="card-text">&mdash; Деньги были только на билеты, говорит Руслан. Когда приземлился, осознал, что нужно будет оплатить проживание, локальные поездки и еду. Выжить удалось только благодаря русской смекалке.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content">
+                      <div class="card-body">
+                        <div class="date">31 мая</div><a class="card-title" href="#">Шлёпком в бок, два-три - хлопок!</a>
+                        <div class="card-text">Учиться танцевать сальсу лучше, конечно же, у кубинских мастеров. И эффективнее делать это на Кубе. Лететь далеко, но поездка себя оправдывает. Именно так и поступил молодой кассир Макдональда Евгений.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -255,7 +317,7 @@
                       <h2>Видео</h2>
                       <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="card cover" data-toggle="modal" data-target="#ytplayer" data-ytvid="2-KVPLwRkCA">
                         <div class="thumb-wrapper">
-                          <div class="trimmer"><img src="http://i3.ytimg.com/vi/2-KVPLwRkCA/hqdefault.jpg"/></div>
+                          <div class="mask mask-16-9"><img src="http://i3.ytimg.com/vi/2-KVPLwRkCA/hqdefault.jpg"/></div>
                         </div>
                         <div class="card-img-overlay">
                           <div class="card-footer">
@@ -263,7 +325,7 @@
                           </div>
                         </div></a><a class="card cover" data-toggle="modal" data-target="#ytplayer" data-ytvid="4STCHNvB_QI">
                         <div class="thumb-wrapper">
-                          <div class="trimmer"><img src="http://i3.ytimg.com/vi/4STCHNvB_QI/hqdefault.jpg"/></div>
+                          <div class="mask mask-16-9"><img src="http://i3.ytimg.com/vi/4STCHNvB_QI/hqdefault.jpg"/></div>
                         </div>
                         <div class="card-img-overlay">
                           <div class="card-footer">
@@ -292,7 +354,7 @@
           <div class="col-md-6 col-lg-4">
             <div class="card card-article">
               <div class="thumb-wrapper">
-                <div class="trimmer"><img class="card-img-top" src="assets/img/article/thumbs/01.jpg" alt="Лиссабон"/></div>
+                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/article/thumbs/01.jpg" alt="Лиссабон"/></div>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Лиссабон</h5>
@@ -304,7 +366,7 @@
           <div class="col-md-6 col-lg-4">
             <div class="card card-article">
               <div class="thumb-wrapper">
-                <div class="trimmer"><img class="card-img-top" src="assets/img/article/thumbs/02.jpg" alt="Париж"/></div>
+                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/article/thumbs/02.jpg" alt="Париж"/></div>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Париж</h5>
@@ -316,7 +378,7 @@
           <div class="col-lg-4 d-none d-lg-block">
             <div class="card card-article">
               <div class="thumb-wrapper">
-                <div class="trimmer"><img class="card-img-top" src="assets/img/article/thumbs/03.jpg" alt="Мадрид"/></div>
+                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/article/thumbs/03.jpg" alt="Мадрид"/></div>
               </div>
               <div class="card-body">
                 <h5 class="card-title">Мадрид</h5>
@@ -332,8 +394,87 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2>Способы оплаты туров</h2>
-            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+            <div class="d-flex justify-content-between align-items-center flex-nowrap">
+              <div>
+                <h2>Способы оплаты туров</h2>
+                <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+              </div>
+              <div class="ribbon-controls"><a class="ribbon-control-prev" href="#ribbonPaymentMethods" role="button" data-slide="prev">
+                  <div class="sr-only">Previous</div></a><a class="ribbon-control-next" href="#ribbonPaymentMethods" role="button" data-slide="next">
+                  <div class="sr-only">Next</div></a></div>
+            </div>
+            <div class="ribbon" id="ribbonPaymentMethods">
+              <div class="ribbon-inner">
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content"><img src="assets/img/payment-methods/cash.png"/>
+                      <div class="card-body">
+                        <div class="note">В нашем офисе</div>
+                        <h5 class="card-title">Наличными в офисе</h5>
+                        <div class="card-text">
+                          <p>Оплата принимается в рублях, можно оплатить, как полную стоимость, так и часть путевки.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content"><img src="assets/img/payment-methods/card.png"/>
+                      <div class="card-body">
+                        <div class="note">В нашем офисе</div>
+                        <h5 class="card-title">Пластиковой картой</h5>
+                        <div class="card-text">
+                          <p>Все наши офисы оборудованы терминалами для оплаты туров. Вы можете оплатить путевку с помощью банковских карт Visa, Visa Electron, MasterCard, Maestro международных платежных систем Visa International, MasterCard International.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content"><img src="assets/img/payment-methods/installments.png"/>
+                      <div class="card-body">
+                        <div class="note">В нашем офисе</div>
+                        <h5 class="card-title">Предоставление рассрочки платежа</h5>
+                        <div class="card-text">
+                          <ul>
+                            <li>Первая часть платежа в размере не менее 30% подлежит оплате в момент бронирования тура. </li>
+                            <li>Вторая часть платежа в размере 70% подлежит</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content"><img src="assets/img/payment-methods/sberbank.png"/>
+                      <div class="card-body">
+                        <div class="note">В нашем офисе</div>
+                        <h5 class="card-title">Сбербанк онлайн</h5>
+                        <div class="card-text">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="card">
+                    <div class="content"><img src="assets/img/payment-methods/credit.png"/>
+                      <div class="card-body">
+                        <div class="note">В нашем офисе</div>
+                        <h5 class="card-title">Оформление кредита</h5>
+                        <div class="card-text">
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -342,8 +483,69 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2>Инстаграм</h2>
-            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+            <div class="d-flex justify-content-between align-items-center flex-nowrap">
+              <div>
+                <h2>Инстаграм</h2>
+                <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+              </div>
+              <div class="ribbon-controls" data-items-per-step="2"><a class="ribbon-control-prev" href="#ribbonInstagram" role="button" data-slide="prev">
+                  <div class="sr-only">Previous</div></a><a class="ribbon-control-next" href="#ribbonInstagram" role="button" data-slide="next">
+                  <div class="sr-only">Next</div></a></div>
+            </div>
+            <div class="ribbon" id="ribbonInstagram">
+              <div class="ribbon-inner">
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/01.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/02.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/03.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/04.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/05.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/06.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/07.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/08.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/09.jpg"/></a></div>
+                  </div>
+                </div>
+                <div class="ribbon-item">
+                  <div class="instagram-card">
+                    <div class="content"><a class="mask mask-square" href="#"><img src="assets/img/instagram/10.jpg"/></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

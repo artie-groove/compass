@@ -6363,7 +6363,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 html {
   font-size: 14px;
-  min-height: 101%; }
+  min-height: 101%;
+  overflow-x: hidden; }
 
 body {
   margin: 0 auto; }
@@ -6760,17 +6761,30 @@ h3 {
     h3 {
       font-size: 18px; } }
 
-.trimmer {
+ul {
+  padding-left: 15px; }
+
+.mask {
+  display: block;
   position: relative;
-  padding-top: 56.25%;
   overflow: hidden; }
-  .trimmer img {
+  .mask img {
     position: absolute;
     width: 100%;
     height: auto;
     top: 50%;
-    -webkit-transform: translateY(-50%);
-            transform: translateY(-50%); }
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+
+.mask-16-9 {
+  padding-top: 56.25%; }
+
+.mask-square {
+  padding-top: 100%; }
+  .mask-square img {
+    width: auto;
+    height: 100%; }
 
 .cover {
   height: 225px;
@@ -7021,6 +7035,54 @@ h3 {
   #tours .row > div:nth-child(6) .card {
     background-image: url("../img/tours/06.jpg"); }
 
+#news h2 {
+  margin-bottom: 0; }
+
+#news .ribbon-controls {
+  background-color: #014A7C; }
+
+#news .card {
+  position: relative;
+  width: 277px;
+  margin-right: 10px;
+  color: #000; }
+  #news .card:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 53.75%; }
+  #news .card > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; }
+  @media (min-width: 768px) {
+    #news .card {
+      width: 320px; } }
+
+#news .card-body {
+  padding: 15px 20px; }
+  @media (min-width: 768px) {
+    #news .card-body {
+      padding: 30px 50px; } }
+
+#news .date {
+  color: #B1B1B1;
+  font-size: 12px;
+  margin-bottom: 4px; }
+
+#news .card-title {
+  display: block;
+  color: #000;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px; }
+
+#news .card-text {
+  font-size: 14px; }
+
 #subscribe {
   background-color: #014A7C;
   color: #fff; }
@@ -7156,6 +7218,179 @@ h3 {
   margin-top: 50px; }
   #articles h2 + p {
     margin-bottom: 45px; }
+
+.ribbon-controls {
+  display: flex;
+  border: 1px solid #E2E2E2;
+  border-radius: 4px;
+  margin-left: 20px; }
+  .ribbon-controls > a {
+    display: inline-block;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22%23fff%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22%23fff%22%2F%3E%0A%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    width: 70px;
+    height: 70px;
+    background-size: 14px; }
+    .ribbon-controls > a:hover {
+      background-color: rgba(255, 255, 255, 0.1); }
+    @media (max-width: 767.98px) {
+      .ribbon-controls > a {
+        width: 40px;
+        height: 40px;
+        background-size: 8px; } }
+  .ribbon-controls .ribbon-control-prev {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+    border-top: 1px solid #E2E2E2; }
+  .ribbon-controls .ribbon-control-next {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg); }
+
+.ribbon {
+  margin: 30px 0; }
+  @media (min-width: 768px) {
+    .ribbon {
+      margin: 50px 0; } }
+  .ribbon .ribbon-inner {
+    overflow-x: visible;
+    white-space: nowrap;
+    position: relative;
+    left: 0; }
+  .ribbon .ribbon-item {
+    white-space: normal;
+    display: inline-block; }
+
+#paymentMethods {
+  padding-top: 30px; }
+  @media (min-width: 768px) {
+    #paymentMethods {
+      padding-top: 50px; } }
+  @media (max-width: 767.98px) {
+    #paymentMethods .ribbon-controls {
+      display: none; } }
+  @media (max-width: 767.98px) {
+    #paymentMethods .ribbon-inner {
+      white-space: normal; }
+      #paymentMethods .ribbon-inner .ribbon-item {
+        display: block; } }
+  #paymentMethods .card {
+    position: relative;
+    border: none;
+    border-radius: 20px;
+    color: #000;
+    overflow: hidden;
+    white-space: normal;
+    width: 100%; }
+    #paymentMethods .card:before {
+      display: block;
+      content: "";
+      width: 100%;
+      padding-top: 56.25%; }
+    #paymentMethods .card > .content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden; }
+    @media (min-width: 768px) and (max-width: 1023.98px) {
+      #paymentMethods .card {
+        width: 512px; } }
+    @media (min-width: 1024px) {
+      #paymentMethods .card {
+        width: 553px; } }
+    @media (max-width: 767.98px) {
+      #paymentMethods .card {
+        margin-bottom: 20px; } }
+    @media (min-width: 768px) {
+      #paymentMethods .card {
+        margin-right: 20px; } }
+    #paymentMethods .card img {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+              transform: translateY(-50%);
+      max-height: 60%; }
+      @media (min-width: 768px) {
+        #paymentMethods .card img {
+          max-height: 80%; } }
+    #paymentMethods .card .card-body {
+      padding: 25px;
+      width: 75%; }
+      @media (min-width: 768px) and (max-width: 1023.98px) {
+        #paymentMethods .card .card-body {
+          width: 65%; } }
+      @media (min-width: 1024px) {
+        #paymentMethods .card .card-body {
+          width: 75%;
+          padding: 30px 50px; } }
+    #paymentMethods .card .note {
+      font-size: 14px;
+      color: #FF8E02;
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 20px; }
+      @media (min-width: 768px) {
+        #paymentMethods .card .note {
+          font-size: 15px; } }
+      #paymentMethods .card .note::before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.86582%2015C11.7009%2015%2014.8098%2011.6421%2014.8098%207.5C14.8098%203.35786%2011.7009%200%207.86582%200C4.03078%200%200.921875%203.35786%200.921875%207.5C0.921875%2011.6421%204.03078%2015%207.86582%2015ZM7.86582%2013.6364C11.0036%2013.6364%2013.5472%2010.889%2013.5472%207.5C13.5472%204.11098%2011.0036%201.36364%207.86582%201.36364C4.72806%201.36364%202.18441%204.11098%202.18441%207.5C2.18441%2010.889%204.72806%2013.6364%207.86582%2013.6364ZM7.07673%207.3303C7.07673%206.85919%207.4309%206.47727%207.86582%206.47727C8.30162%206.47727%208.6549%206.85745%208.6549%207.3303V10.7379C8.6549%2011.209%208.30073%2011.5909%207.86582%2011.5909C7.43002%2011.5909%207.07673%2011.2107%207.07673%2010.7379V7.3303ZM6.91892%204.43182C6.91892%203.86698%207.34392%203.40909%207.86582%203.40909C8.38878%203.40909%208.81272%203.86813%208.81272%204.43182C8.81272%204.99665%208.38771%205.45455%207.86582%205.45455C7.34286%205.45455%206.91892%204.99551%206.91892%204.43182Z%22%20fill%3D%22%23FF8E02%22%2F%3E%0A%3C%2Fsvg%3E%0A");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 14px;
+        width: 14px;
+        left: 0;
+        top: 4px; }
+    #paymentMethods .card .card-title {
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 18px; }
+      @media (min-width: 768px) {
+        #paymentMethods .card .card-title {
+          font-size: 28px;
+          line-height: 34px; } }
+    #paymentMethods .card .card-text {
+      font-size: 14px;
+      line-height: 18px; }
+      @media (min-width: 768px) {
+        #paymentMethods .card .card-text {
+          font-size: 15px;
+          line-height: 24px; } }
+
+#instagram .instagram-card {
+  position: relative;
+  width: 137px;
+  margin-right: 8px;
+  border-radius: 10px;
+  overflow: hidden; }
+  #instagram .instagram-card:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%; }
+  #instagram .instagram-card > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; }
+  @media (min-width: 768px) and (max-width: 1023.98px) {
+    #instagram .instagram-card {
+      width: 220px;
+      margin-right: 14px; } }
+  @media (min-width: 1024px) {
+    #instagram .instagram-card {
+      width: 320px;
+      margin-right: 20px; } }
+  #instagram .instagram-card a:hover img {
+    -webkit-filter: brightness(105%);
+            filter: brightness(105%); }
 
 footer {
   padding-top: 45px; }
