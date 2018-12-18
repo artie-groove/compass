@@ -5,17 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="assets/css/tourvisor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Компас</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
     <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Свободный","addresses":[{"address":"г. Свободный, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]}]</script>
   </head>
   <body>
     <header>
+      <div class="sidebar-social-media"><a class="vkontakte" href="#"></a><a class="facebook" href="#"></a><a class="odnoklassniki" href="#"></a><a class="google-plus" href="#"></a><a class="twitter" href="#"></a></div>
       <div class="container">
         <div class="row">
-          <div class="col flex-grow-0 order-1">
-            <div class="logo"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></div>
-          </div>
+          <div class="col flex-grow-0 order-1"><a class="logo" href="index.html"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></a></div>
           <div class="col-12 col-md order-2">
             <nav class="address-nav">
               <div class="row">
@@ -23,7 +34,7 @@
                   <div class="row">
                     <div class="col-md-5 col-lg-4 col-xl-3">
                       <div class="label">Город</div>
-                      <div class="nav city">
+                      <div class="nav city mark location-mark">
                         <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
                           <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Свободный</a>
                           </div>
@@ -55,32 +66,33 @@
             </nav>
           </div>
           <div class="col-12 order-0 order-md-3">
-            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4">
+            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4" id="mainMenu">
               <button class="navbar-toggler ml-auto" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon"></span></button>
               <div class="collapse navbar-collapse" id="menu">
                 <h6 class="d-md-none">Меню</h6>
                 <ul class="navbar-nav w-100 justify-content-between text-md-center">
-                  <li class="nav-item"><a class="nav-link" href="#">Главная</a></li>
+                  <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
                   <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Куда поехать</a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">В Италию</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">В Италию</a></li>
                       <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">В Испанию</a>
-                        <div class="dropdown-menu"><a class="dropdown-item" href="#">Мадрид</a><a class="dropdown-item" href="#">Барселона</a><a class="dropdown-item" href="#">Валенсия</a><a class="dropdown-item" href="#">Севилья</a><a class="dropdown-item" href="#">Гибралтар</a></div>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="tour-catalog.html">Мадрид</a><a class="dropdown-item" href="tour-catalog.html">Барселона</a><a class="dropdown-item" href="tour-catalog.html">Валенсия</a><a class="dropdown-item" href="tour-catalog.html">Севилья</a><a class="dropdown-item" href="tour-catalog.html">Гибралтар</a></div>
                       </li>
-                      <li><a class="dropdown-item" href="#">На Мальту</a></li>
-                      <li><a class="dropdown-item" href="#">На Мальдивы</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальту</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальдивы</a></li>
                     </ul>
                   </li>
                   <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Визы</a>
-                    <div class="dropdown-menu"><a class="dropdown-item" href="#">В Японию</a><a class="dropdown-item" href="#">В Китай</a><a class="dropdown-item" href="#">В Австралию</a><a class="dropdown-item" href="#">В США</a></div>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="visa-info-china.html">В Японию</a><a class="dropdown-item" href="visa-info-china.html">В Китай</a><a class="dropdown-item" href="visa-info-china.html">В Австралию</a><a class="dropdown-item" href="visa-info-china.html">В США</a></div>
                   </li>
-                  <li class="nav-item"><a class="nav-link" href="#">Отели</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Авиабилеты</a></li>
-                  <li class="nav-item"><a class="nav-link" href="#">Круизы</a></li>
-                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="#">Ещё</a></li>
-                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="#">Страхование</a></li>
-                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="#">О нас</a></li>
-                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="hotels.html">Отели</a></li>
+                  <li class="nav-item"><a class="nav-link" href="air-tickets.html">Авиабилеты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cruise.html">Круизы</a></li>
+                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="404.html">Ещё</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="insurance.html">Страхование</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="about.html">О нас</a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -88,17 +100,47 @@
         </div>
       </div>
       <hr class="d-block d-md-none w-100">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h1>Поиск путешествия<small>Выберите город вылета и страну</small></h1>
-            <div id="tourvisor">
-              <div class="placeholder-block">Виджет "Турвизор"
+      <section id="tourvisor">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h1 class="text-center">Поиск путешествия<small>Выберите город вылета и страну</small></h1>
+              <div class="tv-search-form">
+                <div class="TVLineForm TVTheme2">
+                  <div class="TVInterfaceWrapper">
+                    <div class="TVTopForm TVMainForm">
+                      <div class="TVMainFilter">
+                        <div class="TVMainFilterButton TVLocationButton" meta="depctrl">
+                          <div class="TVMainFilterLable"></div>
+                          <div class="TVMainFilterContent" meta="depvalue" title="Москва">Москва</div>
+                        </div>
+                        <div class="TVMainFilterButton TVCountry" meta="countryctrl">
+                          <div class="TVMainFilterLable"></div>
+                          <div class="TVMainFilterContent" meta="countryvalue">Турция</div>
+                        </div>
+                        <div class="TVMainFilterButton TVDates" meta="dtpctrl">
+                          <div class="TVMainFilterLable"></div>
+                          <div class="TVMainFilterContent" meta="dtpvalue">29 окт - 7 ноя</div>
+                        </div>
+                        <div class="TVMainFilterButton TVNights" meta="nightctrl">
+                          <div class="TVMainFilterLable"></div>
+                          <div class="TVMainFilterContent" meta="nightvalue">6 - 14</div>
+                        </div>
+                        <div class="TVMainFilterButton TVTourists" meta="touristctrl">
+                          <div class="TVMainFilterLable"></div>
+                          <div class="TVMainFilterContent" meta="touristvalue">2 Взрослых</div>
+                        </div>
+                        <div class="TVSearchButton" meta="searchbtn"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+      <div class="spacer-md-200"></div>
     </header>
     <section id="tours">
       <div class="container">
@@ -106,30 +148,78 @@
           <div class="col-12">
             <h2>Наши туры</h2>
             <div class="row">
-              <div class="col-12 col-md-4"><a class="card cover" href="#">
-                  <div class="card-footer">
-                    <h5 class="card-title">Путешествия по России</h5><small>Подробнее</small>
-                  </div></a></div>
-              <div class="col-12 col-md-4"><a class="card cover" href="#">
-                  <div class="card-footer">
-                    <h5 class="card-title">Санкт-Петербург</h5><small>Подробнее</small>
-                  </div></a></div>
-              <div class="col-12 col-md-4"><a class="card cover" href="cruises.html">
-                  <div class="card-footer">
-                    <h5 class="card-title">Морские круизы</h5><small>Подробнее</small>
-                  </div></a></div>
-              <div class="col-12 col-md-4"><a class="card cover" href="#">
-                  <div class="card-footer">
-                    <h5 class="card-title">Термальные ист. Бейго</h5><small>Подробнее</small>
-                  </div></a></div>
-              <div class="col-12 col-md-4"><a class="card cover" href="#">
-                  <div class="card-footer">
-                    <h5 class="card-title">Бейдайхэ 2018</h5><small>Подробнее</small>
-                  </div></a></div>
-              <div class="col-12 col-md-4"><a class="card cover" href="#">
-                  <div class="card-footer">
-                    <h5 class="card-title">Туры по России</h5><small>Подробнее</small>
-                  </div></a></div>
+              <div class="col-12 col-md-4"><a class="card cover-card" href="tour-excursions.html">
+                  <div class="thumb-wrapper">
+                    <div class="mask mask-16-9"><img src="assets/img/tours/01.jpg"/></div>
+                  </div>
+                  <div class="card-img-overlay">
+                    <div class="card-footer">
+                      <h5 class="card-title">Путешествия по России
+                      </h5>
+                      <div class="card-link">Подробнее</div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="col-12 col-md-4"><a class="card cover-card" href="tour-excursions.html">
+                  <div class="thumb-wrapper">
+                    <div class="mask mask-16-9"><img src="assets/img/tours/02.jpg"/></div>
+                  </div>
+                  <div class="card-img-overlay">
+                    <div class="card-footer">
+                      <h5 class="card-title">Санкт-Петербург
+                      </h5>
+                      <div class="card-link">Подробнее</div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="col-12 col-md-4"><a class="card cover-card" href="cruise.html">
+                  <div class="thumb-wrapper">
+                    <div class="mask mask-16-9"><img src="assets/img/tours/03.jpg"/></div>
+                  </div>
+                  <div class="card-img-overlay">
+                    <div class="card-footer">
+                      <h5 class="card-title">Морские круизы
+                      </h5>
+                      <div class="card-link">Подробнее</div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="col-12 col-md-4"><a class="card cover-card" href="tour-excursions.html">
+                  <div class="thumb-wrapper">
+                    <div class="mask mask-16-9"><img src="assets/img/tours/04.jpg"/></div>
+                  </div>
+                  <div class="card-img-overlay">
+                    <div class="card-footer">
+                      <h5 class="card-title">Термальные ист. Бейго
+                      </h5>
+                      <div class="card-link">Подробнее</div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="col-12 col-md-4"><a class="card cover-card" href="tour-excursions.html">
+                  <div class="thumb-wrapper">
+                    <div class="mask mask-16-9"><img src="assets/img/tours/05.jpg"/></div>
+                  </div>
+                  <div class="card-img-overlay">
+                    <div class="card-footer">
+                      <h5 class="card-title">Бейдайхэ 2018
+                      </h5>
+                      <div class="card-link">Подробнее</div>
+                    </div>
+                  </div></a>
+              </div>
+              <div class="col-12 col-md-4"><a class="card cover-card" href="tour-excursions.html">
+                  <div class="thumb-wrapper">
+                    <div class="mask mask-16-9"><img src="assets/img/tours/06.jpg"/></div>
+                  </div>
+                  <div class="card-img-overlay">
+                    <div class="card-footer">
+                      <h5 class="card-title">Туры по России
+                      </h5>
+                      <div class="card-link">Подробнее</div>
+                    </div>
+                  </div></a>
+              </div>
             </div>
           </div>
         </div>
@@ -140,7 +230,7 @@
         <div class="row">
           <div class="col-12">
             <div class="d-flex justify-content-between align-items-center flex-nowrap">
-              <h2>Новости дня</h2>
+              <h2 class="mb-3">Новости дня</h2>
               <div class="ribbon-controls" data-items-per-step="2"><a class="ribbon-control-prev" href="#ribbonNews" role="button" data-slide="prev">
                   <div class="sr-only">Previous</div></a><a class="ribbon-control-next" href="#ribbonNews" role="button" data-slide="next">
                   <div class="sr-only">Next</div></a></div>
@@ -229,7 +319,7 @@
         <div class="row h-100 align-items-center">
           <div class="col-11 col-md-6 col-lg-5 col-xl-4">
             <h2>Круизы в&nbsp;любую точку мира</h2>
-            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="btn rarr" href="cruises.html">Смотреть все круизы</a>
+            <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="btn" href="cruise.html">Смотреть все круизы</a>
           </div>
         </div>
       </div>
@@ -243,68 +333,74 @@
                 <div class="row">
                   <div class="col-md-6">
                     <div class="media-block audios">
-                      <h2>Подкасты</h2>
-                      <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="audio-cover"><img src="assets/img/audio/01.jpg"/></div>
-                          <div class="summary">
-                            <div class="artist">Дмитрий Перелётов</div>
-                            <div class="title">Летаем далеко</div>
-                            <div class="audio-timeline">
-                              <div class="progress">
-                                <div class="progress-bar w-25" role="progressbar"></div>
+                      <div class="media-block-body">
+                        <h2 class="mb-3">Подкасты</h2>
+                        <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+                        <div class="card audio-card">
+                          <div class="card-body">
+                            <audio src="assets/audios/01.mp3"></audio>
+                            <div class="audio-cover"><img src="assets/img/audio/01.jpg"/></div>
+                            <div class="summary">
+                              <div class="artist">Дмитрий Перелётов</div>
+                              <div class="title">Летаем далеко</div>
+                              <div class="audio-timeline">
+                                <div class="progress">
+                                  <div class="progress-bar" role="progressbar"></div>
+                                </div>
+                                <div class="current-pos">&nbsp;</div>
+                                <div class="duration">&nbsp;</div>
                               </div>
-                              <div class="current-pos">14:31</div>
-                              <div class="duration">34:05</div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="audio-cover"><img src="assets/img/audio/02.jpg"/></div>
-                          <div class="summary">
-                            <div class="artist">Подводный странник</div>
-                            <div class="title">Сноркелинг-рай на Бали</div>
-                            <div class="audio-timeline">
-                              <div class="progress">
-                                <div class="progress-bar w-25" role="progressbar"></div>
+                        <div class="card audio-card">
+                          <div class="card-body">
+                            <audio src="assets/audios/02.mp3"></audio>
+                            <div class="audio-cover"><img src="assets/img/audio/02.jpg"/></div>
+                            <div class="summary">
+                              <div class="artist">Подводный странник</div>
+                              <div class="title">Сноркелинг-рай на Бали</div>
+                              <div class="audio-timeline">
+                                <div class="progress">
+                                  <div class="progress-bar" role="progressbar"></div>
+                                </div>
+                                <div class="current-pos">&nbsp;</div>
+                                <div class="duration">&nbsp;</div>
                               </div>
-                              <div class="current-pos">14:31</div>
-                              <div class="duration">21:38</div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="audio-cover"><img src="assets/img/audio/03.jpg"/></div>
-                          <div class="summary">
-                            <div class="artist">Александр Скороход</div>
-                            <div class="title">По ту сторону океана</div>
-                            <div class="audio-timeline">
-                              <div class="progress">
-                                <div class="progress-bar w-25" role="progressbar"></div>
+                        <div class="card audio-card">
+                          <div class="card-body">
+                            <audio src="assets/audios/03.mp3"></audio>
+                            <div class="audio-cover"><img src="assets/img/audio/03.jpg"/></div>
+                            <div class="summary">
+                              <div class="artist">Александр Скороход</div>
+                              <div class="title">По ту сторону океана</div>
+                              <div class="audio-timeline">
+                                <div class="progress">
+                                  <div class="progress-bar" role="progressbar"></div>
+                                </div>
+                                <div class="current-pos">&nbsp;</div>
+                                <div class="duration">&nbsp;</div>
                               </div>
-                              <div class="current-pos">14:31</div>
-                              <div class="duration">34:18</div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-body">
-                          <div class="audio-cover"><img src="assets/img/audio/06.jpg"/></div>
-                          <div class="summary">
-                            <div class="artist">Костя-на-драйве</div>
-                            <div class="title">Загран-туса, или &quot;Рейд по пляжам Тайланда&quot;</div>
-                            <div class="audio-timeline">
-                              <div class="progress">
-                                <div class="progress-bar w-25" role="progressbar"></div>
+                        <div class="card audio-card">
+                          <div class="card-body">
+                            <audio src="assets/audios/06.mp3"></audio>
+                            <div class="audio-cover"><img src="assets/img/audio/06.jpg"/></div>
+                            <div class="summary">
+                              <div class="artist">Костя-на-драйве</div>
+                              <div class="title">Загран-туса, или &quot;Рейд по пляжам Тайланда&quot;</div>
+                              <div class="audio-timeline">
+                                <div class="progress">
+                                  <div class="progress-bar" role="progressbar"></div>
+                                </div>
+                                <div class="current-pos">&nbsp;</div>
+                                <div class="duration">&nbsp;</div>
                               </div>
-                              <div class="current-pos">14:31</div>
-                              <div class="duration">58:04</div>
                             </div>
                           </div>
                         </div>
@@ -314,24 +410,26 @@
                   </div>
                   <div class="col-md-6">
                     <div class="media-block videos">
-                      <h2>Видео</h2>
-                      <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="card cover" data-toggle="modal" data-target="#ytplayer" data-ytvid="2-KVPLwRkCA">
-                        <div class="thumb-wrapper">
-                          <div class="mask mask-16-9"><img src="http://i3.ytimg.com/vi/2-KVPLwRkCA/hqdefault.jpg"/></div>
-                        </div>
-                        <div class="card-img-overlay">
-                          <div class="card-footer">
-                            <h5 class="card-title">Мальдивы. Лучший в Мире Отдых. Рай на Земле</h5>
+                      <div class="meida-block-body">
+                        <h2 class="mb-3">Видео</h2>
+                        <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p><a class="card video-card" data-toggle="modal" data-target="#ytplayer" data-ytvid="2-KVPLwRkCA">
+                          <div class="thumb-wrapper">
+                            <div class="mask mask-16-9"><img src="http://i3.ytimg.com/vi/2-KVPLwRkCA/hqdefault.jpg"/></div>
                           </div>
-                        </div></a><a class="card cover" data-toggle="modal" data-target="#ytplayer" data-ytvid="4STCHNvB_QI">
-                        <div class="thumb-wrapper">
-                          <div class="mask mask-16-9"><img src="http://i3.ytimg.com/vi/4STCHNvB_QI/hqdefault.jpg"/></div>
-                        </div>
-                        <div class="card-img-overlay">
-                          <div class="card-footer">
-                            <h5 class="card-title">Бухта Ха Лонг. Вьетнам</h5>
+                          <div class="card-img-overlay">
+                            <div class="card-footer">
+                              <h5 class="card-title">Мальдивы. Лучший в Мире Отдых. Рай на Земле</h5>
+                            </div>
+                          </div></a><a class="card video-card" data-toggle="modal" data-target="#ytplayer" data-ytvid="4STCHNvB_QI">
+                          <div class="thumb-wrapper">
+                            <div class="mask mask-16-9"><img src="http://i3.ytimg.com/vi/4STCHNvB_QI/hqdefault.jpg"/></div>
                           </div>
-                        </div></a>
+                          <div class="card-img-overlay">
+                            <div class="card-footer">
+                              <h5 class="card-title">Бухта Ха Лонг. Вьетнам</h5>
+                            </div>
+                          </div></a>
+                      </div>
                       <div class="media-block-footer"><a class="rarr" href="video.html">Все видео</a></div>
                     </div>
                   </div>
@@ -346,42 +444,33 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2>Статьи</h2>
+            <h2 class="mb-3">Статьи</h2>
             <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-4">
-            <div class="card card-article">
-              <div class="thumb-wrapper">
-                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/article/thumbs/01.jpg" alt="Лиссабон"/></div>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Лиссабон</h5>
+            <div class="card card-article"><a class="thumb-wrapper" href="#">
+                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/articles/thumbs/01.jpg" alt="Лиссабон"/></div></a>
+              <div class="card-body"><a class="card-title" href="#">Лиссабон</a>
                 <p class="card-text">Лиссабон — самая западная столица Европы. Европейский континент обрывается на мысе Рока недалеко от города, а далее за ним простирается лишь бескрайний Атлантический океан.
                 </p><a class="rarr" href="article.html">Подробнее</a>
               </div>
             </div>
           </div>
           <div class="col-md-6 col-lg-4">
-            <div class="card card-article">
-              <div class="thumb-wrapper">
-                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/article/thumbs/02.jpg" alt="Париж"/></div>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Париж</h5>
+            <div class="card card-article"><a class="thumb-wrapper" href="#">
+                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/articles/thumbs/02.jpg" alt="Париж"/></div></a>
+              <div class="card-body"><a class="card-title" href="#">Париж</a>
                 <p class="card-text">Париж — город, о котором мечтают. Количество всемирно известных достопримечательностей здесь просто зашкаливает: Эйфелева башня, Нотр-Дам-де-Пари, Лувр, Мулен Руж, Монмартр...
                 </p><a class="rarr" href="article.html">Подробнее</a>
               </div>
             </div>
           </div>
           <div class="col-lg-4 d-none d-lg-block">
-            <div class="card card-article">
-              <div class="thumb-wrapper">
-                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/article/thumbs/03.jpg" alt="Мадрид"/></div>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Мадрид</h5>
+            <div class="card card-article"><a class="thumb-wrapper" href="#">
+                <div class="mask mask-16-9"><img class="card-img-top" src="assets/img/articles/thumbs/03.jpg" alt="Мадрид"/></div></a>
+              <div class="card-body"><a class="card-title" href="#">Мадрид</a>
                 <p class="card-text">Столица Испании по праву считается одним из красивейших городов мира. Здесь приятно гулять по извилистым улицам, рассматривая храмы разных эпох, здания в стиле барокко и образцы архитектуры ар-нуво.
                 </p><a class="rarr" href="article.html">Подробнее</a>
               </div>
@@ -390,7 +479,7 @@
         </div>
       </div>
     </section>
-    <section class="bg-dark" id="paymentMethods">
+    <section class="bg-dark pb-0" id="paymentMethods">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -479,13 +568,13 @@
         </div>
       </div>
     </section>
-    <section class="bg-dark" id="instagram">
+    <section class="bg-dark pt-0" id="instagram">
       <div class="container">
         <div class="row">
           <div class="col-12">
             <div class="d-flex justify-content-between align-items-center flex-nowrap">
               <div>
-                <h2>Инстаграм</h2>
+                <h2 class="mb-3">Инстаграм</h2>
                 <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
               </div>
               <div class="ribbon-controls" data-items-per-step="2"><a class="ribbon-control-prev" href="#ribbonInstagram" role="button" data-slide="prev">
@@ -550,41 +639,40 @@
         </div>
       </div>
     </section>
-    <!--include ../templates/includes/footer.pug-->
     <footer>
       <div class="container">
         <section id="footerLinks">
           <div class="row">
             <div class="col order-0">
               <h5>Куда поехать</h5>
-              <nav><a href="#">Бейдайхэ</a><a href="#">Бэйго</a><a href="#">Вьетнам</a><a href="#">Индия</a><a href="#">Германия</a><a href="#">Испания</a><a href="#">Австрия</a><a href="#">Маврикийы</a></nav>
+              <nav><a href="tour-catalog.html">Бейдайхэ</a><a href="tour-catalog.html">Бэйго</a><a href="tour-catalog.html">Вьетнам</a><a href="tour-catalog.html">Индия</a><a href="tour-catalog.html">Германия</a><a href="tour-catalog.html">Испания</a><a href="tour-catalog.html">Австрия</a><a href="tour-catalog.html">Маврикий</a></nav>
             </div>
             <div class="col links-visas order-7 order-md-3">
               <h5>Визы</h5>
-              <nav><a href="#">Австралия</a><a href="#">Австрия</a><a href="#">Германия</a><a href="#">Греция</a><a href="#">Испания</a><a href="#">Италия</a><a href="#">Китай</a><a href="#">Финляндия</a><a href="#">Чехия</a><a href="#">Япония</a><a href="#">Франция</a><a href="#">Сингапур</a><a href="#">США</a><a href="#">Болгария</a></nav>
+              <nav><a href="visa-info-china.html">Австралия</a><a href="visa-info-china.html">Австрия</a><a href="visa-info-china.html">Германия</a><a href="visa-info-china.html">Греция</a><a href="visa-info-china.html">Испания</a><a href="visa-info-china.html">Италия</a><a href="visa-info-china.html">Китай</a><a href="visa-info-china.html">Финляндия</a><a href="visa-info-china.html">Чехия</a><a href="visa-info-china.html">Япония</a><a href="visa-info-china.html">Франция</a><a href="visa-info-china.html">Сингапур</a><a href="visa-info-china.html">США</a><a href="visa-info-china.html">Болгария</a></nav>
             </div>
             <div class="col order-4">
               <h5>Оплата туров</h5>
-              <nav><a href="#">Онлайн оплата картой</a><a href="#">Онлайн оплата картой</a><a href="#">Рассрочка от ОТП Банк</a><a href="#">Рассрочка от Почта Банк</a><a href="#">Рассрочка от Home Credit</a><a href="#">Способы оплаты</a></nav>
+              <nav><a href="404.html">Онлайн оплата картой</a><a href="404.html">Онлайн оплата картой</a><a href="404.html">Рассрочка от ОТП Банк</a><a href="404.html">Рассрочка от Почта Банк</a><a href="404.html">Рассрочка от Home Credit</a><a href="404.html">Способы оплаты</a></nav>
             </div>
             <div class="col order-5">
               <h5>Сервисы</h5>
-              <nav><a href="#">Авиабилеты</a><a href="#">Отели</a><a href="#">Аренда автомобилей</a><a href="#">Апартаменты</a></nav>
+              <nav><a href="air-tickets.html">Авиабилеты</a><a href="hotels.html">Отели</a><a href="404.html">Аренда автомобилей</a><a href="404.html">Апартаменты</a></nav>
             </div>
             <div class="col order-6">
               <h5>Ещё</h5>
-              <nav><a href="#">Расписание поездов Китая</a><a href="#">Полезные советы</a><a href="#">Запрет на выезд</a><a href="#">Дневник туриста</a><a href="#">Будь в тренде</a><a href="#">Вопрос/ответ</a><a href="#">Контакты</a><a href="#">Попутчики</a><a href="#">База отелей</a><a href="#">Голосования</a><a href="#">Фотоконкурсы</a></nav>
+              <nav><a href="trains-china.html">Расписание поездов Китая</a><a href="404.html">Полезные советы</a><a href="404.html">Запрет на выезд</a><a href="404.html">Дневник туриста</a><a href="404.html">Будь в тренде</a><a href="404.html">Вопрос/ответ</a><a href="about.html">Контакты</a><a href="404.html">Попутчики</a><a href="hotels-filter.html">База отелей</a><a href="404.html">Голосования</a><a href="404.html">Фотоконкурсы</a></nav>
             </div>
             <div class="col insurance order-1 order-lg-7">
               <h5>Страхование</h5>
-              <nav><a href="#">О страховании ВСК</a><a href="#">Расcчитать стоимость	</a></nav>
+              <nav><a href="insurance.html">О страховании ВСК</a><a href="404.html">Расcчитать стоимость	</a></nav>
             </div>
           </div>
         </section>
         <section id="footerBottom">
           <div class="row">
             <div class="col">
-              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство КОМПАС&raquo;</div>
+              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство &bdquo;Компас&ldquo;&raquo;</div>
             </div>
             <div class="col">
               <div class="d-flex justify-content-end flex-column flex-md-row" id="exchangeRates">
@@ -602,6 +690,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/js/tourvisor.js"></script>
     <script src="assets/js/scripts.js"></script>
     <div class="modal" id="request" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
@@ -614,7 +703,7 @@
                 <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
               </div>
               <div class="form-group">
-                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше имя">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваш телефон">
               </div>
               <div class="form-group">
                 <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
@@ -629,14 +718,1080 @@
         </div>
       </div>
     </div>
+    <div class="modal" id="requestCruise" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md mb-4 mb-md-0">
+                    <div id="customerDate">
+                      <input class="form-control" type="text" placeholder="Выберите дату">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md">
+                    <div id="customerTime">
+                      <input class="form-control" type="text" placeholder="Выберите время">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerEmail" type="email" placeholder="Введите ваш email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataCruise" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataCruise">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestConsult" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Запись на консультацию</div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerDestination" type="text" placeholder="Город или страна, куда хотите отправиться">
+              </div>
+              <div class="form-group" id="customerDateRange">
+                <div class="date-range-wrapper">
+                  <div class="placeholder">Выберите дату</div>
+                  <div class="date-range">
+                    <div class="date">
+                      <div class="day">12</div>
+                      <div>
+                        <div class="month">Апрель</div>
+                        <div class="day-of-week">Вторник</div>
+                      </div>
+                    </div>
+                    <div class="divider">&ndash;</div>
+                    <div class="date">
+                      <div class="day">28</div>
+                      <div>
+                        <div class="month">Май</div>
+                        <div class="day-of-week">Воскресенье</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!--input#customerDateRange.form-control(type='text' placeholder='Выберите дату')-->
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerAdults" type="text" placeholder="Взрослые">
+                      <option selected>Взрослые</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerChildren" type="text" placeholder="Дети">
+                      <option selected>Дети</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataConsult" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataConsult">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="modal" id="ytplayer" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
-          <div class="trimmer">
+          <div class="mask-16-9">
             <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="modal" id="showCruiseOnMap" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d206525.2643467698!2d-5.513846406652724!3d36.021337196777296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0xd0ca3e55b7b92b5%3A0x49819bd6225c2007!2sCeuta!3m2!1d35.895039!2d-5.321664!4m5!1s0xd0c94d7a479c8f3%3A0x5dbc93317cb51823!2sAlgeciras%2C+11201%2C+C%C3%A1diz%2C+Spain!3m2!1d36.130778!2d-5.438018!5e0!3m2!1sen!2s!4v1541488272523" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="imgLightbox" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="img-wrapper"><img src=""></div>
+        </div>
+      </div>
+    </div>
+    <!-- Tourvisor location popup-->
+    <div class="tv_drop_panel TVLocationPanel TVHide">
+      <div class="tv_content">
+        <div class="TVTheme2Button">x</div>
+        <div class="TVLabel">Выберите город вылета:</div>
+        <div class="TVListBox TVSibling" style="width: 123px;">
+          <div class="TVListBoxItem TVItemSelected">
+            <div>Россия</div>
+          </div>
+          <div class="TVListBoxItem">
+            <div>Беларусь</div>
+          </div>
+          <div class="TVListBoxItem">
+            <div>Казахстан</div>
+          </div>
+          <div class="TVListBoxItem">
+            <div>Другие страны</div>
+          </div>
+        </div>
+        <div class="TVLayerSwitch">
+          <div class="TVTableListBox">
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera"> </div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Без перелета</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">А</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Абакан</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Анапа</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Архангельск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Астрахань</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Б</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Барнаул</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Белгород</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Благовещенск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Брянск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">В</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Владивосток</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Владикавказ</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Волгоград</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Воронеж</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Г</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Грозный</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Е</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Екатеринбург</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">И</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Ижевск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Иркутск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">К</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Казань</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Калининград</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Кемерово</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Краснодар</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Красноярск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">М</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Магнитогорск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Махачкала</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Мин.Воды</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Москва</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Мурманск</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Н</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Н.Новгород</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Нижневартовск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Нижнекамск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Новокузнецк</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Новосибирск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Новый Уренгой</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">О</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Омск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Оренбург</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">П</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>П.Камчатский</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Пермь</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Р</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Ростов-на-Дону</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">С</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>С.Петербург</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Самара</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Саратов</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Симферополь</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Сочи</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Ставрополь</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Сургут</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Сыктывкар</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Т</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Томск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Тюмень</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">У</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Улан-Удэ</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Ульяновск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Уфа</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Х</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Хабаровск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Ханты-Мансийск</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Ч</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Чебоксары</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Челябинск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Чита</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Ю</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Ю.Сахалинск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Я</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Якутск</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="TVTableListBox TVHide">
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Б</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Брест</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">В</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Витебск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Г</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Гомель</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Гродно</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">М</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Минск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Могилев</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="TVTableListBox TVHide">
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">А</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Актау</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Актобе</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Алматы</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Астана</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Атырау</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">К</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Караганды</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Костанай</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Кызылорда</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Т</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Тараз</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">У</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Уральск</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Усть-Каменогорск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Ш</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Шымкент</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="TVTableListBox TVHide">
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Б</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Бишкек</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">В</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Вильнюс</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Винница</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Д</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Днепропетровск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">З</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Запорожье</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">И</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Ивано-Франковск</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">К</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Киев</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Кривой Рог</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Л</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Львов</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">О</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Одесса</div>
+                  </div>
+                </div>
+              </div>
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Р</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Рига</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="TVCol">
+              <div class="TVTableBoxItem">
+                <div class="TVLitera">Х</div>
+                <div class="TVListBox">
+                  <div class="TVListBoxItem">
+                    <div>Харьков</div>
+                  </div>
+                  <div class="TVListBoxItem">
+                    <div>Херсон</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tourvisor country popup-->
+    <div class="tv_drop_panel TVTable TVCountryCombo TVHide">
+      <div class="tv_content">
+        <div class="TVChooseCountry">
+          <div class="TVPopCountries">
+            <div class="TVLabel">Популярные:</div>
+            <div class="TVListBox TVEnd" style="width: 100%; height: 280px;">
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -42px;"></div>Турция
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -14px;"></div>Таиланд
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -210px;"></div>Вьетнам
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -644px;"></div>Россия
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -56px;"></div>Тунис
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -196px;"></div>Кипр
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -112px;"></div>ОАЭ
+                </div>
+              </div>
+              <div class="TVListBoxItem">
+                <div>
+                  <div class="TVCountryFlag" style="background-position: 0px -70px;"></div>Греция
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="TVOtherCountries" style="width: 70%;">
+            <div class="TVLabel">Все страны:</div>
+            <div class="TVOptionCheckBox TVOnlyDirect" meta="domnode,checktoggle,checkvalue" title="Не показывать туры со стыковкой в Москве">Только прямые рейсы</div>
+            <div>
+              <div class="TVListBox" style="width: 33%;">
+                <div class="TVListBoxItem">
+                  <div>Абхазия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Болгария</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Венгрия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Вьетнам</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Греция</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Грузия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Доминикана</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Египет</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Израиль</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Индия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Индонезия</div>
+                </div>
+              </div>
+              <div class="TVListBox" style="width: 33%;">
+                <div class="TVListBoxItem">
+                  <div>Иордания</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Испания</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Италия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Кипр</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Китай</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Куба</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Мальдивы</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Марокко</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Мексика</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>ОАЭ</div>
+                </div>
+              </div>
+              <div class="TVListBox TVEnd" style="width: 33%;">
+                <div class="TVListBoxItem">
+                  <div>Россия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Таиланд</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Танзания</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Тунис</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Турция</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Франция</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Хорватия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Черногория</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Чехия</div>
+                </div>
+                <div class="TVListBoxItem">
+                  <div>Шри-Ланка</div>
+                </div>
+              </div>
+            </div>
+            <div class="TVClearFix"></div>
+            <div class="TVShowAllCountries"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tourvisor data picker-->
+    <div class="tv_drop_panel TVTable TVDataPicker TVHide">
+      <div class="tv_content">
+        <div class="tv_dtp_calendar" style="width: 469px;">
+          <div class="TVLabel">Выберите <b>начальную</b> дату вылета:</div>
+          <div class="tv_dtp_header">
+            <div class="TVNavButton">
+              <div class="tv_dtp_left_button"></div>
+            </div>
+            <div class="tv_dtpk_left_separator"></div>
+            <div class="tv_calendar_header" style="width: 209px;">Октябрь 2018</div>
+            <div class="tv_dtpk_left_separator"></div>
+            <div class="tv_calendar_header" style="width: 209px;">Ноябрь 2018</div>
+            <div class="tv_dtpk_right_separator"></div>
+            <div class="TVNavButton">
+              <div class="tv_dtp_right_button"></div>
+            </div>
+          </div>
+          <div style="height: 177px;">
+            <div class="tv_dtp_table">
+              <table cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <td>Пн</td>
+                    <td>Вт</td>
+                    <td>Ср</td>
+                    <td>Чт</td>
+                    <td>Пт</td>
+                    <td>Сб</td>
+                    <td>Вс</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">1</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">2</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">3</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">4</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">5</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">6</td>
+                    <td class="tv_unavailable_days tv_dtp_right_cell">7</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">8</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">9</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">10</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">11</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">12</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">13</td>
+                    <td class="tv_unavailable_days tv_dtp_right_cell">14</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">15</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">16</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">17</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">18</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">19</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">20</td>
+                    <td class="tv_unavailable_days tv_dtp_right_cell">21</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">22</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">23</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">24</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">25</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">26</td>
+                    <td class="tv_unavailable_days tv_dtp_standart_cell">27</td>
+                    <td class="tv_today tv_dtp_right_cell">28</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_available_days tv_selected_date tv_start_date tv_fly_available tv_dtp_bottom_cell">29</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_bottom_cell">30</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_bottom_cell">31</td>
+                    <td class="tv_dtp_moz_fix tv_dtp_standart_cell">32</td>
+                    <td class="tv_dtp_moz_fix tv_dtp_empty_cell">32</td>
+                    <td class="tv_dtp_moz_fix tv_dtp_empty_cell">32</td>
+                    <td class="tv_dtp_moz_fix tv_dtp_empty_cell">32</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="tv_dtp_table tv_dtp_margin_left">
+              <table cellpadding="0" cellspacing="0">
+                <thead>
+                  <tr>
+                    <td>Пн</td>
+                    <td>Вт</td>
+                    <td>Ср</td>
+                    <td>Чт</td>
+                    <td>Пт</td>
+                    <td>Сб</td>
+                    <td>Вс</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tv_dtp_moz_fix">32</td>
+                    <td class="tv_dtp_moz_fix">32</td>
+                    <td class="tv_dtp_moz_fix">32</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_standart_cell">1</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_standart_cell">2</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_standart_cell">3</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_right_cell">4</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_standart_cell">5</td>
+                    <td class="tv_available_days tv_selected_date tv_fly_available tv_dtp_standart_cell">6</td>
+                    <td class="tv_available_days tv_selected_date tv_last_date tv_fly_available tv_dtp_standart_cell">7</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">8</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">9</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">10</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_right_cell">11</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">12</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">13</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">14</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">15</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">16</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">17</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_right_cell">18</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">19</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">20</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">21</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">22</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">23</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_standart_cell">24</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_right_cell">25</td>
+                  </tr>
+                  <tr>
+                    <td class="tv_available_days tv_fly_available tv_dtp_bottom_cell">26</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_bottom_cell">27</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_bottom_cell">28</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_bottom_cell">29</td>
+                    <td class="tv_available_days tv_fly_available tv_dtp_bottom_cell">30</td>
+                    <td class="tv_dtp_moz_fix tv_dtp_standart_cell">32</td>
+                    <td class="tv_dtp_moz_fix tv_dtp_empty_cell">32</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="TVClearFix"></div>
+          </div>
+          <div class="tv_dtp_footer">
+            <div class="tv_hint tv_fly_available"></div>- Серым цветом отмечены вылеты из выбранного Вами города
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Tourvisor length of stay popup-->
+    <div class="tv_drop_panel TVTable TVChooseDrop TVHide">
+      <div class="tv_content">
+        <div class="TVLabel TVNightLabel">Ночей <b>от</b>:</div>
+        <div class="tv_dtp_calendar">
+          <table cellpadding="0" cellspacing="0">
+            <tbody>
+              <tr>
+                <td class="tv_available_days tv_dtp_standart_cell">1</td>
+                <td class="tv_available_days tv_dtp_standart_cell">2</td>
+                <td class="tv_available_days tv_dtp_standart_cell">3</td>
+                <td class="tv_available_days tv_dtp_standart_cell">4</td>
+                <td class="tv_available_days tv_dtp_standart_cell">5</td>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date tv_start_date">6</td>
+                <td class="tv_available_days tv_dtp_right_cell tv_selected_date">7</td>
+              </tr>
+              <tr>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date">8</td>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date">9</td>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date">10</td>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date">11</td>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date">12</td>
+                <td class="tv_available_days tv_dtp_standart_cell tv_selected_date">13</td>
+                <td class="tv_available_days tv_dtp_right_cell tv_selected_date tv_last_date">14</td>
+              </tr>
+              <tr>
+                <td class="tv_available_days tv_dtp_standart_cell">15</td>
+                <td class="tv_available_days tv_dtp_standart_cell">16</td>
+                <td class="tv_available_days tv_dtp_standart_cell">17</td>
+                <td class="tv_available_days tv_dtp_standart_cell">18</td>
+                <td class="tv_available_days tv_dtp_standart_cell">19</td>
+                <td class="tv_available_days tv_dtp_standart_cell">20</td>
+                <td class="tv_available_days tv_dtp_right_cell">21</td>
+              </tr>
+              <tr>
+                <td class="tv_available_days tv_dtp_bottom_cell">22</td>
+                <td class="tv_available_days tv_dtp_bottom_cell">23</td>
+                <td class="tv_available_days tv_dtp_bottom_cell">24</td>
+                <td class="tv_available_days tv_dtp_bottom_cell">25</td>
+                <td class="tv_available_days tv_dtp_bottom_cell">26</td>
+                <td class="tv_available_days tv_dtp_bottom_cell">27</td>
+                <td class="tv_available_days tv_dtp_last_cell">28</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Tourvisor number of travellers popup-->
+    <div class="tv_drop_panel TVTouristDrop TVHide">
+      <div class="tv_content">
+        <div class="TVLabel TVBoxLabel">Взрослых:</div>
+        <div class="TVRatingBox TVAdults" style="height: 35px;">
+          <div>
+            <div class="TVImageBox TVAdultImage1">
+              <div></div>
+            </div>
+            <div class="TVImageBox TVAdultImage2">
+              <div class="TVImageActive"></div>
+            </div>
+            <div class="TVImageBox TVAdultImage3">
+              <div></div>
+            </div>
+            <div class="TVImageBox TVAdultImage4">
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="TVLabel TVBoxLabel">Детей:</div>
+        <div class="TVLabel TVBoxLabel TVNoChildren TVHide">Без детей</div>
+        <div class="TVRatingBox TVChildren" style="height: 32px;">
+          <div>
+            <div class="TVImageBox TVChildImage1">
+              <div></div>
+            </div>
+            <div class="TVImageBox TVChildImage2">
+              <div></div>
+            </div>
+            <div class="TVImageBox TVChildImage3">
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <div class="TVLabel TVBoxLabel TVHide">Возраст детей:</div>
+        <div>
+          <div class="TVComboBox TVChildAge TVHide" style="width: 65px;">
+            <div class="TVTextBox">
+              <div class="TVTextBoxContent" title="2 года">2 года</div>
+            </div>
+          </div>
+          <div class="TVComboBox TVChildAge TVHide" style="width: 65px;">
+            <div class="TVTextBox">
+              <div class="TVTextBoxContent" title="2 года">2 года</div>
+            </div>
+          </div>
+          <div class="TVComboBox TVChildAge TVHide" style="width: 65px;">
+            <div class="TVTextBox">
+              <div class="TVTextBoxContent" title="2 года">2 года</div>
+            </div>
+          </div>
+        </div>
+        <div class="TVClearFix"></div>
+        <div class="TVOptionCheckBox TVSaveTourists" meta="domnode,checktoggle,checkvalue">Запомнить выбор</div>
+        <div class="TVTheme2Button" style="width: 213px;">Выбрать</div>
       </div>
     </div>
   </body>

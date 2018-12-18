@@ -1,0 +1,1613 @@
+@charset "UTF-8";
+/*@font-face {
+    font-family: 'TVicons';
+    src:    url('http://dev.tourvisor.ru/icons/fonts/TVicons.eot?155pn4');
+    src:    url('http://dev.tourvisor.ru/icons/fonts/TVicons.eot?155pn4#iefix') format('embedded-opentype'),
+        url('http://dev.tourvisor.ru/icons/fonts/TVicons.ttf?155pn4') format('truetype'),
+        url('http://dev.tourvisor.ru/icons/fonts/TVicons.woff?155pn4') format('woff'),
+        url('http://dev.tourvisor.ru/icons/fonts/TVicons.svg?155pn4#TVicons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+.TVTheme2 *, .TVTheme2 *:after, .TVTheme2 *:before {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box; }
+
+.TVTheme2 {
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  margin: 0 auto;
+  font-weight: normal;
+  line-height: 1.39;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box; }
+
+.TVInterfaceWrapper {
+  overflow: hidden;
+  border-radius: 5px; }
+
+.TVMainForm {
+  background-color: #4a8fb2;
+  color: #ffffff; }
+
+.TVTheme2 .TVSRHotelWrap *, .TVTheme2 .TVSRReviwWrap * {
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  /*color: #5F5E5E;*/ }
+
+.TVTopForm {
+  padding: 20px; }
+
+.TVlocation {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  line-height: 1; }
+
+.TVlocation:hover {
+  border-bottom: 1px dashed; }
+
+.TVlocation:before {
+  content: 'из';
+  margin-right: 5px; }
+
+.TVlocation:after {
+  content: '\e95e';
+  font-family: 'TVIcons';
+  margin-left: 5px;
+  position: absolute; }
+
+.TVSmartBox {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  text-shadow: none; }
+
+.TVSmartInput {
+  color: #777777;
+  position: relative; }
+
+.TVSmartInput input, .TVSmartInput input:focus {
+  font-size: 16px;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #ffffff;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 30px;
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  padding: 7px 9px;
+  width: 85%;
+  outline: none; }
+
+.TVSmartInput:before {
+  content: '\e954';
+  font-family: 'TVIcons';
+  font-size: 26px;
+  position: absolute;
+  left: 0px; }
+
+.TVSmartBox .TVArrow {
+  position: absolute;
+  top: 11px;
+  right: 10px;
+  color: #9e9d9d;
+  background: #fff;
+  overflow: hidden; }
+
+.TVSmartBox .TVArrow:after {
+  content: '\e95e';
+  font-family: 'TVIcons';
+  font-size: 26px;
+  cursor: pointer; }
+
+.TVMainFilter {
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-shadow: none; }
+
+.TVMainFilterButton {
+  background-color: #ffffff;
+  display: inline-block;
+  color: #333333;
+  font-size: 16px;
+  padding: 26px 2% 8px 2%;
+  border-right: 1px solid #ddd;
+  font-weight: bold;
+  position: relative;
+  cursor: pointer;
+  vertical-align: bottom;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+  max-height: 22px; }
+
+.TVMainFilterContent {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; }
+
+.TVMainFilterButton:hover {
+  background-color: #f1f1f1; }
+
+.TVMainFilterLable {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #777777;
+  position: absolute;
+  top: 10px;
+  font-weight: normal; }
+
+.TVMainFilterLable:before {
+  font-family: 'TVIcons';
+  margin-right: 5px;
+  font-size: 12px;
+  position: absolute;
+  top: -2px; }
+
+.TVMainFilterLable:after {
+  padding-left: 16px; }
+
+.TVLocationButton .TVMainFilterLable:before {
+  content: '\e92d'; }
+
+.TVLocationButton .TVMainFilterLable:after {
+  content: 'город вылета'; }
+
+.TVCountry .TVMainFilterLable:before {
+  content: '\e954'; }
+
+.TVCountry .TVMainFilterLable:after {
+  content: 'страна'; }
+
+.TVDates .TVMainFilterLable:before {
+  content: '\e93b'; }
+
+.TVDates .TVMainFilterLable:after {
+  content: 'даты вылета'; }
+
+.TVNights .TVMainFilterLable:before {
+  content: '\e942'; }
+
+.TVNights .TVMainFilterLable:after {
+  content: 'ночей'; }
+
+.TVTourists .TVMainFilterLable:before {
+  content: '\e95b'; }
+
+.TVTourists .TVMainFilterLable:after {
+  content: 'туристы'; }
+
+.TVTopForm .TVSearchButton {
+  padding: 16px 0 15px; }
+
+.TVOptionForm .TVSearchButton, .TVOptionForm .TVButtonOrder {
+  padding: 9px 0;
+  border-radius: 2px; }
+
+.TVInterfaceWrapper .TVSearchButton {
+  font-weight: 600;
+  font-size: 18px;
+  border: none; }
+
+.TVSearchButton {
+  background-color: #ffa300;
+  color: #ffffff;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-image: none; }
+
+.TVButtonOrder {
+  background-color: #fdfdfd;
+  border: 1px solid #dddddd;
+  color: #777777;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%; }
+
+.TVSearchButton, .TVButtonOrderBlock {
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: top; }
+
+.TVSearchButton:hover {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIwLjEiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==); }
+
+.TVSearchButton:after {
+  content: 'найти туры'; }
+
+.TVButtonOrder:after {
+  content: 'запрос на подбор тура'; }
+
+.TVFilterForm {
+  background-color: #eeeeee;
+  color: #777777; }
+
+.TVOptionForm {
+  padding: 20px; }
+
+.TVOptionLine {
+  margin-top: 20px; }
+
+.TVOptionFilterBlock {
+  position: relative;
+  vertical-align: top; }
+
+.TVOptionLable {
+  font-size: 10px;
+  text-transform: uppercase;
+  margin-bottom: 2px; }
+
+.TVMeal .TVOptionLable:before {
+  content: 'питание от'; }
+
+.TVRating .TVOptionLable:before {
+  content: 'рейтинг'; }
+
+.TVHoteltype .TVOptionLable:before {
+  content: 'тип отеля'; }
+
+.TVStars .TVOptionLable:before {
+  content: 'класс отеля от'; }
+
+.TVRegionHotel .TVOptionLable:before {
+  content: 'курорт/отель'; }
+
+.TVRegion .TVOptionLable:before {
+  content: 'курорт'; }
+
+.TVHotel .TVOptionLable:before {
+  content: 'отель'; }
+
+.TVPrice .TVOptionLable:before {
+  content: 'цена'; }
+
+.TVOperator .TVOptionLable:before {
+  content: 'оператор'; }
+
+.TVOptionSelector, .TVOptionListWrap {
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  color: #555555; }
+
+.TVOptionListWrap {
+  padding: 10px;
+  font-size: 13px;
+  height: 144px; }
+
+.TVOptionList {
+  /*overflow-y: scroll;*/
+  overflow-x: hidden; }
+
+.TVRegion .TVOptionList {
+  height: 144px; }
+
+.TVHotel .TVOptionList {
+  height: 104px; }
+
+.TVOperator .TVOptionList {
+  height: 144px; }
+
+.TVHotelInput {
+  border-bottom: 1px solid #dddddd;
+  margin-bottom: 10px;
+  position: relative; }
+
+.TVHotelInput .TVOptionCheckBox {
+  position: absolute;
+  right: 0;
+  top: 0; }
+
+.TVHotelInput input, .TVHotelInput input:focus {
+  font-size: 10px;
+  text-transform: uppercase;
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: #ffffff;
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  padding: 4px 0px 12px 0px;
+  width: 60%;
+  outline: none; }
+
+.TVOptionListItem {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  line-height: 20px;
+  padding-left: 3px; }
+
+/*
+.TVOptionListItem:hover {
+    background-color: #f1f1f1;
+}
+*/
+.TVOptionListContainer .TVOptionListItem {
+  padding-left: 15px; }
+
+.TVOptionListContainer .TVOptionListItem:after {
+  content: '...';
+  position: absolute;
+  left: 6px;
+  top: -2px;
+  border-left: 1px dotted #ccc;
+  font-size: 9px;
+  color: #ccc;
+  padding-bottom: 2px; }
+
+.TVOptionListContainer .TVItemIsLast:after {
+  overflow: hidden;
+  height: 12px; }
+
+.TVOptionListItem:before, .TVOptionCheckBox:before {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 2px;
+  content: '\e90b';
+  margin-right: 8px;
+  font-family: 'TVicons';
+  color: #ffffff;
+  font-size: 13px; }
+
+.TVActiveItem.TVOptionListItem:before, .TVActiveItem.TVOptionCheckBox:before {
+  color: #56b141; }
+
+.TVTheme2 .TVTreeListNav {
+  background-image: none;
+  top: 1px;
+  right: 0px;
+  background-color: transparent;
+  color: #acacac;
+  font-size: 15px;
+  font-family: 'TVIcons';
+  padding: 0; }
+
+.TVTheme2 .TVTreeListNav:before {
+  content: '\e913'; }
+
+.TVTheme2 .TVTreeListNav.TVTreeClose:before {
+  content: '\e914'; }
+
+.TVOptionCheckBox {
+  /*display: inline-block;
+    margin-left: 10px;*/
+  cursor: pointer; }
+
+.TVOptionSelector {
+  padding: 4px 20px 4px 8px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.TVOptionSelector:after {
+  content: '\e95e';
+  font-family: 'TVIcons';
+  position: absolute;
+  right: 5px;
+  font-size: 16px;
+  line-height: 20px; }
+
+.TVTheme2 .TVHotelStar:before {
+  content: '\e90c';
+  color: #acacac;
+  font-family: 'TVicons';
+  font-size: 19px; }
+
+.TVTheme2 .TVHotelStar {
+  display: inline-block;
+  background-image: none;
+  padding-right: 2px; }
+
+.TVTheme2 .TVImageActive.TVHotelStar:before {
+  color: #ffa300; }
+
+.TVTheme2 .TVCountryIcon {
+  position: absolute;
+  top: 21px;
+  left: 15px;
+  float: none; }
+
+.TVTheme2 .TVMainContent {
+  padding: 7px 5px;
+  float: none;
+  font-weight: 700;
+  display: inline-block;
+  vertical-align: bottom;
+  line-height: 1.39;
+  margin-left: 25px; }
+
+.TVTheme2 .TVSmartBox .TVChoose {
+  position: absolute;
+  top: 18px;
+  right: 40px;
+  text-decoration: underline;
+  font-size: 10pt;
+  color: #777777;
+  cursor: pointer;
+  margin-left: 5px; }
+
+.TVTheme2 .TVDetailContent {
+  float: none;
+  display: inline-block;
+  color: #999999;
+  line-height: 34px;
+  padding: 1px;
+  font-size: 14px;
+  font-weight: normal; }
+
+.TVTheme2 .TVUndoButton {
+  float: none;
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  background-image: none;
+  line-height: 1.39; }
+
+.TVTheme2 .TVUndoButton:before {
+  content: '\e912';
+  color: #CC0000;
+  font-family: 'TVicons';
+  font-size: 18px; }
+
+.TVTheme2 .TVCurrencySwitcher {
+  float: none;
+  position: absolute;
+  right: 0;
+  margin-top: 0; }
+
+/*.TVTheme2 .TVSlideNode {margin-top: 15px;}*/
+.TVTheme2 .TVCurrencySwitcher:before, .TVTheme2 .TVCurrencySwitcher:after {
+  font-size: 10px;
+  margin-top: 0; }
+
+.TVTheme2 .TVSliderRange {
+  background-color: #c1c1c1; }
+
+.TVTheme2 .TVSlideSwitcher {
+  top: -2px; }
+
+.TVTheme2 .TVSlideLabel {
+  display: inline-block;
+  /*margin-left: 10px;*/
+  font-size: 12px;
+  position: absolute;
+  top: 28px; }
+
+.TVHotelTypeItem:before {
+  font-family: 'TVicons';
+  font-size: 25px;
+  position: absolute;
+  left: 10px; }
+
+.TVHotelTypeItem {
+  line-height: 30px;
+  padding-left: 45px;
+  font-size: 14px;
+  text-transform: capitalize;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 2px; }
+
+.TVHotelTypeChecked, .TVHotelTypeItem.TVChecked {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.TVHotelTypeActive:before {
+  content: '\e95c';
+  font-size: 20px;
+  left: 12px; }
+
+.TVHotelTypeCalm:before {
+  content: '\e93d'; }
+
+.TVHotelTypeFamily:before {
+  content: '\e92f';
+  font-size: 20px;
+  left: 12px; }
+
+.TVHotelTypeHealth:before {
+  content: '\e940'; }
+
+.TVHotelTypeCity:before {
+  content: '\e93f'; }
+
+.TVHotelTypeBeach:before {
+  content: '\e93e'; }
+
+.TVHotelTypeDeluxe:before {
+  content: '\e941'; }
+
+.TVStandartForm.TVTheme2 {
+  width: 700px; }
+
+.TVStandartForm.TVTheme2 .TVOptionFilterBlock {
+  display: inline-block; }
+
+.TVStandartForm.TVTheme2 .TVStars {
+  width: 22%;
+  margin-right: 4%; }
+
+.TVStandartForm.TVTheme2 .TVMeal {
+  width: 23%;
+  margin-right: 4%; }
+
+.TVStandartForm.TVTheme2 .TVRating {
+  width: 18%;
+  margin-right: 4%; }
+
+.TVStandartForm.TVTheme2 .TVHoteltype {
+  width: 25%; }
+
+.TVStandartForm.TVTheme2 .TVDates {
+  width: 23%; }
+
+.TVStandartForm.TVTheme2 .TVNights {
+  width: 12%; }
+
+.TVStandartForm.TVTheme2 .TVTourists {
+  width: 23%;
+  border-right: none; }
+
+.TVStandartForm.TVTheme2 .TVSearchButton {
+  width: 30%; }
+
+.TVMiniForm.TVTheme2 {
+  width: 500px; }
+
+.TVMiniForm.TVTheme2 .TVOptionFilterBlock {
+  display: inline-block; }
+
+.TVMiniForm.TVTheme2 .TVStars {
+  width: 26%;
+  margin-right: 6%; }
+
+.TVMiniForm.TVTheme2 .TVMeal {
+  width: 28%;
+  margin-right: 6%; }
+
+.TVMiniForm.TVTheme2 .TVDates {
+  width: 35%; }
+
+.TVMiniForm.TVTheme2 .TVNights {
+  width: 20%; }
+
+.TVMiniForm.TVTheme2 .TVTourists {
+  width: 33%;
+  border-right: none; }
+
+.TVMiniForm.TVTheme2 .TVSearchButton {
+  width: 34%;
+  margin: 0; }
+
+.TVVerticalForm.TVTheme2 {
+  width: 300px; }
+
+.TVVerticalForm.TVTheme2 .TVTopForm {
+  padding: 20px 15px; }
+
+.TVVerticalForm.TVTheme2 .TVOptionForm {
+  padding: 15px 15px 20px 15px; }
+
+.TVVerticalForm.TVTheme2 .TVOptionLable:before {
+  position: relative; }
+
+.TVVerticalForm.TVTheme2 .TVOptionFilterBlock {
+  display: block;
+  padding-top: 0px; }
+
+.TVVerticalForm.TVTheme2 .TVMainFilterButton {
+  display: block;
+  margin-bottom: 15px;
+  padding-left: 15px;
+  border: none; }
+
+.TVVerticalForm.TVTheme2 .TVStars {
+  text-align: center; }
+
+/*.TVVerticalForm.TVTheme2 .TVMainFilterButton {border: none;}*/
+.TVVerticalForm.TVTheme2 .TVSearchButton {
+  width: 100%; }
+
+.TVWideForm.TVTheme2 {
+  width: 900px; }
+
+.TVWideForm.TVTheme2 .TVOptionFilterBlock {
+  display: inline-block; }
+
+.TVWideForm.TVTheme2 .TVStars {
+  width: 15%;
+  margin-right: 3%; }
+
+.TVWideForm.TVTheme2 .TVRegionHotel {
+  width: 20%;
+  margin-right: 3%; }
+
+.TVWideForm.TVTheme2 .TVMeal {
+  width: 18%;
+  margin-right: 3%; }
+
+.TVWideForm.TVTheme2 .TVRating {
+  width: 15%;
+  margin-right: 3%; }
+
+.TVWideForm.TVTheme2 .TVHoteltype {
+  width: 20%; }
+
+.TVWideForm.TVTheme2 .TVCountry {
+  width: 18%; }
+
+.TVWideForm.TVTheme2 .TVDates {
+  width: 17%; }
+
+.TVWideForm.TVTheme2 .TVNights {
+  width: 10%; }
+
+.TVWideForm.TVTheme2 .TVTourists {
+  width: 17%;
+  border-right: none; }
+
+.TVWideForm.TVTheme2 .TVSearchButton {
+  width: 22%; }
+
+.TVLineNCForm.TVTheme2 {
+  width: 800px; }
+
+.TVLineNCForm.TVTheme2 .TVTopForm {
+  padding: 10px; }
+
+.TVLineNCForm.TVTheme2 .TVLocationButton {
+  width: 18%; }
+
+.TVLineNCForm.TVTheme2 .TVDates {
+  width: 17%; }
+
+.TVLineNCForm.TVTheme2 .TVNights {
+  width: 9%; }
+
+.TVLineNCForm.TVTheme2 .TVTourists {
+  width: 16%;
+  border-right: none; }
+
+.TVLineNCForm.TVTheme2 .TVSearchButton {
+  width: 24%; }
+
+.TVLineForm.TVTheme2 {
+  width: 900px; }
+
+.TVLineForm.TVTheme2 .TVTopForm {
+  padding: 10px; }
+
+.TVLineForm.TVTheme2 .TVLocationButton {
+  width: 14%; }
+
+.TVLineForm.TVTheme2 .TVCountry {
+  width: 14%; }
+
+.TVLineForm.TVTheme2 .TVDates {
+  width: 14%; }
+
+.TVLineForm.TVTheme2 .TVNights {
+  width: 6%; }
+
+.TVLineForm.TVTheme2 .TVTourists {
+  width: 13%;
+  border-right: none; }
+
+.TVLineForm.TVTheme2 .TVSearchButton {
+  width: 19%; }
+
+.TVFullForm.TVTheme2 {
+  width: 900px; }
+
+.TVFullForm.TVTheme2 .TVOptionFilterBlock {
+  display: inline-block; }
+
+.TVFullForm.TVTheme2 .TVStars {
+  width: 19%;
+  margin-right: 3%; }
+
+.TVFullForm.TVTheme2 .TVMeal {
+  width: 24%;
+  margin-right: 3%; }
+
+.TVFullForm.TVTheme2 .TVRating {
+  width: 24%;
+  margin-right: 3%; }
+
+.TVFullForm.TVTheme2 .TVHoteltype {
+  width: 24%; }
+
+.TVFullForm.TVTheme2 .TVRegion {
+  width: 35%;
+  margin-right: 3%; }
+
+.TVFullForm.TVTheme2 .TVHotel {
+  width: 62%; }
+
+.TVFullForm.TVTheme2 .TVPrice {
+  width: 35%;
+  margin-right: 3%;
+  vertical-align: top; }
+
+.TVFullForm.TVTheme2 .TVButtonOrderBlock {
+  width: 35%;
+  margin-right: 3%; }
+
+.TVFullForm.TVTheme2 .TVSearchButton {
+  width: 24%; }
+
+.TVFullForm.TVTheme2 .TVCountry {
+  width: 25%; }
+
+.TVFullForm.TVTheme2 .TVDates {
+  width: 20%; }
+
+.TVFullForm.TVTheme2 .TVNights {
+  width: 15%; }
+
+.TVFullForm.TVTheme2 .TVTourists {
+  width: 24%;
+  border-right: none; }
+
+.TVOperatorsForm.TVFullForm.TVTheme2 .TVRegion {
+  width: 24%;
+  margin-right: 3%; }
+
+.TVOperatorsForm.TVFullForm.TVTheme2 .TVHotel {
+  width: 46%;
+  margin-right: 3%; }
+
+.TVOperatorsForm.TVFullForm.TVTheme2 .TVOperator {
+  float: right;
+  width: 24%; }
+
+.TVOperatorsForm.TVFullForm.TVTheme2 .TVPrice {
+  width: 24%; }
+
+.TVOperatorsForm.TVFullForm.TVTheme2 .TVButtonOrderBlock {
+  width: 46%; }
+
+.TVOperatorsForm.TVFullForm.TVTheme2 .TVSearchButton {
+  width: 24%; }
+
+.TVSideFilterForm.TVTheme2 {
+  width: 900px; }
+
+.TVSideFilterForm.TVTheme2 .TVTopForm {
+  padding: 10px; }
+
+.TVSideFilterForm.TVTheme2 .TVLocationButton {
+  width: 15%; }
+
+.TVSideFilterForm.TVTheme2 .TVCountry {
+  width: 15%; }
+
+.TVSideFilterForm.TVTheme2 .TVDates {
+  width: 15%; }
+
+.TVSideFilterForm.TVTheme2 .TVNights {
+  width: 7%; }
+
+.TVSideFilterForm.TVTheme2 .TVTourists {
+  width: 14%;
+  border-right: none; }
+
+.TVSideFilterForm.TVTheme2 .TVSearchButton {
+  width: 19%; }
+
+.TVSideFilterForm.TVTheme2 .TVOptionForm {
+  margin-top: 15px;
+  width: 19%;
+  display: inline-block;
+  vertical-align: top;
+  text-align: left; }
+
+.TVSideFilterForm .TVMainFilterButton {
+  padding-right: 1%; }
+
+.TVResultTheme2 {
+  display: inline-block;
+  width: 74%;
+  vertical-align: top;
+  margin-left: 2%; }
+
+.TVSideFilterForm .TVSearchResults {
+  width: 100% !important; }
+
+.TVSideFilterForm.TVTheme2 .TVOptionFilterBlock {
+  margin-bottom: 15px; }
+
+.TVSideFilterForm.TVTheme2 .TVOptionFilterBlock.TVHoteltype {
+  margin-bottom: 25px; }
+
+/*******************************************************************************/
+.TVTem2Separ {
+  border-top: 1px solid #dedede;
+  margin-bottom: 10px; }
+
+.TVTem2TourContainer {
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  background-color: #fff;
+  font-size: 14px;
+  position: relative;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  z-index: 0;
+  opacity: 1;
+  -webkit-transition: opacity .3s linear;
+  transition: opacity .3s linear; }
+
+.TVTem2TourContainer:hover .TVTem2TourBlock {
+  background: #f6f6f6; }
+
+.TVTem2TourBlock:hover .TVTem2PriceArrow {
+  background-color: #7fb762; }
+
+.TVTem2DetailPanel .TVSRBottomCenter {
+  background-color: #a7a8a7; }
+
+.TVTem2TourContainer * {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box; }
+
+.TVTem2TourBlock {
+  text-align: left;
+  text-indent: 0;
+  line-height: normal;
+  padding: 10px;
+  padding-bottom: 0;
+  position: relative; }
+
+.TVTem2TourBlock > div:after {
+  content: '';
+  display: block;
+  clear: both; }
+
+.TVTem2DetailPanel {
+  background: #fff;
+  border-top: 1px solid #ddd; }
+
+.TVTem2Image {
+  border-radius: 2px;
+  float: left; }
+
+.TVTem2Image img {
+  width: 100%;
+  max-width: 220px; }
+
+.TVTem2Info {
+  margin-left: 255px; }
+
+.TVTem2TourContainer .TVSRStar {
+  display: inline-block;
+  font-family: 'TVicons';
+  color: #FFA200;
+  line-height: 1.39;
+  margin: 10px 2px 0 0; }
+
+.TVTem2TourContainer .TVSRStar:before {
+  content: '\e90c'; }
+
+.TVTem2Name {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333333;
+  overflow: hidden; }
+
+.TVTem2Resort {
+  font-size: 14px;
+  color: #999999; }
+
+.TVTem2Recommend {
+  background-color: #47A447;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 1px 4px;
+  display: inline-block;
+  border-radius: 2px; }
+
+.TVTem2Recommend:before {
+  content: '\e91a';
+  font-family: 'TVIcons';
+  padding-right: 3px;
+  font-size: 9px; }
+
+.TVTem2Recommend:after {
+  content: 'рекомендуем'; }
+
+.TVSRRecButton:after {
+  padding-left: 0; }
+
+.TVSRRecButton.TVSRNavButton {
+  padding: 5px;
+  text-align: center; }
+
+.TVTem2Description {
+  font-size: 14px;
+  color: #666;
+  max-height: 61px;
+  overflow: hidden;
+  margin-top: 11px; }
+
+.TVTem2Raiting {
+  display: inline;
+  padding-right: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0px 5px;
+  color: #fff;
+  margin-right: 5px;
+  border-radius: 2px 2px 2px 2px; }
+
+.TVSearchResults .TVRatingBad {
+  background-color: #e07a55; }
+
+.TVSearchResults .TVRatingGood {
+  background-color: #5cb85c; }
+
+.TVSearchResults .TVRatingNormal {
+  background-color: #e6b661; }
+
+.TVSearchResults .TVRatingExcellent {
+  background-color: #4bdc4b; }
+
+.TVTem2Buttons {
+  height: 60px; }
+
+.TVTheme2 .TVSRNavButton, .TVTheme2 a.TVSRNavButton, .TVTheme2 a.TVSRNavButton:link {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #666;
+  /*margin: 15px 2% 2px 0;*/
+  cursor: pointer;
+  background: #ffffff;
+  text-decoration: none; }
+
+.TVTem2Buttons .TVSRNavButton, .TVTheme2 a.TVSRNavButton, .TVTheme2 a.TVSRNavButton:link {
+  margin: 15px 2% 2px 0; }
+
+.TVTem2AboutTitle:before {
+  content: 'об отеле'; }
+
+.TVTem2MapTitle:before {
+  content: 'на карте'; }
+
+.TVTem2ReviewTitle:before {
+  content: 'отзывы'; }
+
+.TVTem2PriceTitle:before {
+  content: 'цены'; }
+
+.TVTem2PriceBlock {
+  line-height: 15px;
+  text-align: left;
+  display: inline-block;
+  float: right;
+  margin-top: 13px;
+  cursor: pointer;
+  color: #000000; }
+
+.TVTem2PriceValue {
+  font-size: 24px;
+  margin-right: 5px;
+  margin-left: 13px;
+  font-weight: 400;
+  line-height: 1.39;
+  display: inline-block; }
+
+.TVTem2PriceSuffix {
+  display: inline-block;
+  line-height: 1;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #999;
+  margin-right: 5px; }
+
+.TVTem2PriceHuman {
+  display: none;
+  border-top: 1px solid #999; }
+
+.TVTem2PriceHuman:after {
+  content: 'чел';
+  position: relative; }
+
+.TVSRPriceTypeMan .TVTem2PriceHuman {
+  display: block; }
+
+.TVTem2PriceArrow {
+  display: inline-block;
+  margin-bottom: -5px;
+  width: 30px;
+  height: 30px;
+  background-position: -84px -135px;
+  cursor: pointer;
+  background-color: #a7a8a7;
+  color: #ffffff;
+  position: relative;
+  border-radius: 15px;
+  font-family: 'TVicons';
+  -webkit-transition: transform .15s linear;
+  -webkit-transition: -webkit-transform .15s linear;
+  transition: -webkit-transform .15s linear;
+  transition: transform .15s linear;
+  transition: transform .15s linear, -webkit-transform .15s linear;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg); }
+
+.TVSRClose .TVTem2PriceArrow {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg); }
+
+.TVTem2PriceArrow:before {
+  content: '\e906';
+  position: absolute;
+  top: 9px;
+  left: 9px; }
+
+.blpricesort td, .blpricesort th {
+  border: none;
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif; }
+
+.TVTem2PriceContainer table {
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border: none;
+  width: 100%;
+  border-top: 1px solid #dddddd;
+  margin: 0; }
+
+.TVTem2PriceContainer th {
+  color: #999999;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-align: left;
+  padding-left: 5px;
+  padding-top: 5px; }
+
+.TVTem2PriceContainer td {
+  color: #999999;
+  font-size: 13px;
+  font-weight: normal;
+  text-align: left;
+  line-height: 21px;
+  vertical-align: middle;
+  padding: 15px 5px;
+  border-bottom: 1px solid #dddddd; }
+
+.TVTem2PriceWrap .TVSRBottomCenter {
+  border: none; }
+
+.TVTem2TourPriceBlock {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  text-align: center;
+  padding: 5px 0;
+  margin-right: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333333;
+  text-transform: uppercase;
+  line-height: 1.39;
+  position: relative;
+  min-width: 130px; }
+
+.TVTem2ForthCol .TVCurrencyVal:after {
+  font-size: 10px;
+  margin-left: 5px; }
+
+.TVTem2TourPriceBlock:hover {
+  border: 1px solid #72ac53;
+  background-color: #7fb762;
+  color: #ffffff; }
+
+.TVTem2TourPriceBlock:hover:before {
+  content: 'узнать подробнее';
+  font-size: 10px;
+  position: absolute;
+  top: 36px;
+  color: #999999;
+  width: 100%;
+  text-align: center;
+  right: 0; }
+
+.TVTem2TourPrice {
+  display: inline-block; }
+
+.TVTem2TopRow {
+  color: #333333;
+  font-weight: 600; }
+
+.TVTem2TopRow > span:first-child:after {
+  content: ' / '; }
+
+.TVTem2PriceArrowlight {
+  position: absolute;
+  font-family: 'TVicons';
+  right: 5px;
+  top: 5px;
+  font-weight: 300; }
+
+.TVTem2PriceArrowlight:before {
+  content: '\e90a'; }
+
+.blpricesort td.TVTem2Basket {
+  font-family: 'TVicons';
+  cursor: pointer; }
+
+.TVTem2Basket:hover {
+  color: #333333; }
+
+.TVTem2Basket:before {
+  content: '\e93c';
+  font-size: 20px; }
+
+.TVTem2BottomCenter {
+  background-color: #a7a8a7;
+  color: #ffffff;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 15px; }
+
+.TVTem2Operator {
+  margin-left: 15px; }
+
+.blpricesort a:link, .blpricesort a:visited, .blpricesort a:hover {
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  color: #5F5E5E; }
+
+.TVTem2Name a, .TVTem2Name a:link, .TVTem2Name a:visited {
+  color: #000000;
+  text-decoration: none; }
+
+.TVTem2Name a:hover {
+  color: #000000;
+  text-decoration: underline; }
+
+.TVTem2TourBlock .TVRSActiveButton:after {
+  top: 20px; }
+
+.TVTem2TourBlock .TVRSActiveButton {
+  background: none repeat scroll 0 0 #FFFFFF;
+  padding-bottom: 17px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #e1e1e1;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0; }
+
+.TVTem2TourBlock .TVRSActiveButton:after {
+  content: '';
+  height: 4px;
+  position: relative;
+  top: 18px;
+  background-color: #FFF;
+  width: 100%;
+  left: -15px;
+  padding: 0 14px;
+  display: block; }
+
+th.TVSRHTourTitle, th.TVSRHTourBook {
+  text-align: left; }
+
+.TVTem2PriceContainer .TVSRHTourTitle:after {
+  content: 'тур / программа'; }
+
+.TVTem2PriceContainer .TVSRHTourPrice:after {
+  content: ' за номер'; }
+
+.TVSRPriceTypeMan .TVTem2PriceContainer .TVSRHTourPrice:after {
+  content: ' за человека'; }
+
+.TVTem2PriceContainer .TVSRHTourBook:after {
+  content: 'номер / питание'; }
+
+.TVTem2ThirdCol {
+  width: 30%; }
+
+.TVTem2ForthCol {
+  width: 140px; }
+
+td.TVTem2FirstCol {
+  padding: 15px 20px;
+  text-align: center; }
+
+td.TVTem2Basket {
+  width: 22px; }
+
+.TVTem2Basket.TVCartAdded:before {
+  content: '\e90b';
+  color: #5cb85c; }
+
+.TVTem2FirstCol div {
+  display: inline-block; }
+
+.TVTem2TourBlock .TVSRNavButton.TVSREdit:before {
+  font-family: 'TVIcons';
+  content: '\e921';
+  font-size: 14px;
+  padding-right: 1px; }
+
+.TVTheme2 .TVSRNavButton.TVSREdit {
+  width: 16px; }
+
+.TVSREdit.TVRSActiveButton:before {
+  top: 0; }
+
+.TVTem2TourBlock .TVSREdit.TVRSActiveButton:after {
+  padding: 0 14px;
+  left: -15px; }
+
+.TVSRRecButton.TVSRDoRec:after {
+  padding-left: 8px;
+  font-size: 11px; }
+
+/*
+.TVSREditContainer {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}*/
+.TVTem2EditWrap .TVSRBottomCenter {
+  height: 48px; }
+
+.TVTheme2 .TVSRSaveHotel.TVSRNavButton {
+  margin-top: 10px; }
+
+.TVSRBodyContainer {
+  border-bottom: 1px solid #ddd; }
+
+.TVTheme2 .TVSRBottomCenter .TVSRNavButton, .TVTheme2 .TVSRBottomCenter a.TVSRNavButton, .TVTheme2 .TVSRBottomCenter a.TVSRNavButton:link {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  text-decoration: underline;
+  margin: 10px auto;
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif; }
+
+.TVTheme2 .TVSRBottomCenter .TVSRToursLink, .TVTheme2 .TVSRBottomCenter a.TVSRToursLink, .TVTheme2 .TVSRBottomCenter a.TVSRToursLink:link {
+  text-decoration: none; }
+
+.TVSRSearchMoreBtn,
+.TVSRUpdateSearchResultBtn {
+  width: 200px;
+  text-align: center;
+  margin: 20px auto;
+  float: none;
+  text-transform: uppercase;
+  display: block; }
+
+.TVSRContainer {
+  margin: 0 0 10px auto;
+  border: 1px solid #ddd;
+  width: 100%;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-radius: 0;
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif;
+  background-color: #f6f6f6;
+  background-image: none;
+  text-align: left;
+  position: relative;
+  z-index: 0;
+  opacity: 1;
+  line-height: 1.39; }
+
+.TVSRContainer:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+
+.TVTheme2 .TVSRContainer .TVSRNavButton {
+  display: inline-block;
+  padding: 3px 16px;
+  margin: 5px;
+  font-size: 12px;
+  color: #ffffff;
+  border-radius: 3px;
+  background: #5cb85c;
+  border: 1px solid #4cae4c;
+  font-weight: 400;
+  cursor: pointer;
+  line-height: 1.5;
+  font-family: "Open Sans", "Trebuchet MS", arial, sans-serif; }
+
+.TVSRContainer:hover .TVSRShowRequestPanel {
+  background: #47a447; }
+
+.TVTheme2 .TVSRContainer .TVSRNavButton:hover {
+  border: 1px solid #398439; }
+
+.TVTheme2 .TVResultTheme2 .TVSRContainer:hover .TVSRNavButton {
+  color: #fff; }
+
+/*******************************************************************************/
+.TVTem2DetailPanel .TVSRZoomImg {
+  bottom: -6px;
+  left: 236px;
+  right: -177px; }
+
+.TVLocationBlock .TVContent.TVLabel:after {
+  content: '▼';
+  font-size: 5pt;
+  padding-left: 4px;
+  display: inline-block;
+  vertical-align: text-bottom; }
+
+.TVTheme2 .TVOptionSelector.TVTurn {
+  -webkit-transform: none;
+  transform: none; }
+
+.TVTheme2 .TVOptionSelector.TVTurn:after {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg); }
+
+/*
+.TreeListItem .TVOptionCheckBox {
+    margin-left: 5px;
+    font-size: 13px;
+}
+
+.TVListBox .TVOptionCheckBox {
+    display: block;
+    font-size: 13px;
+    line-height: 21px;
+}
+
+.TreeListItem  .TVTreeNode .TVOptionCheckBox {
+    margin-left: 1px;
+    line-height: 18px;
+    vertical-align: top;
+}
+
+.TVDetailPanel .TVOptionFilterBlock.TVRegion {
+    width: 30%;
+    float: left;
+    height: 409px;
+}
+
+.TVDetailPanel .TVOptionListWrap {
+    height: auto;
+}
+
+.TVOptionList > div {
+    position: relative;
+}
+
+.TVOptionListContainer .TVOptionCheckBox {
+    position: relative;
+    padding-left: 16px;
+}*/
+.TVOptionCheckBox.TVOnlyDirect {
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #666666;
+  line-height: 21px; }
+
+.TVOptionList > div {
+  position: relative; }
+
+.TVDetailPanel .TVOptionFilterBlock.TVRegion {
+  width: 30%;
+  display: inline-block; }
+
+.TVDetailPanel .TVOptionListWrap {
+  height: auto; }
+
+.TVOptionList .TVOptionListNav {
+  display: inline-block;
+  width: 17px;
+  height: 15px;
+  cursor: pointer;
+  position: absolute;
+  top: 1px;
+  right: 0px;
+  color: #acacac;
+  font-size: 15px;
+  font-family: 'TVIcons';
+  padding-left: 1px;
+  background: transparent; }
+
+.TVOptionList .TVOptionListNav:before {
+  content: '\e913'; }
+
+.TVOptionList .TVOptionListNav.TVTreeClose:before {
+  content: '\e914'; }
+
+.TVTreeIsLast .TVOptionListItem:after {
+  overflow: hidden;
+  height: 11px; }
+
+.TVChecked.TVOptionListItem:before, .TVChecked.TVOptionCheckBox:before {
+  color: #56b141; }
+
+.TVTLHalfSelected > .TVOptionListItem:before {
+  color: #b7b7b7; }
+
+.TVTLSelected .TVOptionListContainer .TVOptionListItem:before {
+  color: #b7b7b7; }
+
+.TVOptionFilterBlock.TVHotel {
+  display: inline-block;
+  /*margin-left: 10px;*/ }
+
+.TVDetailPanel .TVOptionFilterBlock.TVHotel {
+  margin-left: 2%; }
+
+.TVDetailPanel .TVRegion .TVOptionList {
+  height: 344px; }
+
+.TVDetailPanel .TVHotel .TVOptionList {
+  height: 254px; }
+
+.TVOptionList .TVOptionCheckBox {
+  display: block;
+  line-height: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-left: 0; }
+
+.TVOptionList .TVOptionCheckBox:hover, .TVOptionListItem:hover {
+  background-color: #EFEFEF; }
+
+.TVDetailPanel {
+  position: relative; }
+
+.TVTheme2Button {
+  background-color: #fdfdfd;
+  border: 1px solid #dddddd;
+  color: #777777;
+  font-size: 14px;
+  line-height: 24px;
+  width: 100%;
+  padding: 5px 0;
+  border-radius: 2px;
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase; }
+
+.TVTheme2Button:hover {
+  color: #666666; }
+
+.TVTheme2Button:active {
+  color: #444444; }
+
+.TVDetailPanel .TVTheme2Button {
+  position: absolute;
+  left: 31%;
+  bottom: 1px; }
+
+.TVOptionLable .TVOptionCheckBox {
+  display: inline-block;
+  margin-left: 10px; }
+
+.TVLocationPanel .TVTheme2Button {
+  position: absolute;
+  width: 38px;
+  right: 12px;
+  top: 12px;
+  border: none; }
+
+.TVTouristDrop .TVTheme2Button {
+  margin: 15px auto; }
+
+.TVWideFilterForm .TVResultPanelRoot {
+  float: right;
+  width: 77%;
+  margin-left: 1%; }
+
+.TVOptionFilterBlock .TVSliderDuble {
+  margin-top: 15px; }
+
+.TVSideFilterForm .TVSliderDuble {
+  margin-bottom: 30px; }
+
+.TVSliderDuble .TVSlideLabel.TVLast {
+  right: 0; }
+
+.TVTheme2 .TVSliderDRange {
+  background-color: #c1c1c1; }
+
+.TVSliderValues {
+  display: inline-block;
+  margin-left: 6px; }
+
+.TVSliderValue {
+  display: inline-block;
+  font-size: 11px; }
+
+.TVSliderValue.TVLast:before {
+  content: ' - ';
+  padding: 0 4px; }
+
+.TVResulContent .TVWideFilterForm .TVSearchingForm {
+  width: 950px; }
+
+.TVResulContent .TVWideFilterForm {
+  margin: 0 auto; }
+
+/**************multyfilter*****************/
+.TVTheme2 .TVSRNavButton.TVSRSearchMoreBtn,
+.TVTheme2 .TVSRNavButton.TVSRUpdateSearchResultBtn {
+  margin-top: 20px;
+  display: block; }
+
+.TVSROperatorsFilter .TVOptionCheckBox {
+  display: inline-block; }
+
+.TVButtonOrderBlock .TVButtonOrder {
+  display: none; }
+
+.TVSearchResults .TVSRHelpForm {
+  border: 1px solid #ddd;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: #fff; }
+
+.TVTable.TVResortPanel .TVOptionFilterBlock {
+  margin-bottom: 10px; }
+
+.TVLPBodyHotel .TVTem2TourBlock {
+  display: none; }
+
+.TVLPBodyHotel .TVTem2TourContainer {
+  border-top: none; }
+
+.TVSearchButton.TVFreeRequestButton {
+  background-color: #ffa300;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  border: none;
+  width: 210px;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer; }
+
+.TVSRBodyContainer .TVSRHelpForm .TVSearchButton {
+  padding: 15px 0;
+  display: block;
+  font-weight: 500;
+  border-radius: 2px;
+  font-size: 16px;
+  width: 300px; }
+
+.TVAskMobilButtons .TVTheme2Button {
+  width: 200px;
+  display: inline-block;
+  margin: 0 20px 20px; }
+
+.TVTheme2 .TVOptionStars {
+  min-width: 115px; }
+
+.TVMinPTable .TVTheme2Button {
+  width: 200px;
+  margin: 0 auto 20px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0; }
+
+.TVMinPTable .TVTheme2Button:after {
+  content: 'показать все страны'; }

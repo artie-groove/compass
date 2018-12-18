@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="assets/css/tourvisor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Компас</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Свободный","addresses":[{"address":"г. Свободный, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]}]</script>
+  </head>
+  <body>
+    <header class="header-credit">
+      <div class="sidebar-social-media"><a class="vkontakte" href="#"></a><a class="facebook" href="#"></a><a class="odnoklassniki" href="#"></a><a class="google-plus" href="#"></a><a class="twitter" href="#"></a></div>
+      <div class="container">
+        <div class="row">
+          <div class="col flex-grow-0 order-1"><a class="logo" href="index.html"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></a></div>
+          <div class="col-12 col-md order-2">
+            <nav class="address-nav">
+              <div class="row">
+                <div class="col-md-8 col-lg-7 d-none d-md-block">
+                  <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3">
+                      <div class="label">Город</div>
+                      <div class="nav city mark location-mark">
+                        <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Свободный</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7 col-lg-8 col-xl-9">
+                      <div class="label">Адрес нашего офиса</div>
+                      <div class="address"> 
+                        <div class="nav">
+                          <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                              <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">
+                                <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-5 text-right">
+                  <div class="d-md-inline-block ml-md-auto text-center text-md-left">
+                    <div class="label d-none d-md-block">Телефон</div>
+                    <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-none d-md-inline d-lg-none"><a class="callback-link d-none d-md-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-12 order-0 order-md-3">
+            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4" id="mainMenu">
+              <button class="navbar-toggler ml-auto" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="menu">
+                <h6 class="d-md-none">Меню</h6>
+                <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                  <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Куда поехать</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="tour-catalog.html">В Италию</a></li>
+                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">В Испанию</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="tour-catalog.html">Мадрид</a><a class="dropdown-item" href="tour-catalog.html">Барселона</a><a class="dropdown-item" href="tour-catalog.html">Валенсия</a><a class="dropdown-item" href="tour-catalog.html">Севилья</a><a class="dropdown-item" href="tour-catalog.html">Гибралтар</a></div>
+                      </li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальту</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальдивы</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Визы</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="visa-info-china.html">В Японию</a><a class="dropdown-item" href="visa-info-china.html">В Китай</a><a class="dropdown-item" href="visa-info-china.html">В Австралию</a><a class="dropdown-item" href="visa-info-china.html">В США</a></div>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="hotels.html">Отели</a></li>
+                  <li class="nav-item"><a class="nav-link" href="air-tickets.html">Авиабилеты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cruise.html">Круизы</a></li>
+                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="404.html">Ещё</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="insurance.html">Страхование</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="about.html">О нас</a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <hr class="d-block d-md-none w-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+            <h1>Туры в кредит или рассрочку</h1>
+            <p>На сумму 10 000 до 300 000 рублей, имея при себе только паспорт РФ и СНИЛС</p><a class="btn" href="#">Оставить заявку</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper" id="content-credit">
+      <div class="container">
+        <div class="row" id="cards">
+          <div class="col-md-6">
+            <div class="card credit-card">
+              <div class="content">
+                <div class="card-body">
+                  <h5 class="card-title">Срок кредита</h5>
+                  <div class="card-text">
+                    <p>от 6 до 12 месяцев</p>
+                  </div>
+                </div><img src="assets/img/credit/card.png"/>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card credit-card">
+              <div class="content">
+                <div class="card-body">
+                  <h5 class="card-title">Срок рассрочки</h5>
+                  <div class="card-text">
+                    <p>от 4 до 6 месяцев</p>
+                  </div>
+                </div><img src="assets/img/credit/purse.png"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="my-5">Оформить рассрочку&nbsp;&mdash; просто</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDQiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0NCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDBINEMxLjggMCAwIDEuOCAwIDRWNy44QzAgOS4xIDAgMTAuMyAwIDExLjJWMjRWMzBWMzJWMzZMMC42IDM4QzEuMyAzOS4yIDIuNiA0MCA0IDQwQzQgNDAgMjAuMiA0MCAyMiA0MEMyMy44IDQwIDQyIDQwIDQyIDQwVjMwQzQzLjEgMzAgNDQgMjkuMSA0NCAyOFYxOEM0NCAxNi45IDQzLjEgMTYgNDIgMTZWMEgzMy45SDEyWk0xMy4yIDZINEMyLjkgNiAyIDUuMSAyIDRDMiAyLjkgMi45IDIgNCAySDEySDM0SDQwVjZIMzIuOEgxMy4yWk0yMiA2SDE1LjVIMjJaTTIyIDJIMjRIMjJaTTI0IDBIMjJIMjRaTTMwLjUgNkgyNEgzMC41Wk00MCAzOEg0QzIuOSAzOCAyIDM3LjEgMiAzNlY3LjRDMi42IDcuOCAzLjMgOCA0IDhINDBWMTZIMjFDMTcuMSAxNiAxNCAxOS4xIDE0IDIzQzE0IDI2LjkgMTcuMSAzMCAyMSAzMEg0MFYzOFpNNDIgMjhIMjFDMTguMiAyOCAxNiAyNS44IDE2IDIzQzE2IDIwLjIgMTguMiAxOCAyMSAxOEg0MlYyOFoiIGZpbGw9IiNGRjlBMDEiLz4KPC9zdmc+Cg=="/></div>
+                <div class="info-content">
+                  <div class="info-title">Вы не переплачиваете за рассрочку</div>
+                  <div class="info-details">
+                    <p>За неё процент банку платим мы! (не действует для тарифа Promo по турам и авиабилеты)</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEiIGhlaWdodD0iNDciIHZpZXdCb3g9IjAgMCA0MSA0NyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM5LjEzNjQgMjQuNDRWOS40SDMxLjU4ODZDMzEuMTIyNyA0LjEzNiAyNi43NDMyIDAgMjEuNDMxOCAwQzIwLjIyMDUgMCAxOS4xMDIzIDAuMTg4IDE4LjA3NzMgMC41NjRDMTcuOTg0MSAwLjU2NCAxNi4wMjczIDEuMjIyIDE0LjcyMjcgMi41MzhDMTMuNjk3NyAzLjM4NCAxMi42NzI3IDQuOTgyIDEyLjMgNS42NEMxMS45MjczIDYuMjA0IDExLjU1NDUgNy41MiAxMS41NTQ1IDcuNTJDMTEuMjc1IDguMjcyIDExLjI3NSA4Ljc0MiAxMS4xODE4IDkuNEgzLjcyNzI3QzEuNjc3MjcgOS40IDAgMTEuMDkyIDAgMTMuMTZWMTYuNzMyQzAgMTcuOTU0IDAgMTkuMDgyIDAgMTkuOTI4VjMxLjk2VjM3LjZWMzkuNDhWNDMuMjRMMC41NTkwOTEgNDUuMTJDMS4yMTEzNiA0Ni4yNDggMi40MjI3MyA0NyAzLjcyNzI3IDQ3QzMuNzI3MjcgNDcgMTguODIyNyA0NyAyMC41IDQ3QzIyLjE3NzMgNDcgMzkuMTM2NCA0NyAzOS4xMzY0IDQ3VjM3LjZDNDAuMTYxNCAzNy42IDQxIDM2Ljc1NCA0MSAzNS43MlYyNi4zMkM0MSAyNS4yODYgNDAuMTYxNCAyNC40NCAzOS4xMzY0IDI0LjQ0Wk0zMS42ODE4IDExLjI4SDM3LjI3MjdWMTUuMDRIMzAuNTYzNkMzMS4xMjI3IDEzLjkxMiAzMS40OTU1IDEyLjU5NiAzMS42ODE4IDExLjI4Wk0yMS40MzE4IDEuODhDMjYuMDkwOSAxLjg4IDI5LjgxODIgNS42NCAyOS44MTgyIDEwLjM0QzI5LjgxODIgMTIuMDMyIDI5LjM1MjMgMTMuNjMgMjguNDIwNSAxNS4wNEgyMi4zNjM2QzIzLjk0NzcgMTUuMDQgMjUuMTU5MSAxMy44MTggMjUuMTU5MSAxMi4yMkMyNS4xNTkxIDEwLjYyMiAyMy45NDc3IDkuNCAyMi4zNjM2IDkuNEgyMC41QzE5Ljk0MDkgOS40IDE5LjU2ODIgOS4wMjQgMTkuNTY4MiA4LjQ2QzE5LjU2ODIgNy44OTYgMTkuOTQwOSA3LjUyIDIwLjUgNy41MkgyMi4zNjM2QzIyLjkyMjcgNy41MiAyMy4yOTU1IDcuODk2IDIzLjI5NTUgOC40NkgyNS4xNTkxQzI1LjE1OTEgNi44NjIgMjMuOTQ3NyA1LjY0IDIyLjM2MzYgNS42NFYzLjc2SDIwLjVWNS42NEMxOC45MTU5IDUuNjQgMTcuNzA0NSA2Ljg2MiAxNy43MDQ1IDguNDZDMTcuNzA0NSAxMC4wNTggMTguOTE1OSAxMS4yOCAyMC41IDExLjI4SDIyLjM2MzZDMjIuOTIyNyAxMS4yOCAyMy4yOTU1IDExLjY1NiAyMy4yOTU1IDEyLjIyQzIzLjI5NTUgMTIuNzg0IDIyLjkyMjcgMTMuMTYgMjIuMzYzNiAxMy4xNkgyMC41QzE5Ljk0MDkgMTMuMTYgMTkuNTY4MiAxMi43ODQgMTkuNTY4MiAxMi4yMkgxNy43MDQ1QzE3LjcwNDUgMTMuODE4IDE4LjkxNTkgMTUuMDQgMjAuNSAxNS4wNEgxNC40NDMyQzEzLjUxMTQgMTMuNjMgMTMuMDQ1NSAxMi4wMzIgMTMuMDQ1NSAxMC4zNEMxMy4wNDU1IDUuNjQgMTYuNzcyNyAxLjg4IDIxLjQzMTggMS44OFpNMy43MjcyNyAxMS4yOEgxMS4xODE4QzExLjI3NSAxMi41OTYgMTEuNjQ3NyAxMy45MTIgMTIuMyAxNS4wNEgzLjcyNzI3QzIuNzAyMjcgMTUuMDQgMS44NjM2NCAxNC4xOTQgMS44NjM2NCAxMy4xNkMxLjg2MzY0IDEyLjEyNiAyLjcwMjI3IDExLjI4IDMuNzI3MjcgMTEuMjhaTTM3LjI3MjcgNDUuMTJIMy43MjcyN0MyLjcwMjI3IDQ1LjEyIDEuODYzNjQgNDQuMjc0IDEuODYzNjQgNDMuMjRWMTYuMzU2QzIuNDIyNzMgMTYuNzMyIDMuMDc1IDE2LjkyIDMuNzI3MjcgMTYuOTJIMzcuMjcyN1YyNC40NEgxOS41NjgyQzE1LjkzNDEgMjQuNDQgMTMuMDQ1NSAyNy4zNTQgMTMuMDQ1NSAzMS4wMkMxMy4wNDU1IDM0LjY4NiAxNS45MzQxIDM3LjYgMTkuNTY4MiAzNy42SDM3LjI3MjdWNDUuMTJaTTM5LjEzNjQgMzUuNzJIMTkuNTY4MkMxNi45NTkxIDM1LjcyIDE0LjkwOTEgMzMuNjUyIDE0LjkwOTEgMzEuMDJDMTQuOTA5MSAyOC4zODggMTYuOTU5MSAyNi4zMiAxOS41NjgyIDI2LjMySDM5LjEzNjRWMzUuNzJaIiBmaWxsPSIjRkY5QTAxIi8+Cjwvc3ZnPgo="/></div>
+                <div class="info-content">
+                  <div class="info-title">Постоянная регистрация</div>
+                  <div class="info-details">
+                    <p>Заявитель должен иметь постоянную регистрацию РФ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM4IDJMMiAzOCIgc3Ryb2tlPSIjRkY5QTAxIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIvPgo8cGF0aCBkPSJNOS4xNDUxMyAxNi45OTY5SDcuOTg5NTdDNS45NjczNSAxNi45OTY5IDQuMzA5NTcgMTUuMzQzNiA0LjMwOTU3IDEzLjMxNjlWNy45OTI1QzQuMzA5NTcgNS45NzAyOCA1Ljk2MjkgNC4zMTI1IDcuOTg5NTcgNC4zMTI1SDkuMTQ1MTNDMTEuMTY3MyA0LjMxMjUgMTIuODI1MSA1Ljk2NTgzIDEyLjgyNTEgNy45OTI1VjEzLjMxNjlDMTIuODI1MSAxNS4zMzkyIDExLjE2NzMgMTYuOTk2OSA5LjE0NTEzIDE2Ljk5NjlaIiBzdHJva2U9IiNGRjlBMDEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+CjxwYXRoIGQ9Ik0zMi4wMDc0IDM1LjY4ODRIMzAuODUxOUMyOC44Mjk3IDM1LjY4ODQgMjcuMTcxOSAzNC4wMzUgMjcuMTcxOSAzMi4wMDg0VjI2LjY4MzlDMjcuMTcxOSAyNC42NjE3IDI4LjgyNTIgMjMuMDAzOSAzMC44NTE5IDIzLjAwMzlIMzIuMDA3NEMzNC4wMjk3IDIzLjAwMzkgMzUuNjg3NCAyNC42NTcyIDM1LjY4NzQgMjYuNjgzOVYzMi4wMDg0QzM1LjY4NzQgMzQuMDM1IDM0LjAzNDEgMzUuNjg4NCAzMi4wMDc0IDM1LjY4ODRaIiBzdHJva2U9IiNGRjlBMDEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+Cjwvc3ZnPgo="/></div>
+                <div class="info-content">
+                  <div class="info-title">Без комиссии</div>
+                  <div class="info-details">
+                    <p>Платежи по рассрочке не облагаются комиссией.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iNDQiIHZpZXdCb3g9IjAgMCAzNCA0NCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2LjgyNjcgMTUuMzM5M0MxOC4yMDA0IDE1Ljc4OTIgMTkuNjc1OSAxNS44MTkgMjEuMDY2NSAxNS40MjUxQzIyLjQ1NzEgMTUuMDMxMiAyMy43MDA0IDE0LjIzMTIgMjQuNjM5MiAxMy4xMjYzQzI1LjU3OCAxMi4wMjEzIDI2LjE3IDEwLjY2MSAyNi4zNDA1IDkuMjE3NUMyNi41MTEgNy43NzM5NiAyNi4yNTIzIDYuMzExOTUgMjUuNTk3MSA1LjAxNjM3QzI0Ljk0MTggMy43MjA3OSAyMy45MTk1IDIuNjQ5ODMgMjIuNjU5NCAxLjkzODlDMjEuMzk5MyAxLjIyNzk4IDE5Ljk1NzkgMC45MDkwMjcgMTguNTE3NyAxLjAyMjM4QzE3LjA3NzQgMS4xMzU3NCAxNS43MDI5IDEuNjc2MzEgMTQuNTY3OSAyLjU3NTc1QzEzLjQzMyAzLjQ3NTE4IDEyLjU4ODYgNC42OTMwNyAxMi4xNDE1IDYuMDc1NDFDMTEuODQwNyA2Ljk5MzA4IDExLjcyMzQgNy45NjE1OCAxMS43OTY0IDguOTI1MDhDMTEuODY5NCA5Ljg4ODU3IDEyLjEzMTMgMTAuODI4IDEyLjU2NjggMTEuNjg5MkMxMy4wMDI0IDEyLjU1MDQgMTMuNjAzIDEzLjMxNjMgMTQuMzM0MSAxMy45NDI3QzE1LjA2NTMgMTQuNTY5MiAxNS45MTI0IDE1LjA0MzggMTYuODI2NyAxNS4zMzkzWk0xMy40NjM5IDYuNTA4NzFDMTMuODI1OCA1LjM4OTY2IDE0LjUwOTMgNC40MDM3MSAxNS40MjggMy42NzU1NUMxNi4zNDY3IDIuOTQ3MzkgMTcuNDU5NCAyLjUwOTcxIDE4LjYyNTMgMi40MTc4N0MxOS43OTEyIDIuMzI2MDMgMjAuOTU4IDIuNTg0MTUgMjEuOTc4MSAzLjE1OTU4QzIyLjk5ODMgMy43MzUwMiAyMy44MjU5IDQuNjAxOTMgMjQuMzU2NCA1LjY1MDY5QzI0Ljg4NjkgNi42OTk0NCAyNS4wOTY1IDcuODgyOTUgMjQuOTU4NSA5LjA1MTUzQzI0LjgyMDYgMTAuMjIwMSAyNC4zNDE0IDExLjMyMTMgMjMuNTgxNSAxMi4yMTU4QzIyLjgyMTcgMTMuMTEwNCAyMS44MTUyIDEzLjc1ODEgMjAuNjg5NSAxNC4wNzcxQzE5LjU2MzggMTQuMzk2IDE4LjM2OTQgMTQuMzcyIDE3LjI1NzMgMTQuMDA3OUMxNi41MTYgMTMuNzcwNSAxNS44Mjg4IDEzLjM4NzQgMTUuMjM1OCAxMi44ODA3QzE0LjY0MjggMTIuMzc0IDE0LjE1NTcgMTEuNzUzOCAxMy44MDI4IDExLjA1NjJDMTMuNDQ5OSAxMC4zNTg1IDEzLjIzODIgOS41OTcyOSAxMy4xODAxIDguODE2NjVDMTMuMTIxOSA4LjAzNjAxIDEzLjIxODQgNy4yNTE1MiAxMy40NjM5IDYuNTA4NzFaIiBmaWxsPSIjRkY5QTAxIiBzdHJva2U9IiNGRjlBMDEiIHN0cm9rZS13aWR0aD0iMC41Ii8+CjxwYXRoIGQ9Ik0xIDI2LjkwMTZWMzAuODM1N0MxLjAwMDI3IDMxLjIzOTggMS4wODc0NiAzMS42MzkgMS4yNTU1OCAzMi4wMDZDMS40MjM2OSAzMi4zNzI5IDEuNjY4NzUgMzIuNjk4OSAxLjk3MzkxIDMyLjk2MTZMNC42NTkxMyAzNS4yNzg2QzUuNjYxMDUgMzYuMTQxOCA2Ljc0MTc5IDM2LjkwNzcgNy44ODY5NiAzNy41NjYyTDguODQ2OTYgMzguMTE3OEM5LjY1ODYxIDM4LjU4NTEgMTAuNTI5IDM4Ljk0MDQgMTEuNDM0OCAzOS4xNzQxVjQyLjMwMThDMTEuNDM0OCA0Mi40ODc0IDExLjUwODEgNDIuNjY1NSAxMS42Mzg1IDQyLjc5NjdDMTEuNzY5IDQyLjkyOCAxMS45NDU5IDQzLjAwMTggMTIuMTMwNCA0My4wMDE4SDE2LjMwNDNDMTYuNDg4OCA0My4wMDE4IDE2LjY2NTggNDIuOTI4IDE2Ljc5NjIgNDIuNzk2N0MxNi45MjY3IDQyLjY2NTUgMTcgNDIuNDg3NCAxNyA0Mi4zMDE4VjM5LjUwMTdIMjMuOTU2NVY0Mi4zMDE4QzIzLjk1NjUgNDIuNDg3NCAyNC4wMjk4IDQyLjY2NTUgMjQuMTYwMyA0Mi43OTY3QzI0LjI5MDcgNDIuOTI4IDI0LjQ2NzcgNDMuMDAxOCAyNC42NTIyIDQzLjAwMThIMjguODI2MUMyOS4wMTA2IDQzLjAwMTggMjkuMTg3NSA0Mi45MjggMjkuMzE4IDQyLjc5NjdDMjkuNDQ4NCA0Mi42NjU1IDI5LjUyMTcgNDIuNDg3NCAyOS41MjE3IDQyLjMwMThWMzguMjQ4N0MzMC41ODcgMzcuNTQ4MyAzMS40NjI2IDM2LjU5MjUgMzIuMDY5OCAzNS40NjcxQzMyLjY3NjkgMzQuMzQxNyAzMi45OTY2IDMzLjA4MjIgMzMgMzEuODAxN1YyNC44MDE2QzMyLjk5NzYgMjIuNzYwMiAzMi4xOTA2IDIwLjgwMyAzMC43NTYxIDE5LjM1OTVDMjkuMzIxNSAxNy45MTYgMjcuMzc2NiAxNy4xMDQgMjUuMzQ3OCAxNy4xMDE2SDEyLjQyMDVDMTEuNjY1NSAxNy4xMDIzIDEwLjkyMDkgMTcuMjc5MSAxMC4yNDUyIDE3LjYxODJMMTAuMTI2MyAxNy42NzdDNy45MjU2NiAxOC43ODExIDYuMjIzMiAyMC42ODQxIDUuMzYyNDMgMjMuMDAxOUw0LjY5MTgzIDI0LjgwMTZIMy4wODY5NkMyLjUzMzQ2IDI0LjgwMTYgMi4wMDI2NCAyNS4wMjI5IDEuNjExMjYgMjUuNDE2N0MxLjIxOTg4IDI1LjgxMDUgMSAyNi4zNDQ3IDEgMjYuOTAxNlpNMTQuMjE3NCAxOC41MDE2SDIzLjk1NjVWMTkuMjAxNkMyMy45NTY1IDE5LjM4NzIgMjMuODgzMiAxOS41NjUzIDIzLjc1MjggMTkuNjk2NkMyMy42MjIzIDE5LjgyNzggMjMuNDQ1NCAxOS45MDE2IDIzLjI2MDkgMTkuOTAxNkgxNC45MTNDMTQuNzI4NSAxOS45MDE2IDE0LjU1MTYgMTkuODI3OCAxNC40MjExIDE5LjY5NjZDMTQuMjkwNyAxOS41NjUzIDE0LjIxNzQgMTkuMzg3MiAxNC4yMTc0IDE5LjIwMTZWMTguNTAxNlpNMi4zOTEzIDI2LjkwMTZDMi4zOTEzIDI2LjcxNiAyLjQ2NDYgMjYuNTM3OSAyLjU5NTA2IDI2LjQwNjdDMi43MjU1MiAyNi4yNzU0IDIuOTAyNDYgMjYuMjAxNiAzLjA4Njk2IDI2LjIwMTZINS4xNzM5MUM1LjMxNTUzIDI2LjIwMTggNS40NTM4MiAyNi4xNTg0IDUuNTcwMjkgMjYuMDc3NEM1LjY4Njc3IDI1Ljk5NjMgNS43NzU4OSAyNS44ODE0IDUuODI1NzQgMjUuNzQ4TDYuNjY1MzkgMjMuNDk0QzcuNDAyNjMgMjEuNTA3OCA4Ljg2MDg5IDE5Ljg3NjkgMTAuNzQ2MSAxOC45M0wxMC44NjUgMTguODcxMkMxMS4zNDgyIDE4LjYyODggMTEuODgwNiAxOC41MDIyIDEyLjQyMDUgMTguNTAxNkgxMi44MjYxVjE5LjIwMTZDMTIuODI2MSAxOS43NTg1IDEzLjA0NiAyMC4yOTI3IDEzLjQzNzMgMjAuNjg2NUMxMy44Mjg3IDIxLjA4MDMgMTQuMzU5NSAyMS4zMDE2IDE0LjkxMyAyMS4zMDE2SDIzLjI2MDlDMjMuODE0NCAyMS4zMDE2IDI0LjM0NTIgMjEuMDgwMyAyNC43MzY2IDIwLjY4NjVDMjUuMTI4IDIwLjI5MjcgMjUuMzQ3OCAxOS43NTg1IDI1LjM0NzggMTkuMjAxNlYxOC41MDE2QzI3LjAwNzcgMTguNTAzNCAyOC41OTkyIDE5LjE2NzggMjkuNzcyOSAyMC4zNDg5QzMwLjk0NjYgMjEuNTI5OSAzMS42MDY5IDIzLjEzMTMgMzEuNjA4NyAyNC44MDE2VjI1Ljk1NTlMMzAuNDQwNyAyNy40MjU5QzMwLjA1MDcgMjcuOTE4OSAyOS41NTQ5IDI4LjMxNjYgMjguOTkwNSAyOC41ODk1QzI4LjQyNjEgMjguODYyNCAyNy44MDc3IDI5LjAwMzMgMjcuMTgxNiAyOS4wMDE3QzI2Ljk5NzEgMjkuMDAxNyAyNi44MjAxIDI5LjA3NTQgMjYuNjg5NyAyOS4yMDY3QzI2LjU1OTIgMjkuMzM4IDI2LjQ4NTkgMjkuNTE2IDI2LjQ4NTkgMjkuNzAxN0MyNi40ODU5IDI5Ljg4NzMgMjYuNTU5MiAzMC4wNjU0IDI2LjY4OTcgMzAuMTk2NkMyNi44MjAxIDMwLjMyNzkgMjYuOTk3MSAzMC40MDE3IDI3LjE4MTYgMzAuNDAxN0gyNy40MzQ4QzI3LjQ4MTUgMzAuNDAxOCAyNy41MjgxIDMwLjM5NzEgMjcuNTczOSAzMC4zODc3QzI4LjM0MDYgMzAuMzM1NCAyOS4wODgxIDMwLjEyMjkgMjkuNzY4NyAyOS43NjM4QzMwLjQ0OTMgMjkuNDA0NiAzMS4wNDggMjguOTA2NiAzMS41MjY2IDI4LjMwMTdMMzEuNjA4NyAyOC4xOTc0VjMxLjgwMTdDMzEuNjA1NSAzMi45MDYxIDMxLjMxNDcgMzMuOTkwNSAzMC43NjU1IDM0Ljk0NjdDMzAuMjE2MyAzNS45MDMgMjkuNDI3NyAzNi42OTc3IDI4LjQ3ODMgMzcuMjUxOUMyOC4zNzI2IDM3LjMxMzMgMjguMjg0OSAzNy40MDE2IDI4LjIyMzggMzcuNTA3OEMyOC4xNjI4IDM3LjYxNDEgMjguMTMwNiAzNy43MzQ3IDI4LjEzMDQgMzcuODU3NFY0MS42MDE4SDI1LjM0NzhWMzguODAxN0MyNS4zNDc4IDM4LjYxNjEgMjUuMjc0NSAzOC40MzggMjUuMTQ0MSAzOC4zMDY4QzI1LjAxMzYgMzguMTc1NSAyNC44MzY3IDM4LjEwMTcgMjQuNjUyMiAzOC4xMDE3SDE2LjMwNDNDMTYuMTE5OCAzOC4xMDE3IDE1Ljk0MjkgMzguMTc1NSAxNS44MTI0IDM4LjMwNjhDMTUuNjgyIDM4LjQzOCAxNS42MDg3IDM4LjYxNjEgMTUuNjA4NyAzOC44MDE3VjQxLjYwMThIMTIuODI2MVYzOC42MTQ4QzEyLjgyNTkgMzguNDUyOSAxMi43NyAzOC4yOTYgMTIuNjY3NyAzOC4xNzA5QzEyLjU2NTUgMzguMDQ1OCAxMi40MjMzIDM3Ljk2MDIgMTIuMjY1NCAzNy45Mjg4QzExLjMwNTkgMzcuNzM3NSAxMC4zODM2IDM3LjM5MDkgOS41MzQyNiAzNi45MDI2TDguNTc0OTYgMzYuMzUxN0M3LjUwNjE4IDM1LjczNyA2LjQ5NzYzIDM1LjAyMTkgNS41NjI3OCAzNC4yMTZMMi44NzgyNiAzMS44OTk3QzIuNzI1NTQgMzEuNzY4MiAyLjYwMjk0IDMxLjYwNTEgMi41MTg4NyAzMS40MjE0QzIuNDM0ODEgMzEuMjM3NyAyLjM5MTI5IDMxLjAzNzkgMi4zOTEzIDMwLjgzNTdWMjYuOTAxNloiIGZpbGw9IiNGRjlBMDEiIHN0cm9rZT0iI0ZGOUEwMSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KPHBhdGggZD0iTTkuMzQ4MzQgMjQuODAwOEg3Ljk1NzAzVjI2LjIwMDhIOS4zNDgzNFYyNC44MDA4WiIgZmlsbD0iI0ZGOUEwMSIgc3Ryb2tlPSIjRkY5QTAxIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8cGF0aCBkPSJNMTIuMzMzNiAyNS45OTQxQzEyLjQ2NDggMjYuMTIxNyAxMi42NDA1IDI2LjE5MjIgMTIuODIyOSAyNi4xOTA2QzEzLjAwNTMgMjYuMTg5IDEzLjE3OTggMjYuMTE1NCAxMy4zMDg4IDI1Ljk4NTZDMTMuNDM3OCAyNS44NTU4IDEzLjUxMDkgMjUuNjgwMyAxMy41MTI1IDI1LjQ5NjdDMTMuNTE0MSAyNS4zMTMyIDEzLjQ0NCAyNS4xMzY0IDEzLjMxNzMgMjUuMDA0M0wxMi40MTc4IDI0LjA5OTJIMTIuODI1NEMxMy4wMDk5IDI0LjA5OTIgMTMuMTg2OSAyNC4wMjU1IDEzLjMxNzMgMjMuODk0MkMxMy40NDc4IDIzLjc2MjkgMTMuNTIxMSAyMy41ODQ5IDEzLjUyMTEgMjMuMzk5MkMxMy41MjExIDIzLjIxMzYgMTMuNDQ3OCAyMy4wMzU1IDEzLjMxNzMgMjIuOTA0MkMxMy4xODY5IDIyLjc3MyAxMy4wMDk5IDIyLjY5OTIgMTIuODI1NCAyMi42OTkySDEwLjczODVDMTAuNjAwOSAyMi42OTkyIDEwLjQ2NjQgMjIuNzQwMyAxMC4zNTIxIDIyLjgxNzJDMTAuMjM3NyAyMi44OTQyIDEwLjE0ODYgMjMuMDAzNSAxMC4wOTU5IDIzLjEzMTRDMTAuMDQzMyAyMy4yNTkzIDEwLjAyOTUgMjMuNCAxMC4wNTYzIDIzLjUzNTdDMTAuMDgzMiAyMy42NzE1IDEwLjE0OTQgMjMuNzk2MiAxMC4yNDY2IDIzLjg5NDFMMTIuMzMzNiAyNS45OTQxWiIgZmlsbD0iI0ZGOUEwMSIgc3Ryb2tlPSIjRkY5QTAxIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8cGF0aCBkPSJNMTUuOTIyNyA5Ljg0NDFMMTQuNzI4NSAxMC41NjI1TDE1LjQ0MjQgMTEuNzY0MUwxNi42MzY2IDExLjA0NTdMMTUuOTIyNyA5Ljg0NDFaIiBmaWxsPSIjRkY5QTAxIiBzdHJva2U9IiNGRjlBMDEiIHN0cm9rZS13aWR0aD0iMC41Ii8+CjxwYXRoIGQ9Ik0yMy4wODY3IDUuNTM1NTFMMjEuODkyNiA2LjI1MzkxTDIyLjYwNjUgNy40NTU1NUwyMy44MDA3IDYuNzM3MTVMMjMuMDg2NyA1LjUzNTUxWiIgZmlsbD0iI0ZGOUEwMSIgc3Ryb2tlPSIjRkY5QTAxIiBzdHJva2Utd2lkdGg9IjAuNSIvPgo8cGF0aCBkPSJNMTguOTQ4IDguNjc5NzlMMTkuNTQ1NiA4LjU1NTE5QzE5LjU3MjcgOC41NTUxOSAxOS42NDIzIDguNTM5NzkgMTkuNjY4NyA4LjUzNDg5QzE5Ljc1MjYgOC41MTczIDE5LjgzOTEgOC41MTY1NiAxOS45MjMyIDguNTMyNzFDMjAuMDA3NCA4LjU0ODg2IDIwLjA4NzYgOC41ODE1OSAyMC4xNTkxIDguNjI5QzIwLjIzMDcgOC42NzY0MiAyMC4yOTIyIDguNzM3NiAyMC4zNDAyIDguODA5MDJDMjAuMzg4MiA4Ljg4MDQ1IDIwLjQyMTcgOC45NjA3MSAyMC40Mzg4IDkuMDQ1MTlDMjAuNDc4MiA5LjIzODQ1IDIwLjQzOTggOS40Mzk1NiAyMC4zMzE5IDkuNjA0M0MyMC4yMjQgOS43NjkwNSAyMC4wNTU1IDkuODgzOTMgMTkuODYzNSA5LjkyMzdMMTguNTQxNyAxMC4xOTY3QzE4LjM3MzQgMTAuMjMyIDE4LjIyNCAxMC4zMjg3IDE4LjEyMjQgMTAuNDY4MkMxOC4wMjA4IDEwLjYwNzggMTcuOTc0MSAxMC43ODAzIDE3Ljk5MTQgMTAuOTUyNEMxOC4wMDg3IDExLjEyNDUgMTguMDg4NyAxMS4yODQxIDE4LjIxNiAxMS40MDA0QzE4LjM0MzMgMTEuNTE2NiAxOC41MDg5IDExLjU4MTQgMTguNjgwOSAxMS41ODJDMTguNzI3NiAxMS41ODE3IDE4Ljc3NDIgMTEuNTc3IDE4LjgyIDExLjU2OEwyMC4xNDE3IDExLjI5NUMyMC40MTU4IDExLjIzODQgMjAuNjc2IDExLjEyNzkgMjAuOTA3NiAxMC45NzAxQzIxLjEzOTMgMTAuODEyMiAyMS4zMzc3IDEwLjYxIDIxLjQ5MTYgMTAuMzc0OUMyMS42NDU2IDEwLjEzOTkgMjEuNzUyIDkuODc2NiAyMS44MDQ4IDkuNjAwMTZDMjEuODU3NiA5LjMyMzcyIDIxLjg1NTggOS4wMzk1MiAyMS43OTk1IDguNzYzNzlDMjEuNzQ1NyA4LjQ5ODk2IDIxLjY0MDUgOC4yNDc0MiAyMS40ODk5IDguMDIzNTlDMjEuMzM5MyA3Ljc5OTc2IDIxLjE0NjIgNy42MDgwNSAyMC45MjE4IDcuNDU5NDVDMjAuNjk3NCA3LjMxMDg1IDIwLjQ0NjEgNy4yMDgyOCAyMC4xODIyIDcuMTU3NjNDMTkuOTE4NCA3LjEwNjk4IDE5LjY0NzIgNy4xMDkyNCAxOS4zODQyIDcuMTY0MjhDMTkuMzU3MSA3LjE2NjI0IDE5LjMzMDEgNy4xNjk5OSAxOS4zMDM1IDcuMTc1NDhMMTguNjY0OSA3LjMwODQ4QzE4LjQ3MyA3LjM0Nzk4IDE4LjI3MzQgNy4zMDkyOCAxOC4xMDk5IDcuMjAwODhDMTcuOTQ2MyA3LjA5MjQ5IDE3LjgzMjIgNi45MjMyNCAxNy43OTI1IDYuNzMwMjdDMTcuNzU4IDYuNTU5NzEgMTcuNzkxOSA2LjM4MjMgMTcuODg2OSA2LjIzNjg0QzE3Ljk4MiA2LjA5MTM4IDE4LjEzMDMgNS45ODk2OCAxOC4yOTk3IDUuOTUzOTdMMTkuMDIzOCA1LjgwNDE3QzE5LjIwMDggNS43NjMzMSAxOS4zNTQ5IDUuNjU0NDIgMTkuNDUzMiA1LjUwMDc3QzE5LjU1MTUgNS4zNDcxMiAxOS41ODYyIDUuMTYwODggMTkuNTQ5OSA0Ljk4MTg0QzE5LjUxMzUgNC44MDI4IDE5LjQwOTEgNC42NDUxNSAxOS4yNTg4IDQuNTQyNThDMTkuMTA4NSA0LjQ0IDE4LjkyNDMgNC40MDA2MiAxOC43NDU2IDQuNDMyODZMMTguMDIwNyA0LjU4MjY2QzE3LjQ5MDIgNC42OTMzNiAxNy4wMjQ5IDUuMDExMjIgMTYuNzI3IDUuNDY2NTVDMTYuNDI5IDUuOTIxODkgMTYuMzIyNiA2LjQ3NzU0IDE2LjQzMTEgNy4wMTE2OEMxNi40ODc0IDcuMjg3NTYgMTYuNTk3MiA3LjU0OTU4IDE2Ljc1NDIgNy43ODI3NUMxNi45MTEyIDguMDE1OTIgMTcuMTEyMyA4LjIxNTY3IDE3LjM0NiA4LjM3MDU5QzE3LjU3OTggOC41MjU1MSAxNy44NDE2IDguNjMyNTUgMTguMTE2NCA4LjY4NTYxQzE4LjM5MTMgOC43Mzg2NiAxOC42NzM5IDguNzM2NjkgMTguOTQ4IDguNjc5NzlaIiBmaWxsPSIjRkY5QTAxIiBzdHJva2U9IiNGRjlBMDEiIHN0cm9rZS13aWR0aD0iMC41Ii8+Cjwvc3ZnPgo="/></div>
+                <div class="info-content">
+                  <div class="info-title">Погашение без переплат</div>
+                  <div class="info-details">
+                    <p>У вас всегда есть возможность погасить рассрочку досрочно без переплат и с экономией денег.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="my-5">Требования к&nbsp;заемщику</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMiIGhlaWdodD0iNTAiIHZpZXdCb3g9IjAgMCAzMyA1MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMwLjE1MDUgNy42NTAzM0gyOC41NTE2VjIuOTUwNjdDMjguNTY5MSAyLjcyNDI4IDI4LjUwMDQgMi40OTk2OSAyOC4zNTk1IDIuMzIyOTNDMjguMjE4NiAyLjE0NjE2IDI4LjAxNjIgMi4wMzA2MyAyNy43OTM5IDJMMi43ODgwOCA3LjY1MDMzQzIuNjIzNDggNy42NjA5MyAyLjQ2NjEgNy43MjI1MyAyLjMzNzMxIDcuODI2NzhDMi4yMDg1MiA3LjkzMTAyIDIuMTE0NTcgOC4wNzI4NSAyLjA2ODIyIDguMjMzQzIuMDIyMyA4LjM1Mjc2IDEuOTk5MTcgOC40ODAyMiAyLjAwMDAyIDguNjA4NjdWNDcuMDQ5M0MxLjk5OTIgNDcuMTc1MyAyLjAyMjM2IDQ3LjMwMDIgMi4wNjgyMiA0Ny40MTczQzIuMTE0NTcgNDcuNTc3NSAyLjIwODUyIDQ3LjcxOTMgMi4zMzczMSA0Ny44MjM2QzIuNDY2MSA0Ny45Mjc4IDIuNjIzNDggNDcuOTg5NCAyLjc4ODA4IDQ4SDMwLjE1MDVDMzAuMzg3IDQ3Ljk4NjEgMzAuNjA4NiA0Ny44Nzg2IDMwLjc2NzQgNDcuNzAwN0MzMC45MjYzIDQ3LjUyMjggMzEuMDA5NSA0Ny4yODg4IDMwLjk5OTEgNDcuMDQ5M1Y4LjYwMUMzMS4wMDk1IDguMzYxNTEgMzAuOTI2MyA4LjEyNzUxIDMwLjc2NzQgNy45NDk2MUMzMC42MDg2IDcuNzcxNzEgMzAuMzg3IDcuNjY0MjEgMzAuMTUwNSA3LjY1MDMzVjcuNjUwMzNaIiBzdHJva2U9IiNGRjlBMDEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLW1pdGVybGltaXQ9IjEwIi8+CjxwYXRoIGQ9Ik0yOS4yNjQyIDcuNjQ4NDRIMi43MzUzNSIgc3Ryb2tlPSIjRkY5QTAxIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNOS41NDAwNCA0MC4xNTYySDIzLjQwNjkiIHN0cm9rZT0iI0ZGOUEwMSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8cGF0aCBkPSJNOS43OTcxIDE5Ljg2NUM5LjQ2OTk5IDIwLjg1MjkgOS4zMTExMyAyMS44ODk5IDkuMzI3MjkgMjIuOTMxNkM5LjMyNzI5IDMwLjIzOCAxNS4zMjExIDMyLjY5OSAxNi4zMjg5IDMzLjI5N0MxNi4zNzI0IDMzLjMyMzMgMTYuNDIyMiAzMy4zMzcyIDE2LjQ3MjkgMzMuMzM3MkMxNi41MjM2IDMzLjMzNzIgMTYuNTczMyAzMy4zMjMzIDE2LjYxNjkgMzMuMjk3QzE3LjYyNDcgMzIuNjk5IDIzLjYxODUgMzAuNDM3MyAyMy42MTg1IDIyLjkzMTZDMjMuNjM0NiAyMS44ODk5IDIzLjQ3NTggMjAuODUyOSAyMy4xNDg3IDE5Ljg2NUMyMC42ODQ0IDE5LjQxMTMgMTguMzgxOSAxOC4zMDg2IDE2LjQ3MjkgMTYuNjY4QzE0LjU2MzkgMTguMzA4NiAxMi4yNjEzIDE5LjQxMTMgOS43OTcxIDE5Ljg2NVoiIHN0cm9rZT0iI0ZGOUEwMSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg=="/></div>
+                <div class="info-content">
+                  <div class="info-title">Гражданство РФ</div>
+                  <div class="info-details">
+                    <p>Заявитель должен быть гражданином РФ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEiIGhlaWdodD0iNDUiIHZpZXdCb3g9IjAgMCA0MSA0NSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI0Ljc5MDcgMjUuNTc4MUg3LjYyNzkzVjI4LjQxOThIMjQuNzkwN1YyNS41NzgxWiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjQuNzkwNyAxNy4wNTA4SDcuNjI3OTNWMTkuODkyNUgyNC43OTA3VjE3LjA1MDhaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik0yNC43OTA3IDguNTI3MzRINy42Mjc5M1YxMS4zNjlIMjQuNzkwN1Y4LjUyNzM0WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMzkuMDkyOCA2LjYzMTk3SDMyLjQxODhWMS44OTQ0NkMzMi40MTg4IDAuNzEwMDg2IDMxLjcwNDIgMCAzMC41MTE3IDBIMS45MDY3MkMwLjcxNDY4MiAwIDAgMC43MTAwODYgMCAxLjg5NDQ2VjM2Ljk0NjVDMCAzOC4xMzE4IDAuNzE0NjgyIDM4Ljg0MjMgMS45MDY3MiAzOC44NDIzSDguNTgxMTZWNDMuMTA1NUM4LjU4MTE2IDQ0LjI4OTkgOS4yOTYzIDQ1IDEwLjQ4ODMgNDVIMzkuMDkyOEM0MC4yODUzIDQ1IDQxIDQ0LjI4OTkgNDEgNDMuMTA1NVY4LjUyNjQzQzQxIDcuMzQxNiA0MC4yODUzIDYuNjMxOTcgMzkuMDkyOCA2LjYzMTk3Wk0yLjg2MDU0IDM1LjA1MjVWMy43ODkzN0MyLjg2MDU0IDMuMTk3MTkgMy4yMTc4OCAyLjg0MTY5IDMuODEzOSAyLjg0MTY5SDI4LjYwNDVDMjkuMjAwNSAyLjg0MTY5IDI5LjU1NzggMy4xOTcxOSAyOS41NTc4IDMuNzg5MzdWMzUuMDUyNUMyOS41NTc4IDM1LjY0NDIgMjkuMjAwNSAzNS45OTkzIDI4LjYwNDUgMzUuOTk5M0gzLjgxMzlDMy4yMTc4OCAzNS45OTkzIDIuODYwNTQgMzUuNjQ0MiAyLjg2MDU0IDM1LjA1MjVaTTM4LjEzOSA0MS4yMDk3QzM4LjEzOSA0MS44MDE5IDM3Ljc4MTcgNDIuMTU2NSAzNy4xODYxIDQyLjE1NjVIMTIuODcyQzEyLjI3NiA0Mi4xNTY1IDExLjkxODYgNDEuODAyNCAxMS45MTg2IDQxLjIwOTdWMzguODQxSDMwLjUxMTdDMzEuNzA0MiAzOC44NDEgMzIuNDE4OCAzOC4xMzA5IDMyLjQxODggMzYuOTQ2MVY5Ljk0NzVIMzcuMTg2MUMzNy43ODE3IDkuOTQ3NSAzOC4xMzkgMTAuMzAyMSAzOC4xMzkgMTAuODk0M1Y0MS4yMDk3WiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K"/></div>
+                <div class="info-content">
+                  <div class="info-title">Постоянная регистрация</div>
+                  <div class="info-details">
+                    <p>Заявитель должен иметь постоянную регистрацию РФ</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCA0MSAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM4LjQzNzUgNi4zNDYxNUgyOC4xODc1VjEuMjY5MjNDMjguMTg3NSAwLjkzMjYxIDI4LjA1MjUgMC42MDk3NzYgMjcuODEyMiAwLjM3MTc0OUMyNy41NzIgMC4xMzM3MjIgMjcuMjQ2MSAwIDI2LjkwNjIgMEgxNC4wOTM4QzEzLjc1MzkgMCAxMy40MjgxIDAuMTMzNzIyIDEzLjE4NzggMC4zNzE3NDlDMTIuOTQ3NSAwLjYwOTc3NiAxMi44MTI1IDAuOTMyNjEgMTIuODEyNSAxLjI2OTIzVjYuMzQ2MTVIMi41NjI1QzEuODgyODggNi4zNDYxNSAxLjIzMTEgNi42MTM2IDAuNzUwNTM5IDcuMDg5NjVDMC4yNjk5NzcgNy41NjU3MSAwIDguMjExMzcgMCA4Ljg4NDYxTDAgMzAuNDYxNUMwIDMxLjEzNDggMC4yNjk5NzcgMzEuNzgwNCAwLjc1MDUzOSAzMi4yNTY1QzEuMjMxMSAzMi43MzI2IDEuODgyODggMzMgMi41NjI1IDMzSDM4LjQzNzVDMzkuMTE3MSAzMyAzOS43Njg5IDMyLjczMjYgNDAuMjQ5NSAzMi4yNTY1QzQwLjczIDMxLjc4MDQgNDEgMzEuMTM0OCA0MSAzMC40NjE1VjguODg0NjFDNDEgOC4yMTEzNyA0MC43MyA3LjU2NTcxIDQwLjI0OTUgNy4wODk2NUMzOS43Njg5IDYuNjEzNiAzOS4xMTcxIDYuMzQ2MTUgMzguNDM3NSA2LjM0NjE1Wk0xNS4zNzUgMi41Mzg0NkgyNS42MjVWNi4zNDYxNUgxNS4zNzVWMi41Mzg0NlpNMi41NjI1IDguODg0NjFIMzguNDM3NVYxNC41OTYyQzM4LjQzNzUgMTUuOTQyNiAzNy44OTc1IDE3LjIzNCAzNi45MzY0IDE4LjE4NjFDMzUuOTc1MyAxOS4xMzgyIDM0LjY3MTcgMTkuNjczMSAzMy4zMTI1IDE5LjY3MzFIMjQuMzQzOFYxOC40MDM4QzI0LjM0MzggMTcuNzMwNiAyNC4wNzM4IDE3LjA4NDkgMjMuNTkzMiAxNi42MDg5QzIzLjExMjYgMTYuMTMyOCAyMi40NjA5IDE1Ljg2NTQgMjEuNzgxMiAxNS44NjU0SDE5LjIxODhDMTguNTM5MSAxNS44NjU0IDE3Ljg4NzQgMTYuMTMyOCAxNy40MDY4IDE2LjYwODlDMTYuOTI2MiAxNy4wODQ5IDE2LjY1NjIgMTcuNzMwNiAxNi42NTYyIDE4LjQwMzhWMTkuNjczMUg3LjY4NzVDNi4zMjgyNyAxOS42NzMxIDUuMDI0NyAxOS4xMzgyIDQuMDYzNTggMTguMTg2MUMzLjEwMjQ1IDE3LjIzNCAyLjU2MjUgMTUuOTQyNiAyLjU2MjUgMTQuNTk2MlY4Ljg4NDYxWk0yMS43ODEyIDIzLjQ4MDhIMTkuMjE4OFYxOC40MDM4SDIxLjc4MTJWMjAuOTQyM1YyMy40ODA4Wk0yLjU2MjUgMzAuNDYxNVYyMC4yNTY5QzMuOTY5NjMgMjEuNTExMyA1Ljc5NDUgMjIuMjA3MyA3LjY4NzUgMjIuMjExNUgxNi42NTYyVjIzLjQ4MDhDMTYuNjU2MiAyNC4xNTQgMTYuOTI2MiAyNC43OTk3IDE3LjQwNjggMjUuMjc1N0MxNy44ODc0IDI1Ljc1MTggMTguNTM5MSAyNi4wMTkyIDE5LjIxODggMjYuMDE5MkgyMS43ODEyQzIyLjQ2MDkgMjYuMDE5MiAyMy4xMTI2IDI1Ljc1MTggMjMuNTkzMiAyNS4yNzU3QzI0LjA3MzggMjQuNzk5NyAyNC4zNDM4IDI0LjE1NCAyNC4zNDM4IDIzLjQ4MDhWMjIuMjExNUgzMy4zMTI1QzM1LjIwNjUgMjIuMjEyNyAzNy4wMzMzIDIxLjUxNiAzOC40Mzc1IDIwLjI1NjlWMzAuNDYxNUgyLjU2MjVaIiBmaWxsPSIjRkY5QTAxIi8+Cjwvc3ZnPgo="/></div>
+                <div class="info-content">
+                  <div class="info-title">Постоянная работа</div>
+                  <div class="info-details">
+                    <p>Срок не менее 3-х месяцев</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEiIGhlaWdodD0iNDIiIHZpZXdCb3g9IjAgMCA0MSA0MiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTM1LjMwNTMgMy40MDQ2NkgzMS44ODk0VjBIMjkuNjEwNlYzLjQwNDY2SDExLjM4OTRWMEg5LjExMDY0VjMuNDA0NjZINS42OTQ2OEMyLjU1Mzk3IDMuNDA0NjYgMCA1Ljk1MDE4IDAgOS4wODA1MVYzNi4zMjQyQzAgMzkuNDU0NSAyLjU1Mzk3IDQyIDUuNjk0NjggNDJIMzUuMzA1M0MzOC40NDYgNDIgNDEgMzkuNDU0NSA0MSAzNi4zMjQyVjE0Ljc1NjRWMTIuNDg3M1Y5LjA4MDUxQzQxIDUuOTUyMyAzOC40NDYgMy40MDQ2NiAzNS4zMDUzIDMuNDA0NjZaTTM4LjcyMzQgMzYuMzI0MkMzOC43MjM0IDM4LjIwMTkgMzcuMTkxNSAzOS43Mjg4IDM1LjMwNzUgMzkuNzI4OEg1LjY5NDY4QzMuODEwNjggMzkuNzI4OCAyLjI3ODczIDM4LjIwMTkgMi4yNzg3MyAzNi4zMjQyVjE0Ljc1NjRIMzguNzIzNFYzNi4zMjQyWk0zOC43MjM0IDEyLjQ4NzNIMi4yNzY1OVY5LjA4MDUxQzIuMjc2NTkgNy4yMDI3MyAzLjgwODU0IDUuNjc1ODUgNS42OTI1NSA1LjY3NTg1SDkuMTA4NVY3Ljk0NzA0SDExLjM4OTRWNS42NzU4NUgyOS42MTI4VjcuOTQ3MDRIMzEuODkxNVY1LjY3NTg1SDM1LjMwNzVDMzcuMTkxNSA1LjY3NTg1IDM4LjcyMzQgNy4yMDI3MyAzOC43MjM0IDkuMDgwNTFWMTIuNDg3M1oiIGZpbGw9IiNGRjlBMDEiLz4KPHBhdGggZD0iTTE4LjIyMTEgMjYuMTA2MUgyMi43NzY0QzI0LjAzMzEgMjYuMTA2MSAyNS4wNTUyIDI1LjA4NzQgMjUuMDU1MiAyMy44MzQ5VjE5LjI5NDZDMjUuMDU1MiAxOC4wNDIxIDI0LjAzMzEgMTcuMDIzNCAyMi43NzY0IDE3LjAyMzRIMTguMjIxMUMxNi45NjQ0IDE3LjAyMzQgMTUuOTQyNCAxOC4wNDIxIDE1Ljk0MjQgMTkuMjk0NlYyMy44MzQ5QzE1Ljk0NDUgMjUuMDg3NCAxNi45NjY1IDI2LjEwNjEgMTguMjIxMSAyNi4xMDYxWk0xOC4yMjExIDE5LjI5NDZIMjIuNzc2NEwyMi43Nzg2IDIzLjgzNDlIMTguMjIxMVYxOS4yOTQ2WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjkuNjEwOCAyNi4xMDYxSDM0LjE2NjFDMzUuNDIyOCAyNi4xMDYxIDM2LjQ0NDggMjUuMDg3NCAzNi40NDQ4IDIzLjgzNDlWMTkuMjk0NkMzNi40NDQ4IDE4LjA0MjEgMzUuNDIyOCAxNy4wMjM0IDM0LjE2NjEgMTcuMDIzNEgyOS42MTA4QzI4LjM1NCAxNy4wMjM0IDI3LjMzMiAxOC4wNDIxIDI3LjMzMiAxOS4yOTQ2VjIzLjgzNDlDMjcuMzM0MiAyNS4wODc0IDI4LjM1NjIgMjYuMTA2MSAyOS42MTA4IDI2LjEwNjFaTTI5LjYxMDggMTkuMjk0NkgzNC4xNjYxTDM0LjE2ODIgMjMuODM0OUgyOS42MTA4VjE5LjI5NDZaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik02LjgzNDM5IDM3LjQ2MTVIMTEuMzg5N0MxMi42NDY0IDM3LjQ2MTUgMTMuNjY4NCAzNi40NDI5IDEzLjY2ODQgMzUuMTkwNFYzMC42NTAxQzEzLjY2ODQgMjkuMzk3NSAxMi42NDY0IDI4LjM3ODkgMTEuMzg5NyAyOC4zNzg5SDYuODM0MzlDNS41Nzc2OCAyOC4zNzg5IDQuNTU1NjYgMjkuMzk3NSA0LjU1NTY2IDMwLjY1MDFWMzUuMTkwNEM0LjU1NTY2IDM2LjQ0MjkgNS41Nzc2OCAzNy40NjE1IDYuODM0MzkgMzcuNDYxNVpNNi44MzQzOSAzMC42NTAxSDExLjM4OTdMMTEuMzkxOCAzNS4xOTA0SDYuODM0MzlWMzAuNjUwMVoiIGZpbGw9IiNGRjlBMDEiLz4KPHBhdGggZD0iTTE4LjIyMTEgMzcuNDYxNUgyMi43NzY0QzI0LjAzMzEgMzcuNDYxNSAyNS4wNTUyIDM2LjQ0MjkgMjUuMDU1MiAzNS4xOTA0VjMwLjY1MDFDMjUuMDU1MiAyOS4zOTc1IDI0LjAzMzEgMjguMzc4OSAyMi43NzY0IDI4LjM3ODlIMTguMjIxMUMxNi45NjQ0IDI4LjM3ODkgMTUuOTQyNCAyOS4zOTc1IDE1Ljk0MjQgMzAuNjUwMVYzNS4xOTA0QzE1Ljk0NDUgMzYuNDQyOSAxNi45NjY1IDM3LjQ2MTUgMTguMjIxMSAzNy40NjE1Wk0xOC4yMjExIDMwLjY1MDFIMjIuNzc2NEwyMi43Nzg2IDM1LjE5MDRIMTguMjIxMVYzMC42NTAxWiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjkuNjEwOCAzNy40NjE1SDM0LjE2NjFDMzUuNDIyOCAzNy40NjE1IDM2LjQ0NDggMzYuNDQyOSAzNi40NDQ4IDM1LjE5MDRWMzAuNjUwMUMzNi40NDQ4IDI5LjM5NzUgMzUuNDIyOCAyOC4zNzg5IDM0LjE2NjEgMjguMzc4OUgyOS42MTA4QzI4LjM1NCAyOC4zNzg5IDI3LjMzMiAyOS4zOTc1IDI3LjMzMiAzMC42NTAxVjM1LjE5MDRDMjcuMzM0MiAzNi40NDI5IDI4LjM1NjIgMzcuNDYxNSAyOS42MTA4IDM3LjQ2MTVaTTI5LjYxMDggMzAuNjUwMUgzNC4xNjYxTDM0LjE2ODIgMzUuMTkwNEgyOS42MTA4VjMwLjY1MDFaIiBmaWxsPSIjRkY5QTAxIi8+Cjwvc3ZnPgo="/></div>
+                <div class="info-content">
+                  <div class="info-title">Возраст</div>
+                  <div class="info-details">
+                    <ul class="list-positive-simplified">
+                      <li>мужчины&nbsp;&mdash; 
+                        <nobr>от 19-ти</nobr> лет
+                      </li>
+                      <li>женщины&nbsp;&mdash; 
+                        <nobr>от 20-ти</nobr> лет
+                      </li>
+                      <li>максимальный возраст&nbsp;&mdash; 74&nbsp;года</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h2 class="my-5">Способы гашения кредита</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-positive">
+                <li>
+                  <h6>Мобильное приложение "Мой кредит"</h6>
+                  <p>Принимаем к оплате карты Visa, MasterCard, Maestro и МИР. Комиссия 0% за оплату кредита и пополнение кредитной карты. Деньги поступят на Ваш счет в Банке в день платежа.</p>
+                </li>
+                <li>
+                  <h6>Через интернет-банк</h6>
+                  <p>Безналичным переводом денежных средств через Интернет-банк с Вашей дебетовой карты, оформленной в Банке Хоум Кредит. Перевод платежа в рамках Интернет-банка является абсолютно бесплатным способом погашения кредита.</p>
+                  <p>Обращаем Ваше внимание на то, что каждая операция по переводу требует ввода одноразового кода, который высылается Вам на мобильный телефон.</p>
+                  <p>Зачисление на Ваш счет в Банке – 1-2 дня.</p>
+                  <p>
+                    Доступ в Интернет-Банк:
+                    <a href="#" target="_blank">ссылка в интернет банк</a>
+                  </p>
+                </li>
+                <li>
+                  <h6>Через кассы банка</h6>
+                  <p>Погашение кредитов в офисе Банка бесплатно!</p>
+                  <p>Всегда самая свежая информация об акциях, проводимых Банком!</p>
+                  <p>
+                    Информацию о местонахождении каждого из офисов Банка можно узнать на стенде в банковском офисе, по телефону горячей линии
+                    <span class="phone">8 (495) 785-82-22</span>
+                    и по ссылке
+                    
+                    &laquo;<a href="#" target="_blank">Отделения и банкоматы</a>&raquo;.
+                  </p>
+                  <p>Зачисление на Ваш счет в Банке – в течение одного рабочего дня.</p>
+                </li>
+                <li>
+                  <h6>В отделениях других банков</h6>
+                  <p>В отделениях Сбербанка и других коммерческих банков перевод денежных средств по поручению физических лиц осуществляется с открытием или без открытия счета. Для осуществления оплаты через коммерческий банк необходимо заполнить платежный документ. </p>
+                  <p>Порядок перевода денежных средств (с открытием или без открытия счета), порядок заполнения платежного документа, а также размер комиссии за перевод денежных средств необходимо уточнить непосредственно в отделении банка, через который будет производиться оплата.</p>
+                  <p>Зачисление на Ваш счет в Банке – до 3-х рабочих дней.</p>
+                </li>
+                <li>
+                  <h6>Через отделения «ПОЧТА РОССИИ»</h6>
+                  <p>Для совершения платежа необходимо заполнить бланк электронного почтового перевода и обратиться за осуществлением электронного перевода денежных средств в одно из отделений почтовой связи ФГУП «Почта России», работающее по программе «КиберДеньги ». Более подробно об этом способе погашения и взымаемой комиссии за перевод денежных средств Вы можете узнать на сайте ФГУП «Почта России» и в отделениях почтовой связи.</p>
+                  <p>Зачисление на Ваш счет в Банке – в течение 10-ти рабочих дней.</p>
+                </li>
+                <li>
+                  <h6>Через платежный сервис QIWI</h6>
+                  <p>Через платежные сервисы QIWI (КИВИ) можно просто и безопасно погасить задолженность по кредиту по карте или по кредиту наличными</p>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-positive">
+                <li>
+                  <h6>Сайт банка</h6>
+                  <p>Принимаем к оплате карты Visa, MasterCard, Maestro и МИР. Комиссия 0% за оплату кредита и пополнение кредитной карты. Деньги поступят на Ваш счет в Банке в день платежа.</p>
+                </li>
+                <li>
+                  <h6>В Банкоматах «CASH-IN»</h6>
+                  <p>(англ. - банкомат с функцией приема наличных). Внесение наличных денежных средств возможно в банкоматах «Cash-in» ООО «Хоум Кредит энд Финанс Банка» по штрих-коду или по номеру кредитного договора (комиссия не взимается). </p>
+                  <p>
+                    Список банкоматов «Cash-in» можно узнать по телефону Банка
+                    <span class="phone">8 (495) 785-82-22</span>
+                    и на официальном сайте
+                    
+                    <a href="http://www.homecredit.ru/bankomats.php" target="_blank">http://www.homecredit.ru/bankomats.php</a>
+                  </p>
+                  <p>Зачисление на Ваш счет в Банке – до 1-го рабочего дня.</p>
+                </li>
+                <li>
+                  <h6>Переводом из заработной платы</h6>
+                  <p>Для осуществления оплаты путем безналичного перевода денежных средств из заработной платы Вам достаточно передать в бухгалтерию своей организации заявление на ежемесячный перевод денежных средств с указанием реквизитов для оплаты. Обращаем Ваше внимание на то, что бухгалтерия организации может отказать в данной услуге (услуга предоставляется только по договоренности с работодателем) на бесплатной для Вас основе.</p>
+                  <p>Если Вы получаете заработанную плату путем зачисления её на банковскую зарплатную карту, для оформления ежемесячного перевода денежных средств, Вы можете обратиться в Банк, осуществляющий обслуживание карты.</p>
+                </li>
+                <li>
+                  <h6>В пунктах приема платежей «ЗОЛОТАЯ КОРОНА – ПОГАШЕНИЕ КРЕДИТОВ»</h6>
+                  <p>Внести денежные средства в счет погашения кредита через сервис «Золотая Корона – Погашение кредитов» можно более чем в 10 тыс. пунктах обслуживания по всей России, которые расположены в кассах партнёров сервиса - ведущих федеральных и региональных торговых сетях, например, таких, как сети салонов «Евросеть», «МТС», «Билайн», «Кари» и другие.</p>
+                  <p>Комиссия при сумме перевода до 5000 руб. составит 50 руб., при сумме перевода превышающей 5000 руб. – 1% от суммы перевода (в обувных магазинах КАРИ – 30 руб. за перевод. В салонах Евросеть комиссия 1%, но не менее 50 рублей и не более 500 рублей. В салонах Билайн: комиссия 1%, но не менее 50 рублей.</p>
+                  <p>Срок зачисления: на следующий рабочий день.</p>
+                  <p>Что взять с собой: паспорт, договор с банком.</p>
+                  <h6>Необходимые реквизиты при первом обращении:</h6>
+                  <ul class="list-positive list-positive-simplified">
+                    <li>Название банка (ООО "Хоум Кредит энд Финанс Банк").</li>
+                    <li>Номер 20-значного текущего счета для оплаты (начинается с 40817810 или 42301810) и номер договора.</li>
+                    <li>Номер мобильного телефона для создания шаблона оплаты.</li>
+                    <li>Полное ФИО заемщика (если Вы платите за другое лицо).</li>
+                  </ul>
+                  <p>При повторной оплате достаточно называть только адрес, шаблон будет подтягиваться автоматически.</p>
+                  <p>Шаблон по адресу дополнительно позволит Вам совершать в одной пачке оплату всех своих коммунальных платежей, привязанных к адресу.</p>
+                  <p>Сохраняйте чек до поступления денежных средств.</p>
+                  <p>
+                    Информационный центр&nbsp;&mdash;
+                    <span class="phone">8 (495) 211-07-00</span>
+                    
+                    (круглосуточно).
+                  </p>
+                  <p>
+                    Подробная информация о ближайшем пункте обслуживания представлена на сайте сервиса
+                    <a href="#" target="_blank">Золотая Корона – Погашение кредитов.</a>
+                  </p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <h6>Комиссия за досрочное погашение&nbsp;&mdash; 0%</h6>
+              <div class="notice mt-3">
+                <p><b>ВНИМАНИЕ!</b>
+                  
+                  Услуга «Туры в рассрочку» не распространяется на спецпредложения с пометками «Promo Price», «Early Booking Promo Price», «Early Booking Superior Select» и «Early Booking Superior Select»
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div class="container">
+        <section id="footerLinks">
+          <div class="row">
+            <div class="col order-0">
+              <h5>Куда поехать</h5>
+              <nav><a href="tour-catalog.html">Бейдайхэ</a><a href="tour-catalog.html">Бэйго</a><a href="tour-catalog.html">Вьетнам</a><a href="tour-catalog.html">Индия</a><a href="tour-catalog.html">Германия</a><a href="tour-catalog.html">Испания</a><a href="tour-catalog.html">Австрия</a><a href="tour-catalog.html">Маврикий</a></nav>
+            </div>
+            <div class="col links-visas order-7 order-md-3">
+              <h5>Визы</h5>
+              <nav><a href="visa-info-china.html">Австралия</a><a href="visa-info-china.html">Австрия</a><a href="visa-info-china.html">Германия</a><a href="visa-info-china.html">Греция</a><a href="visa-info-china.html">Испания</a><a href="visa-info-china.html">Италия</a><a href="visa-info-china.html">Китай</a><a href="visa-info-china.html">Финляндия</a><a href="visa-info-china.html">Чехия</a><a href="visa-info-china.html">Япония</a><a href="visa-info-china.html">Франция</a><a href="visa-info-china.html">Сингапур</a><a href="visa-info-china.html">США</a><a href="visa-info-china.html">Болгария</a></nav>
+            </div>
+            <div class="col order-4">
+              <h5>Оплата туров</h5>
+              <nav><a href="404.html">Онлайн оплата картой</a><a href="404.html">Онлайн оплата картой</a><a href="404.html">Рассрочка от ОТП Банк</a><a href="404.html">Рассрочка от Почта Банк</a><a href="404.html">Рассрочка от Home Credit</a><a href="404.html">Способы оплаты</a></nav>
+            </div>
+            <div class="col order-5">
+              <h5>Сервисы</h5>
+              <nav><a href="air-tickets.html">Авиабилеты</a><a href="hotels.html">Отели</a><a href="404.html">Аренда автомобилей</a><a href="404.html">Апартаменты</a></nav>
+            </div>
+            <div class="col order-6">
+              <h5>Ещё</h5>
+              <nav><a href="trains-china.html">Расписание поездов Китая</a><a href="404.html">Полезные советы</a><a href="404.html">Запрет на выезд</a><a href="404.html">Дневник туриста</a><a href="404.html">Будь в тренде</a><a href="404.html">Вопрос/ответ</a><a href="about.html">Контакты</a><a href="404.html">Попутчики</a><a href="hotels-filter.html">База отелей</a><a href="404.html">Голосования</a><a href="404.html">Фотоконкурсы</a></nav>
+            </div>
+            <div class="col insurance order-1 order-lg-7">
+              <h5>Страхование</h5>
+              <nav><a href="insurance.html">О страховании ВСК</a><a href="404.html">Расcчитать стоимость	</a></nav>
+            </div>
+          </div>
+        </section>
+        <section id="footerBottom">
+          <div class="row">
+            <div class="col">
+              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство &bdquo;Компас&ldquo;&raquo;</div>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-end flex-column flex-md-row" id="exchangeRates">
+                <div class="date">27.10.18</div>
+                <div class="usd">USD<span class="arrow increase">65.80</span></div>
+                <div class="eur">EUR<span class="arrow decrease">75.08</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <!-- Optional JavaScript-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/js/scripts.js"></script>
+    <div class="modal" id="request" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваш телефон">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalData" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalData">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn w-100" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestCruise" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md mb-4 mb-md-0">
+                    <div id="customerDate">
+                      <input class="form-control" type="text" placeholder="Выберите дату">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md">
+                    <div id="customerTime">
+                      <input class="form-control" type="text" placeholder="Выберите время">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerEmail" type="email" placeholder="Введите ваш email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataCruise" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataCruise">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestConsult" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Запись на консультацию</div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerDestination" type="text" placeholder="Город или страна, куда хотите отправиться">
+              </div>
+              <div class="form-group" id="customerDateRange">
+                <div class="date-range-wrapper">
+                  <div class="placeholder">Выберите дату</div>
+                  <div class="date-range">
+                    <div class="date">
+                      <div class="day">12</div>
+                      <div>
+                        <div class="month">Апрель</div>
+                        <div class="day-of-week">Вторник</div>
+                      </div>
+                    </div>
+                    <div class="divider">&ndash;</div>
+                    <div class="date">
+                      <div class="day">28</div>
+                      <div>
+                        <div class="month">Май</div>
+                        <div class="day-of-week">Воскресенье</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!--input#customerDateRange.form-control(type='text' placeholder='Выберите дату')-->
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerAdults" type="text" placeholder="Взрослые">
+                      <option selected>Взрослые</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerChildren" type="text" placeholder="Дети">
+                      <option selected>Дети</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataConsult" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataConsult">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="ytplayer" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="showCruiseOnMap" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d206525.2643467698!2d-5.513846406652724!3d36.021337196777296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0xd0ca3e55b7b92b5%3A0x49819bd6225c2007!2sCeuta!3m2!1d35.895039!2d-5.321664!4m5!1s0xd0c94d7a479c8f3%3A0x5dbc93317cb51823!2sAlgeciras%2C+11201%2C+C%C3%A1diz%2C+Spain!3m2!1d36.130778!2d-5.438018!5e0!3m2!1sen!2s!4v1541488272523" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="imgLightbox" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="img-wrapper"><img src=""></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
