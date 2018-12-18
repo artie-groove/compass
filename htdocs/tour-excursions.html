@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="assets/css/tourvisor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Компас</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Свободный","addresses":[{"address":"г. Свободный, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]}]</script>
+  </head>
+  <body>
+    <header class="no-bg header-tours">
+      <div class="sidebar-social-media"><a class="vkontakte" href="#"></a><a class="facebook" href="#"></a><a class="odnoklassniki" href="#"></a><a class="google-plus" href="#"></a><a class="twitter" href="#"></a></div>
+      <div class="container">
+        <div class="row">
+          <div class="col flex-grow-0 order-1"><a class="logo" href="index.html"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></a></div>
+          <div class="col-12 col-md order-2">
+            <nav class="address-nav">
+              <div class="row">
+                <div class="col-md-8 col-lg-7 d-none d-md-block">
+                  <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3">
+                      <div class="label">Город</div>
+                      <div class="nav city mark location-mark">
+                        <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Свободный</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7 col-lg-8 col-xl-9">
+                      <div class="label">Адрес нашего офиса</div>
+                      <div class="address"> 
+                        <div class="nav">
+                          <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                              <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">
+                                <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-5 text-right">
+                  <div class="d-md-inline-block ml-md-auto text-center text-md-left">
+                    <div class="label d-none d-md-block">Телефон</div>
+                    <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-none d-md-inline d-lg-none"><a class="callback-link d-none d-md-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-12 order-0 order-md-3">
+            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4" id="mainMenu">
+              <button class="navbar-toggler ml-auto" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="menu">
+                <h6 class="d-md-none">Меню</h6>
+                <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                  <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Куда поехать</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="tour-catalog.html">В Италию</a></li>
+                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">В Испанию</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="tour-catalog.html">Мадрид</a><a class="dropdown-item" href="tour-catalog.html">Барселона</a><a class="dropdown-item" href="tour-catalog.html">Валенсия</a><a class="dropdown-item" href="tour-catalog.html">Севилья</a><a class="dropdown-item" href="tour-catalog.html">Гибралтар</a></div>
+                      </li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальту</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальдивы</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Визы</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="visa-info-china.html">В Японию</a><a class="dropdown-item" href="visa-info-china.html">В Китай</a><a class="dropdown-item" href="visa-info-china.html">В Австралию</a><a class="dropdown-item" href="visa-info-china.html">В США</a></div>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="hotels.html">Отели</a></li>
+                  <li class="nav-item"><a class="nav-link" href="air-tickets.html">Авиабилеты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cruise.html">Круизы</a></li>
+                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="404.html">Ещё</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="insurance.html">Страхование</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="about.html">О нас</a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <hr class="d-block d-md-none w-100"><img class="header-img" src="assets/img/tours/bgs/germany.jpg">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-12">
+            <h1><img src="assets/img/tours/flags-lg/02.png">Путешествие в&nbsp;Германию</h1>
+          </div>
+        </div>
+      </div>
+      <div class="navbar-secondary">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="navbar navbar-dark">
+                <button class="navbar-toggler ml-auto d-md-none" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon">&#8230;</span></button>
+                <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                  <li class="nav-item"><a class="nav-link" href="tour-catalog.html">Каталог</a></li>
+                  <li class="nav-item active"><a class="nav-link" href="tour-excursions.html">Экскурсии</a></li>
+                  <li class="nav-item"><a class="nav-link" href="404.html">Курорты</a></li>
+                  <li class="nav-item d-none d-md-block"><a class="nav-link" href="404.html">Сезоны отдыха</a></li>
+                  <li class="nav-item d-none d-md-block"><a class="nav-link" href="404.html">Готовимся к путешествию</a></li>
+                </ul>
+                <div class="collapse navbar-collapse" id="menuSecondary">
+                  <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                    <li class="nav-item"><a class="nav-link" href="404.html">Сезоны отдыха</a></li>
+                    <li class="nav-item"><a class="nav-link" href="404.html">Готовимся к путешествию</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="wrapper mb-0" id="content-tours">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-lg-3 order-1 order-md-0">
+            <div class="sidebar">
+              <h3>Мы подбираем оптимальное решение для вас</h3>
+              <div class="card staff-card"><img class="card-img-top" src="assets/img/staff/totchilina.jpg"/>
+                <div class="card-body">
+                  <h5 class="card-title">Точилина Кристина<small>(г. Благовещенск)</small></h5><a class="card-link" href="#" data-toggle="modal" data-target="#requestConsult">Записаться на консультацию</a>
+                </div>
+              </div>
+              <div class="card staff-card"><img class="card-img-top" src="assets/img/staff/matviytchuck.jpg"/>
+                <div class="card-body">
+                  <h5 class="card-title">Матвийчук Юлия<small>(г. Благовещенск)</small></h5><a class="card-link" href="#" data-toggle="modal" data-target="#requestConsult">Записаться на консультацию</a>
+                </div>
+              </div>
+              <hr>
+              <div class="btn rounded-0 btn-request" href="#" data-toggle="modal" data-target="#requestConsult">Заявка на подбор подходящих экскурсий</div>
+            </div>
+          </div>
+          <div class="col-md-8 col-lg-9 order-0 order-md-1">
+            <div class="content-block">
+              <h2>Экскурсии в&nbsp;Германию</h2>
+              <p>Невозможно рассказать о всех достопримечательностях величественной Германии. Никакой знаток культуры не сможет составить рейтинг самых интересных и восхитительных мест, ведь каждое из них занимает особое место в истории и сердцах немцев. И все же есть особенные визитные карточки страны, по которым легко ее узнать, и которые обязательно нужно включить в свое путешествие.</p>
+              <div class="card cover-card" href="#">
+                <div class="thumb-wrapper"><img src="assets/img/tours/excursions/germany/01.jpg"/></div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Замок Нойшванштайн</h5>
+                  </div>
+                </div>
+              </div>
+              <p>Пожалуй, самый знаменитый замок в мире, если только не учитывать розоватые башни Диснейленда. Здание будто парит над горами, оно прекрасно в любое время года: утопает в зелени летом, в цветах - весной, зимой в снеге, а осенью в золоте. За этой красотой к нему съезжаются толпы туристов.</p>
+              <p>Замок – воплощение рыцарской мечты, и строители постарались на славу. Внутри фотографировать запрещено, и это еще сильнее притягивает туристов: иначе как они узнают, что скрывает в себе это архитектурное чудо? Ну а после посещения можно насладиться либо соседним замком Хоэншвангау, либо окрестной природой.</p>
+              <div class="card cover-card" href="#">
+                <div class="thumb-wrapper"><img src="assets/img/tours/excursions/germany/02.jpg"/></div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Берлинская стена</h5>
+                  </div>
+                </div>
+              </div>
+              <p>Не самая позитивная достопримечательность, но какая весомая! Ее историческая ценность настолько велика, что кусочки стены хранятся даже в штаб-квартире ЦРУ. Раскрывать историю этого сооружения лучше всего в самом Берлине, где до сих пор можно проследить все последствия деления города.</p>
+              <p>Ранее стена была символом раздора, а сейчас она – пример единения и свободы. Различные фонды ЕС занимаются восстановлением разобранных плит, но уже с мирной целью. Для этого фрагменты выкупаются у частных коллекционеров за огромные деньги. Уже восстановлены три вышки и 8 м самой стены.</p>
+              <p>Это стоит увидеть, к этому стоит прикоснуться, чтобы понять, что значат родственные узы и желание быть с любимыми. А затем можно отправиться к граффити целующегося Брежнева и Хоннекера.</p>
+              <div class="card cover-card" href="#">
+                <div class="thumb-wrapper"><img src="assets/img/tours/excursions/germany/03.jpg"/></div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Королевская аллея</h5>
+                  </div>
+                </div>
+              </div>
+              <p>Знаменитая аллея находится в Дюссельдорфе, ее знают все немцы. На ней собраны галереи, достопримечательности и бутики. Целая улица, позволяющая вникнуть в мир высокой моды. Украшенная фонтанами и зелеными насаждениями, по ней очень приятно гулять.</p>
+              <p>Здесь проходят различные выставки, музыкальные мероприятия, воздвигнуты Немецкая опера и драматический театр, а рядом расположен музей театра. Аллея создана для неспешного времяпровождения и для тугих кошельков.</p>
+              <p>Если дорогой шопинг не по карману, намного лучше просто присесть на лавочке и отдохнуть. К счастью, «массовый турист» на аллее не задерживается, спеша посетить еще сотню мест, а потому отдохнуть и насладиться прекрасным видом никто не помешает.</p>
+              <div class="card cover-card" href="#">
+                <div class="thumb-wrapper"><img src="assets/img/tours/excursions/germany/04.jpg"/></div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Озеро Альстер</h5>
+                  </div>
+                </div>
+              </div>
+              <p>Гамбург со всех сторон окружен водой, и даже в самом его центре расположено озеро Альстер. Несмотря на невероятно развитый город вокруг, водоем сумел остаться нетронутым цивилизацией. Вокруг расположены парки и аллеи.</p>
+              <p>Здесь обожают отдыхать и туристы, и горожане. Из водной глади бьют фонтаны, за которыми можно долго наблюдать с лавочек набережной. А любителей активного отдыха ждет 7-км прогулка вокруг водоема.</p>
+              <p>Кроме этого, можно арендовать катамаран или катер, или прокатиться на прогулочной лодке к знаменитой скульптуре купающейся девушки. За короткий период времени эта инсталляция стала самой популярной во всем Гамбурге. Катера к ней ходят каждый час.</p>
+              <div class="card cover-card" href="#">
+                <div class="thumb-wrapper"><img src="assets/img/tours/excursions/germany/05.jpg"/></div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Сад пальм</h5>
+                  </div>
+                </div>
+              </div>
+              <p>Поразительной красоты ботанический сад расположен во Франкфурте. Это настоящий эдем. Сад является лучшим в Европе, и интересен будет не только ботаникам. Здесь уместилась флора почти со всех уголков планеты!</p>
+              <p>Разбитая на экосистемы, территория в 22 га позволяет выращивать ананасы рядом с елью, кокосы рядом с кактусами, нарциссы рядом с бамбуком. Глаз радует уникальное количество красок: цветы и растения различных форм и оттенков. И в округе разносится головокружительный аромат орхидей, лайма, кокосов, миндаля…</p>
+              <p>Цветение происходит круглогодично. Как только одно растение отцветает, на его место высаживают другое. Есть холодные и теплые зоны. И, конечно, здесь растут пальмы в специальных стеклянных корпусах, высотой 18 м. Все это великолепие нужно увидеть своими глазами! А заодно и попасть на одну из тематических выставок.</p>
+              <p>В Германии любой турист сможет подобрать для себя нужные места и заказать к ним экскурсии. Из-за большого потока туристов различные автобусы к достопримечательностям отправляются каждый час, а ознакомиться с предложениями и поездками можно на каждом углу. Но и самостоятельное планирование путешествия принесет плоды: в Германии легко ориентироваться благодаря многочисленным указателям, хорошо развитой инфраструктуре и приветливым жителям.</p>
+            </div>
+            <div class="links d-md-none">
+              <h2>Каталог</h2><a class="card cover-card" href="hotels.html">
+                <div class="thumb-wrapper">
+                  <div class="mask mask-16-9"><img src="assets/img/tours/excursions/germany/extras/01.jpg"/></div>
+                </div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Подбор отелей в Германии
+                    </h5>
+                  </div>
+                </div></a><a class="card cover-card" href="visa-info-china.html">
+                <div class="thumb-wrapper">
+                  <div class="mask mask-16-9"><img src="assets/img/tours/excursions/germany/extras/02.jpg"/></div>
+                </div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Оформить визу в Германию
+                    </h5>
+                  </div>
+                </div></a><a class="card cover-card" href="air-tickets.html">
+                <div class="thumb-wrapper">
+                  <div class="mask mask-16-9"><img src="assets/img/tours/excursions/germany/extras/03.jpg"/></div>
+                </div>
+                <div class="card-img-overlay">
+                  <div class="card-footer">
+                    <h5 class="card-title">Подбор авиабилетов в Германию
+                    </h5>
+                  </div>
+                </div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container gallery">
+        <div class="row">
+          <div class="col-12">
+            <div class="gallery-container">
+              <div class="d-flex d-md-none justify-content-end w-100 gallery-header">
+                <div class="ribbon-controls" data-items-per-step="1"><a class="ribbon-control-prev" href="#ribbonGallery" role="button" data-slide="prev">
+                    <div class="sr-only">Previous</div></a><a class="ribbon-control-next" href="#ribbonGallery" role="button" data-slide="next">
+                    <div class="sr-only">Next</div></a></div>
+              </div>
+              <div class="ribbon" id="ribbonGallery">
+                <div class="ribbon-inner">
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/01.jpg"><img src="assets/img/tours/excursions/germany/extras/01.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/02.jpg"><img src="assets/img/tours/excursions/germany/extras/02.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/03.jpg"><img src="assets/img/tours/excursions/germany/extras/03.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/04.jpg"><img src="assets/img/tours/excursions/germany/extras/04.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/05.jpg"><img src="assets/img/tours/excursions/germany/extras/05.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/06.jpg"><img src="assets/img/tours/excursions/germany/extras/06.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/07.jpg"><img src="assets/img/tours/excursions/germany/extras/07.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="content">
+                      <div class="mask mask-4-3"><a class="img-lightbox" href="assets/img/tours/excursions/germany/extras/08.jpg"><img src="assets/img/tours/excursions/germany/extras/08.jpg"/></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Смотрите также</h2>
+          <div class="destinations mb-0 mb-md-5"><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/01.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/01.png"/>Испания</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/02.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/02.png"/>Германия</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/03.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/03.png"/>Вьетнам</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/04.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/04.png"/>Австрия</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/05.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/05.png"/>Индия</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/06.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/06.png"/>Маврикий</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/07.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/07.png"/>Шри-Ланка</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/08.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/08.png"/>Болгария</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/09.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/09.png"/>Венгрия</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/10.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/10.png"/>Индонезия (Бали)</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/11.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/11.png"/>Абхазия</h5>
+                </div>
+              </div></a><a class="card cover-card" href="#">
+              <div class="thumb-wrapper">
+                <div class="mask mask-16-9"><img src="assets/img/tours/covers/12.jpg"/></div>
+              </div>
+              <div class="card-img-overlay">
+                <div class="card-footer">
+                  <h5 class="card-title"> <img src="assets/img/tours/flags/12.png"/>Турция</h5>
+                </div>
+              </div></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-md-block">
+      <section id="subscribe">
+        <div class="container">
+          <div class="row">
+            <div class="col flex-grow-0 d-none d-lg-flex"><img src="assets/img/whatsapp.png" alt="img"></div>
+            <div class="col">
+              <h3>Подпишитесь на рассылку</h3>
+              <p>Чтобы первым узнавать горящие предложения от нашей компании</p>
+              <form class="form-inline flex-nowrap">
+                <input class="form-control d-none d-md-inline-block flex-fill" id="subscriberName" type="text" placeholder="Введите ваше имя">
+                <input class="form-control flex-fill" id="subscriberPhone" type="text" placeholder="Введите ваш телефон">
+                <button class="btn flex-md-fill text-center" type="submit"><span class="d-none d-md-inline">Подписаться</span></button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <div class="container">
+        <section id="footerLinks">
+          <div class="row">
+            <div class="col order-0">
+              <h5>Куда поехать</h5>
+              <nav><a href="tour-catalog.html">Бейдайхэ</a><a href="tour-catalog.html">Бэйго</a><a href="tour-catalog.html">Вьетнам</a><a href="tour-catalog.html">Индия</a><a href="tour-catalog.html">Германия</a><a href="tour-catalog.html">Испания</a><a href="tour-catalog.html">Австрия</a><a href="tour-catalog.html">Маврикий</a></nav>
+            </div>
+            <div class="col links-visas order-7 order-md-3">
+              <h5>Визы</h5>
+              <nav><a href="visa-info-china.html">Австралия</a><a href="visa-info-china.html">Австрия</a><a href="visa-info-china.html">Германия</a><a href="visa-info-china.html">Греция</a><a href="visa-info-china.html">Испания</a><a href="visa-info-china.html">Италия</a><a href="visa-info-china.html">Китай</a><a href="visa-info-china.html">Финляндия</a><a href="visa-info-china.html">Чехия</a><a href="visa-info-china.html">Япония</a><a href="visa-info-china.html">Франция</a><a href="visa-info-china.html">Сингапур</a><a href="visa-info-china.html">США</a><a href="visa-info-china.html">Болгария</a></nav>
+            </div>
+            <div class="col order-4">
+              <h5>Оплата туров</h5>
+              <nav><a href="404.html">Онлайн оплата картой</a><a href="404.html">Онлайн оплата картой</a><a href="404.html">Рассрочка от ОТП Банк</a><a href="404.html">Рассрочка от Почта Банк</a><a href="404.html">Рассрочка от Home Credit</a><a href="404.html">Способы оплаты</a></nav>
+            </div>
+            <div class="col order-5">
+              <h5>Сервисы</h5>
+              <nav><a href="air-tickets.html">Авиабилеты</a><a href="hotels.html">Отели</a><a href="404.html">Аренда автомобилей</a><a href="404.html">Апартаменты</a></nav>
+            </div>
+            <div class="col order-6">
+              <h5>Ещё</h5>
+              <nav><a href="trains-china.html">Расписание поездов Китая</a><a href="404.html">Полезные советы</a><a href="404.html">Запрет на выезд</a><a href="404.html">Дневник туриста</a><a href="404.html">Будь в тренде</a><a href="404.html">Вопрос/ответ</a><a href="about.html">Контакты</a><a href="404.html">Попутчики</a><a href="hotels-filter.html">База отелей</a><a href="404.html">Голосования</a><a href="404.html">Фотоконкурсы</a></nav>
+            </div>
+            <div class="col insurance order-1 order-lg-7">
+              <h5>Страхование</h5>
+              <nav><a href="insurance.html">О страховании ВСК</a><a href="404.html">Расcчитать стоимость	</a></nav>
+            </div>
+          </div>
+        </section>
+        <section id="footerBottom">
+          <div class="row">
+            <div class="col">
+              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство &bdquo;Компас&ldquo;&raquo;</div>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-end flex-column flex-md-row" id="exchangeRates">
+                <div class="date">27.10.18</div>
+                <div class="usd">USD<span class="arrow increase">65.80</span></div>
+                <div class="eur">EUR<span class="arrow decrease">75.08</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <!-- Optional JavaScript-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/js/pickmeup.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+    <div class="modal" id="request" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваш телефон">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalData" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalData">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn w-100" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestCruise" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md mb-4 mb-md-0">
+                    <div id="customerDate">
+                      <input class="form-control" type="text" placeholder="Выберите дату">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md">
+                    <div id="customerTime">
+                      <input class="form-control" type="text" placeholder="Выберите время">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerEmail" type="email" placeholder="Введите ваш email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataCruise" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataCruise">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestConsult" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Запись на консультацию</div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerDestination" type="text" placeholder="Город или страна, куда хотите отправиться">
+              </div>
+              <div class="form-group" id="customerDateRange">
+                <div class="date-range-wrapper">
+                  <div class="placeholder">Выберите дату</div>
+                  <div class="date-range">
+                    <div class="date">
+                      <div class="day">12</div>
+                      <div>
+                        <div class="month">Апрель</div>
+                        <div class="day-of-week">Вторник</div>
+                      </div>
+                    </div>
+                    <div class="divider">&ndash;</div>
+                    <div class="date">
+                      <div class="day">28</div>
+                      <div>
+                        <div class="month">Май</div>
+                        <div class="day-of-week">Воскресенье</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!--input#customerDateRange.form-control(type='text' placeholder='Выберите дату')-->
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerAdults" type="text" placeholder="Взрослые">
+                      <option selected>Взрослые</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerChildren" type="text" placeholder="Дети">
+                      <option selected>Дети</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataConsult" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataConsult">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="ytplayer" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="showCruiseOnMap" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d206525.2643467698!2d-5.513846406652724!3d36.021337196777296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0xd0ca3e55b7b92b5%3A0x49819bd6225c2007!2sCeuta!3m2!1d35.895039!2d-5.321664!4m5!1s0xd0c94d7a479c8f3%3A0x5dbc93317cb51823!2sAlgeciras%2C+11201%2C+C%C3%A1diz%2C+Spain!3m2!1d36.130778!2d-5.438018!5e0!3m2!1sen!2s!4v1541488272523" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="imgLightbox" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="img-wrapper"><img src=""></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

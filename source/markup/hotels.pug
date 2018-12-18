@@ -1,0 +1,26 @@
+extends ../templates/page-regular.tpl.pug
+
+block header-tpl-vars
+	- let headerAttrs = { 'class': 'hotels' }
+
+block header-optional
+	.container
+		.row
+			.col-12
+				h1 Поиск отеля
+					small Выберите страну и город
+				#hotellookWidget
+					script(charset='utf-8', src='//www.travelpayouts.com/widgets/f4edb7c24eebd3c7da99db517f9586bc.js?v=1548', async='')
+							
+
+block content
+	section#tours
+		.container.cards-grid
+			.row
+				.col-12
+					h2 Популярные туры
+					.row
+						each card, i in data.tours
+							.col-12.col-md-4
+								//- mixin cover-card(imgid, path, title, subtitle, link)
+								+cover-card(normalizeNumber(i+1), 'tours', card.title, '', card.href, true)

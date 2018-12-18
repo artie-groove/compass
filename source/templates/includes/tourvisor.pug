@@ -1,0 +1,28 @@
+section#tourvisor
+	.container
+			.row
+				.col-12
+					h1.text-center Поиск путешествия
+						small Выберите город вылета и страну
+
+					.tv-search-form
+						.TVLineForm.TVTheme2
+							.TVInterfaceWrapper
+								.TVTopForm.TVMainForm
+									.TVMainFilter
+										.TVMainFilterButton.TVLocationButton(meta='depctrl')
+											.TVMainFilterLable
+											.TVMainFilterContent(meta='depvalue', title='Москва') Москва
+										.TVMainFilterButton.TVCountry(meta='countryctrl')
+											.TVMainFilterLable
+											.TVMainFilterContent(meta='countryvalue') Турция
+										.TVMainFilterButton.TVDates(meta='dtpctrl')
+											.TVMainFilterLable
+											.TVMainFilterContent(meta='dtpvalue') 29 окт - 7 ноя
+										.TVMainFilterButton.TVNights(meta='nightctrl')
+											.TVMainFilterLable
+											.TVMainFilterContent(meta='nightvalue') 6 - 14
+										.TVMainFilterButton.TVTourists(meta='touristctrl')
+											.TVMainFilterLable
+											.TVMainFilterContent(meta='touristvalue') 2 Взрослых
+										.TVSearchButton(meta='searchbtn')

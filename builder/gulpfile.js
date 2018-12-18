@@ -180,7 +180,7 @@ gulp.task('init', (cb) => {
 
 gulp.task('watch', (cb) => {
 
-	watch(`${bs.router.srcMarkupPath}/*.pug`, (changedFile) => {
+	watch(`${bs.router.srcMarkupPath}/*.pug`, { events: ['change'] }, (changedFile) => {
 		console.log(`Changed: ${changedFile.path}`);
 		compilePages(`${bs.router.srcMarkupPath}/*.pug`, bs.router.buildPath);
 	});

@@ -1,0 +1,76 @@
+extends ../templates/page-regular.tpl.pug
+
+block header-tpl-vars
+	- let headerAttrs = { 'class': 'header-air-tickets' }
+
+block header-optional
+	.container
+		.row
+			.col-12.col-lg-10.offset-lg-1.col-xl-8.offset-xl-2
+				h1.text-center Система поиска авиабилетов по&nbsp;всему миру
+					small Выберите место, куда&nbsp;бы вы&nbsp;хотели отправиться, а&nbsp;мы&nbsp;подберем самые выгодные условия!
+		.row
+			.col-12
+				#aviasalesWidget
+					script(charset='utf-8', src='//www.travelpayouts.com/widgets/17ee8a8675f065ed4108acf435f061d6.js?v=1552', async='')
+							
+
+block content
+	section#content-air-tickets
+		.container
+			.row
+				.col-12
+					h2 Спецпредложения на&nbsp;авиабилеты
+					p Придумать текст описание для этого блока что бы лучше раскрыть его суть
+			.row.pt-5
+				.col-12
+					#flightOffers
+						script(async='', src='//www.travelpayouts.com/ducklett/scripts.js?widget_type=brickwork&currency=rub&host=hydra.aviasales.ru&marker=198138.&limit=6&powered_by=false&origin_iatas=KHV&destination_iatas=MIL', charset='UTF-8')
+
+
+		section#paymentMethods.bg-dark.pb-0
+			.container
+				.row
+					.col-12
+						.d-flex.justify-content-between.align-items-center.flex-nowrap
+							div
+								h2 Как оплатить билет
+								p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+							.ribbon-controls
+								a.ribbon-control-prev(href='#ribbonPaymentMethods' role='button' data-slide='prev')
+									.sr-only Previous
+								a.ribbon-control-next(href='#ribbonPaymentMethods' role='button' data-slide='next')
+									.sr-only Next
+						.ribbon#ribbonPaymentMethods
+							.ribbon-inner
+								.ribbon-item
+									+payment-card('Платежная система VISA', 'visa')
+										p Оплата принимается в рублях, можно оплатить, как полную стоимость, так и часть путевки.
+								.ribbon-item
+									+payment-card('Платежная система Master card', 'mastercard')
+										p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+								.ribbon-item
+									+payment-card('Платежная система Яндекс.Деньги', 'yandex-dengi')
+										p Оплата принимается в рублях, можно оплатить, как полную стоимость, так и часть путевки.
+								.ribbon-item
+									+payment-card('Оплата через Сбербанк', 'sberbank')
+										p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+		section.bg-dark.pt-0
+			.container
+				.row
+					.col-12
+						h2.mb-3 Почему выбирают нас?
+						p Придумать текст описание для этого блока что бы лучше раскрыть его суть
+				.row.mt-4
+					.col-12.col-md-3
+						+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzciIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCAzNyAyNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMzLjk5NjggMTguODY5QzM1LjY3ODYgMTguNDI4NCAzNyAxNi44NjU5IDM3IDE1LjAyMzFWMTEuMDE2OUMzNyA5LjE3NDExIDM1LjcxODYgNy42MTE3MSAzMy45OTY4IDcuMTcxMDNWNi4wMDkyNEMzMy45OTY4IDIuNzI0MTkgMzEuMzEzOSAwIDI3Ljk5MDMgMEg2LjAwNjQ5QzIuNzIyOTQgMCAwIDIuNjg0MTMgMCA2LjAwOTI0VjE5Ljk5MDhDMCAyMy4yNzU4IDIuNjgyOSAyNiA2LjAwNjQ5IDI2SDI3Ljk5MDNDMzEuMjczOCAyNiAzMy45OTY4IDIzLjMxNTkgMzMuOTk2OCAxOS45OTA4VjE4Ljg2OVpNMzQuOTk3OCAxMS4wMTY5VjE1LjAyMzFDMzQuOTk3OCAxNi4xMDQ4IDM0LjExNjkgMTcuMDI2MiAzMi45OTU3IDE3LjAyNjJIMjguOTkxM0MyNi43ODkgMTcuMDI2MiAyNC45ODcgMTUuMjIzNCAyNC45ODcgMTMuMDJDMjQuOTg3IDEwLjgxNjYgMjYuNzg5IDkuMDEzODcgMjguOTkxMyA5LjAxMzg3SDMyLjk5NTdDMzQuMDc2OCA5LjAxMzg3IDM0Ljk5NzggOS45MzUyOCAzNC45OTc4IDExLjAxNjlaTTI3Ljk5MDMgMjQuMDM3SDYuMDA2NDlDMy44MDQxMSAyNC4wMzcgMi4wMDIxNiAyMi4yMzQyIDIuMDAyMTYgMjAuMDMwOFY2LjAwOTI0QzIuMDAyMTYgMy44MDU4NiAzLjgwNDExIDIuMDAzMDggNi4wMDY0OSAyLjAwMzA4SDI3Ljk5MDNDMzAuMTkyNiAyLjAwMzA4IDMxLjk5NDYgMy44MDU4NiAzMS45OTQ2IDYuMDA5MjRWNy4wMTA3OUgyOC45OTEzQzI1LjcwNzggNy4wMTA3OSAyMi45ODQ4IDkuNjk0OTEgMjIuOTg0OCAxMy4wMkMyMi45ODQ4IDE2LjM0NTEgMjUuNjY3NyAxOS4wMjkzIDI4Ljk5MTMgMTkuMDI5M0gzMS45OTQ2VjIwLjAzMDhDMzEuOTk0NiAyMi4yMzQyIDMwLjE5MjYgMjQuMDM3IDI3Ljk5MDMgMjQuMDM3WiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K', 'Лучшие цены')
+							p Пару строчек описания для лучшего понимания
+					.col-12.col-md-3
+						+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAyNiAyNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwLjMyOTEgMjAuNDIyNUM4LjI4NjIzIDIwLjQyMjUgNi4yODkyIDE5LjgyMzcgNC41OTA1OCAxOC43MDE2QzIuODkxOTYgMTcuNTc5NiAxLjU2ODA1IDE1Ljk4NDggMC43ODYyNjQgMTQuMTE5QzAuMDA0NDc1NDIgMTIuMjUzMSAtMC4yMDAwNzYgMTAuMTk5OSAwLjE5ODQ3NiA4LjIxOTE1QzAuNTk3MDI4IDYuMjM4MzYgMS41ODA3OCA0LjQxODg5IDMuMDI1MzQgMi45OTA4MkM0LjQ2OTkgMS41NjI3NCA2LjMxMDM3IDAuNTkwMjE1IDguMzE0MDMgMC4xOTYyMTFDMTAuMzE3NyAtMC4xOTc3OTMgMTIuMzk0NSAwLjAwNDQyNDM0IDE0LjI4MTkgMC43NzcyOTFDMTYuMTY5MyAxLjU1MDE2IDE3Ljc4MjUgMi44NTg5NiAxOC45MTc1IDQuNTM4MkMyMC4wNTI1IDYuMjE3NDMgMjAuNjU4MyA4LjE5MTY3IDIwLjY1ODMgMTAuMjExM0MyMC42NTgzIDEyLjkxOTUgMTkuNTcgMTUuNTE2NyAxNy42MzI5IDE3LjQzMTdDMTUuNjk1OSAxOS4zNDY3IDEzLjA2ODYgMjAuNDIyNSAxMC4zMjkxIDIwLjQyMjVaTTEwLjMyOTEgMi4xMTI2OEM4LjcwODkxIDIuMTEyNjggNy4xMjUwNSAyLjU4NzY1IDUuNzc3ODcgMy40Nzc1NEM0LjQzMDY5IDQuMzY3NDIgMy4zODA2OSA1LjYzMjI1IDIuNzYwNjUgNy4xMTIwN0MyLjE0MDYxIDguNTkxOSAxLjk3ODM4IDEwLjIyMDMgMi4yOTQ0OCAxMS43OTEyQzIuNjEwNTcgMTMuMzYyMiAzLjM5MDc5IDE0LjgwNTIgNC41MzY0NyAxNS45Mzc4QzUuNjgyMTUgMTcuMDcwNCA3LjE0MTg0IDE3Ljg0MTggOC43MzA5NSAxOC4xNTQyQzEwLjMyMDEgMTguNDY2NyAxMS45NjcyIDE4LjMwNjQgMTMuNDY0MSAxNy42OTM0QzE0Ljk2MSAxNy4wODA0IDE2LjI0MDQgMTYuMDQyNCAxNy4xNDA2IDE0LjcxMDZDMTguMDQwOCAxMy4zNzg4IDE4LjUyMTIgMTEuODEzIDE4LjUyMTIgMTAuMjExM0MxOC41MjEyIDguMDYzMzkgMTcuNjU4MSA2LjAwMzQ4IDE2LjEyMTggNC40ODQ3QzE0LjU4NTUgMi45NjU5MiAxMi41MDE4IDIuMTEyNjggMTAuMzI5MSAyLjExMjY4WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjQuOTMyNyAyNS4wMDAyQzI0LjY0OTQgMjUgMjQuMzc3OCAyNC44ODg1IDI0LjE3NzYgMjQuNjkwNEwxNi42OTc5IDE3LjI5NkMxNi41MDkyIDE3LjA5NTggMTYuNDA2NCAxNi44MzA5IDE2LjQxMTMgMTYuNTU3MkMxNi40MTYyIDE2LjI4MzYgMTYuNTI4MyAxNi4wMjI1IDE2LjcyNDEgMTUuODI4OUMxNi45MTk5IDE1LjYzNTQgMTcuMTg0IDE1LjUyNDUgMTcuNDYwOCAxNS41MTk3QzE3LjczNzYgMTUuNTE0OSAxOC4wMDU1IDE1LjYxNjUgMTguMjA4MSAxNS44MDNMMjUuNjg3OCAyMy4xOTc0QzI1LjgzNzEgMjMuMzQ1MSAyNS45Mzg3IDIzLjUzMzMgMjUuOTc5OCAyMy43MzgxQzI2LjAyMSAyMy45NDI4IDI1Ljk5OTggMjQuMTU1MSAyNS45MTkgMjQuMzQ4QzI1LjgzODIgMjQuNTQwOSAyNS43MDE0IDI0LjcwNTggMjUuNTI1OSAyNC44MjE5QzI1LjM1MDMgMjQuOTM4IDI1LjE0MzkgMjUgMjQuOTMyNyAyNS4wMDAyWiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K', 'Бесплатный и независимый поиск')
+							p Пару строчек описания для лучшего понимания
+					.col-12.col-md-3
+						+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDBDNS4zODM4MyAwIDAgNS4zODM4MiAwIDEyQzAgMTguNjE2MiA1LjM4MzgzIDI0IDEyIDI0QzE4LjYxNjIgMjQgMjQgMTguNjE2MiAyNCAxMkMyNCA1LjM4MzgyIDE4LjYxNjIgMCAxMiAwWk0xMiAxLjg5NDc0QzE3LjU5MjIgMS44OTQ3NCAyMi4xMDUzIDYuNDA3ODMgMjIuMTA1MyAxMkMyMi4xMDUzIDE3LjU5MjIgMTcuNTkyMiAyMi4xMDUzIDEyIDIyLjEwNTNDNi40MDc4NCAyMi4xMDUzIDEuODk0NzQgMTcuNTkyMiAxLjg5NDc0IDEyQzEuODk0NzQgNi40MDc4MyA2LjQwNzg0IDEuODk0NzQgMTIgMS44OTQ3NFpNMTIgMy40NzM2OEMxMS40NzY4IDMuNDczNjggMTEuMDUyNiAzLjg5Nzg1IDExLjA1MjYgNC40MjEwNVYxMkMxMS4wNTI2IDEyLjM1MDQgMTEuMjQzNiAxMi42NTUyIDExLjUyNjMgMTIuODE5MUwxNy41NDYxIDE2LjI5MjdDMTcuOTk5MSAxNi41NTQzIDE4LjU3NzIgMTYuNDAwNSAxOC44Mzg4IDE1Ljk0NzRDMTkuMTAwNSAxNS40OTQyIDE4Ljk0NjUgMTQuOTE2MiAxOC40OTM0IDE0LjY1NDZMMTIuOTQ3NCAxMS40NTczVjQuNDIxMDVDMTIuOTQ3NCAzLjg5Nzg1IDEyLjUyMzIgMy40NzM2OCAxMiAzLjQ3MzY4WiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K', 'Экономия времени')
+							p Пару строчек описания для лучшего понимания
+					.col-12.col-md-3
+						+info-item('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0NCA0NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDQgNDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRjlBMDE7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00NCwzNy4ybDAtNy43YzAtMC40LTAuMS0wLjctMC40LTFjLTAuMi0wLjMtMC42LTAuNS0wLjktMC42Yy0xLjMtMC4zLTIuNS0xLjEtMy40LTIuMQ0KCUMzOC41LDI0LjcsMzgsMjMuMywzOCwyMmMwLTEuNCwwLjUtMi43LDEuMy0zLjhjMC44LTEuMSwyLTEuOCwzLjQtMi4yYzAuNC0wLjEsMC43LTAuMywwLjktMC42YzAuMi0wLjMsMC40LTAuNywwLjQtMWwwLTcuNw0KCWMwLTAuMiwwLTAuNC0wLjEtMC42Yy0wLjEtMC4yLTAuMi0wLjQtMC40LTAuNWMtMC4yLTAuMi0wLjMtMC4zLTAuNS0wLjRDNDIuNyw1LjEsNDIuNSw1LDQyLjMsNUwxLjcsNWMtMC4yLDAtMC40LDAtMC42LDAuMQ0KCVMwLjcsNS40LDAuNSw1LjVDMC40LDUuNywwLjIsNS45LDAuMSw2LjFDMC4xLDYuMywwLDYuNSwwLDYuN2wwLDcuN2MwLDAuNCwwLjEsMC43LDAuNCwxczAuNiwwLjUsMC45LDAuNmMxLjMsMC4zLDIuNSwxLjEsMy40LDIuMQ0KCUM1LjUsMTkuMyw2LDIwLjYsNiwyMmMwLDEuNC0wLjUsMi43LTEuMywzLjhjLTAuOSwxLjEtMiwxLjgtMy40LDIuMWMtMC40LDAuMS0wLjcsMC4zLTAuOSwwLjZjLTAuMiwwLjMtMC40LDAuNy0wLjQsMWwwLDcuNw0KCWMwLDAuMiwwLDAuNCwwLjEsMC42YzAuMSwwLjIsMC4yLDAuNCwwLjQsMC41YzAuMiwwLjIsMC4zLDAuMywwLjUsMC40YzAuMiwwLjEsMC40LDAuMSwwLjYsMC4xbDI3LjMsMGwxMy40LDBjMC4yLDAsMC40LDAsMC42LTAuMQ0KCWMwLjItMC4xLDAuNC0wLjIsMC41LTAuNGMwLjItMC4yLDAuMy0wLjMsMC40LTAuNUM0NCwzNy43LDQ0LDM3LjQsNDQsMzcuMnogTTMuNCwzNS41bDAtNC44YzEuNy0wLjcsMy4yLTEuOSw0LjMtMy41DQoJYzEtMS42LDEuNi0zLjQsMS42LTUuM2MwLTEuOS0wLjYtMy43LTEuNi01LjNjLTEuMS0xLjYtMi41LTIuOC00LjMtMy41bDAtNC44bDI0LDBsMCwyNy4xTDMuNCwzNS41eiBNMzAuNywzNS41bDAtMjcuMWw5LjksMGwwLDQuOA0KCWMtMS43LDAuNy0zLjIsMS45LTQuMywzLjVjLTEuMSwxLjYtMS42LDMuNC0xLjYsNS4zYzAsMS45LDAuNiwzLjcsMS42LDUuM2MxLjEsMS42LDIuNiwyLjgsNC4zLDMuNWwwLDQuOEwzMC43LDM1LjV6Ii8+DQo8L3N2Zz4NCg==', 'Билеты в любую точку мира')
+							p Пару строчек описания для лучшего понимания

@@ -1,0 +1,10 @@
+section#tours
+	.container
+		.row
+			.col-12
+				h2 Наши туры
+				.row
+					each card, i in data.tours
+						.col-12.col-md-4
+							//- mixin cover-card(imgid, path, title, subtitle, link)
+							+cover-card(normalizeNumber(i+1), 'tours', card.title, '', card.href, true)

@@ -1,0 +1,168 @@
+extends ../templates/page-light.tpl.pug
+
+append scripts-delayed
+	script(src='assets/js/pickmeup.min.js')
+	script(src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js')
+
+block content
+	.wrapper
+		#content-visa
+			.container
+				.row
+					.col-12.col-md-8.offset-md-2.col-lg-6.offset-lg-3.col-xl-6.offset-xl-3
+						h2 Заявка на визу в&nbsp;Китай
+						form
+							.form-group
+								h5 Общие сведения
+							.form-group
+								select.custom-select#visaType
+									option(selected) Тип визы
+									option() Туристическая
+									option() Студенческая
+							.form-group
+								h5 Общие сведения
+							.form-group
+								input.form-control#lastName(type='text' placeholder='Фамилия')
+							.form-group
+								input.form-control#firstName(type='text' placeholder='Имя')
+							.form-group
+								input.form-control#patronymic(type='text' placeholder='Отчество')
+							.form-group
+								select.custom-select#purposeOfVisit
+									option(selected) Цель поездки
+									option() Туризм
+									option() Образование
+									option() Частная
+							.form-group.d-md-none
+								select.custom-select#documentType
+									option(value='russianPassport' selected) Паспорт гражданина РФ
+									option(value='birthCertificate') Свидетельство о&nbsp;рождении
+							.form-group.d-none.d-md-block
+								.form-row
+									.col
+										.selector-option
+											input.d-none(type='radio' name='documentType' value='russianPassport' checked)
+											div Паспорт гражданина РФ
+									.col
+										.selector-option
+											input.d-none(type='radio' name='documentType' value='birthCertificate')
+											div Свидетельство о&nbsp;рождении
+							.form-group
+								.form-row
+									.col-md-6
+										input.form-control#documentNumber(type='text' placeholder='Серия и номер документа')
+									.col-md-6
+										input.form-control#citizenship(type='text' placeholder='Гражданство')
+							
+							.form-group
+								input.form-control#financingIndex(type='text' placeholder='Кто финансирует поездку')
+							.form-group
+								select.custom-select#maritalStatus
+									option(selected) Семейное положение
+									option() Холост / Не замужем
+									option() Женат / Замужем
+									option() Разведён / Разведена
+									option() Вдовец / Вдова
+							.form-group
+								input.form-control#residentialAddress(type='text' placeholder='Адрес по прописке')
+							.form-group
+								input.form-control#companyName(type='text' placeholder='Наименование места работы')
+							.form-group
+								input.form-control#companyAddress(type='text' placeholder='Адрес места работы')
+							.form-group
+								input.form-control#phoneNumber(type='text' placeholder='Контактный номер')
+							.form-group
+								h5 Данные о членах семьи
+							.children
+								.form-group
+									h6 Дети							
+								.child
+									.form-group
+										input.form-control#childFullname(type='text' placeholder='ФИО')
+									.form-group
+										input.form-control#childPhone(type='text' placeholder='Телефон')
+									.form-group
+										input.form-control#childJob(type='text' placeholder='Кем работает')
+								.form-group
+									.add-item.add-child Добавить ребёнка
+							.form-group
+								h6 Мать
+							.form-group
+								input.form-control#motherFullname(type='text' placeholder='ФИО')
+							.form-group
+								input.form-control#motherPhone(type='text' placeholder='Телефон')
+							.form-group
+								input.form-control#motherJob(type='text' placeholder='Кем работает')
+							.form-group
+								h6 Отец
+							.form-group
+								input.form-control#fatherFullname(type='text' placeholder='ФИО')
+							.form-group
+								input.form-control#fatherPhone(type='text' placeholder='Телефон')
+							.form-group
+								input.form-control#fatherJob(type='text' placeholder='Кем работает')
+							.form-group
+								h6 Супруг / Супруга
+							.form-group
+								input.form-control#spouseFullname(type='text' placeholder='ФИО')
+							.form-group
+								input.form-control#spousePhone(type='text' placeholder='Телефон')
+							.form-group
+								input.form-control#spouseJob(type='text' placeholder='Кем работает')
+							.form-group
+								h5 Информация о пребывании в&nbsp;стране
+							.form-group
+								input.form-control#destinationCity(type='text' placeholder='Укажите город Китая, в который едете')
+							.form-group#tripDuration
+								.date-range-wrapper
+									.placeholder Продолжительность поездки
+									.date-range
+										.date
+											.day 12
+											div
+												.month Апрель
+												.day-of-week Вторник
+										.divider &ndash;
+										.date
+											.day 28
+											div
+												.month Май
+												.day-of-week Воскресенье
+									.calendar-icon
+							.form-group
+								.add-item.add-period Добавить период
+							.form-group
+								h5 Предыдущее пребывание в&nbsp;стране
+							.form-group#previousTripDuration
+								.date-range-wrapper
+									.placeholder Продолжительность поездки
+									.date-range
+										.date
+											.day 12
+											div
+												.month Апрель
+												.day-of-week Вторник
+										.divider &ndash;
+										.date
+											.day 28
+											div
+												.month Май
+												.day-of-week Воскресенье
+									.calendar-icon
+							.custom-control.custom-checkbox
+								input#agreedToProcessPersonalDataVisa.custom-control-input(type='checkbox' value='')
+								label.custom-control-label(for='agreedToProcessPersonalDataVisa')
+									| Я даю согласие на обработку моих персональных данных, указанных в&nbsp;анкете
+							.form-group
+								img(src='assets/img/recaptcha.png')
+							button.btn(type='submit') Отправить
+
+
+
+
+
+
+
+
+					
+					

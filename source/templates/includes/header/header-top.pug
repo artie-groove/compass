@@ -1,0 +1,40 @@
+.col.flex-grow-0.order-1
+	a.logo(href='index.html')
+		block logo
+			img(src='assets/img/logo.svg', width='135', height='45', alt='logo')
+.col-12.col-md.order-2
+	nav.address-nav
+		.row
+			.col-md-8.col-lg-7.d-none.d-md-block
+				.row
+					.col-md-5.col-lg-4.col-xl-3
+						.label Город
+						.nav.city.mark.location-mark
+							.nav-item.dropdown
+								a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+									| #{data.cityToAddressMap[0].name}
+								.dropdown-menu
+									- let moreCities = data.cityToAddressMap.slice(1)
+									each city in moreCities
+										a.dropdown-item(href='#') #{city.name}
+					.col-md-7.col-lg-8.col-xl-9
+						.label Адрес нашего офиса
+						.address 
+							.nav
+								.nav-item.dropdown
+									a.nav-link(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+										div #{data.cityToAddressMap[0].addresses[0].address}
+										small.addressDetails #{data.cityToAddressMap[0].addresses[0].details}
+									if data.cityToAddressMap.length > 1
+										.dropdown-menu
+											- let moreAddresses = data.cityToAddressMap[0].addresses.slice(1)
+											each item in moreAddresses 
+												a.dropdown-item(href='#')
+													div #{item.address}
+													small.addressDetails #{item.details}
+			.col-md-4.col-lg-5.text-right
+				.d-md-inline-block.ml-md-auto.text-center.text-md-left
+					.label.d-none.d-md-block Телефон
+					.phone.font-weight-bold 8 (4162) 21-54-21
+						br.d-none.d-md-inline.d-lg-none
+						a.callback-link.d-none.d-md-inline-block.ml-lg-4(href='#') Перезвоните мне

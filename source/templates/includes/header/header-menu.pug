@@ -1,0 +1,51 @@
+.col-12.order-0.order-md-3
+	nav.navbar.navbar-dark.navbar-expand-md.p-md-0.mt-md-4#mainMenu
+		button.navbar-toggler.ml-auto(type='button', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Раскрыть')
+			span.navbar-toggler-icon
+		.collapse.navbar-collapse#menu
+			h6.d-md-none Меню
+			ul.navbar-nav.w-100.justify-content-between.text-md-center
+				li.nav-item
+					a.nav-link(href='/') Главная
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle-custom(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Куда поехать
+					ul.dropdown-menu
+						li
+							a.dropdown-item(href='tour-catalog.html') В Италию
+						li.dropdown-submenu
+							a.dropdown-item.dropdown-toggle-custom(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+								| В Испанию
+							.dropdown-menu
+								a.dropdown-item(href='tour-catalog.html') Мадрид
+								a.dropdown-item(href='tour-catalog.html') Барселона
+								a.dropdown-item(href='tour-catalog.html') Валенсия
+								a.dropdown-item(href='tour-catalog.html') Севилья
+								a.dropdown-item(href='tour-catalog.html') Гибралтар
+						li
+							a.dropdown-item(href='tour-catalog.html') На Мальту
+						li
+							a.dropdown-item(href='tour-catalog.html') На Мальдивы
+				li.nav-item.dropdown
+					a.nav-link.dropdown-toggle-custom(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+						| Визы
+					.dropdown-menu
+						a.dropdown-item(href='visa-info-china.html') В Японию
+						a.dropdown-item(href='visa-info-china.html') В Китай
+						a.dropdown-item(href='visa-info-china.html') В Австралию
+						a.dropdown-item(href='visa-info-china.html') В США
+				li.nav-item
+					a.nav-link(href='hotels.html') Отели
+				li.nav-item
+					a.nav-link(href='air-tickets.html') Авиабилеты
+				li.nav-item
+					a.nav-link(href='cruise.html') Круизы
+				li.nav-item.d-md-inline-block.d-lg-none
+					a.nav-link(href='404.html') Ещё
+				li.nav-item.d-md-none.d-lg-inline-block
+					a.nav-link(href='insurance.html') Страхование
+				li.nav-item.d-md-none.d-lg-inline-block
+					a.nav-link(href='about.html') О нас
+				li.nav-item.d-none.d-md-inline-block
+					block request-button
+						a.nav-link.request(data-toggle='modal' data-target='#request') Оставить заявку
+							span.d-md-none.d-lg-inline  на тур

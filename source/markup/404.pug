@@ -1,0 +1,16 @@
+extends ../templates/page-regular.tpl.pug
+
+block header-tpl-vars
+	- let headerAttrs = { 'class': 'header-404' }
+
+block footer
+
+block header-optional
+	.container
+		.row
+			.col-12
+				h1 404
+					small Страница не найдена
+				p Возможно была удалена, перемещена или временно недоступна.
+				a.btn(href='/') Вернуться на главную
+

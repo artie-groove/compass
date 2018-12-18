@@ -1,0 +1,27 @@
+section#media
+	.container
+		.row
+			.col-12
+				.wrapper
+					.container-fluid
+						.row
+							.col-md-6
+								.media-block.audios
+									.media-block-body
+										h2.mb-3 Подкасты
+										p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+										+audio-card('01', 'Дмитрий Перелётов', 'Летаем далеко')
+										+audio-card('02', 'Подводный странник', 'Сноркелинг-рай на Бали')
+										+audio-card('03', 'Александр Скороход', 'По ту сторону океана')
+										+audio-card('06', 'Костя-на-драйве', 'Загран-туса, или "Рейд по пляжам Тайланда"')
+									.media-block-footer
+										a.rarr(href='audio.html') Все подкасты
+							.col-md-6
+								.media-block.videos
+									.meida-block-body
+										h2.mb-3 Видео
+										p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+										+video-card('2-KVPLwRkCA', 'Мальдивы. Лучший в Мире Отдых. Рай на Земле')
+										+video-card('4STCHNvB_QI', 'Бухта Ха Лонг. Вьетнам')
+									.media-block-footer
+										a.rarr(href='video.html') Все видео

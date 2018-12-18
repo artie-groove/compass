@@ -1,0 +1,26 @@
+extends ../templates/tour-page.tpl.pug
+
+append header-tpl-vars
+	- let toursPageActive = 0
+
+block tour-content
+	.row
+		.col-md-4
+			img.img-fluid.rounded(src='assets/img/cruises/cover.jpg')
+		.col-md-8
+			h5.mt-3.mt-md-0 Япония&nbsp;&mdash; восточный рай
+			p Страна восходящего солнца Япония&nbsp;&mdash; кладезь утонченной экзотики. Суперсовременный Токио и&nbsp;живописная провинция, снежная шапка Фудзи и&nbsp;сакура в&nbsp;цвету, великолепные пляжи островов Окинава и&nbsp;древние памятники синтоизма&nbsp;&mdash; все о&nbsp;Японии: фото, карта, туры, цены и&nbsp;отзывы.
+	.row.mt-2.mt-lg-4
+		.col-12
+			p Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Аdipisicing elit, sed do eiusmod tempor incididunt ut Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit,Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Аdipisicing elit, sed do eiusmod tempor incididunt ut Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit,
+			p Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Аdipisicing elit, sed do eiusmod tempor incididunt ut Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit,
+
+	.links
+		h2 Каталог
+		.row
+			.col-12.col-md-6.col-lg-4
+				+cover-card('01', 'tours/excursions/germany/extras', 'Подбор отелей в&nbsp;Германии', null, 'hotels.html')
+			.col-12.col-md-6.col-lg-4
+				+cover-card('02', 'tours/excursions/germany/extras', 'Оформить визу в&nbsp;Германию', null, 'visa-info-china.html')
+			.col-12.col-md-6.col-lg-4
+				+cover-card('03', 'tours/excursions/germany/extras', 'Подбор авиабилетов в&nbsp;Германию', null, 'air-tickets.html')

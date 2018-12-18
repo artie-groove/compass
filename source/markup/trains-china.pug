@@ -1,0 +1,76 @@
+extends ../templates/page-light.tpl.pug
+
+block content
+	.wrapper
+		#content-trains
+			.container
+				.row
+					.col-12
+						h2.mb-3 Расписание поездов Китая
+						p Для вашего удобства мы предлагаем вам подробное расписание ЖД поездов Китая.
+						.direction-control.my-5
+							.nav.select-control
+								.nav-item.dropdown
+									a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+										b Откуда:
+										|
+										|
+										span Хэйхе
+									.dropdown-menu
+										a.dropdown-item(href='#') Пекин
+										a.dropdown-item(href='#') Харбин
+							img(src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMjciIHZpZXdCb3g9IjAgMCAxNyAyNyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNi4wMzIzIDYuOTQ4OUgxNi4wMjU4TDEwLjc4MTkgMTJMOS44MDc2OSAxMS4wNTM4TDE0LjM1ODQgNi42NjYzNUgwVjUuMzMzNjFIMTQuMzU4NEw5LjgwNzY5IDAuOTQ1NTg0TDEwLjc4MTkgMEwxNi4wMjU4IDUuMDU3MDhIMTYuMDMyM0wxNyA2LjAwMjY2TDE2LjAzMjMgNi45NDg5WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTAuOTY3NjggMjEuOTQ4OUgwLjk3NDIyNEw2LjIxODA4IDI3TDcuMTkyMzEgMjYuMDUzOEwyLjY0MTU2IDIxLjY2NjRIMTdWMjAuMzMzNkgyLjY0MTU2TDcuMTkyMzEgMTUuOTQ1Nkw2LjIxODA4IDE1TDAuOTc0MjI0IDIwLjA1NzFIMC45Njc2OEwwIDIxLjAwMjdMMC45Njc2OCAyMS45NDg5WiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K')
+							.nav.select-control
+								.nav-item.dropdown
+									a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+										b Куда:
+										|
+										|
+										span Харбин
+									.dropdown-menu
+										a.dropdown-item(href='#') Хэйхе
+										a.dropdown-item(href='#') Пекин
+						table.table.table-responsive.table-default
+							thead
+								tr
+									th Отправление
+									th Время отпр.
+									th № поезда
+									th Прибытие
+									th Время приб.
+									th Цена, юани
+									th Длительность
+							tbody
+								tr
+									td Heihe
+									td 08:20
+									td 4032
+									td Harbin East
+									td 21:07
+									td
+										| Сидячие места мягкие 180&nbsp;Y
+										br
+										| Сидячие места жесткие 150&nbsp;Y
+									td 5&nbsp;ч. 20&nbsp;мин.
+								tr
+									td Heihe
+									td 19:15
+									td K7034
+									td Harbin East
+									td 6:20
+									td
+										| Купе 350&nbsp;Y
+										br
+										| Плацкарт 250&nbsp;Y
+									td 6&nbsp;ч. 13&nbsp;мин.
+								tr
+									td Heihe
+									td 20:35
+									td K7036
+									td Harbin
+									td 07:28
+									td
+										| Купе 350&nbsp;Y
+										br
+										| Плацкарт 250&nbsp;Y
+									td 4&nbsp;ч. 12&nbsp;мин.

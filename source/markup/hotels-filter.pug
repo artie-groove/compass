@@ -1,0 +1,104 @@
+extends ../templates/page-light.tpl.pug
+
+block content
+	.wrapper#content-hotels-filter
+			.container
+				.row
+					.col-lg-4
+						h2 Отели Испании
+						h3 Календарь низких цен
+						.filter-modal-toggler.d-lg-none
+				.row.position-relative
+					.col-lg-9
+						#barGraph
+							.controls
+								.prev
+								.next
+							.graph
+								.graph-inner
+									-
+										let graphData = [];
+										for ( let j = 0; j <= 1; j++ ) {
+											for ( let i = 1; i <= 31; i++ ) {
+												graphData.push(2000 + ((2500 + i * i * i) % 3000));
+											}
+										}
+									each price, day in graphData
+										+bar((day + 7) % 31 + 1, price)
+								.legend
+									div Декабрь
+									div.d-none.d-md-block Январь
+						.container-fluid
+							.row
+								each card, i in data.hotels
+									.col-12.col-md-6
+										+cover-card(normalizeNumber(i+1), 'hotels/covers', card.title, `От <b>${card.price}</b> р.`, 'hotel-details.html', true)
+								each card, i in data.hotels
+									.col-12.col-md-6
+										+cover-card(normalizeNumber(i+1), 'hotels/covers', card.title, `От <b>${card.price}</b> р.`, 'hotel-details.html', true)
+								each card, i in data.hotels
+									.col-12.col-md-6
+										+cover-card(normalizeNumber(i+1), 'hotels/covers', card.title, `От <b>${card.price}</b> р.`, 'hotel-details.html', true)
+							.row
+								.col-12.text-center
+									a.btn.btn-transparent.no-arr.text-center.d-inline-block(href='#') Показать ещё
+					.col-lg-3#hotelsFilter
+						h5.d-lg-none Фильтр
+						.nav.select-control.mb-5
+							.nav-item.dropdown
+								a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+									b Страна:
+									|
+									|
+									span Испания
+								.dropdown-menu
+									a.dropdown-item(href='#') Италия
+									a.dropdown-item(href='#') Греция
+									a.dropdown-item(href='#') Черногория
+									a.dropdown-item(href='#') Франция
+									a.dropdown-item(href='#') Египет
+									a.dropdown-item(href='#') Япония
+									a.dropdown-item(href='#') Корея
+									a.dropdown-item(href='#') Китай
+									a.dropdown-item(href='#') Вьетнам
+						p.mb-4
+							b Период пребывания
+						.range-selector
+							.rail
+								.constraint.constraint-left
+								.selection
+								.constraint.constraint-right
+							.legend
+								div От 7 дней
+								div до 15 дней
+						.price-range
+							div От 12 636 р.
+							div До 325 123 р.
+						.nav.select-control.mb-4
+							.nav-item.dropdown
+								a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+									span Тип размещения
+								.dropdown-menu
+									a.dropdown-item(href='#') Отель
+									a.dropdown-item(href='#') Апартаменты
+									a.dropdown-item(href='#') Комната
+						.d-flex.align-items-center.mb-4
+							p.mb-0 Количество звёзд:
+							.stars
+								.active
+								.active
+								.active
+								div
+								div
+						.custom-control.custom-checkbox
+							input#fakeCheckbox.custom-control-input(type='checkbox' value='' checked)
+							label.custom-control-label(for='fakeCheckbox')
+								| Бесплатный Wi-Fi
+
+									
+
+
+	include ../templates/includes/main/section-subscribe.pug
+
+
+

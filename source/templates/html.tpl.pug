@@ -8,5 +8,7 @@ html(lang='en')
 			block header
 			block content
 			block footer
-		include includes/scripts-delayed.pug
+		block scripts-delayed
+			include includes/scripts-delayed.pug
+		script(src='assets/js/scripts.js')
 		include includes/modals.pug

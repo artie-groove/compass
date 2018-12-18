@@ -1,8 +1,11 @@
 // Custom variables
 $theme-color-primary: #FF8E02 // orange
 $theme-color-secondary: #014A7C // blue
+$theme-color-warning: #F58D8D // red
 $postheader-block-overlap-y: 180px
 $btn-hover-bg-color: darken($theme-color-primary, 5%)
+$primary: $theme-color-primary
+$warning: $theme-color-warning
 
 // Your variable overrides
 //$container-max-widths: (sm: 540px, md: 720px, lg: 960px, xl: 1200px)
@@ -37,64 +40,73 @@ $input-btn-padding-y: 1.8rem
 $input-btn-padding-x: $input-padding-x
 
 
-// $custom-select-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22white%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E")
-// $custom-select-indicator-color: #fff
-// $custom-select-color: #fff
-// $custom-select-bg: transparent
-// $custom-select-border-color: transparent
-// $custom-select-focus-border-color: transparent
-// $custom-select-focus-box-shadow: none
-// $custom-select-padding-x: 0
-
 // Bootstrap and its default variables
 @import "../builder/node_modules/bootstrap/scss/bootstrap"
 
+@import '../templates/includes/sass/_functions'
+@import '../templates/includes/sass/_icons'
+@import '../templates/includes/sass/_mixins'
+
 html
 	font-size: 14px
-	min-height: 101%
+	min-height: 100%
 	overflow-x: hidden
 
 body
+	width: 100%
+	overflow-x: hidden
 	margin: 0 auto
-	header
-		background: url('../img/bg-top.jpg') 0% 100% / cover
-		padding-top: 20px
-		padding-bottom: 20px
-		+media-breakpoint-up(md)
-			padding-bottom: 20px + $postheader-block-overlap-y
-		.label
-			font-size: 10px
-			letter-spacing: .8px
-			color: #fff
-			opacity: .5
-			margin-bottom: 6px
-	hr
-		height: 0
-		border-top: 1px solid #fff
-		opacity: .3
-		margin-top: 20px
 
-@function svg-fill($base64-template-string, $color)
-	@return str-replace($base64-template-string, "[color]", $color)
+header
+	background: url('../img/bg-top.jpg') 0% 100% / cover
+	padding-top: 20px
+	padding-bottom: 20px
+	position: relative
+	color: #fff
+	.label
+		font-size: 10px
+		letter-spacing: .8px
+		color: #fff
+		opacity: .5
+		margin-bottom: 6px
+	img.header-img
+		position: absolute
+		display: block
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		height: 100%
+		z-index: -1
+		height: 100%
+	h1
+		margin-top: 100px
+		text-align: left
+		position: relative
+		img
+			position: absolute
+			display: block
+			left: 0
+			top: 6px
+			
 
-@function svg-image($base64-string, $color)
-	@return str-replace(url("data:image/svg+xml;charset=utf8,#{svg-fill($base64-string, $color)}"), "#", "%23")
+hr
+	height: 0
+	border-top: 1px solid #fff
+	opacity: .3
+	margin-top: 20px
+	width: 100%
+	display: block
+	
+	
 
-@function info-image($color)
-	$base64: "%3Csvg%20width%3D%2215%22%20height%3D%2215%22%20viewBox%3D%220%200%2015%2015%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M7.86582%2015C11.7009%2015%2014.8098%2011.6421%2014.8098%207.5C14.8098%203.35786%2011.7009%200%207.86582%200C4.03078%200%200.921875%203.35786%200.921875%207.5C0.921875%2011.6421%204.03078%2015%207.86582%2015ZM7.86582%2013.6364C11.0036%2013.6364%2013.5472%2010.889%2013.5472%207.5C13.5472%204.11098%2011.0036%201.36364%207.86582%201.36364C4.72806%201.36364%202.18441%204.11098%202.18441%207.5C2.18441%2010.889%204.72806%2013.6364%207.86582%2013.6364ZM7.07673%207.3303C7.07673%206.85919%207.4309%206.47727%207.86582%206.47727C8.30162%206.47727%208.6549%206.85745%208.6549%207.3303V10.7379C8.6549%2011.209%208.30073%2011.5909%207.86582%2011.5909C7.43002%2011.5909%207.07673%2011.2107%207.07673%2010.7379V7.3303ZM6.91892%204.43182C6.91892%203.86698%207.34392%203.40909%207.86582%203.40909C8.38878%203.40909%208.81272%203.86813%208.81272%204.43182C8.81272%204.99665%208.38771%205.45455%207.86582%205.45455C7.34286%205.45455%206.91892%204.99551%206.91892%204.43182Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E%0A"
-	@return svg-image($base64, $color)
+.location-mark
+	&::before
+		background: location-image($theme-color-primary)
+		width: 9px
+		height: 10px
+		left: -14px
+		top: 5px
 
-@function caret-image($color)
-	$base64: "%3Csvg%20width%3D%226%22%20height%3D%226%22%20viewBox%3D%220%200%206%206%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0.954959%201.9093L3.81891%204.77325L2.86426%205.7279L0.00030971%202.86395L0.954959%201.9093Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M1.90961%204.77325L4.77356%201.9093L5.72821%202.86395L2.86426%205.7279L1.90961%204.77325Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E"
-	@return svg-image($base64, $color)
-
-
-
-@function rarr-image($color)
-	$base64: "%3Csvg%20width%3D%2213%22%20height%3D%2214%22%20viewBox%3D%220%200%2013%2014%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M0%205.79541H11.0048V7.70459H0V5.79541Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M6.01874%2012.15L11.577%205.4L12.6887%206.75L7.13039%2013.5L6.01874%2012.15Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M11.577%208.1L6.01874%201.35L7.13039%200L12.6887%206.75L11.577%208.1Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E"
-	@return svg-image($base64, $color)
-
-@import '../templates/includes/sass/_mixins'
 
 .rarr
 	position: relative
@@ -109,15 +121,19 @@ body
 		transform: translateY(-40%)
 		background-position: 0 50%
 
+.no-arr
+	padding-right: 20px !important
+	&::after
+		content: none !important
+
 .bg-dark
 	background-color: #2C2043 !important
 	color: #fff
+
+.spacer-md-200
+	+media-breakpoint-up(md)
+		height: 20px + $postheader-block-overlap-y
 		
-
-@function close-image($color)
-	$base64: "%3Csvg%20width%3D%2229%22%20height%3D%2229%22%20viewBox%3D%220%200%2029%2029%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20d%3D%22M1.06043%201.62563C1.64622%201.03985%202.59597%201.03985%203.18175%201.62563L26.5163%2024.9602C27.1021%2025.5459%2027.1021%2026.4957%2026.5163%2027.0815C25.9305%2027.6673%2024.9807%2027.6673%2024.395%2027.0815L1.06043%203.74695C0.474647%203.16117%200.474647%202.21142%201.06043%201.62563Z%22%20fill%3D%22[color]%22%2F%3E%0A%3Cpath%20d%3D%22M1.76769%2027.0815C1.18191%2026.4957%201.18191%2025.5459%201.76769%2024.9602L25.1022%201.62563C25.688%201.03984%2026.6377%201.03984%2027.2235%201.62563C27.8093%202.21142%2027.8093%203.16116%2027.2235%203.74695L3.88901%2027.0815C3.30323%2027.6673%202.35348%2027.6673%201.76769%2027.0815Z%22%20fill%3D%22[color]%22%2F%3E%0A%3C%2Fsvg%3E%0A"
-	@return svg-image($base64, $color)
-
 
 .nav-link:hover
 	cursor: pointer
@@ -131,17 +147,11 @@ body
 				position: relative
 				padding-top: 0
 				padding-left: 0
+		.dropdown-item
+			color: #fff
+			&:hover
+				color: #000
 	.city
-		.nav-item::before
-			content: ' '
-			display: block
-			position: absolute
-			background: url("data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%229%22%20height%3D%2210%22%20viewBox%3D%220%200%209%2010%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M4.5%200C6.97959%200%209%201.89655%209%204.22414C9%206.81034%206.15306%208.27586%204.5%2010C2.84694%208.18966%200%206.81034%200%204.22414C0%201.89655%202.02041%200%204.5%200ZM4.5%202.15517C5.60204%202.15517%206.52041%203.01724%206.52041%204.05172C6.52041%205.08621%205.60204%205.94828%204.5%205.94828C3.39796%205.94828%202.47959%205.08621%202.47959%204.05172C2.47959%203.01724%203.39796%202.15517%204.5%202.15517Z%22%20fill%3D%22%23FF8E02%22%2F%3E%0A%3C%2Fsvg%3E")
-			background-repeat: no-repeat
-			width: 9px
-			height: 10px
-			left: -14px
-			top: 5px
 		.nav-link
 			padding-bottom: 0
 			white-space: nowrap
@@ -156,6 +166,13 @@ body
 				width: 100%
 				padding-right: 25px
 				background-clip: content-box
+		&.location-mark
+			&::before
+				$size: 14px
+				width: $size
+				height: $size
+				top: 2px
+				left: -18px
 
 
 	.address
@@ -163,14 +180,16 @@ body
 		font-weight: 500
 		a
 			font-size: 16px
-		div:first-child:not(:last-child)
+		.nav-link > div
 			&::after
 				+caret-image-params()
 				background-image: caret-image(#fff)
 	.dropdown-menu
-		background-color: #fff
+		background-color: $theme-color-primary
+		border-radius: 5px
+		overflow: hidden
 		.dropdown-link
-			color: #000
+			color: #fff
 	.phone
 		font-size: 19px
 		color: #fff
@@ -185,6 +204,7 @@ body
 		display: inline-block
 		&:hover
 			text-decoration: none
+			color: darken(#FF9F01, 5%)
 		&::after
 			content: ' '
 			display: block
@@ -200,6 +220,7 @@ body
 			background-image: caret-image($theme-color-primary)
 
 .logo
+	display: block
 	margin-top: 10px
 	padding-right: 25px
 
@@ -210,6 +231,10 @@ body
 	+media-breakpoint-down(sm)
 		position: absolute
 		width: calc(100% - #{$grid-gutter-width / 2})
+		top: 55px
+		z-index: 3
+	h6
+		color: #000
 
 	.nav-link
 		font-size: 14px
@@ -260,9 +285,14 @@ body
 					&::after
 						background-image: caret-image(#000)
 	.navbar-toggler
+		position: absolute
 		outline: none
-		margin-top: 10px
-		margin-right: -.75rem
+		top: -46px
+		right: 0
+		&-icon
+			$size: 38px
+			width: $size
+			height: $size
 		&.show
 			margin-top: 0
 			.navbar-toggler-icon
@@ -274,24 +304,25 @@ body
 			padding-left: 10px
 		+media-breakpoint-down(sm)
 			position: absolute
-			top: 45px
+			top: 0
 			left: 0
-			width: 95%
+			width: 96%
 			margin: 0 auto
 			background-color: #fff
-			padding: 30px 20px
+			padding: 30px 20px 15px
 			border-radius: 4px
 			z-index: 1
+			border: 1px solid #E4E4E4
 
-.navbar-dark.navbar
-	.navbar-nav
-		.nav-link
-			+media-breakpoint-down(sm)
-				color: #000
-				padding-left: 12px
-				padding-right: 10px
-				&:hover
-					background-color: transparent
+	&.navbar-dark
+		.navbar-nav
+			.nav-link
+				+media-breakpoint-down(sm)
+					color: #000
+					padding-left: 12px
+					padding-right: 10px
+					&:hover
+						background-color: transparent
 
 
 				
@@ -335,6 +366,95 @@ body
 			&::after
 				background-image: caret-image(#000)
 
+.header-light
+	background: none
+	padding-bottom: 0
+	.label
+		color: #000
+	.address-nav
+		.dropdown
+			a.nav-link
+				color: #000
+		.phone
+			color: #000
+	.navbar-toggler-icon
+		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+	.navbar .navbar-toggler.show .navbar-toggler-icon
+		background-image: close-image(#333333)
+	.address-nav
+		.dropdown-toggle-custom
+			&::after
+				background-image: caret-image(#000)
+		.address
+			.nav-link
+				> div::after
+					background-image: caret-image(#000)
+	hr
+		border-top-color: #E4E4E4
+		opacity: 1
+
+
+.wrapper
+	margin: 30px 0 15px
+
+.no-bg
+	background-image: none
+	height: 600px
+
+
+.navbar-secondary
+	position: absolute
+	bottom: 0
+	width: 100%
+	z-index: 2
+	.navbar
+		top: auto
+		bottom: 0
+		padding: 0
+		position: relative
+		width: 100%
+		background-color: transparent
+	.navbar-toggler
+		top: auto
+		right: -15px
+		&.show
+			top: -54px
+			color: transparent
+		.navbar-toggler-icon
+			background-image: none
+			font-size: 30px
+			font-weight: 500
+			transform: rotate(-90deg)
+			vertical-align: top
+	.navbar-nav
+		flex-direction: row
+		.nav-item
+			border-top: 1px solid #E4E4E4
+			.nav-link
+				color: #fff
+				font-size: 14px
+				padding-right: 0
+				padding-left: 0
+				&:hover
+					color: $theme-color-primary
+					background-color: transparent
+		.active
+			border-top: 4px solid $theme-color-primary
+			border-bottom: 4px solid $theme-color-primary
+	.navbar-collapse.show
+		padding: 10px 20px
+		width: 100%
+		//border: 1px solid #E4E4E4
+		.navbar-nav
+			flex-direction: column
+		.nav-item
+			border: none
+			.nav-link
+				color: #000
+
+
+
+
 
 // Forms
 
@@ -342,6 +462,12 @@ body
 	margin-bottom: 25px
 	.custom-control-label
 		padding-left: 15px
+		font-size: 14px
+
+.custom-select
+	background-image: caret-image(#000)
+	padding-left: 20px
+
 
 button[type='submit']
 	background-color: $theme-color-primary
@@ -352,13 +478,51 @@ button[type='submit']
 	&:hover
 		cursor: pointer
 		background-color: $btn-hover-bg-color
-	&::after
-		+rarr-image-params
-		background-image: rarr-image(#fff)
-		float: right
+
+form
+	h5
+		font-size: 20px
+	h6
+		font-size: 16px
+		font-weight: 700
+
+.selector-option
+	text-align: center
+	cursor: pointer
+	font-size: 14px
+	div
+		padding: 20px 30px
+		border-bottom: 2px solid #E4E4E4
+	input:checked + div
+		font-weight: 700
+		border-bottom: 4px solid $theme-color-primary
+
+.add-item
+	$size: 30px
+	position: relative
+	padding-left: $size + 10px
+	color: $theme-color-primary
+	cursor: pointer
+	margin-left: 20px
+	&:hover
+		color: darken($theme-color-primary, 10%)
+	&::before
+		content: '+'
 		display: block
-		right: 30px
-		margin-top: 5px
+		position: absolute
+		font-weight: 500
+		color: #fff
+		background-color: $theme-color-primary
+		border-radius: 50%
+		width: $size
+		height: $size
+		line-height: $size
+		font-size: 18px
+		left: 0
+		top: 50%
+		transform: translateY(-50%)
+		text-align: center
+
 
 // Modals
 
@@ -370,6 +534,8 @@ button[type='submit']
 	font-size: 36px
 	font-weight: 700
 	margin-bottom: 25px
+	+media-breakpoint-down(sm)
+		font-size: 26px
 	small
 		display: block
 		font-size: 14px
@@ -382,6 +548,8 @@ button[type='submit']
 	background-color: transparent
 	border: 0
 	opacity: .5
+	+media-breakpoint-down(sm)
+		right: 0
 	&:hover
 		cursor: pointer
 	.modal-close-icon
@@ -413,19 +581,60 @@ button[type='submit']
 	button[type='submit']
 		margin-top: 25px
 
+#showCruiseOnMap
+	.modal-dialog
+		max-width: 800px
+	iframe
+		position: absolute
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+
+#requestCruise
+	.modal-dialog
+		max-width: 600px
+	#customerDate,
+	#customerTime
+		position: relative
+		&::after
+			content: ''
+			display: block
+			position: absolute
+			$size: 25px
+			width: $size
+			height: $size
+			background-size: contain
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			right: 20px
+			top: 50%
+			transform: translateY(-50%)
+	#customerDate::after
+		background-image: calendar-image($theme-color-primary)
+	#customerTime::after
+		background-image: time-image($theme-color-primary)
+
 
 // General layout styles
 section
 	padding: 30px 0
 
 // Typography
+
+a
+	color: $theme-color-primary
+	text-decoration: none
+	&:hover
+		color: darken($theme-color-primary, 10%)
+
 h1
 	margin-top: 50px
 	margin-bottom: 30px
-	color: #fff
 	font-weight: 700
-	text-align: center
-	font-size: 32px
+	font-size: 46px
 	small
 		display: block
 		margin-top: 15px
@@ -438,10 +647,12 @@ h1
 		font-size: 46px
 		small
 			font-size: 15px
+	+media-breakpoint-down(sm)
+		font-size: 32px
 
 h2
 	font-size: 28px
-	margin-bottom: 15px
+	margin-bottom: 35px
 	font-weight: 700
 	+media-breakpoint-only(md)
 		font-size: 32px
@@ -456,13 +667,102 @@ h3
 	+media-breakpoint-up(lg)
 		font-size: 18px
 
+h6
+	font-size: 16px
+	font-weight: 700
+
 ul
 	padding-left: 15px
 
-// utilities
+a:hover
+	img
+		transition: filter .25s ease
+		filter: brightness(105%)
 
-@function aspect-padding($width, $height)
-	@return $height / $width * 100% 
+.btn
+	white-space: normal
+	background-color: $theme-color-primary
+	color: #fff
+	font-size: 15px
+	text-align: left
+	position: relative
+	padding-right: 40px
+	+media-breakpoint-down(md)
+		font-size: 14px
+	&:hover
+		cursor: pointer
+		background-color: $btn-hover-bg-color
+		color: #fff
+	&::after
+		+rarr-image-params
+		background-image: rarr-image(#fff)
+		display: block
+		position: absolute
+		right: 20px
+		top: 50%
+		transform: translateY(-50%)
+	&-transparent
+		background-color: transparent
+		border: 1px solid $theme-color-primary
+		color: #000
+		&:hover
+			background-color: rgba($theme-color-primary, .05)
+			color: #000
+
+ul.list-positive,
+ul.list-negative
+	list-style: none
+	padding: 0
+	margin: 10px 0 20px
+	li
+		position: relative
+		padding-left: 30px
+		margin-bottom: 10px
+		&::before
+			content: ''
+			display: block
+			position: absolute
+			background-image: check-image($theme-color-primary)
+			background-repeat: no-repeat
+			background-size: contain
+			$size: 18px
+			height: $size
+			width: $size
+			top: 2px
+			left: 0
+
+ul.list-negative
+	li
+		&::before
+			background-image: check-image($theme-color-warning)
+
+ul.list-positive-simplified
+	li
+		&::before
+			background-image: check-simplified-image($theme-color-primary)
+
+.notice
+	padding-left: 30px
+	color: $theme-color-warning
+	position: relative
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		$size: 20px
+		width: $size
+		height: $size
+		background-image: notice-image($theme-color-warning)
+		background-repeat: no-repeat
+		background-size: contain
+
+.bg-highlight
+	background-color: rgba(#FF9A01, .05)
+
+
+// utilities
 
 .mask
 	display: block
@@ -476,6 +776,8 @@ ul
 		top: 50%
 		left: 50%
 		transform: translate(-50%, -50%)
+.mask-4-3
+	padding-top: aspect-padding(4, 3)
 .mask-16-9
 	padding-top: aspect-padding(16, 9)
 .mask-square
@@ -485,6 +787,7 @@ ul
 		height: 100%
 
 
+
 =thumb-wrapper($thumb-height)
 	width: $thumb-height * 16 / 9
 
@@ -492,17 +795,26 @@ ul
 
 
 // cards
-.cover
-	height: 225px
+.cover-card
 	margin-bottom: 30px
 	background-color: unset
-	background-repeat: no-repeat
-	background-position: 50% 50%
-	background-size: cover
 	border: none
 	color: #fff
 	justify-content: flex-end
 	border-radius: 10px
+	overflow: hidden
+	&:hover
+		text-decoration: none
+		cursor: pointer
+		color: #fff
+		.thumb-wrapper
+			img
+				filter: brightness(80%)
+				transition: filter .25s ease
+	.thumb-wrapper
+		img
+			filter: brightness(75%)
+			border-radius: 10px
 	.card-title
 		font-size: 15px
 		font-weight: 700
@@ -510,81 +822,95 @@ ul
 			font-size: 16px
 		+media-breakpoint-up(lg)
 			font-size: 18px
+		small
+			display: block
+			font-size: 10px
+			font-weight: 500
+			margin-top: 6px
 	.card-footer
 		border-top: none
 		background-color: unset
-	small
+	.card-link
 		color: $theme-color-primary
-		font-size: 14px
+		font-size: 10px
 		font-weight: 500
+		border: none
+		position: relative
 		&::after
-			+rarr-image-params
+			content: ''
+			display: block
+			width: 10px
+			height: 11px
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			background-size: contain
 			background-image: rarr-image($theme-color-primary)
 			position: absolute
-			right: 30px
-			margin-top: 3px
-	&:hover
-		text-decoration: none
-		cursor: pointer
-		color: #fff
-		filter: brightness(110%)
-		transition: filter .25s ease
+			top: 0
+			right: 0
+	.card-img-overlay
+		top: auto
+		padding: 0
+	
 
 
 
-.videos
+.video-card
 	$icon-size: 60px
 	$gutter: 10px
 	$thumb-height: 235px
-	.cover
+	position: relative
+	height: $thumb-height
+	border-radius: 20px
+	overflow: hidden
+	margin-bottom: 25px
+	cursor: pointer
+	.thumb-wrapper
+		+thumb-wrapper($thumb-height)
+		+media-breakpoint-up(lg)
+			width: 100%
+	.card-img-overlay
+		top: unset
+		padding: 20px 30px
+	.card-footer
+		padding: 0
+		height: $icon-size
+		display: flex
+		align-items: center
+		background: none
+		border-top: none
+	.card-title
 		position: relative
-		height: $thumb-height
-		border-radius: 20px
-		overflow: hidden
-		.thumb-wrapper
-			+thumb-wrapper($thumb-height)
-			+media-breakpoint-up(xl)
-				width: 100%
-		.card-img-overlay
-			top: unset
-			padding: 20px 30px
-		.card-footer
-			padding: 0
+		padding-left: $icon-size + $gutter
+		margin: 0
+		color: #fff
+		font-size: 18px
+		padding-bottom: 3px
+		&::before
+			content: ' '
+			display: block
+			border-radius: 50%
+			background-color: #fff
+			position: absolute
+			width: $icon-size
 			height: $icon-size
-			display: flex
-			align-items: center
-		.card-title
-			position: relative
-			padding-left: $icon-size + $gutter
-			margin: 0
-			color: #fff
-			font-size: 18px
-			padding-bottom: 3px
-			&::before
-				content: ' '
-				display: block
-				border-radius: 50%
-				background-color: #fff
-				position: absolute
-				width: $icon-size
-				height: $icon-size
-				left: 0
-				top: 50%
-				transform: translateY(-50%)
-			&::after
-				content: ' '
-				display: block
-				position: absolute
-				top: 50%
-				transform: translateY(-50%)
-				left: $icon-size / 2 - 3px
-				border: 8px solid transparent
-				border-left: 10px solid $theme-color-primary
+			left: 0
+			top: 50%
+			transform: translateY(-50%)
+		&::after
+			content: ' '
+			display: block
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			left: $icon-size / 2 - 3px
+			border: 8px solid transparent
+			border-left: 10px solid $theme-color-primary
 
-.audios
-	.card
-		border: 0
-		border-bottom: 1px solid #F5F5F5
+.audio-card
+	border: 0
+	border-bottom: 1px solid #F5F5F5
+	margin-bottom: 25px
 	.card-body
 		display: flex
 		flex-wrap: nowrap
@@ -606,6 +932,7 @@ ul
 			img
 				filter: brightness(105%)
 				transition: filter .25s ease
+				
 		&::after
 			content: ' '
 			display: block
@@ -658,6 +985,8 @@ ul
 		background-color: $theme-color-primary
 		height: 3px
 		margin-top: -1px
+	.current-pos
+		flex-basis: 50%
 
 .card-article
 	border: 0
@@ -672,6 +1001,8 @@ ul
 		border-bottom: 0
 		padding: 35px
 	.card-title
+		display: block
+		color: #000
 		margin-bottom: 18px
 		font-weight: 700
 		font-size: 15px
@@ -695,12 +1026,283 @@ ul
 			background-image: rarr-image($theme-color-primary)
 
 
+.staff-card
+	border: 0
+	text-align: center
+	padding: 25px 0
+	align-items: center
+	.card-img-top
+		border-radius: 50%
+		width: auto
+		max-width: 100%
+	.card-title
+		font-size: 16px
+		font-weight: 700
+		small
+			font-size: 15px
+			font-weight: 500
+			margin-top: 4px
+			display: block
+
+.card-link
+	color: $theme-color-primary
+	font-size: 15px
+	font-weight: 500
+	border-bottom: 1px solid rgba($theme-color-primary, .5)
+	padding-bottom: 2px
+	&:hover
+		color: darken($theme-color-primary, 5%)
+		transition: color .25s ease
+
+
+.cruise-card
+	flex-direction: row
+	+media-breakpoint-down(md)
+		flex-direction: column
+	border-radius: 0
+	margin-top: 30px
+	h5
+		font-weight: 700
+		margin-bottom: 20px
+		font-size: 20px
+	.thumb-wrapper
+		width: 45%
+		+media-breakpoint-down(md)
+			width: 100%
+	p
+		font-weight: 700
+		span
+			padding-left: 5px
+			font-weight: 500
+	.price
+		margin-bottom: 30px
+		font-size: 16px
+	.card-link
+		font-size: 15px
+		border: none
+		text-decoration: underline
+	.location-mark
+		margin-left: 40px
+		+media-breakpoint-down(md)
+			margin-left: 20px
+	.controls
+		display: flex
+		align-items: center
+		+media-breakpoint-down(md)
+			flex-direction: column
+			align-items: flex-start
+			.btn
+				width: 100%
+				margin-top: 20px
+
 // blocks
 .placeholder-block
 	border: 1px solid #999
 	margin: 50px 0
 	padding: 30px 50px
 	background-color: rgba(255, 255, 255, .5)
+
+.price-tag
+	display: flex
+	flex-direction: column
+	+media-breakpoint-down(sm)
+		flex-direction: row
+		align-items: center
+		.price-section
+			padding-right: 25px
+	.promo-label
+		color: #fff
+		padding: 6px 8px
+		margin-left: 60px
+		width: 100px
+		background-color: #F58D8D
+		font-size: 10px
+		border-radius: 3px
+		text-align: center
+	.price-value
+		font-size: 32px
+		font-weight: 700
+		white-space: nowrap
+		span
+			font-size: 24px
+			padding-left: 8px
+	.btn
+		border-radius: 0
+		margin-top: 15px
+		+media-breakpoint-down(sm)
+			margin-top: 0
+
+.info-block
+	background-color: transparent
+	border: 2px solid rgba($theme-color-primary, .05)
+	max-width: 1350px
+	margin: 0 auto
+
+.phone
+	white-space: nowrap
+
+.mark
+	position: relative
+	background-color: transparent
+	padding: 0
+	&::before
+		content: ''
+		display: block
+		position: absolute
+		background-repeat: no-repeat
+		background-size: contain
+		background-position: 50% 0
+		$size: 16px
+		width: $size
+		height: $size
+		top: 0
+		left: -$size - 7px
+
+.phone-mark
+	&::before
+		background-image: phone-image($theme-color-primary)
+		top: 4px
+
+.cellphone-mark
+	&::before
+		background-image: cellphone-image($theme-color-primary)
+		top: 3px
+
+.link-mark
+	&::before
+		background-image: link-image($theme-color-primary)
+		top: 2px
+
+.email-mark
+	&::before
+		background-image: envelope-image($theme-color-primary)
+		top: 6px
+
+.clock-mark
+	&::before
+		background-image: clock-image($theme-color-primary)
+		top: 3px
+
+.skype-mark
+	&::before
+		background-image: icon-skype(#fff)
+		top: 2px
+
+.viber-mark
+	&::before
+		background-image: icon-viber(#fff)
+		top: 3px
+
+.whatsapp-mark
+	&::before
+		background-image: icon-whatsapp(#fff)
+		top: 3px
+
+.icq-mark
+	&::before
+		background-image: icon-icq(#fff)
+		top: 3px
+		transform: scale(1.3)
+
+.address-card
+	margin: 25px 0 10px
+	.card-title
+		font-size: 16px
+		font-weight: 700
+		margin-bottom: 15px
+	.card-body
+		padding: 0 0 0 22px
+		div
+			&:not(:last-child)
+				margin-bottom: 10px
+	.location-mark
+		&::before
+			top: 4px
+	small
+		display: block
+		margin-top: 4px
+
+.icon
+	position: relative
+	display: block
+	$size: 23px
+	width: $size
+	height: $size
+	background-repeat: no-repeat
+	background-size: contain
+
+.icon-yes
+	background-image: plus-circle-image(#6CD68A)
+
+.icon-no
+	background-image: minus-circle-image($theme-color-warning)
+
+.icon-photo
+	background-image: icon-photo($theme-color-primary)
+
+.nav.select-control
+	border: 1px solid #E4E4E4
+	border-radius: 4px
+	padding: 10px
+	margin: 15px 0
+	max-width: 370px
+	.nav-item
+		width: 100%
+	.nav-link
+		color: #000
+	.dropdown-toggle-custom
+		position: relative
+		&::after
+			background-image: caret-image($theme-color-primary)
+			display: block
+			position: absolute
+			top: 50%
+			right: 0
+			transform: translateY(-50%)
+	.dropdown-menu
+		border-radius: 4px
+	.dropdown-item
+		color: #fff
+		padding: 20px
+		&:hover
+			color: #000
+
+.direction-control
+	display: flex
+	align-items: center
+	+media-breakpoint-down(sm)
+		flex-direction: column
+	.select-control
+		min-width: 200px
+		+media-breakpoint-down(sm)
+			width: 100%
+			margin: 0
+	img
+		padding: 10px 20px
+		cursor: pointer
+
+.table-default
+	font-size: 14px
+	thead
+		background-color: #4FABDF
+		color: #fff
+		th
+			border: 0
+			vertical-align: middle
+			&:first-child
+				border-radius: 4px 0 0 4px
+			&:last-child
+				border-radius: 0 4px 4px 0
+	th, td
+		padding: 25px 30px
+	td
+		vertical-align: middle
+		border-top: none
+		border-bottom: 1px solid #dee2e6
+		font-weight: 500
+
+.img-lightbox
+	cursor: pointer
 
 #tours
 	padding-top: 30px
@@ -711,18 +1313,35 @@ ul
 			color: #fff
 	h2
 		margin-bottom: 25px
-	.row > div
-		@for $i from 1 through 6
-			&:nth-child(#{$i})
-				.card
-					background-image: url("../img/tours/0#{$i}.jpg")
-
+	.thumb-wrapper
+		+thumb-wrapper(225px)
+	.card
+		.card-link
+			font-size: 14px
+			position: relative
+			&::after
+				width: 14px
+				height: 14px
+				position: absolute
+				top: 50%
+				right: 0
+				transform: translateY(-50%)
 
 #news
 	h2
 		margin-bottom: 0
 	.ribbon-controls
-		background-color: $theme-color-secondary
+		$border-color: rgba(0, 0, 0, 0.25)
+		border-color: $border-color
+		a
+			background-image: caret-image(#555)
+			&:first-child
+				border-right-color: $border-color
+		a:hover
+			transition: background-color .2s ease
+			background-color: darken(#fff, 3%)
+			//background-image: caret-image(#fff)
+
 	.card
 		+aspect-ratio(320, 172)
 		width: 277px
@@ -731,10 +1350,17 @@ ul
 		+media-breakpoint-up(md)
 			width: 320px
 
-	.card-body
-		padding: 15px 20px
+	.content
+		padding-bottom: 15px
 		+media-breakpoint-up(md)
-			padding: 30px 50px
+			padding-bottom: 25px
+
+	.card-body
+		height: 100%
+		padding: 15px 20px 0
+		overflow: hidden
+		+media-breakpoint-up(md)
+			padding: 30px 50px 0
 	.date
 		color: #B1B1B1
 		font-size: 12px
@@ -771,6 +1397,10 @@ ul
 		button
 			font-size: 16px
 			padding: 15px 20px
+			+media-breakpoint-only(md)
+				padding: 15px 10px
+				&::after
+					right: 15px
 			+media-breakpoint-down(sm)
 				border-radius: 0
 				align-self: stretch
@@ -779,6 +1409,8 @@ ul
 				&::after
 					float: unset
 					margin: 0 auto
+					left: 50%
+					transform: translate(-50%, -50%)
 
 	input.form-control
 		border-color: transparent
@@ -823,13 +1455,15 @@ ul
 			transform: translate(-55%, -42%) rotate(16deg)
 			height: 180%	
 	.btn
+		$color: #FFC702
 		margin-top: 25px
-		border: 1px solid #FFC702
+		border: 1px solid $color
+		background: transparent
 		color: #fff
 		&::after
-			background-image: rarr-image(#FFC702)
+			background-image: rarr-image($color)
 		&:hover
-			background-color: rgba(255, 255, 255, .2)
+			background-color: rgba($color, .2)
 
 #media
 	+media-breakpoint-up(md)
@@ -848,6 +1482,10 @@ ul
 				border-right: 1px solid #E4E4E4
 	.media-block
 		padding: 55px 20px 35px
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		height: 100%
 	.media-block-footer
 		a
 			color: $theme-color-primary
@@ -863,16 +1501,17 @@ ul
 
 
 #articles
-	margin-top: 50px
 	h2 + p
 		margin-bottom: 45px
 
 
 .ribbon-controls
 	display: flex
+	flex-shrink: 0
 	border: 1px solid #E2E2E2
 	border-radius: 4px
 	margin-left: 20px
+	overflow: hidden
 	> a
 		display: inline-block
 		background-image: caret-image(#fff)
@@ -908,6 +1547,8 @@ ul
 
 #paymentMethods
 	padding-top: 30px
+	h2
+		margin-bottom: 10px
 	+media-breakpoint-up(md)
 		padding-top: 50px
 	.ribbon-controls
@@ -985,6 +1626,8 @@ ul
 
 
 #instagram
+	h2
+		margin-bottom: 10px
 	.instagram-card
 		+aspect-ratio(1, 1)
 		width: 137px
@@ -997,15 +1640,12 @@ ul
 		+media-breakpoint-up(lg)
 			width: 320px
 			margin-right: 20px
-		a:hover
-			img
-				filter: brightness(105%)
 
 
 
 
 footer
-	padding-top: 45px
+	padding-top: 15px
 	
 #footerLinks
 	h5
@@ -1021,6 +1661,7 @@ footer
 			font-size: 13px
 			display: block
 			margin: 0 0 8px 0
+			color: #2988CD
 	.col
 		+media-breakpoint-up(lg)
 			flex-basis: 15%
@@ -1028,7 +1669,7 @@ footer
 				flex-basis: 10%
 
 		+media-breakpoint-down(md)
-			min-height: unset
+			min-height: auto
 			margin-bottom: 30px
 			flex-grow: 0
 		+media-breakpoint-only(md)
@@ -1086,3 +1727,1898 @@ footer
 			transform: rotate(90deg)
 			background-image: rarr-image(#FF4747)
 
+
+
+// Widgets
+.sidebar-social-media
+	position: absolute
+	left: 4px
+	top: 200px
+	display: flex
+	flex-direction: column
+	@media all and (max-width: 1300px)
+		display: none
+	a
+		display: block
+		$size: 34px
+		width: $size
+		height: $size
+		border-radius: 50%
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		&:not(:last-child)
+			margin-bottom: 4px
+		&:hover
+			transition: transform .2s ease
+			transform: scale(1.1)
+	$color: #fff
+	.vkontakte
+		background-image: social-vkontakte-image($color)
+		background-color: #2F76A5
+	.facebook
+		background-image: social-facebook-image($color)
+		background-color: #235B9E
+	.odnoklassniki
+		background-image: social-odnoklassniki-image($color)
+		background-color: #FF8515
+	.google-plus
+		background-image: social-google-plus-image($color)
+		background-color: #D44132
+	.twitter
+		background-image: social-twitter-image($color)
+		background-color: #75A9EA
+
+@import "../templates/includes/sass/_tourvisor"
+@import "../templates/includes/sass/_main_hotels.scss"
+
+#tourvisor
+	margin: 50px 0
+	+media-breakpoint-down(sm)
+		margin: 20px 0
+	h1
+		margin-top: 0
+	.TVTheme2
+		*::after
+			font-weight: 400
+			font-size: 14px
+	.tv-search-form
+		font-family: $font-family-base
+		*
+			box-sizing: border-box
+	.TVLineForm.TVTheme2
+		width: auto
+		font-family: $font-family-base
+		.TVTopForm
+			padding: 0
+	.TVInterfaceWrapper
+		border-radius: 4px
+		+media-breakpoint-down(sm)
+			border-radius: 0
+	.TVMainForm
+		background-color: #fff
+		color: #000
+		+media-breakpoint-down(sm)
+			background-color: transparent
+			color: #fff
+	.TVMainFilter
+		display: flex
+		+media-breakpoint-down(sm)
+			flex-direction: column
+		justify-content: space-between
+		align-items: center
+	.TVMainFilterButton
+		padding: 0
+		color: #000
+		max-height: none
+		width: auto
+		flex-grow: 1
+		padding: 0 25px
+		line-height: 35px
+		display: flex
+		position: relative
+		+media-breakpoint-down(sm)
+			width: 100%
+			color: #fff
+			border-bottom: 1px solid #E4E4E4
+			background-color: transparent
+			padding-left: 0
+			margin-bottom: 10px
+		&:not(:first-child)
+			border-right: 1px solid #ddd
+			+media-breakpoint-down(sm)
+				border-right: none
+		&:first-child
+			border: none
+			+media-breakpoint-down(sm)
+				border-bottom: 1px solid #E4E4E4
+				margin-bottom: 25px
+		&:hover
+			.TVMainFilterContent
+				&::after
+					+media-breakpoint-up(md)
+						background-color: #f1f1f1
+		&::after
+			content: ''
+			display: block
+			position: absolute
+			right: 0
+			bottom: 0
+			height: 80%
+			width: 20px
+			padding-left: 20px
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			background-image: caret-image(#fff)
+	.TVMainFilterLable
+		display: none
+		top: -5px
+		left: 25px
+		&::before
+			display: none
+		&::after
+			padding: 0
+			text-transform: none
+	.TVMainFilterContent
+		font-size: 14px
+		font-weight: 400
+		display: block
+		&::after
+			display: block
+	.TVLocationButton
+		order: 6
+	.TVNights
+		.TVMainFilterContent
+			&::after
+				content: 'ночей'
+				display: inline
+				padding-left: 5px
+	.TVTourists
+		border-right: 1px solid #ddd
+		text-transform: lowercase
+	.TVSearchButton
+		order: 10
+		background-image: linear-gradient(to right, #FF8E02, #FFC702)
+		padding: 0
+		$size: 72px
+		width: $size
+		height: $size
+		&:hover
+			filter: brightness(105%)
+		&::after
+			content: ' '
+			display: block
+			width: $size
+			height: $size
+			background-repeat: no-repeat
+			background-position: 50% 50%
+			background-image: search-image(#fff)
+		+media-breakpoint-down(sm)
+			width: 100%
+			border-radius: 4px
+			height: 57px
+			position: relative
+			&::after
+				background-image: none
+				content: 'Поиск'
+				text-transform: none
+				text-shadow: none
+				position: absolute
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+				height: auto
+
+.TVHide.TVLocationPanel
+	display: none
+
+
+// page styles
+
+
+
+// cruise
+#content-cruise
+	hr
+		border-top-color: #E4E4E4
+	h3
+		+media-breakpoint-down(sm)
+			font-size: 28px
+	nav
+		background-color: #E4E4E4
+		margin-bottom: 25px
+		.nav
+			border-bottom: 0
+			a
+				border: none
+				margin-bottom: 0
+				flex-grow: 1
+				text-align: center
+				color: #000
+				font-size: 15px
+				font-weight: 500
+				padding: 16px
+				border-radius: 0
+				position: relative
+				+media-breakpoint-only(md)
+					font-size: 12px
+				+media-breakpoint-down(sm)
+					font-size: 9px
+				&.active
+					color: #fff
+					background-color: #4FABDF
+				&:not(.active):hover
+					background-color: lighten(#E4E4E4, 5%)
+				div
+					position: relative
+					top: 50%
+					transform: translateY(-50%)
+	.btn-request
+		+media-breakpoint-down(lg)
+			font-size: 12px
+			padding-right: 40px
+		+media-breakpoint-down(sm)
+			width: 100%
+	.cruise-gallery
+		.cruise-gallery-header
+			display: flex
+			align-items: flex-start
+			margin-bottom: 35px
+			img
+				max-width: 100%
+				border-radius: 10px
+		.cruise-gallery-description
+			padding-top: 15px
+			h5
+				font-weight: 700
+				font-size: 20px
+				margin-bottom: 15px
+			p
+				font-weight: 500
+				font-size: 15px
+		.cover-card
+			$cover-height: 167px
+			.thumb-wrapper
+				+media-breakpoint-down(sm)
+					height: auto 
+				+media-breakpoint-up(md)
+					width: 100%
+	#top5
+		> h5
+			background-color: $theme-color-primary
+			font-size: 14px
+			font-weight: 500
+			color: #fff
+			padding: 20px
+			text-align: center
+		+media-breakpoint-up(lg)
+			.mask-16-9
+				padding-top: 100%
+				img
+					width: auto
+					height: 100%
+		+media-breakpoint-down(md)
+			.cruise-card
+				overflow-x: hidden
+				.thumb-wrapper
+					+thumb-wrapper(250px)
+
+	#earlyBookingHeader
+		height: 358px
+		border: none
+		overflow: hidden
+		border-radius: 0
+		margin-bottom: 30px
+		.card-img
+			height: 100%
+			width: auto
+			border-radius: 0
+		.card-img-overlay
+			padding: 40px 25px
+			+media-breakpoint-down(sm)
+				padding: 20px 10px
+		.card-title
+			font-size: 28px
+			font-weight: 700
+			margin-bottom: 20px
+			+media-breakpoint-down(sm)
+				font-size: 20px
+		li
+			font-size: 13px
+
+	#nav-howto
+		h3
+			margin-bottom: 40px
+			font-size: 24px
+		#worldMap
+			margin-top: 25px
+			border-radius: 0
+			.card-title
+				font-size: 20px
+				font-weight: 700
+				margin-bottom: 40px
+			h6
+				margin: 30px 0 15px
+
+	.info-item
+		flex-direction: column
+		.info-content
+			margin-top: 10px
+		.info-details
+			font-weight: 500
+		span
+			font-weight: 700
+			color: $theme-color-secondary
+
+// pickmeup
+$border-radius                    : 0
+$background                       : #fff
+$color                            : #222
+$background-hover                 : transparent
+$color-hover                      : $theme-color-primary
+$nav-color                        : $color
+$nav-color-hover                  : $color-hover
+$not-in-month                     : #666
+$not-in-month-hover               : #999
+$disabled                         : #333
+$selected                         : #fff
+$selected-background              : $theme-color-primary
+$not-in-month-selected-background : #17384d
+$day-of-week                      : $not-in-month-hover
+$today-background                 : #bbb
+$today-color                      : $color
+
+@import '../templates/includes/sass/_pickmeup'
+
+.pickmeup
+	z-index: 10000
+	border: 2px solid $theme-color-primary
+	font-weight: 500
+	font-size: 15px
+	+media-breakpoint-down(sm)
+		left: 50% !important
+		transform: translateX(-50%)
+	.pmu-instance
+		padding: 20px 25px
+		width: 394px
+		height: 300px
+		nav
+			justify-content: center
+			.pmu-prev,
+			.pmu-next
+				position: relative
+				color: #fff
+				&:hover
+					color: #fff
+				&::after
+					content: ''
+					display: block
+					position: absolute
+					background-position: 50% 50%
+					background-repeat: no-repeat
+					width: 20px
+					height: 20px
+					top: 5px
+					background-image: rarr-image($theme-color-primary)
+				&:hover
+					&::after
+						background-image: rarr-image(darken($theme-color-primary, 5%))
+			.pmu-prev
+				&::after
+					transform: rotateY(180deg)
+					
+
+		.pmu-days *
+			line-height: 40px
+			width: 45px
+		.pmu-day-of-week
+			display: none
+	.pmu-saturday,
+	.pmu-sunday
+		color: #FF4F4F !important
+		.pmu-selected
+			&:hover
+				background-color: inherit !important
+
+
+.ui-timepicker-container
+	z-index: 10000 !important
+	border: 1px solid #ced4da
+	.ui-menu-item
+		padding-right: 20px
+		a:hover
+			background-color: #ced4da
+			border-color: transparent
+
+.calendar-icon
+	position: absolute
+	top: 50%
+	right: 20px
+	width: 20px
+	height: 20px
+	background-image: url('../img/calendar.svg')
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	transform: translateY(-50%)
+
+.time-icon
+	position: absolute
+	top: 0
+	right: 40px
+	width: 20px
+	height: 100%
+
+
+.date-range-wrapper
+	border: 1px solid #E4E4E4
+	border-radius: 5px
+	padding: 25px 20px
+	position: relative
+	.placeholder
+		color: #495057
+
+.date-range
+	display: none
+	.date
+		display: flex
+		.day
+			font-size: 40px
+			line-height: 40px
+			font-weight: 500
+			padding-right: 5px
+			color: $theme-color-primary
+		> div
+			color: #000
+		.month
+			font-size: 13px
+			font-weight: 700
+			margin-top: 2px
+		.day-of-week
+			font-size: 10px
+			margin-top: 2px
+	.divider
+		font-size: 40px
+		font-weight: 500
+		line-height: 35px
+		padding: 0 6px
+
+.cards-grid
+	margin-bottom: -30px
+
+#content-tours
+	.cover-card
+		.card-title
+			margin-bottom: 15px
+			margin-left: 15px
+			position: relative
+			padding-left: 28px
+			img
+				margin-right: 10px
+				position: absolute
+				display: block
+				top: 1px
+				left: 0
+	.btn-request
+		font-size: 14px	
+	+media-breakpoint-between(md, lg)
+		.btn-request
+			padding: 10px
+			font-size: 13px
+			&::after
+				display: none
+
+	+media-breakpoint-down(sm)
+		.btn-request
+			padding-right: 70px
+
+	#ribbonGallery
+		margin: 25px 0
+
+	.links
+		margin-top: 25px
+		.card-title
+			padding-left: 0
+			margin: 0
+
+
+
+#content-visa
+	button
+		width: 50%
+		+media-breakpoint-down(sm)
+			width: 100%
+
+.hero-fullwidth
+	position: relative
+	.btn
+		$color: #FFC702
+		margin-top: 25px
+		border: 1px solid $color
+		background: transparent
+		color: #fff
+		&::after
+			background-image: rarr-image($color)
+		&:hover
+			background-color: rgba($color, .2)
+
+#articles-middle
+	height: 350px
+	img
+		height: 180%
+
+
+	
+
+.header-article,
+.header-article-list
+	height: 578px
+	+media-breakpoint-down(md)
+		height: 500px
+	> img
+		position: absolute
+		top: 0
+		left: 0
+		height: 100%
+		z-index: -1
+	.article-title
+		position: absolute
+		bottom: 0
+		color: #fff
+		width: 100%
+	.date
+		font-size: 15px
+	h1
+		padding-left: 0
+		margin-top: 0
+		font-size: 36px
+
+.header-article-list
+	display: flex
+	flex-direction: column
+	+media-breakpoint-down(sm)
+		height: 275px
+		hr
+			display: none !important
+
+.layout-sidebar
+	> .container
+		> .row
+			> div
+				padding-top: 30px
+				padding-bottom: 30px
+				+media-breakpoint-up(md)
+					&:first-child
+						border-right: 1px solid #E4E4E4
+			border-bottom: 1px solid #E4E4E4
+
+.sidebar
+	border: 1px solid #E4E4E4
+	padding: 15px
+	hr
+		border: 1px solid #E4E4E4
+
+.header-tours
+	display: flex
+	flex-direction: column
+	h1
+		margin-top: 0
+		margin-bottom: 70px
+		padding-left: 70px
+		+media-breakpoint-down(sm)
+			font-size: 32px
+
+#content-tours
+	.content-block
+		.cover-card
+			height: 297px
+			+media-breakpoint-down(sm)
+				height: 200px
+			&:hover
+				cursor: auto
+				.thumb-wrapper
+					img
+						filter: none
+			.thumb-wrapper
+				height: 100%
+				img
+					filter: none
+					height: 100%
+	.gallery
+		+media-breakpoint-down(sm)
+			margin-top: 50px
+		+media-breakpoint-up(md)
+			max-width: 100%
+			.ribbon-inner
+				display: flex
+				flex-wrap: wrap
+				justify-content: space-between
+		.ribbon-item
+			+media-breakpoint-between(md, lg)
+				flex-basis: 33%
+				&:nth-last-of-type(1),
+				&:nth-last-of-type(2)
+					display: none
+			+media-breakpoint-down(sm)
+				width: 250px
+
+
+
+.gallery
+	padding: 0	
+	.ribbon-item
+		+aspect-ratio(4, 3)
+		flex-basis: 24.6%
+		margin-bottom: 5px		
+	.mask-4-3
+		img
+			width: auto
+			height: 100%
+
+.gallery-header
+	h2
+		margin-bottom: 0
+	.ribbon-controls
+		margin-right: $grid-gutter-width / 2
+	.ribbon-control-next,
+	.ribbon-control-prev
+		background-image: caret-image(#555)
+
+.destinations
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+	margin: 25px 0
+	.cover-card
+		flex-basis: 49.5%
+		margin-bottom: 4px
+		+media-breakpoint-only(md)
+			flex-basis: 32.5%
+			margin-bottom: 8px
+		+media-breakpoint-up(lg)
+			flex-basis: 24%
+			margin-bottom: 10px
+	.card-title
+		margin-bottom: 0
+		position: relative
+		padding-left: 28px
+		img
+			position: absolute
+			display: block
+			top: 1px
+			left: 0
+
+
+
+
+#content-article
+	.sidebar
+		padding: 0
+		h5
+			font-size: 20px
+			margin: 30px 15px 15px
+			font-weight: 700
+	.card-article-thumb
+		padding: 15px 15px 25px
+		flex-direction: row
+		align-items: flex-start
+		border: 0
+		border-bottom: 1px solid #E4E4E4
+		margin: 15px 0
+		border-radius: 0
+		&:last-of-type
+			margin-bottom: 0
+			border-bottom: none
+		img
+			width: 140px
+			height: auto
+		.details
+			margin-left: 15px
+		.date
+			font-size: 10px
+			color: #CECECE
+		.title
+			font-size: 14px
+			font-weight: 700
+			margin: 5px 0 10px
+			color: #000
+			display: block
+		.btn
+			border-radius: 0
+			font-size: 10px
+			padding-top: 10px
+			padding-bottom: 10px
+			padding-left: 10px
+			&::after
+				width: 10px
+				height: 10px
+				background-size: contain
+				right: 10px
+	.content-block
+		.btn
+			margin: 50px 0
+	.gallery-header
+		margin-top: 50px
+	.gallery
+		.ribbon
+			margin-bottom: 0
+		+media-breakpoint-up(xl)
+			max-width: 100%
+			.ribbon-inner
+				display: flex
+				justify-content: space-between
+				.ribbon-item
+					position: relative
+					flex-basis: 24.6%
+					margin-bottom: 5px
+		.ribbon-item
+			+media-breakpoint-only(lg)
+				width: 400px
+			+media-breakpoint-only(md)
+				width: 250px
+			+media-breakpoint-down(sm)
+				width: 150px
+
+
+.hotels
+	+media-breakpoint-up(md)
+		padding-bottom: $postheader-block-overlap-y
+	background-image: url('../img/bg-hotels.jpg')
+	h1
+		padding-left: 0
+		text-align: center
+#hotellookWidget
+	margin: 25px 0 50px
+	.mewtwo-widget
+		font-family: $font-family-base !important
+		.mewtwo-hotels
+			padding: 0 !important
+			border: none !important
+			background-color: transparent !important
+		.mewtwo-hotels-dates
+			display: flex !important
+			margin-right: 0 !important
+			&::before
+				content: none !important
+			.mewtwo-hotels-dates-checkin,
+			.mewtwo-hotels-dates-checkout
+				input[type=text]
+					box-shadow: none !important
+					border: none !important
+					border-radius: 0 !important
+					&:focus
+						padding: 15px 40px 0 14px !important
+		.mewtwo-hotels-city,
+		.mewtwo-hotels-guests,
+		.mewtwo-hotels-submit_button
+			display: block !important
+		.mewtwo-hotels-city
+			border-radius: 4px 0 0 4px
+			margin-right: 0 !important
+			.mewtwo-hotels-city-icon
+				display: none
+			> input[type=text]
+				box-shadow: none !important
+				border: none !important
+				border-radius: 0 !important
+				&:focus
+					padding: 15px 40px 0 14px !important
+		.mewtwo-hotels-guests
+			box-shadow: none !important
+			border: none !important
+			border-radius: 0 !important
+			width: auto !important
+			padding-right: 30px !important
+			margin-right: 0 !important
+			&::after
+				background-image: caret-image(#000) !important
+		.mewtwo-hotels-dates-checkin-icons,
+		.mewtwo-hotels-dates-checkout-icons
+			display: none !important
+		.mewtwo-hotels-dates-checkin,
+		.mewtwo-hotels-dates-checkout,
+		.mewtwo-hotels-guests
+			&::before
+				content: '' !important
+				display: block !important
+				position: absolute !important
+				width: 1px !important
+				background: #e0e0e0 !important
+				top: 50% !important
+				left: 0 !important
+				height: 50%
+				transform: translateY(-50%)
+
+	.mewtwo-best_offers
+		display: none !important
+	.mewtwo-hotels--l .mewtwo-widget .mewtwo-hotels-city, .mewtwo-hotels--m .mewtwo-widget .mewtwo-hotels-city, .mewtwo-hotels--s .mewtwo-widget .mewtwo-hotels-city, .mewtwo-hotels--xs .mewtwo-widget .mewtwo-hotels-city
+		margin: 0 !important
+		width: auto !important
+	form
+		display: flex
+		+media-breakpoint-down(sm)
+			flex-direction: column
+		align-items: flex-start
+		> div
+			flex-grow: 1
+			&:first-child
+				display: none
+	.mewtwo-widget
+		.mewtwo-hotels-submit_button
+			position: relative !important
+			width: 50px !important
+			flex-grow: 0
+			> button 
+				-webkit-box-shadow: none !important
+				box-shadow: none !important
+				text-align: center
+				border-top-left-radius: 0 !important
+				border-bottom-left-radius: 0 !important
+				color: transparent !important
+				background-image: linear-gradient(to right, #FF8E02, #FFC702) !important
+				position: relative !important
+				&:hover
+					filter: brightness(105%)
+					cursor: pointer
+				&::after
+					content: ''
+					display: block
+					position: absolute !important
+					top: 0
+					left: 0
+					width: 100%
+					height: 50px
+					background-repeat: no-repeat !important
+					background-position: 50% 50% !important
+					background-image: search-image(#fff) !important
+	+media-breakpoint-down(sm)
+		.mewtwo-widget
+			.mewtwo-hotels-dates
+				display: block !important
+				.mewtwo-hotels-dates-checkin,
+				.mewtwo-hotels-dates-checkout
+					> input[type='text']
+						&:focus
+							padding-left: 0 !important
+			.mewtwo-hotels-city,
+			.mewtwo-hotels-dates-checkin,
+			.mewtwo-hotels-dates-checkout,
+			.mewtwo-hotels-guests,
+			.mewtwo-hotels-submit_button
+				width: 100% !important
+				background-color: transparent !important
+				&::before
+					display: none !important
+				> input[type='text']
+					background-color: transparent !important
+					color: #fff !important
+					padding-left: 0 !important
+					&:focus
+						padding-left: 0 !important
+			.mewtwo-hotels-city,
+			.mewtwo-hotels-dates-checkin,
+			.mewtwo-hotels-dates-checkout,
+			.mewtwo-hotels-guests
+				border-bottom: 1px solid #fff !important
+				label
+					color: #fff !important
+					padding-left: 0 !important
+			.mewtwo-hotels-city-location__name
+				color: #eee !important
+			.mewtwo-hotels-city-location
+				margin-left: 0 !important
+				&::after
+					display: none !important
+			.mewtwo-hotels-guests
+				padding-left: 0 !important
+				&::after
+					background-image: caret-image(#fff) !important
+				.mewtwo-hotels-guests__text
+					background-color: transparent !important
+					color: #fff !important
+			.mewtwo-hotels-submit_button
+				margin-top: 25px !important
+				button
+					border-radius: 4px !important
+					&::after
+						content: 'Поиск' !important
+						background-image: none !important
+						color: #fff !important
+						top: 50% !important
+						left: 50% !important
+						transform: translate(-50%, -50%) !important
+						width: auto !important
+						height: auto !important
+						font-size: 14px !important
+		.mewtwo-hotels--l .mewtwo-widget .mewtwo-hotels-city,
+		.mewtwo-hotels--m .mewtwo-widget .mewtwo-hotels-city,
+		.mewtwo-hotels--s .mewtwo-widget .mewtwo-hotels-city
+			width: 100% !important
+			margin-bottom: 10px !important
+			border-radius: 0
+		.mewtwo-widget .mewtwo-hotels-city .mewtwo-hotels-guests__text+label, .mewtwo-widget .mewtwo-hotels-city>input[type=text]+label, .mewtwo-widget .mewtwo-hotels-dates-checkin .mewtwo-hotels-guests__text+label, .mewtwo-widget .mewtwo-hotels-dates-checkin>input[type=text]+label, .mewtwo-widget .mewtwo-hotels-dates-checkout .mewtwo-hotels-guests__text+label, .mewtwo-widget .mewtwo-hotels-dates-checkout>input[type=text]+label
+				left: 0 !important
+
+.mewtwo-modal-wrapper
+	.mewtwo-modal
+		.mewtwo-popup_header
+			overflow: hidden !important
+
+
+
+
+#aviasalesWidget
+	margin: 25px 0 50px
+	.mewtwo-widget
+		font-family: $font-family-base !important
+		.mewtwo-flights
+			padding: 10px 70px 10px 0 !important
+			border: none !important
+			border-radius: 4px !important
+			form
+				> div
+					margin-bottom: 0 !important
+					margin-right: 0 !important
+		.mewtwo-flights-dates-depart,
+		.mewtwo-flights-dates-return,
+		.mewtwo-flights-trip_class,
+		.mewtwo-flights-origin input,
+		.mewtwo-flights-destination input
+			box-shadow: none !important
+			border: none !important
+			border-radius: 0 !important
+		.mewtwo-flights-origin
+			input
+				border-top-left-radius: 4px !important
+				border-bottom-left-radius: 4px !important
+		.mewtwo-flights
+			&-origin,
+			&-destination
+				width: 30% !important
+		.mewtwo-flights-dates
+			display: flex !important
+			margin-right: 0 !important
+			&::before
+				content: none !important
+			.mewtwo-flights-dates-depart,
+			.mewtwo-flights-dates-return
+				input[type=text]
+					box-shadow: none !important
+					border: none !important
+					border-radius: 0 !important
+					&:focus
+						padding: 15px 40px 0 14px !important
+			.mewtwo-flights-dates-return-icons
+				display: none !important
+		.mewtwo-flights-trip_class
+			width: auto !important
+			min-width: 160px
+			padding-right: 30px !important
+			&::after
+				background-image: caret-image(#000) !important
+		.mewtwo-flights-dates-depart-icons
+			display: none !important
+		.mewtwo-flights-dates-depart,
+		.mewtwo-flights-dates-return,
+		.mewtwo-flights-trip_class,
+		.mewtwo-flights-destination
+			&::before
+				content: '' !important
+				display: block !important
+				position: absolute !important
+				width: 1px !important
+				background: #e0e0e0 !important
+				top: 50% !important
+				left: 0 !important
+				height: 50%
+				transform: translateY(-50%)
+	.mewtwo-best_offers
+		display: none !important
+	form
+		display: flex
+		+media-breakpoint-down(sm)
+			flex-direction: column
+		align-items: flex-start
+		> div
+			flex-grow: 1
+			&:first-child
+				display: none
+	.mewtwo-widget
+		.mewtwo-flights-submit_button
+			position: absolute !important
+			top: 0
+			right: 0
+			width: 70px !important
+			height: 100%
+			flex-grow: 0
+			> button 
+				-webkit-box-shadow: none !important
+				box-shadow: none !important
+				text-align: center
+				border-top-left-radius: 0 !important
+				border-bottom-left-radius: 0 !important
+				color: transparent !important
+				background-image: linear-gradient(to right, #FF8E02, #FFC702) !important
+				position: relative !important
+				height: 100% !important
+				&:hover
+					filter: brightness(105%)
+					cursor: pointer
+				&::after
+					content: ''
+					display: block
+					position: absolute !important
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					background-repeat: no-repeat !important
+					background-position: 50% 50% !important
+					background-image: search-image(#fff) !important
+	+media-breakpoint-down(sm)
+		.mewtwo-widget
+			.mewtwo-flights
+				padding: 0 !important
+				background-color: transparent !important
+				form
+					> div
+						margin-bottom: 15px !important
+			.mewtwo-flights-dates
+				display: block !important
+				.mewtwo-flights-dates-depart,
+				.mewtwo-flights-dates-return
+					> input[type='text']
+						&:focus
+							padding-left: 0 !important
+			.mewtwo-flights-origin,
+			.mewtwo-flights-destination,
+			.mewtwo-flights-dates-depart,
+			.mewtwo-flights-dates-return,
+			.mewtwo-flights-trip_class,
+			.mewtwo-flights-submit_button
+				width: 100% !important
+				background-color: transparent !important
+				&::before
+					display: none !important
+				> input[type='text']
+					background-color: transparent !important
+					color: #fff !important
+					padding-left: 0 !important
+					&:focus
+						padding-left: 0 !important
+			.mewtwo-flights-origin,
+			.mewtwo-flights-destination,
+			.mewtwo-flights-dates-depart,
+			.mewtwo-flights-dates-return,
+			.mewtwo-flights-trip_class
+				border-bottom: 1px solid #fff !important
+				label
+					color: #fff !important
+					padding-left: 0 !important
+			.mewtwo-flights-origin-country__name,
+			.mewtwo-flights-destination-country__name,
+			.mewtwo-flights-origin__iata,
+			.mewtwo-flights-destination__iata
+				color: #eee !important
+			.mewtwo-flights-origin-country,
+			.mewtwo-flights-destination-country
+				margin-left: 0 !important
+				&::after
+					display: none !important
+			.mewtwo-flights-destination__iata
+				right: 24px !important
+			.mewtwo-flights-trip_class
+				padding-left: 0 !important
+				padding-right: 15px !important
+				.mewtwo-flights-trip_class__passengers,
+				.mewtwo-flights-trip_class__class
+					color: #fff !important
+			.mewtwo-flights-dates-return-iconsx
+				&::before
+					display: none !important
+			.mewtwo-flights-dates-depart
+				margin-bottom: 15px !important
+			.mewtwo-flights-submit_button
+				margin-top: 25px !important
+				position: relative !important
+				height: 50px !important
+				button
+					border-radius: 4px !important
+					&::after
+						content: 'Поиск' !important
+						background-image: none !important
+						color: #fff !important
+						top: 50% !important
+						left: 50% !important
+						transform: translate(-50%, -50%) !important
+						width: auto !important
+						height: auto !important
+						font-size: 14px !important
+			.mewtwo-flights-origin
+				.mewtwo-swap_button
+					background-color: transparent !important
+		.mewtwo-placeholder-label
+			left: 0 !important
+
+#content-visa-info
+	section
+		padding: 50px 0
+		&:nth-of-type(odd)
+			background-color: #F9F9F9
+		img
+			margin-bottom: 25px
+	.info-block
+		margin-top: 50px
+
+.header-insurance
+	background-image: url('../img/insurance/bg.jpg')
+	padding-bottom: 150px
+
+#content-insurance
+	margin-bottom: 0
+	img
+		max-width: 100%
+	#block1
+		position: relative
+		width: 80%
+		margin-left: auto
+		margin-bottom: 50px
+		border: 5px solid $theme-color-primary
+		+media-breakpoint-down(sm)
+			width: auto
+		img
+			position: absolute
+			display: block
+			max-height: 100%
+			max-width: 70%
+			left: -25%
+			top: 50%
+			transform: translateY(-50%)
+			+media-breakpoint-down(sm)
+				position: static
+				max-width: 100%
+				transform: none
+		.description
+			padding: 50px 50px 50px 270px
+			+media-breakpoint-down(sm)
+				padding: 25px
+
+	#block2
+		background-color: $theme-color-secondary
+		color: #fff
+		max-width: 1350px
+		img
+			display: block
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			max-width: 100%
+			+media-breakpoint-down(sm)
+				display: none
+			+media-breakpoint-only(md)
+	#block3
+		max-width: 1350px
+		border: 5px solid #EAEAEA
+		padding: 0
+		+media-breakpoint-down(sm)
+			border: none
+		img
+			position: absolute
+			bottom: 0
+			left: 50%
+			transform: translateX(-55%)
+			max-width: 90%
+			max-height: 95%
+	#block4
+		img
+			height: 100%
+			max-width: none
+			position: absolute
+			right: 0
+
+#content-about
+	h6
+		margin: 15px 0 25px
+	iframe
+		border: 0
+		width: 100%
+		height: 100%
+	.map
+		+aspect-ratio(1, 1)
+		+media-breakpoint-down(sm)
+			position: static
+			margin-top: 50px
+			&::before
+				padding-top: 0
+			.content
+				position: relative
+				padding: 50px 0
+				overflow: visible
+				iframe
+					position: absolute
+					top: 0
+					left: 0
+					right: 0
+					bottom: 0					
+		.legend
+			position: absolute
+			top: 50px
+			right: 30px
+			background-color: #fff
+			width: 300px
+			padding: 20px 20px 20px 30px
+			border-radius: 5px
+			border: 1px solid #E4E4E4
+			+media-breakpoint-down(sm)
+				position: relative
+				width: 90%
+				top: 0
+				right: 0
+				margin: 0 auto
+			.address-card
+				margin: 0
+	.table
+		margin-bottom: 0
+		td
+			&:first-child
+				padding-left: 0
+			&:last-child
+				font-weight: 500
+	.staff-card
+		flex-basis: 30%
+		padding-top: 0
+		+media-breakpoint-down(sm)
+			flex-basis: 45%
+		img
+			width: 100%
+		small
+			font-size: 14px
+			+media-breakpoint-down(sm)
+				font-size: 12px
+	hr
+		border-top-color: #E4E4E4
+	.video-card
+		.thumb-wrapper
+			+media-breakpoint-only(lg)
+				+thumb-wrapper(235px)
+	.ribbon-controls
+		a
+			background-image: caret-image(#999)
+			&:hover
+				background-color: #fafafa
+	.ribbon
+		margin-top: 15px
+		+media-breakpoint-down(sm)
+			margin-top: 0
+	.ribbon-item
+		position: relative
+		&:hover
+			cursor: pointer
+			&::after
+				content: ''
+				display: block
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				background-color: rgba($theme-color-primary, .25)
+				background-image: search-image($theme-color-primary)
+				background-repeat: no-repeat
+				background-position: 50% 50%
+				background-size: 30px
+		img
+			max-width: 100%
+	
+	.ribbon-inner
+		.ribbon-item
+			+media-breakpoint-only(md)
+				width: 24%
+			+media-breakpoint-up(lg)
+				width: 16%
+
+	.card-title
+		font-size: 20px
+	.mark
+		font-size: 15px
+
+#imgLightbox
+	.modal-dialog
+		max-width: 80%
+	.modal-content
+		background-color: transparent
+		border: none
+		.img-wrapper
+			text-align: center
+		img
+			max-width: 100%
+				
+
+.header-credit
+	background-image: url('../img/credit/bg.jpg')
+	padding-bottom: $postheader-block-overlap-y + 40px
+	margin-bottom: -$postheader-block-overlap-y + 40px
+	+media-breakpoint-only(lg)
+		margin-bottom: -$postheader-block-overlap-y / 1.5
+	+media-breakpoint-down(md)
+		padding-bottom: $postheader-block-overlap-y
+		margin-bottom: -$postheader-block-overlap-y / 2
+
+#content-credit
+	.notice
+		color: #fff
+		&::before
+			background-image: notice-image($theme-color-primary)
+	#cards
+		> div:first-child
+			img
+				right: -10px
+		> div:last-child
+			img
+				right: 50px
+				width: auto
+				height: 80%
+				+media-breakpoint-down(md)
+					right: 15px
+
+.credit-card
+	+aspect-ratio(20, 7)
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25)
+	border-radius: 20px
+	+media-breakpoint-down(sm)
+		margin-bottom: 25px
+	.content
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 20px 25px
+		+media-breakpoint-down(md)
+			padding: 15px 20px
+	img
+		display: block
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		right: 0
+		width: 50%
+		+media-breakpoint-down(md)
+			width: 40%
+	.card-body
+		padding: 0
+	.card-title
+		font-size: 28px
+		font-weight: 700
+		+media-breakpoint-down(md)
+			font-size: 24px
+	.card-text
+		font-size: 15px
+
+.info-item
+	display: flex
+	align-items: flex-start
+	+media-breakpoint-only(md)
+		flex-direction: column
+	+media-breakpoint-down(sm)
+		margin-bottom: 20px
+	.img-wrapper
+		margin-right: 12px
+		+media-breakpoint-only(md)
+			height: 60px
+			margin-bottom: 10px
+			display: flex
+			align-items: flex-end
+	img
+		width: 44px
+	.info-title
+		font-size: 16px
+		font-weight: 700
+		margin-bottom: 8px
+	.info-details
+		font-size: 15px
+
+
+
+.early-booking-offer
+	position: relative
+	border: 1px solid #E4E4E4
+	margin: 30px 0 50px
+	.tags
+		position: absolute
+		top: -15px
+		left: 30px
+		span
+			display: inline-block
+			border-radius: 13px
+			padding: 8px 16px
+			color: #fff
+			font-size: 10px
+			z-index: 0
+			position: relative
+			outline: #fff solid 10px
+			&:not(:last-child)
+				margin-right: 15px
+			&.guide
+				background-color: #6CD68A
+			&.promo
+				background-color: $theme-color-warning
+			&.new
+				background-color: $theme-color-secondary
+	.card-body
+		font-size: 15px
+		padding: 40px 0 15px
+	.card-title
+		font-size: 20px
+		font-weight: 700
+	.card-text
+		p
+			margin-bottom: 10px
+		margin-bottom: 30px
+	.price
+		font-size: 18px
+	.icon-photo
+		display: inline-block
+		vertical-align: middle
+		margin-left: 10px
+	.card-link
+		text-decoration: none
+		border-bottom: 1px solid $theme-color-primary
+		padding-bottom: 2px
+		color: $theme-color-primary !important
+		cursor: pointer
+		&:hover
+			color: darken($theme-color-primary, 5%) !important
+	.btn-request-booking
+		+media-breakpoint-down(md)
+			width: 100%
+	.map-link
+		display: inline-block
+		position: relative
+		$size: 110px
+		width: $size
+		height: $size
+		border-radius: 50%
+		overflow: hidden
+		+media-breakpoint-up(lg)
+			$size-lg: 160px
+			width: $size-lg
+			height: $size-lg
+		+media-breakpoint-down(sm)
+			margin: 15px 0
+		&:hover
+			&::before
+				content: ''
+				display: block
+				position: absolute
+				background-image: search-image($theme-color-primary)
+				background-repeat: no-repeat
+				background-size: 14px
+				background-position: 50% 50%
+				background-color: rgba($theme-color-primary, .25)
+				width: 100%
+				height: 100%
+				z-index: 1
+		img
+			height: 100%
+			position: relative
+			left: 50%
+			transform: translateX(-50%)
+	.togglers
+		margin: 10px 0
+		text-align: center
+		display: flex
+		justify-content: center
+		+media-breakpoint-up(lg)
+			margin: 0
+			align-items: center
+			height: 100%
+		a
+			position: relative
+			margin-right: 15px
+			display: inline-block
+			&::after
+				content: ''
+				display: block
+				background-size: contain
+				position: absolute
+				$size: 8px
+				width: $size
+				height: $size
+				background-repeat: no-repeat
+				background-image: caret-image($theme-color-primary)
+				top: 50%
+				right: -15px
+				transform: translateY(-60%)
+			&.active
+				$activeColor: #555
+				color: $activeColor !important
+				border-bottom-color: $activeColor
+				&::after
+					background-image: caret-image($activeColor)
+
+	.hidden
+		display: none
+		margin: 30px 0
+		+media-breakpoint-down(md)
+			margin-top: 10px
+		div
+			display: none
+
+.promo-card
+	border: 1px solid #E4E4E4
+	margin: 0 0 50px
+	flex-direction: row
+	.cover
+		img
+			width: 100%
+		p
+			padding: 15px 1.25rem
+			margin-bottom: 0
+			font-size: 15px
+			b
+				font-weight: 700
+				color: $theme-color-warning
+		.clock-mark
+			display: inline-block
+			position: static
+			&::before
+				background-image: clock-image($theme-color-warning)
+				position: static
+				display: inline-block
+				margin-right: 6px
+				vertical-align: sub
+	.card-body
+		+media-breakpoint-down(md)
+			padding-top: 0
+	.card-title
+		font-size: 20px
+		font-weight: 700
+	.card-text
+		font-size: 15px
+	.btn
+		+media-breakpoint-down(md)
+			width: 100%
+
+
+.header-air-tickets
+	background-image: url('../img/bg-air-tickets.jpg')
+	padding-bottom: $postheader-block-overlap-y * 1.5
+	margin-bottom: -$postheader-block-overlap-y * 1.5
+	+media-breakpoint-down(sm)
+		padding-bottom: 0
+		margin-bottom: 0
+
+#content-air-tickets
+	#flightOffers
+		.ducklett-widget
+			font-family: $font-family-base !important
+		.ducklett-widget-wrapper
+			margin: 0 -15px !important
+		.ducklett-widget-wrapper-item
+			flex-basis: 100% !important
+			max-width: none !important
+			margin: 0 15px 40px !important
+			+media-breakpoint-only(md)
+				flex-basis: 45% !important
+			+media-breakpoint-up(lg)
+				flex-basis: 30% !important
+		.ducklett-special_offer-body
+			border-radius: 0 0 10px 10px
+		.ducklett-special_offer-title-wrapper
+			border-radius: 10px 10px 0 0
+		.ducklett-special_offer-title-wrapper
+			background-color: $theme-color-primary !important
+			opacity: 1 !important
+		.ducklett-special_offer-body__button
+			box-shadow: none !important
+			background-color: transparent !important
+			color: transparent !important
+			width: 100% !important
+			&:hover
+				&::before
+					color: darken($theme-color-primary, 5%) !important
+			&::before
+				content: 'Подробнее'
+				display: block
+				position: absolute
+				color: $theme-color-primary
+				font-size: 14px !important
+				font-weight: 500 !important
+			&::after
+				content: ''
+				display: block
+				position: absolute
+				top: 50%
+				right: 15px
+				transform: translateY(-50%)
+				$size: 20px
+				width: $size
+				height: $size
+				background-size: contain
+				background-repeat: no-repeat !important
+				background-position: 50% 50% !important
+				background-image: rarr-image($theme-color-primary) !important
+
+
+
+	+media-breakpoint-up(md)
+		h2
+			color: #fff
+			& + p
+				color: #fff
+	#paymentMethods
+		+media-breakpoint-down(sm)
+			.card
+				&::before
+					padding-top: 80%
+		.card-body
+			width: 100%
+		img
+			top: auto
+			right: auto
+			bottom: 20px
+			left: 50px
+			max-height: 30%
+			transform: none
+			+media-breakpoint-down(md)
+				left: 25px
+
+#barGraph
+	margin: 30px 0
+	font-size: 10px
+	font-weight: 500
+	position: relative
+	.graph
+		margin: 0 20px
+		position: relative
+		overflow-x: hidden
+		.graph-inner
+			white-space: nowrap
+			position: relative
+			> div
+				width: 22px
+				height: 100%
+				display: inline-block
+				> div:first-child
+					height: 75px
+					display: flex
+					align-items: flex-end
+					div
+						background-color: #E4E4E4 
+						width: 50%
+						cursor: pointer
+						margin: 0 auto
+						&:hover
+							background-color: $theme-color-primary
+				> div:last-child
+					text-align: center
+					margin-top: 4px
+			&::after
+				content: ''
+				display: block
+				position: absolute
+				bottom: 18px
+				height: 0
+				width: 100%
+				border-top: 1px solid #E4E4E4
+
+	.controls
+		display: flex
+		justify-content: space-between
+		align-items: center
+		position: absolute
+		left: 0
+		width: 100%
+		height: 100%
+		z-index: 0
+		div
+			cursor: pointer
+			&::after
+				content: ''
+				display: block
+				background-repeat: no-repeat
+				background-position: 50% 50%
+				background-size: contain
+				$size: 20px
+				width: $size
+				height: $size 
+		.prev::after
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMSAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3QgeD0iNi4wMDA5OCIgeT0iMTMuOTk4IiB3aWR0aD0iOC40ODQ2NSIgaGVpZ2h0PSIxLjY5NjkzIiB0cmFuc2Zvcm09InJvdGF0ZSgtMTM1IDYuMDAwOTggMTMuOTk4KSIgZmlsbD0iI0ZGOUEwMSIvPgo8cmVjdCB4PSI3LjIwMDIiIHk9IjMuMTk5MjIiIHdpZHRoPSI4LjQ4NDY1IiBoZWlnaHQ9IjEuNjk2OTMiIHRyYW5zZm9ybT0icm90YXRlKDEzNSA3LjIwMDIgMy4xOTkyMikiIGZpbGw9IiNGRjlBMDEiLz4KPC9zdmc+Cg==')
+		.next::after
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxMiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjguODgxOTIiIGhlaWdodD0iMS43NzYzOCIgdHJhbnNmb3JtPSJtYXRyaXgoMC42NzU0OTEgMC42NzU0NzkgLTAuNjc1NDkxIDAuNjc1NDc5IDUuNDI4MjIgMi4wMDE5NSkiIGZpbGw9IiNGRjlBMDEiLz4KPHJlY3Qgd2lkdGg9IjguODgxODciIGhlaWdodD0iMS43NzYzNyIgdHJhbnNmb3JtPSJtYXRyaXgoMC42NzU0ODkgLTAuNjc1NDgzIDAuNjc1NDg5IDAuNjc1NDgzIDQuMjI5IDEyLjgwMDgpIiBmaWxsPSIjRkY5QTAxIi8+Cjwvc3ZnPgo=')
+	.legend
+		display: flex
+		justify-content: space-between
+		margin-top: 4px
+
+.tooltip
+	> .tooltip-inner
+		background-color: #fff
+		box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.15)
+		color: #000
+		font-weight: 500
+	> .arrow::before
+		display: none
+
+
+.range-selector
+	.rail
+		margin-top: 20px
+		height: 5px
+		background-color: #E4E4E4
+		display: flex
+		align-items: center
+		.constraint
+			$size: 24px
+			width: $size
+			height: $size
+			background-color: $theme-color-primary
+			border-radius: 50%
+			cursor: pointer
+			position: relative
+			z-index: 0
+			outline: 3px solid transparent
+			&:hover
+				outline-color: #fff
+				//background-color: darken($theme-color-primary, 5%)
+				transform: scale(1.25)
+				transition: outline-color .2s ease, scale .2s ease-in-out
+				&::after
+					content: ''
+					display: block
+					position: absolute
+					$size: 4px
+					width: $size
+					height: $size
+					border-radius: 50%
+					top: 50%
+					left: 50%
+					transform: translate(-50%, -50%)
+					background-color: #fff
+			&-left
+				margin-left: 20%
+		.selection
+			height: 5px
+			width: 30%
+			background-color: $theme-color-primary
+	.legend
+		display: flex
+		justify-content: space-between
+		margin-top: 15px
+
+.price-range
+	border: 1px solid #E4E4E4
+	display: flex
+	margin: 25px 0
+	border-radius: 4px
+	padding: 15px 0
+	div
+		width: 50%
+		padding: 5px 8px 5px 12px
+		&:first-child
+			border-right: 1px solid #E4E4E4				
+
+
+.stars
+	display: flex
+	flex-wrap: nowrap
+	margin-left: 8px
+	&:hover
+		div
+			background-image: icon-star($theme-color-primary)
+			&:hover ~ div
+				background-image: icon-star(#E4E4E4)
+	div
+		$size: 14px
+		width: $size
+		height: $size
+		background-image: icon-star(#E4E4E4)
+		background-repeat: no-repeat
+		background-size: contain
+		cursor: pointer
+		box-sizing: content-box
+		&:not(:last-child)
+			padding-right: 3px
+		&.active
+			background-image: icon-star($theme-color-primary)
+			//&:hover ~ div
+			//	background-image: icon-star(#E4E4E4)
+
+
+.filter-modal-toggler
+	position: absolute
+	top: 4px
+	right: 15px
+	cursor: pointer
+	$size: 30px
+	background-repeat: no-repeat
+	background-position: 50% 50%
+	background-size: contain
+	width: $size
+	height: $size
+	background-image: icon-filter($theme-color-primary)
+	&:hover
+		background-image: icon-filter(darken($theme-color-primary, 5%))
+	&.show
+		background-image: close-image($theme-color-primary)
+		&:hover
+			background-image: close-image(darken($theme-color-primary, 5%))
+
+
+#hotelsFilter
+	font-size: 14px
+	background-color: #fff
+	+media-breakpoint-down(md)
+		display: none
+		position: absolute
+		max-width: 340px
+		box-shadow: 0 0 10px 0 #E4E4E4
+		right: 15px
+		margin-top: -50px
+	+media-breakpoint-down(sm)
+		left: 50%
+		transform: translateX(-50%)
+	h5
+		margin: 25px 0
+		font-weight: 700
+		font-size: 18px
+
+#content-hotels-filter
+	.btn-transparent
+		padding: 20px 60px !important
+		
+.header-404
+	min-height: 100vh
+	width: 100%
+	background-image: url('../img/bg-404.jpg')
+	text-align: center
+	h1
+		text-align: center
+		font-size: 160px
+		small
+			font-size: 20px
+			margin-top: 0
+	p
+		font-size: 15px
+	.btn
+		margin-top: 40px
+
+.TPWL-widget
+	.TPWL-template-header,
+	.search_results-map,
+	.hotel_page-scroll_top_button,
+	.search_results-scroll_top_button
+		display: none !important
+	font-family: $font-family-base !important
+	a:link,
+	.galery_photo-background-wrapper
+		color: #fff
+	.hotel_page-footer_search_link,
+	.hotel_proposal-price .hotel_proposal-price__button,
+	.hotel_page-similar_hotels-price_button,
+		background-color: $theme-color-primary
+		color: #fff
+	.hotel_page-rating__header > h4
+		color: #444
+		margin: 15px 0
+	.hotel_page-rating_pie
+		background-image: linear-gradient(to right, transparent 50%, $theme-color-secondary 0)
+		&::before
+			background-image: linear-gradient(to right, transparent 50%, $theme-color-secondary 0)
+	.hotel_page-rating_pie__text > div
+		color: $theme-color-secondary
+	.hotel_page-rating_bars__percentage
+		background: $theme-color-secondary
+	.hotel_page-proposals-group-expander
+		color: $theme-color-primary !important
+	.hotel_page-available_rooms-header__link,
+		color: $theme-color-primary
+		border-bottom-color: $theme-color-primary
+	.main_photo-price_block-button-link__price
+		color: #222
+	.hotel_page-reviews_details-rating,
+	.hotel_page-similar_hotels-rating--green
+		background: $theme-color-secondary
+	.hotel_page-serp_link__link
+		color: $theme-color-primary !important
+
+@keyframes bg
+	50%
+		background: $theme-color-secondary

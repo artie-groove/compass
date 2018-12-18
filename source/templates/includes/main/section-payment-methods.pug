@@ -1,0 +1,32 @@
+section#paymentMethods.bg-dark.pb-0
+	.container
+		.row
+			.col-12
+				.d-flex.justify-content-between.align-items-center.flex-nowrap
+					div
+						h2 Способы оплаты туров
+						p Придумать описание для этого блока, чтобы лучше раскрыть его суть
+					.ribbon-controls
+						a.ribbon-control-prev(href='#ribbonPaymentMethods' role='button' data-slide='prev')
+							.sr-only Previous
+						a.ribbon-control-next(href='#ribbonPaymentMethods' role='button' data-slide='next')
+							.sr-only Next
+				.ribbon#ribbonPaymentMethods
+					.ribbon-inner
+						.ribbon-item
+							+payment-card('Наличными в офисе', 'cash', true)
+								p Оплата принимается в рублях, можно оплатить, как полную стоимость, так и часть путевки.
+						.ribbon-item
+							+payment-card('Пластиковой картой', 'card', true)
+								p Все наши офисы оборудованы терминалами для оплаты туров. Вы можете оплатить путевку с помощью банковских карт Visa, Visa Electron, MasterCard, Maestro международных платежных систем Visa International, MasterCard International.
+						.ribbon-item
+							+payment-card('Предоставление рассрочки платежа', 'installments', true)
+								ul
+									li Первая часть платежа в размере не менее 30% подлежит оплате в момент бронирования тура. 
+									li Вторая часть платежа в размере 70% подлежит
+						.ribbon-item
+							+payment-card('Сбербанк онлайн', 'sberbank', true)
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+						.ribbon-item
+							+payment-card('Оформление кредита', 'credit', true)
+								p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation

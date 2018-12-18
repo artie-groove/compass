@@ -1,0 +1,19 @@
+extends ../templates/page-light.tpl.pug
+
+append scripts-delayed
+	//- script.
+		window.TPWLCONFIG = {"language":"en","currency":"rub","app_link":true,"agencies":null,"engine_type":"hotel","hotel":null,"affiliate":{"marker":126017},"default_origin":null,"default_destination":null,"host":"search.hotellook.com","redirect_to_mobile":false,"show_hotels":true,"active_tab":"hotel","https_redirect":false,"market":"","powered_by":false,"color_scheme":{"body_bg":"#F9F9F9","bg":"#78BA36","text_contrast":"#FFFFFF","link":"#59a50a","border":"#78BA36","text_interesting":"#59a50a","btn_text":"#FFFFFF","btn_bg":"#ff8e00"}};
+		window.TPWLCONFIG.pageLoaded = false;
+		document.addEventListener('DOMContentLoaded', function() { window.TPWLCONFIG.pageLoaded = true })
+	//-script(src='assets/js/main_hotels.ru.js')
+
+block content
+	.wrapper#content-hotels-details
+			.container
+				.row
+					.col-12
+						include ../templates/includes/hotellook-hotel-details-page.pug
+
+
+
+

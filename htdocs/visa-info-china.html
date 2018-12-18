@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="assets/css/tourvisor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Компас</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Свободный","addresses":[{"address":"г. Свободный, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]}]</script>
+  </head>
+  <body>
+    <header class="header-light">
+      <div class="sidebar-social-media"><a class="vkontakte" href="#"></a><a class="facebook" href="#"></a><a class="odnoklassniki" href="#"></a><a class="google-plus" href="#"></a><a class="twitter" href="#"></a></div>
+      <div class="container">
+        <div class="row">
+          <div class="col flex-grow-0 order-1"><a class="logo" href="index.html"><img src="assets/img/logo-light.svg" width="135" height="45" alt="logo"></a></div>
+          <div class="col-12 col-md order-2">
+            <nav class="address-nav">
+              <div class="row">
+                <div class="col-md-8 col-lg-7 d-none d-md-block">
+                  <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3">
+                      <div class="label">Город</div>
+                      <div class="nav city mark location-mark">
+                        <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Свободный</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7 col-lg-8 col-xl-9">
+                      <div class="label">Адрес нашего офиса</div>
+                      <div class="address"> 
+                        <div class="nav">
+                          <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                              <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">
+                                <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-5 text-right">
+                  <div class="d-md-inline-block ml-md-auto text-center text-md-left">
+                    <div class="label d-none d-md-block">Телефон</div>
+                    <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-none d-md-inline d-lg-none"><a class="callback-link d-none d-md-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-12 order-0 order-md-3">
+            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4" id="mainMenu">
+              <button class="navbar-toggler ml-auto" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="menu">
+                <h6 class="d-md-none">Меню</h6>
+                <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                  <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Куда поехать</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="tour-catalog.html">В Италию</a></li>
+                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">В Испанию</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="tour-catalog.html">Мадрид</a><a class="dropdown-item" href="tour-catalog.html">Барселона</a><a class="dropdown-item" href="tour-catalog.html">Валенсия</a><a class="dropdown-item" href="tour-catalog.html">Севилья</a><a class="dropdown-item" href="tour-catalog.html">Гибралтар</a></div>
+                      </li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальту</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальдивы</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Визы</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="visa-info-china.html">В Японию</a><a class="dropdown-item" href="visa-info-china.html">В Китай</a><a class="dropdown-item" href="visa-info-china.html">В Австралию</a><a class="dropdown-item" href="visa-info-china.html">В США</a></div>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="hotels.html">Отели</a></li>
+                  <li class="nav-item"><a class="nav-link" href="air-tickets.html">Авиабилеты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cruise.html">Круизы</a></li>
+                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="404.html">Ещё</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="insurance.html">Страхование</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="about.html">О нас</a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <hr class="d-block d-md-none w-100">
+    </header>
+    <div class="wrapper">
+      <div id="content-visa-info">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="mb-3">Виза в&nbsp;Китай</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-10 col-lg-8">
+              <p>Внимание! Стоимость виз в КНР актуальна только для жителей с постоянной или временной пропиской: Хабаровского края, Амурской области, ЕАО, Якутии. Для жителей других регионов стоимость виз по запросу.</p>
+            </div>
+          </div>
+        </div>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-lg-3">
+                <div class="row">
+                  <div class="col-12 order-2 order-md-1">
+                    <p><b>L-30 - туристическая однократная до 30 дней пребывания коридор действия визы 3 месяца</b></p>
+                  </div>
+                  <div class="col-12 order-1 order-md-2"><img src="assets/img/visas/content/l-30.jpg"></div>
+                </div>
+              </div>
+              <div class="col-md-5 col-lg-6 col-xl-7">
+                <p>Фото 3,3 x 4,8 см. (<a href="404.html">требования к фото</a>), загранпаспорт, копия паспорта РФ, копия страницы с пропиской, копия страницы с отметками о ранее выданном заграничном паспорте, для несовершеннолетних свидетельство о рождении,
+                  <a href="#">опросный лист</a>.
+                </p>
+                <div class="notice">
+                  <p>ВАЖНО! Для оформления туристической визы необходимо  предоставить полис страхования, покрывающий весь период поездки (Письмо Генерального консульства КНР в г. Хабаровске)</p>
+                </div>
+                <h6>В стоимость визы включено:</h6>
+                <ul class="list-positive">
+                  <li>Отправка документов в Хабаровск и обратно в Благовещенск</li>
+                  <li>Услуги курьера - занос документов в консульство</li>
+                  <li>Все сборы (включая консульский)</li>
+                </ul>
+                <h6>В стоимость визы не включено:</h6>
+                <ul class="list-negative">
+                  <li>Международный страховой полис (необходим для туристических виз категории L, покрытие страхования на все дни планируемой поездки, ориентировочная стоимость полиса 1$ на сутки пребывания за человека). Полис вы можете приобрести у нас в офисе при сдаче документов на визу.</li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-xl-2">
+                <div class="price-tag">
+                  <div class="price-section">
+                    <div class="promo-label">Акция</div>
+                    <div class="price-value">4800<span>руб.</span></div>
+                  </div><a class="btn" href="visa-china.html">Заказать</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-lg-3">
+                <p><b>L-30 + L-30 туристическая двукратная, коридор действия визы 6 мес., до 30 дней пребывания каждый визит</b></p>
+              </div>
+              <div class="col-md-5 col-lg-6 col-xl-7">
+                <p>Фото 3,3 x 4,8 см. (<a href="#">требования к фото</a>), загранпаспорт, копия паспорта РФ, копия страницы с пропиской, копия страницы с отметками о ранее выданном заграничном паспорте, для несовершеннолетних свидетельство о рождении,
+                  <a href="404.html">опросный лист</a>.
+                </p>
+                <div class="notice">
+                  <p>ВАЖНО! Для оформления двукратной туристической визы необходимо  предоставить полис страхования, покрывающий весь период поездки (Письмо Генерального консульства КНР в г. Хабаровске)</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-xl-2">
+                <div class="price-tag">
+                  <div class="price-section">
+                    <div class="price-value">8200<span>руб.</span></div>
+                  </div><a class="btn" href="visa-china.html">Заказать</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-lg-3">
+                <p><b>M-30 годовая многократная до 30 дней пребывания</b></p>
+              </div>
+              <div class="col-md-5 col-lg-6 col-xl-7">
+                <p>Фото 3,3 x 4,8 см. (<a href="#">требования к фото</a>), загранпаспорт, копия паспорта РФ, копия страницы с пропиской, копия страницы с отметками о ранее выданном заграничном паспорте, для несовершеннолетних свидетельство о рождении,
+                  
+                  <a href="404.html">справка с места работы</a>,
+                  <a href="404.html">опросный лист</a>.
+                </p>
+                <p>При предоставлении справки с работы у ИП - копия свидетельства о регистрации данного ИП + копия о постановке ИП на налоговый учет</p>
+              </div>
+              <div class="col-md-3 col-xl-2">
+                <div class="price-tag">
+                  <div class="price-section">
+                    <div class="price-value">13&thinsp;500<span>руб.</span></div>
+                  </div><a class="btn" href="visa-china.html">Заказать</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-lg-3">
+                <div class="row">
+                  <div class="col-12 order-2 order-md-1">
+                    <p><b>Студенческая X1 или Х2</b></p>
+                  </div>
+                  <div class="col-12 order-1 order-md-2"><img src="assets/img/visas/content/x1.jpg"></div>
+                </div>
+              </div>
+              <div class="col-md-5 col-lg-6 col-xl-7">
+                <p>Фото 3,3 x 4,8 см. (<a href="404.html">требования к фото</a>), загранпаспорт, копия паспорта РФ, копия страницы с отметками о ранее выданном заграничном паспорте, приглашение, подтверждение о зачислении в ВУЗ (JW-201 или JW-202), мед. справка по форме 086У + справка на СПИД, для несовершеннолетних свидетельство о рождении,
+                  <a href="404.html">опросный лист</a>.
+                </p>
+                <p><b>Х1 - Выдается приезжающим в Китай учиться, срок обучения превышает 180 дней.</b></p>
+                <div class="notice">
+                  <p>Обязательно! Предоставление мед. справки по форме 086У, а также справки на СПИД.</p>
+                </div>
+                <p><b>Х2 - Выдается приезжающим в Китай учиться, срок обучения не превышает 180 дней.</b></p>
+                <div class="notice">
+                  <p>Данная категория визы не требует прохождения медицинского осмотра и предоставления справки на СПИД.</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-xl-2">
+                <div class="price-tag">
+                  <div class="price-section">
+                    <div class="price-value">4600<span>руб.</span></div>
+                  </div><a class="btn" href="visa-china.html">Заказать</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-lg-3">
+                <p><b>M-30 годовая многократная до 30 дней пребывания</b></p>
+              </div>
+              <div class="col-md-5 col-lg-6 col-xl-7">
+                <p>Фото 3,3 x 4,8 см. (<a href="404.html">требования к фото</a>), загранпаспорт, копия паспорта РФ, копия страницы с пропиской, копия страницы с отметками о ранее выданном заграничном паспорте, приглашение от работодателя, разрешение на работу из Министерства труда КНР, мед. справка + справка на СПИД,
+                  <a href="404.html">опросный лист</a>.
+                </p>
+              </div>
+              <div class="col-md-3 col-xl-2">
+                <div class="price-tag">
+                  <div class="price-section">
+                    <div class="price-value">13&thinsp;500<span>руб.</span></div>
+                  </div><a class="btn" href="visa-china.html">Заказать</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-lg-3">
+                <p><b>Водительская виза (годовая до 10 дней пребывания)</b></p>
+              </div>
+              <div class="col-md-5 col-lg-6 col-xl-7">
+                <p>Фото 3,3 x 4,8 см. (<a href="404.html">требования к фото</a>), загранпаспорт, копия паспорта РФ,  копия страницы с пропиской, копия страницы с отметками о ранее выданном заграничном паспорте, копия водительских прав, оригинал АСМАП (Ассоциация международных автомобильных перевозчиков),
+                  
+                  <a href="404.html">справка с места работы</a>,
+                  
+                  <a href="404.html">опросный лист</a>.
+                </p>
+                <h6>Документы, необходимые для оформления визы в Китай:</h6>
+                <ul class="list-positive">
+                  <li>Заграничный паспорт, действительный не менее 6 месяцев;</li>
+                  <li>Копия паспорта РФ (первая страница с фото, страница с действующей пропиской, страница с отметками о ранее выданных паспортах);</li>
+                  <li>Копия свидетельства о рождении (для детей до 18 лет, путешествующих в сопровождении родителей);</li>
+                  <li>Нотариально заверенное согласие на имя руководителя группы или на въезд без сопровождения (для детей до 18 лет, путешествующих без сопровождения родителей);</li>
+                  <li>Копия визы родителей или одного из родителей (если планируется поездка ребенка вместе с родителями, а документы на визу подаются отдельно);</li>
+                  <li>Для транзитной визы копии электронных авиабилетов, включая передвижение по территории КНР;</li>
+                  <li><b><span class="text-warning">ВАЖНО!!!</span></b>
+                    
+                    Для граждан старше 65 лет обязательно оформление страхового полиса на весь период проживания.
+                  </li>
+                  <li>Если заграничный паспорт выдан позже 2014 году, при себе иметь оригинал старого заграничного паспорта, в случае отсутствия старого заграничного паспорта - справку с места работы.</li>
+                </ul>
+                <h6>Требования к фотографии:</h6>
+                <p><b><span class="text-warning">ВАЖНО!!!</span></b>
+                  
+                  Одно цветное фото. 33 миллиметра в ширину на 48 миллиметров в высоту (3.3см на 4.8см) (Цветное фото на матовой или глянцевой бумаге, без углов и овалов, или иных перекрывающих элементов, хорошего качества, без размытия, без эффекта красных глаз, размер головы от уха до уха - от 15 до 22 миллиметров, от макушки до подбородка - от 28 до 33 миллиметров, уши не должны быть закрыты длинным волосом. (
+                  <a href="404.html">Подробнее</a>
+                  ).
+                </p>
+                <h6>Сроки оформления визы в Китай:</h6>
+                <ul class="list-positive">
+                  <li>Срок оформления визы: 10 - 12 дней. **Сроки рассмотрения могут увеличены при возниконовении дополнительных вопросов консульства КНР</li>
+                  <li>
+                    При оформлении визы за 3 консульских дня – доплата к тарифу
+                    <b>2000 руб.</b>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-md-3 col-xl-2">
+                <p>&mdash;</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bg-highlight">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-5 offset-md-4 col-lg-6 offset-lg-3 col-xl-7">
+                <h6 class="text-primary">Важно!</h6>
+                <ul class="list-positive">
+                  <li>Если у гражданина РФ фамилия восточного происхождения (с окончанием на …оглы, …тян и т.д.), (место рождения Казахская ССР, Узбекская ССР, Молдова, или другие бывшие союзные республики) принимаются только при наличии копии свидетельства о рождении и рассматриваются консулом в индивидуальном порядке;</li>
+                  <li>Для граждан РФ, у которых заграничный паспорт был получен не на Дальнем Востоке, сроки оформления виз дольше обычных;</li>
+                  <li>Для граждан РФ, у которых прописка не на Дальнем Востоке доплата к тарифу 1500 рублей</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-5 offset-md-4 col-lg-6 offset-lg-3 col-xl-7">
+                <h6>Примечания</h6>
+                <ul class="list-positive">
+                  <li>Генеральное консульство КНР в Хабаровске работает по понедельникам, средам и пятницам. Необходимо учитывать это при планировании поездок. Срок оформления считается со дня подачи документов в КОНСУЛЬСТВО, а не в офис;</li>
+                  <li>Генеральное консульство КНР в Хабаровске принимает паспорта только жителей Дальневосточного региона (кроме приморского края) либо необходимо дополнительно предоставить паспорт гражданина РФ с пропиской в Хабаровском крае;</li>
+                  <li>Генеральное консульство КНР в Хабаровске не оформляет визы гражданам РФ, при условии выдачи загранпаспорта в Приморском крае. По вопросам оформления этих паспортов обращаться в визовый отдел во Владивостоке.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-5 offset-md-4 col-lg-6 offset-lg-3 col-xl-7"><a class="btn" href="visa-info-china.html">Отправить заявку</a></div>
+          </div>
+        </div>
+        <section class="info-block">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <h6>Посольства Китайской Народной Республики в России</h6>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 col-xl-4">
+                <div class="address-card">
+                  <div class="card-title">Москва</div>
+                  <div class="card-body">
+                    <div class="mark location-mark">г. Москва, ул. Дружбы, 6</div>
+                    <div class="mark phone-mark"><b class="phone">(499) 951-84-43,</b>
+                      консульский отдел -
+                      <b class="phone">(499) 951-84-35</b>
+                    </div><a class="mark link-mark" href="http://ru.china-embassy.org" target="_blank">ru.china-embassy.org</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="address-card">
+                  <div class="card-title">Санкт-Петербург</div>
+                  <div class="card-body">
+                    <div class="mark location-mark">г. Санкт-Петербург, наб. канала Грибоедова, 134</div>
+                    <div class="mark phone-mark"><b class="phone">(812) 714-76-70</b></div><a class="mark link-mark" href="http://saint-petersburg.china-consulate.org" target="_blank">saint-petersburg.china-consulate.org</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="address-card">
+                  <div class="card-title">Владивосток</div>
+                  <div class="card-body">
+                    <div class="mark location-mark">г. Владивосток, ул. Крыгина, 3</div>
+                    <div class="mark phone-mark"><b class="phone">(4232) 49-50-37</b></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="address-card">
+                  <div class="card-title">Хабаровск</div>
+                  <div class="card-body">
+                    <div class="mark location-mark">г. Хабаровск, Стадион им. Ленина, южное здание</div>
+                    <div class="mark phone-mark"><b class="phone">(4212) 30-24-32</b></div><a class="mark link-mark" href="http://www.chinaconsulate.khb.ru" target="_blank">www.chinaconsulate.khb.ru</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="address-card">
+                  <div class="card-title">Иркутск</div>
+                  <div class="card-body">
+                    <div class="mark location-mark">г. Иркутск, ул. Карла Маркса, 40</div>
+                    <div class="mark phone-mark"><b class="phone">(3952) 78-14-42</b></div><a class="mark link-mark" href="http://irkutsk.chineseconsulate.org" target="_blank">irkutsk.chineseconsulate.org</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <section id="footerLinks">
+          <div class="row">
+            <div class="col order-0">
+              <h5>Куда поехать</h5>
+              <nav><a href="tour-catalog.html">Бейдайхэ</a><a href="tour-catalog.html">Бэйго</a><a href="tour-catalog.html">Вьетнам</a><a href="tour-catalog.html">Индия</a><a href="tour-catalog.html">Германия</a><a href="tour-catalog.html">Испания</a><a href="tour-catalog.html">Австрия</a><a href="tour-catalog.html">Маврикий</a></nav>
+            </div>
+            <div class="col links-visas order-7 order-md-3">
+              <h5>Визы</h5>
+              <nav><a href="visa-info-china.html">Австралия</a><a href="visa-info-china.html">Австрия</a><a href="visa-info-china.html">Германия</a><a href="visa-info-china.html">Греция</a><a href="visa-info-china.html">Испания</a><a href="visa-info-china.html">Италия</a><a href="visa-info-china.html">Китай</a><a href="visa-info-china.html">Финляндия</a><a href="visa-info-china.html">Чехия</a><a href="visa-info-china.html">Япония</a><a href="visa-info-china.html">Франция</a><a href="visa-info-china.html">Сингапур</a><a href="visa-info-china.html">США</a><a href="visa-info-china.html">Болгария</a></nav>
+            </div>
+            <div class="col order-4">
+              <h5>Оплата туров</h5>
+              <nav><a href="404.html">Онлайн оплата картой</a><a href="404.html">Онлайн оплата картой</a><a href="404.html">Рассрочка от ОТП Банк</a><a href="404.html">Рассрочка от Почта Банк</a><a href="404.html">Рассрочка от Home Credit</a><a href="404.html">Способы оплаты</a></nav>
+            </div>
+            <div class="col order-5">
+              <h5>Сервисы</h5>
+              <nav><a href="air-tickets.html">Авиабилеты</a><a href="hotels.html">Отели</a><a href="404.html">Аренда автомобилей</a><a href="404.html">Апартаменты</a></nav>
+            </div>
+            <div class="col order-6">
+              <h5>Ещё</h5>
+              <nav><a href="trains-china.html">Расписание поездов Китая</a><a href="404.html">Полезные советы</a><a href="404.html">Запрет на выезд</a><a href="404.html">Дневник туриста</a><a href="404.html">Будь в тренде</a><a href="404.html">Вопрос/ответ</a><a href="about.html">Контакты</a><a href="404.html">Попутчики</a><a href="hotels-filter.html">База отелей</a><a href="404.html">Голосования</a><a href="404.html">Фотоконкурсы</a></nav>
+            </div>
+            <div class="col insurance order-1 order-lg-7">
+              <h5>Страхование</h5>
+              <nav><a href="insurance.html">О страховании ВСК</a><a href="404.html">Расcчитать стоимость	</a></nav>
+            </div>
+          </div>
+        </section>
+        <section id="footerBottom">
+          <div class="row">
+            <div class="col">
+              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство &bdquo;Компас&ldquo;&raquo;</div>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-end flex-column flex-md-row" id="exchangeRates">
+                <div class="date">27.10.18</div>
+                <div class="usd">USD<span class="arrow increase">65.80</span></div>
+                <div class="eur">EUR<span class="arrow decrease">75.08</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <!-- Optional JavaScript-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/js/scripts.js"></script>
+    <div class="modal" id="request" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваш телефон">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalData" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalData">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn w-100" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestCruise" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md mb-4 mb-md-0">
+                    <div id="customerDate">
+                      <input class="form-control" type="text" placeholder="Выберите дату">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md">
+                    <div id="customerTime">
+                      <input class="form-control" type="text" placeholder="Выберите время">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerEmail" type="email" placeholder="Введите ваш email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataCruise" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataCruise">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestConsult" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Запись на консультацию</div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerDestination" type="text" placeholder="Город или страна, куда хотите отправиться">
+              </div>
+              <div class="form-group" id="customerDateRange">
+                <div class="date-range-wrapper">
+                  <div class="placeholder">Выберите дату</div>
+                  <div class="date-range">
+                    <div class="date">
+                      <div class="day">12</div>
+                      <div>
+                        <div class="month">Апрель</div>
+                        <div class="day-of-week">Вторник</div>
+                      </div>
+                    </div>
+                    <div class="divider">&ndash;</div>
+                    <div class="date">
+                      <div class="day">28</div>
+                      <div>
+                        <div class="month">Май</div>
+                        <div class="day-of-week">Воскресенье</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!--input#customerDateRange.form-control(type='text' placeholder='Выберите дату')-->
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerAdults" type="text" placeholder="Взрослые">
+                      <option selected>Взрослые</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerChildren" type="text" placeholder="Дети">
+                      <option selected>Дети</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataConsult" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataConsult">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="ytplayer" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="showCruiseOnMap" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d206525.2643467698!2d-5.513846406652724!3d36.021337196777296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0xd0ca3e55b7b92b5%3A0x49819bd6225c2007!2sCeuta!3m2!1d35.895039!2d-5.321664!4m5!1s0xd0c94d7a479c8f3%3A0x5dbc93317cb51823!2sAlgeciras%2C+11201%2C+C%C3%A1diz%2C+Spain!3m2!1d36.130778!2d-5.438018!5e0!3m2!1sen!2s!4v1541488272523" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="imgLightbox" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="img-wrapper"><img src=""></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

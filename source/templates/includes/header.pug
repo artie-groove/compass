@@ -1,2 +1,12 @@
-header
-	
+block header-tpl-vars
+	- let headerAttrs = {} // overrided in subtemplates
+
+header&attributes(headerAttrs)
+	include header/social-buttons.pug
+	.container
+		.row
+			include header/header-top.pug
+			include header/header-menu.pug
+	hr.d-block.d-md-none.w-100
+	block header-optional
+					

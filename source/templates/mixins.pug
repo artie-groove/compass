@@ -1,11 +1,37 @@
-mixin tours-card(link, title)
-	.col-12.col-md-4
-		a.card.cover(href=`${link}`)
+mixin cover-card(imgid, path, title, subtitle, link, includeDetailsLink)
+	a.card.cover-card(href=`${link || '#'}`)
+		.thumb-wrapper
+			.mask.mask-16-9
+				img(src=`assets/img/${path}/${imgid}.jpg`)
+		.card-img-overlay
+			.card-footer
+				h5.card-title !{title}
+					if subtitle
+						small !{subtitle}
+				if includeDetailsLink
+					.card-link Подробнее
+
+mixin cover-card-2(imgid, path, title)
+	.card.cover-card(href=`${link || '#'}`)
+		.thumb-wrapper
+			img(src=`assets/img/${path}/${imgid}.jpg`)
+		.card-img-overlay
 			.card-footer
 				h5.card-title #{title}
-				small Подробнее
+
+mixin destination-card(imgid, path, title, link)
+	a.card.cover-card(href=`${link || '#'}`)
+		.thumb-wrapper
+			.mask.mask-16-9
+				img(src=`assets/img/${path}/covers/${imgid}.jpg`)
+		.card-img-overlay
+			.card-footer
+				h5.card-title 
+					img(src=`assets/img/${path}/flags/${imgid}.png`)
+					| #{title}
+
 mixin video-card(ytvid, title)
-	a.card.cover(data-toggle='modal' data-target='#ytplayer' data-ytvid=`${ytvid}`)
+	a.card.video-card(data-toggle='modal' data-target='#ytplayer' data-ytvid=`${ytvid}`)
 		.thumb-wrapper
 			.mask.mask-16-9
 				img(src=`http://i3.ytimg.com/vi/${ytvid}/hqdefault.jpg`)
@@ -13,9 +39,10 @@ mixin video-card(ytvid, title)
 			.card-footer
 				h5.card-title #{title}
 
-mixin audio-card(aid, artist, title, duration)
-	.card
+mixin audio-card(aid, artist, title)
+	.card.audio-card
 		.card-body
+			audio(src=`assets/audios/${aid}.mp3`)
 			.audio-cover
 				img(src=`assets/img/audio/${aid}.jpg`)
 			.summary
@@ -23,27 +50,28 @@ mixin audio-card(aid, artist, title, duration)
 				.title #{title}
 				.audio-timeline
 					.progress
-						.progress-bar.w-25(role='progressbar')
-					.current-pos 14:31
-					.duration #{duration}
+						.progress-bar(role='progressbar')
+					.current-pos &nbsp;
+					.duration &nbsp;
 
 mixin article-card(imgid, title)
 	.card.card-article
-		.thumb-wrapper
+		a.thumb-wrapper(href='#')
 			.mask.mask-16-9
-				img.card-img-top(src=`assets/img/article/thumbs/${imgid}.jpg` alt=`${title}`)
+				img.card-img-top(src=`assets/img/articles/thumbs/${imgid}.jpg` alt=`${title}`)
 		.card-body
-			h5.card-title #{title}
+			a.card-title(href='#') #{title}
 			p.card-text
 				block
 			a.rarr(href='article.html') Подробнее
 
-mixin payment-card(title, imgid)
+mixin payment-card(title, imgid, addNote)
 	.card
 		.content
 			img(src=`assets/img/payment-methods/${imgid}.png`)
 			.card-body
-				.note В нашем офисе
+				if addNote
+					.note В нашем офисе
 				h5.card-title #{title}
 				.card-text
 					block
@@ -64,8 +92,185 @@ mixin news-card(title, date)
 					block
 
 
+mixin staff-card(id, name, location, includeLink)
+	.card.staff-card
+		img.card-img-top(src=`assets/img/staff/${id}.jpg`)
+		.card-body
+			h5.card-title #{name}
+				small (#{location})
+			if includeLink 
+				a.card-link(href='#' data-toggle="modal" data-target="#requestConsult") Записаться на консультацию
 
+
+mixin cruise-card(cid, title)
+	.card.cruise-card
+		.thumb-wrapper
+			.mask.mask-16-9
+				img(src=`assets/img/cruises/${cid}.jpg`)
+		.card-body
+			h5.card-title #{title}
+			p Дата отправления:
+				span 25.04.2019 г.
+			p Продолжительность круиза:
+				span 1&ndash;5 дней
+			p Лайнер:
+				span экскурсионный, фирменный
+			p Круизная компания:
+				span Costa Cruises
+			.price
+				b От 150 000 р.
+				|  / 5 дней
+			.controls
+				a.btn.order-1.order-lg-0(href='#') Подробнее
+				a.card-link.mark.location-mark.order-0.order-lg-1(href='#' data-toggle="modal" data-target="#showCruiseOnMap") Показать маршрут на&nbsp;карте
+
+mixin credit-card(title, imgid)
+	.card.credit-card
+		.content
+			.card-body
+				h5.card-title #{title}
+				.card-text
+					block
+			img(src=`assets/img/credit/${imgid}.png`)
+
+mixin gallery-item(path, imgid)
+	.ribbon-item
+		.content
+			.mask.mask-4-3
+				- let link = `assets/img/${path}/${imgid}.jpg`
+				a.img-lightbox(href=`${link}`)
+					img(src=`${link}`)
+
+mixin article-thumb(imgid, title)
+	.card.card-article-thumb
+		a(href='#')
+			img(src=`assets/img/articles/thumbs/${imgid}.jpg`)
+		.details
+			.date 17.12.18
+			a.title(href='#') #{title}
+			a.btn(href='#') Подробно
+
+mixin price-tag(price, hasPromo)
+	.price-tag
+		.price-section
+			if hasPromo
+				.promo-label Акция
+			.price-value !{price}
+				span руб.
+		a.btn(href='visa-china.html') Заказать
+
+
+mixin info-item(base64, title)
+	.info-item
+		.img-wrapper
+			img(src=`${base64}`)
+		.info-content
+			if title
+				.info-title #{title}
+			.info-details
+				block
+
+mixin early-booking-offer(title, route, tags, liner)
+	.card.early-booking-offer
+		.card-body
+			if tags
+				.tags
+					-
+						let tagsMap = {
+							'guide': 'Русскоговорящий гид',
+							'promo': 'Акция',
+							'new': 'Новинка'
+						} 
+					each tag in tags
+						span&attributes({'class': tag}) #{tagsMap[tag]}
+			.container-fluid
+				.row
+					.col-12.col-md-8.order-1
+						h5.card-title #{title}
+						.card-text
+							if liner
+								p
+									b Лайнер:
+									|
+									|
+									| #{liner.name}
+									if liner.imgid
+										a.icon.icon-photo.img-lightbox(href=`assets/img/cruises/liners/${liner.imgid}.jpg`)
+							p #{route.name}
+							p
+								b Виза:
+								|
+								|
+								| Испания (Шенген)
+							p
+								b Цена:
+								|
+								|
+								| от
+								|
+								|
+								b
+									span.price 22&thinsp;269
+								|
+								|
+								| руб./чел. +
+								|
+								|
+								a.card-link(href='#') доплаты
+
+
+					.col-12.col-md-4.order-4.order-md-2.text-left.text-md-right
+						- let mapLink = `assets/img/cruises/maps/${route.id}.jpg`
+						a.map-link.img-lightbox(href=`${mapLink}`)
+							img(src=`${mapLink}`)
+					.col-12.col-lg-6.order-5.order-md-6.order-lg-3
+						a.btn.btn-request-booking(href='#' data-toggle="modal" data-target="#requestConsult") Оставить заявку на&nbsp;бронирование
+					.col-12.col-lg-6.order-2.order-md-4
+						.togglers
+							a.card-link.btn-dates Даты и места
+							a.card-link.btn-excursions Экскурсии
+					.col-12.order-3.order-md-5
+						.hidden
+							.dates-details
+								p Разнообразный и богатый опыт рамки и место обучения кадров в значительной степени обуславливает создание дальнейших направлений развития. Идейные соображения высшего порядка, а также укрепление и развитие структуры обеспечивает широкому кругу (специалистов) участие в формировании модели развития. Идейные соображения высшего порядка, а также консультация с широким активом требуют от нас анализа системы обучения кадров, соответствует насущным потребностям.
+								p Значимость этих проблем настолько очевидна, что постоянный количественный рост и сфера нашей активности позволяет оценить значение системы обучения кадров, соответствует насущным потребностям. С другой стороны реализация намеченных плановых заданий играет важную роль в формировании соответствующий условий активизации. Разнообразный и богатый опыт новая модель организационной деятельности требуют определения и уточнения направлений прогрессивного развития. Повседневная практика показывает, что консультация с широким активом представляет собой интересный эксперимент проверки соответствующий условий активизации.
+							.excursions-details
+								p Значимость этих проблем настолько очевидна, что сложившаяся структура организации играет важную роль в формировании систем массового участия. С другой стороны реализация намеченных плановых заданий требуют от нас анализа новых предложений.
+								p Идейные соображения высшего порядка, а также укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития. Таким образом постоянное информационно-пропагандистское обеспечение нашей деятельности требуют определения и уточнения направлений прогрессивного развития. Не следует, однако забывать, что новая модель организационной деятельности позволяет оценить значение соответствующий условий активизации. Таким образом новая модель организационной деятельности играет важную роль в формировании систем массового участия. Не следует, однако забывать, что дальнейшее развитие различных форм деятельности позволяет оценить значение форм развития.
+
+
+mixin promo-card(imgid, title, validTill)
+	.card.promo-card
+		.row.no-gutters
+			.col-12.col-lg-4
+				.cover
+					img(src=`assets/img/cruises/promos/${imgid}.jpg`)
+					p.text-lg-center
+						b.mark.clock-mark Срок акции:
+						|
+						|
+						span до&nbsp;#{validTill}
+			.col
+				.card-body
+					h5.card-title !{title}
+					.card-text
+						block
+					a.btn(href='#' data-toggle="modal" data-target="#requestConsult") Подробности у менеджеров
 
 mixin placeholder-block
 	.placeholder-block
 		block
+
+
+mixin bar(day, price)
+	- let height = price / 5000 * 100
+	div
+		div
+			div(style=`height: ${height}%` data-price=`${price}`)
+		div #{day}
+
+
+-
+	function normalizeNumber(n) {
+		return ( n < 10 ) ? '0' + n : n;
+	}

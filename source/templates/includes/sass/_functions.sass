@@ -1,0 +1,8 @@
+@function svg-fill($base64-template-string, $color)
+	@return str-replace($base64-template-string, "[color]", $color)
+
+@function svg-image($base64-string, $color)
+	@return str-replace(url("data:image/svg+xml;charset=utf8,#{svg-fill($base64-string, $color)}"), "#", "%23")
+
+@function aspect-padding($width, $height)
+	@return $height / $width * 100%

@@ -1,0 +1,133 @@
+extends ../templates/page-light.tpl.pug
+
+block content
+	.wrapper#content-about
+			.container
+				.row
+					.col-lg-4
+						h2.mb-3 ООО &laquo;Студия туризма &bdquo;Компас&ldquo;&raquo;
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+						.nav.select-control.mt-5
+							.nav-item.dropdown
+								a.nav-link.dropdown-toggle-custom(data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false")
+									b Офис:
+									|
+									|
+									span Благовещенск №1
+								.dropdown-menu
+									a.dropdown-item(href='#') Благовещенск №2
+									a.dropdown-item(href='#') Свободный
+						h6 Банковские реквизиты
+						.row
+							.col-md-6.col-lg-12
+								table.table.table-responsive.table-borderless
+									col(width="65")
+									tbody
+										tr
+											td Банк
+											td ФБ АМУРСКИЙ РФ АО"РОССЕЛЬХОЗБАНК"
+										tr
+											td Р/с
+											td 40702810423000001621
+										tr
+											td БИК
+											td 1122801000629
+										tr
+											td К/с
+											td 30101810800000000731
+							.col-md-6.col-lg-12
+								table.table.table-responsive.table-borderless
+										tr
+											td ИНН
+											td 2801168633
+										tr
+											td КПП
+											td 280101001
+										tr
+											td ОГРН
+											td 1122801000629
+										tr
+											td ОКПО
+											td 37724106
+										tr
+											td ОКВЭД
+											td 63.3
+					.col-lg-8
+						.map
+							.content
+								iframe(src='https://yandex.ru/map-widget/v1/-/CBFaeZRGlA', allowfullscreen='true')
+								.legend
+									.address-card
+										.card-title Контакты
+										.card-body
+											.mark.location-mark
+												span.location г. Благовещенск, площадь Ленина, 1
+												|
+												small гостиница "Юбилейная", 2 этаж, офис 220
+											.mark.email-mark
+												a(href='mailto:kompas_amur@mail.ru') kompas_amur@mail.ru
+											.mark.phone-mark
+												b.phone 8 (4162) 21-54-21
+											.mark.cellphone-mark
+												b.phone 8 (909) 816-90-67
+											.mark.clock-mark
+												b Время работы:
+											p
+												small Пн&ndash;Пт с 9:00 до 19:00 (без перерыва)
+												small Сб. &mdash; с 10:00 до 14:00 (без перерыва)
+											.mark.skype-mark kompas_amur
+											.mark.icq-mark 9-445-325
+											.mark.viber-mark 8 (914) 561-05-86
+											.mark.whatsapp-mark 8 (909) 816-90-67
+				.row
+					.col-12
+						.my-5
+						.d-flex.justify-content-between.align-items-center.flex-nowrap
+							div
+								h6 Учредительные документы
+							.ribbon-controls(data-items-per-step='2')
+								a.ribbon-control-prev(href='#ribbonCertificates' role='button' data-slide='prev')
+									.sr-only Previous
+								a.ribbon-control-next(href='#ribbonCertificates' role='button' data-slide='next')
+									.sr-only Next
+						.ribbon.img-gallery#ribbonCertificates
+							.ribbon-inner
+								each imgid in new Array(6)
+									.ribbon-item
+										img(src='assets/img/about/certificate.jpg')
+						.my-5
+						.d-flex.justify-content-between.align-items-center.flex-nowrap
+							div
+								h6 Наши награды
+							.ribbon-controls(data-items-per-step='2')
+								a.ribbon-control-prev(href='#ribbonAwards' role='button' data-slide='prev')
+									.sr-only Previous
+								a.ribbon-control-next(href='#ribbonAwards' role='button' data-slide='next')
+									.sr-only Next
+						.ribbon.img-gallery#ribbonAwards
+							.ribbon-inner
+								each imgid in new Array(6)
+									.ribbon-item
+										img(src='assets/img/about/certificate.jpg')
+				.my-5
+				.row
+					.col-lg-7
+						h6 Наши специалисты
+						.d-flex.justify-content-between.flex-wrap
+							+staff-card('totchilina', 'Точилина Кристина', 'г. Благовещенск')
+							+staff-card('gavrilov', 'Гаврилов Роман', 'г. Благовещенск')
+							+staff-card('gavrilova', 'Гаврилова Оксана', 'г. Благовещенск')
+							+staff-card('matviytchuck', 'Матвийчук Юлия', 'г. Благовещенск')
+							+staff-card('nikolaeva', 'Николаева Татьяна', 'г. Благовещенск')
+							+staff-card('dynnikova', 'Дынникова Галина', 'г. Благовещенск')
+					.col-lg-5
+						h6 Видео о нашей компании
+						.row
+							.col-md-6.col-lg-12
+								+video-card('wUM0jvKpLGU', 'Презентация агентства')
+							.col-md-6.col-lg-12
+								+video-card('U1oKtGoAFm8', 'Обучающий семинар для сотрудников')
+				.row
+					.col-12
+						hr
+

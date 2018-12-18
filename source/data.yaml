@@ -9,3 +9,67 @@ cityToAddressMap:
     addresses:
     - address: 'г. Свободный, ул. Эфирная, 77'
       details: 'крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE'
+tours:
+  - href: 'tour-excursions.html'
+    title: 'Путешествия по России'
+  - href: 'tour-excursions.html'
+    title: 'Санкт-Петербург'
+  - href: 'cruise.html'
+    title: 'Морские круизы'
+  - href: 'tour-excursions.html'
+    title: 'Термальные ист. Бейго'
+  - href: 'tour-excursions.html'
+    title: 'Бейдайхэ 2018'
+  - href: 'tour-excursions.html'
+    title: 'Туры по России'
+hotels:
+  - title: 'Villa Real 5*'
+    price: '62 800'
+  - title: 'The Principal Madrid 5*'
+    price: '125 600'
+  - title: 'Hostel Era Alonso Martinez 2*'
+    price: '698 877'
+  - title: 'Holiday Inn Madrid - Last'
+    price: '22 269'
+cruises:
+  gallery:
+    - title: 'Круизы по Европе'
+      subtitle: 'Италия, Франция, Черногорье, Испания'
+    - title: 'Трансатлантический круиз'
+      subtitle: 'Марокко, Бразилия, Испания, США'
+    - title: 'Персидский залив'
+      subtitle: 'Омни, ОАЭ'
+    - title: 'Круизы по Азии'
+      subtitle: 'Японское море'
+    - title: 'Круизы по России'
+      subtitle: 'Санкт-Петербург, Чёрное море'
+    - title: 'Круизы по США'
+      subtitle: 'Куба, Ямайка, Доминикана'
+destinations:
+  - Испания
+  - Германия
+  - Вьетнам
+  - Австрия
+  - Индия
+  - Маврикий
+  - Шри-Ланка
+  - Болгария
+  - Венгрия
+  - Индонезия (Бали)
+  - Абхазия
+  - Турция
+visas:
+  - Австралия
+  - Австрия
+  - Германия
+  - Греция
+  - Испания
+  - Италия
+  - Китай
+  - Финляндия
+  - Чехия
+  - Япония
+  - Франция
+  - Сингапур
+  - США
+  - Болгария

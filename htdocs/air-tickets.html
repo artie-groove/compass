@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&amp;amp;subset=cyrillic">
+    <link rel="stylesheet" href="assets/css/tourvisor.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <title>Компас</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="assets/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="format-detection" content="telephone=no">
+    <script>let cityToAddressMap = [{"name":"г. Благовещенск","addresses":[{"address":"г. Благовещенск, площадь Ленина, 1","details":"гостиница \"Юбилейная\", 2 этаж, офис 220"},{"address":"г. Благовещенск, улица Фёдора Емельяненко, 0","details":"тренажёрный зал \"Нокаут\", цокольный этаж"}]},{"name":"г. Свободный","addresses":[{"address":"г. Свободный, ул. Эфирная, 77","details":"крипто-центр Bitcoin, блок 0xFF, хэш 0xC0FFEE"}]}]</script>
+  </head>
+  <body>
+    <header class="header-air-tickets">
+      <div class="sidebar-social-media"><a class="vkontakte" href="#"></a><a class="facebook" href="#"></a><a class="odnoklassniki" href="#"></a><a class="google-plus" href="#"></a><a class="twitter" href="#"></a></div>
+      <div class="container">
+        <div class="row">
+          <div class="col flex-grow-0 order-1"><a class="logo" href="index.html"><img src="assets/img/logo.svg" width="135" height="45" alt="logo"></a></div>
+          <div class="col-12 col-md order-2">
+            <nav class="address-nav">
+              <div class="row">
+                <div class="col-md-8 col-lg-7 d-none d-md-block">
+                  <div class="row">
+                    <div class="col-md-5 col-lg-4 col-xl-3">
+                      <div class="label">Город</div>
+                      <div class="nav city mark location-mark">
+                        <div class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">г. Благовещенск</a>
+                          <div class="dropdown-menu"><a class="dropdown-item" href="#">г. Свободный</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-7 col-lg-8 col-xl-9">
+                      <div class="label">Адрес нашего офиса</div>
+                      <div class="address"> 
+                        <div class="nav">
+                          <div class="nav-item dropdown"><a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                              <div>г. Благовещенск, площадь Ленина, 1</div><small class="addressDetails">гостиница &quot;Юбилейная&quot;, 2 этаж, офис 220</small></a>
+                            <div class="dropdown-menu"><a class="dropdown-item" href="#">
+                                <div>г. Благовещенск, улица Фёдора Емельяненко, 0</div><small class="addressDetails">тренажёрный зал &quot;Нокаут&quot;, цокольный этаж</small></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-lg-5 text-right">
+                  <div class="d-md-inline-block ml-md-auto text-center text-md-left">
+                    <div class="label d-none d-md-block">Телефон</div>
+                    <div class="phone font-weight-bold">8 (4162) 21-54-21<br class="d-none d-md-inline d-lg-none"><a class="callback-link d-none d-md-inline-block ml-lg-4" href="#">Перезвоните мне</a></div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <div class="col-12 order-0 order-md-3">
+            <nav class="navbar navbar-dark navbar-expand-md p-md-0 mt-md-4" id="mainMenu">
+              <button class="navbar-toggler ml-auto" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Раскрыть"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="menu">
+                <h6 class="d-md-none">Меню</h6>
+                <ul class="navbar-nav w-100 justify-content-between text-md-center">
+                  <li class="nav-item"><a class="nav-link" href="/">Главная</a></li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Куда поехать</a>
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="tour-catalog.html">В Италию</a></li>
+                      <li class="dropdown-submenu"><a class="dropdown-item dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">В Испанию</a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="tour-catalog.html">Мадрид</a><a class="dropdown-item" href="tour-catalog.html">Барселона</a><a class="dropdown-item" href="tour-catalog.html">Валенсия</a><a class="dropdown-item" href="tour-catalog.html">Севилья</a><a class="dropdown-item" href="tour-catalog.html">Гибралтар</a></div>
+                      </li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальту</a></li>
+                      <li><a class="dropdown-item" href="tour-catalog.html">На Мальдивы</a></li>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"><a class="nav-link dropdown-toggle-custom" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Визы</a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="visa-info-china.html">В Японию</a><a class="dropdown-item" href="visa-info-china.html">В Китай</a><a class="dropdown-item" href="visa-info-china.html">В Австралию</a><a class="dropdown-item" href="visa-info-china.html">В США</a></div>
+                  </li>
+                  <li class="nav-item"><a class="nav-link" href="hotels.html">Отели</a></li>
+                  <li class="nav-item"><a class="nav-link" href="air-tickets.html">Авиабилеты</a></li>
+                  <li class="nav-item"><a class="nav-link" href="cruise.html">Круизы</a></li>
+                  <li class="nav-item d-md-inline-block d-lg-none"><a class="nav-link" href="404.html">Ещё</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="insurance.html">Страхование</a></li>
+                  <li class="nav-item d-md-none d-lg-inline-block"><a class="nav-link" href="about.html">О нас</a></li>
+                  <li class="nav-item d-none d-md-inline-block"><a class="nav-link request" data-toggle="modal" data-target="#request">Оставить заявку<span class="d-md-none d-lg-inline"> на тур</span></a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <hr class="d-block d-md-none w-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2">
+            <h1 class="text-center">Система поиска авиабилетов по&nbsp;всему миру<small>Выберите место, куда&nbsp;бы вы&nbsp;хотели отправиться, а&nbsp;мы&nbsp;подберем самые выгодные условия!</small></h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div id="aviasalesWidget">
+              <script charset="utf-8" src="//www.travelpayouts.com/widgets/17ee8a8675f065ed4108acf435f061d6.js?v=1552" async=""></script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="content-air-tickets">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2>Спецпредложения на&nbsp;авиабилеты</h2>
+            <p>Придумать текст описание для этого блока что бы лучше раскрыть его суть</p>
+          </div>
+        </div>
+        <div class="row pt-5">
+          <div class="col-12">
+            <div id="flightOffers">
+              <script async="" src="//www.travelpayouts.com/ducklett/scripts.js?widget_type=brickwork&amp;currency=rub&amp;host=hydra.aviasales.ru&amp;marker=198138.&amp;limit=6&amp;powered_by=false&amp;origin_iatas=KHV&amp;destination_iatas=MIL" charset="UTF-8"></script>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="bg-dark pb-0" id="paymentMethods">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex justify-content-between align-items-center flex-nowrap">
+                <div>
+                  <h2>Как оплатить билет</h2>
+                  <p>Придумать описание для этого блока, чтобы лучше раскрыть его суть</p>
+                </div>
+                <div class="ribbon-controls"><a class="ribbon-control-prev" href="#ribbonPaymentMethods" role="button" data-slide="prev">
+                    <div class="sr-only">Previous</div></a><a class="ribbon-control-next" href="#ribbonPaymentMethods" role="button" data-slide="next">
+                    <div class="sr-only">Next</div></a></div>
+              </div>
+              <div class="ribbon" id="ribbonPaymentMethods">
+                <div class="ribbon-inner">
+                  <div class="ribbon-item">
+                    <div class="card">
+                      <div class="content"><img src="assets/img/payment-methods/visa.png"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Платежная система VISA</h5>
+                          <div class="card-text">
+                            <p>Оплата принимается в рублях, можно оплатить, как полную стоимость, так и часть путевки.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="card">
+                      <div class="content"><img src="assets/img/payment-methods/mastercard.png"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Платежная система Master card</h5>
+                          <div class="card-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="card">
+                      <div class="content"><img src="assets/img/payment-methods/yandex-dengi.png"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Платежная система Яндекс.Деньги</h5>
+                          <div class="card-text">
+                            <p>Оплата принимается в рублях, можно оплатить, как полную стоимость, так и часть путевки.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ribbon-item">
+                    <div class="card">
+                      <div class="content"><img src="assets/img/payment-methods/sberbank.png"/>
+                        <div class="card-body">
+                          <h5 class="card-title">Оплата через Сбербанк</h5>
+                          <div class="card-text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-dark pt-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="mb-3">Почему выбирают нас?</h2>
+              <p>Придумать текст описание для этого блока что бы лучше раскрыть его суть</p>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzciIGhlaWdodD0iMjYiIHZpZXdCb3g9IjAgMCAzNyAyNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMzLjk5NjggMTguODY5QzM1LjY3ODYgMTguNDI4NCAzNyAxNi44NjU5IDM3IDE1LjAyMzFWMTEuMDE2OUMzNyA5LjE3NDExIDM1LjcxODYgNy42MTE3MSAzMy45OTY4IDcuMTcxMDNWNi4wMDkyNEMzMy45OTY4IDIuNzI0MTkgMzEuMzEzOSAwIDI3Ljk5MDMgMEg2LjAwNjQ5QzIuNzIyOTQgMCAwIDIuNjg0MTMgMCA2LjAwOTI0VjE5Ljk5MDhDMCAyMy4yNzU4IDIuNjgyOSAyNiA2LjAwNjQ5IDI2SDI3Ljk5MDNDMzEuMjczOCAyNiAzMy45OTY4IDIzLjMxNTkgMzMuOTk2OCAxOS45OTA4VjE4Ljg2OVpNMzQuOTk3OCAxMS4wMTY5VjE1LjAyMzFDMzQuOTk3OCAxNi4xMDQ4IDM0LjExNjkgMTcuMDI2MiAzMi45OTU3IDE3LjAyNjJIMjguOTkxM0MyNi43ODkgMTcuMDI2MiAyNC45ODcgMTUuMjIzNCAyNC45ODcgMTMuMDJDMjQuOTg3IDEwLjgxNjYgMjYuNzg5IDkuMDEzODcgMjguOTkxMyA5LjAxMzg3SDMyLjk5NTdDMzQuMDc2OCA5LjAxMzg3IDM0Ljk5NzggOS45MzUyOCAzNC45OTc4IDExLjAxNjlaTTI3Ljk5MDMgMjQuMDM3SDYuMDA2NDlDMy44MDQxMSAyNC4wMzcgMi4wMDIxNiAyMi4yMzQyIDIuMDAyMTYgMjAuMDMwOFY2LjAwOTI0QzIuMDAyMTYgMy44MDU4NiAzLjgwNDExIDIuMDAzMDggNi4wMDY0OSAyLjAwMzA4SDI3Ljk5MDNDMzAuMTkyNiAyLjAwMzA4IDMxLjk5NDYgMy44MDU4NiAzMS45OTQ2IDYuMDA5MjRWNy4wMTA3OUgyOC45OTEzQzI1LjcwNzggNy4wMTA3OSAyMi45ODQ4IDkuNjk0OTEgMjIuOTg0OCAxMy4wMkMyMi45ODQ4IDE2LjM0NTEgMjUuNjY3NyAxOS4wMjkzIDI4Ljk5MTMgMTkuMDI5M0gzMS45OTQ2VjIwLjAzMDhDMzEuOTk0NiAyMi4yMzQyIDMwLjE5MjYgMjQuMDM3IDI3Ljk5MDMgMjQuMDM3WiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K"/></div>
+                <div class="info-content">
+                  <div class="info-title">Лучшие цены</div>
+                  <div class="info-details">
+                    <p>Пару строчек описания для лучшего понимания</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjYiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAyNiAyNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEwLjMyOTEgMjAuNDIyNUM4LjI4NjIzIDIwLjQyMjUgNi4yODkyIDE5LjgyMzcgNC41OTA1OCAxOC43MDE2QzIuODkxOTYgMTcuNTc5NiAxLjU2ODA1IDE1Ljk4NDggMC43ODYyNjQgMTQuMTE5QzAuMDA0NDc1NDIgMTIuMjUzMSAtMC4yMDAwNzYgMTAuMTk5OSAwLjE5ODQ3NiA4LjIxOTE1QzAuNTk3MDI4IDYuMjM4MzYgMS41ODA3OCA0LjQxODg5IDMuMDI1MzQgMi45OTA4MkM0LjQ2OTkgMS41NjI3NCA2LjMxMDM3IDAuNTkwMjE1IDguMzE0MDMgMC4xOTYyMTFDMTAuMzE3NyAtMC4xOTc3OTMgMTIuMzk0NSAwLjAwNDQyNDM0IDE0LjI4MTkgMC43NzcyOTFDMTYuMTY5MyAxLjU1MDE2IDE3Ljc4MjUgMi44NTg5NiAxOC45MTc1IDQuNTM4MkMyMC4wNTI1IDYuMjE3NDMgMjAuNjU4MyA4LjE5MTY3IDIwLjY1ODMgMTAuMjExM0MyMC42NTgzIDEyLjkxOTUgMTkuNTcgMTUuNTE2NyAxNy42MzI5IDE3LjQzMTdDMTUuNjk1OSAxOS4zNDY3IDEzLjA2ODYgMjAuNDIyNSAxMC4zMjkxIDIwLjQyMjVaTTEwLjMyOTEgMi4xMTI2OEM4LjcwODkxIDIuMTEyNjggNy4xMjUwNSAyLjU4NzY1IDUuNzc3ODcgMy40Nzc1NEM0LjQzMDY5IDQuMzY3NDIgMy4zODA2OSA1LjYzMjI1IDIuNzYwNjUgNy4xMTIwN0MyLjE0MDYxIDguNTkxOSAxLjk3ODM4IDEwLjIyMDMgMi4yOTQ0OCAxMS43OTEyQzIuNjEwNTcgMTMuMzYyMiAzLjM5MDc5IDE0LjgwNTIgNC41MzY0NyAxNS45Mzc4QzUuNjgyMTUgMTcuMDcwNCA3LjE0MTg0IDE3Ljg0MTggOC43MzA5NSAxOC4xNTQyQzEwLjMyMDEgMTguNDY2NyAxMS45NjcyIDE4LjMwNjQgMTMuNDY0MSAxNy42OTM0QzE0Ljk2MSAxNy4wODA0IDE2LjI0MDQgMTYuMDQyNCAxNy4xNDA2IDE0LjcxMDZDMTguMDQwOCAxMy4zNzg4IDE4LjUyMTIgMTEuODEzIDE4LjUyMTIgMTAuMjExM0MxOC41MjEyIDguMDYzMzkgMTcuNjU4MSA2LjAwMzQ4IDE2LjEyMTggNC40ODQ3QzE0LjU4NTUgMi45NjU5MiAxMi41MDE4IDIuMTEyNjggMTAuMzI5MSAyLjExMjY4WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjQuOTMyNyAyNS4wMDAyQzI0LjY0OTQgMjUgMjQuMzc3OCAyNC44ODg1IDI0LjE3NzYgMjQuNjkwNEwxNi42OTc5IDE3LjI5NkMxNi41MDkyIDE3LjA5NTggMTYuNDA2NCAxNi44MzA5IDE2LjQxMTMgMTYuNTU3MkMxNi40MTYyIDE2LjI4MzYgMTYuNTI4MyAxNi4wMjI1IDE2LjcyNDEgMTUuODI4OUMxNi45MTk5IDE1LjYzNTQgMTcuMTg0IDE1LjUyNDUgMTcuNDYwOCAxNS41MTk3QzE3LjczNzYgMTUuNTE0OSAxOC4wMDU1IDE1LjYxNjUgMTguMjA4MSAxNS44MDNMMjUuNjg3OCAyMy4xOTc0QzI1LjgzNzEgMjMuMzQ1MSAyNS45Mzg3IDIzLjUzMzMgMjUuOTc5OCAyMy43MzgxQzI2LjAyMSAyMy45NDI4IDI1Ljk5OTggMjQuMTU1MSAyNS45MTkgMjQuMzQ4QzI1LjgzODIgMjQuNTQwOSAyNS43MDE0IDI0LjcwNTggMjUuNTI1OSAyNC44MjE5QzI1LjM1MDMgMjQuOTM4IDI1LjE0MzkgMjUgMjQuOTMyNyAyNS4wMDAyWiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K"/></div>
+                <div class="info-content">
+                  <div class="info-title">Бесплатный и независимый поиск</div>
+                  <div class="info-details">
+                    <p>Пару строчек описания для лучшего понимания</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDBDNS4zODM4MyAwIDAgNS4zODM4MiAwIDEyQzAgMTguNjE2MiA1LjM4MzgzIDI0IDEyIDI0QzE4LjYxNjIgMjQgMjQgMTguNjE2MiAyNCAxMkMyNCA1LjM4MzgyIDE4LjYxNjIgMCAxMiAwWk0xMiAxLjg5NDc0QzE3LjU5MjIgMS44OTQ3NCAyMi4xMDUzIDYuNDA3ODMgMjIuMTA1MyAxMkMyMi4xMDUzIDE3LjU5MjIgMTcuNTkyMiAyMi4xMDUzIDEyIDIyLjEwNTNDNi40MDc4NCAyMi4xMDUzIDEuODk0NzQgMTcuNTkyMiAxLjg5NDc0IDEyQzEuODk0NzQgNi40MDc4MyA2LjQwNzg0IDEuODk0NzQgMTIgMS44OTQ3NFpNMTIgMy40NzM2OEMxMS40NzY4IDMuNDczNjggMTEuMDUyNiAzLjg5Nzg1IDExLjA1MjYgNC40MjEwNVYxMkMxMS4wNTI2IDEyLjM1MDQgMTEuMjQzNiAxMi42NTUyIDExLjUyNjMgMTIuODE5MUwxNy41NDYxIDE2LjI5MjdDMTcuOTk5MSAxNi41NTQzIDE4LjU3NzIgMTYuNDAwNSAxOC44Mzg4IDE1Ljk0NzRDMTkuMTAwNSAxNS40OTQyIDE4Ljk0NjUgMTQuOTE2MiAxOC40OTM0IDE0LjY1NDZMMTIuOTQ3NCAxMS40NTczVjQuNDIxMDVDMTIuOTQ3NCAzLjg5Nzg1IDEyLjUyMzIgMy40NzM2OCAxMiAzLjQ3MzY4WiIgZmlsbD0iI0ZGOUEwMSIvPgo8L3N2Zz4K"/></div>
+                <div class="info-content">
+                  <div class="info-title">Экономия времени</div>
+                  <div class="info-details">
+                    <p>Пару строчек описания для лучшего понимания</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-3">
+              <div class="info-item">
+                <div class="img-wrapper"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAyMi4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCA0NCA0NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDQgNDQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+DQoJLnN0MHtmaWxsOiNGRjlBMDE7fQ0KPC9zdHlsZT4NCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00NCwzNy4ybDAtNy43YzAtMC40LTAuMS0wLjctMC40LTFjLTAuMi0wLjMtMC42LTAuNS0wLjktMC42Yy0xLjMtMC4zLTIuNS0xLjEtMy40LTIuMQ0KCUMzOC41LDI0LjcsMzgsMjMuMywzOCwyMmMwLTEuNCwwLjUtMi43LDEuMy0zLjhjMC44LTEuMSwyLTEuOCwzLjQtMi4yYzAuNC0wLjEsMC43LTAuMywwLjktMC42YzAuMi0wLjMsMC40LTAuNywwLjQtMWwwLTcuNw0KCWMwLTAuMiwwLTAuNC0wLjEtMC42Yy0wLjEtMC4yLTAuMi0wLjQtMC40LTAuNWMtMC4yLTAuMi0wLjMtMC4zLTAuNS0wLjRDNDIuNyw1LjEsNDIuNSw1LDQyLjMsNUwxLjcsNWMtMC4yLDAtMC40LDAtMC42LDAuMQ0KCVMwLjcsNS40LDAuNSw1LjVDMC40LDUuNywwLjIsNS45LDAuMSw2LjFDMC4xLDYuMywwLDYuNSwwLDYuN2wwLDcuN2MwLDAuNCwwLjEsMC43LDAuNCwxczAuNiwwLjUsMC45LDAuNmMxLjMsMC4zLDIuNSwxLjEsMy40LDIuMQ0KCUM1LjUsMTkuMyw2LDIwLjYsNiwyMmMwLDEuNC0wLjUsMi43LTEuMywzLjhjLTAuOSwxLjEtMiwxLjgtMy40LDIuMWMtMC40LDAuMS0wLjcsMC4zLTAuOSwwLjZjLTAuMiwwLjMtMC40LDAuNy0wLjQsMWwwLDcuNw0KCWMwLDAuMiwwLDAuNCwwLjEsMC42YzAuMSwwLjIsMC4yLDAuNCwwLjQsMC41YzAuMiwwLjIsMC4zLDAuMywwLjUsMC40YzAuMiwwLjEsMC40LDAuMSwwLjYsMC4xbDI3LjMsMGwxMy40LDBjMC4yLDAsMC40LDAsMC42LTAuMQ0KCWMwLjItMC4xLDAuNC0wLjIsMC41LTAuNGMwLjItMC4yLDAuMy0wLjMsMC40LTAuNUM0NCwzNy43LDQ0LDM3LjQsNDQsMzcuMnogTTMuNCwzNS41bDAtNC44YzEuNy0wLjcsMy4yLTEuOSw0LjMtMy41DQoJYzEtMS42LDEuNi0zLjQsMS42LTUuM2MwLTEuOS0wLjYtMy43LTEuNi01LjNjLTEuMS0xLjYtMi41LTIuOC00LjMtMy41bDAtNC44bDI0LDBsMCwyNy4xTDMuNCwzNS41eiBNMzAuNywzNS41bDAtMjcuMWw5LjksMGwwLDQuOA0KCWMtMS43LDAuNy0zLjIsMS45LTQuMywzLjVjLTEuMSwxLjYtMS42LDMuNC0xLjYsNS4zYzAsMS45LDAuNiwzLjcsMS42LDUuM2MxLjEsMS42LDIuNiwyLjgsNC4zLDMuNWwwLDQuOEwzMC43LDM1LjV6Ii8+DQo8L3N2Zz4NCg=="/></div>
+                <div class="info-content">
+                  <div class="info-title">Билеты в любую точку мира</div>
+                  <div class="info-details">
+                    <p>Пару строчек описания для лучшего понимания</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+    <footer>
+      <div class="container">
+        <section id="footerLinks">
+          <div class="row">
+            <div class="col order-0">
+              <h5>Куда поехать</h5>
+              <nav><a href="tour-catalog.html">Бейдайхэ</a><a href="tour-catalog.html">Бэйго</a><a href="tour-catalog.html">Вьетнам</a><a href="tour-catalog.html">Индия</a><a href="tour-catalog.html">Германия</a><a href="tour-catalog.html">Испания</a><a href="tour-catalog.html">Австрия</a><a href="tour-catalog.html">Маврикий</a></nav>
+            </div>
+            <div class="col links-visas order-7 order-md-3">
+              <h5>Визы</h5>
+              <nav><a href="visa-info-china.html">Австралия</a><a href="visa-info-china.html">Австрия</a><a href="visa-info-china.html">Германия</a><a href="visa-info-china.html">Греция</a><a href="visa-info-china.html">Испания</a><a href="visa-info-china.html">Италия</a><a href="visa-info-china.html">Китай</a><a href="visa-info-china.html">Финляндия</a><a href="visa-info-china.html">Чехия</a><a href="visa-info-china.html">Япония</a><a href="visa-info-china.html">Франция</a><a href="visa-info-china.html">Сингапур</a><a href="visa-info-china.html">США</a><a href="visa-info-china.html">Болгария</a></nav>
+            </div>
+            <div class="col order-4">
+              <h5>Оплата туров</h5>
+              <nav><a href="404.html">Онлайн оплата картой</a><a href="404.html">Онлайн оплата картой</a><a href="404.html">Рассрочка от ОТП Банк</a><a href="404.html">Рассрочка от Почта Банк</a><a href="404.html">Рассрочка от Home Credit</a><a href="404.html">Способы оплаты</a></nav>
+            </div>
+            <div class="col order-5">
+              <h5>Сервисы</h5>
+              <nav><a href="air-tickets.html">Авиабилеты</a><a href="hotels.html">Отели</a><a href="404.html">Аренда автомобилей</a><a href="404.html">Апартаменты</a></nav>
+            </div>
+            <div class="col order-6">
+              <h5>Ещё</h5>
+              <nav><a href="trains-china.html">Расписание поездов Китая</a><a href="404.html">Полезные советы</a><a href="404.html">Запрет на выезд</a><a href="404.html">Дневник туриста</a><a href="404.html">Будь в тренде</a><a href="404.html">Вопрос/ответ</a><a href="about.html">Контакты</a><a href="404.html">Попутчики</a><a href="hotels-filter.html">База отелей</a><a href="404.html">Голосования</a><a href="404.html">Фотоконкурсы</a></nav>
+            </div>
+            <div class="col insurance order-1 order-lg-7">
+              <h5>Страхование</h5>
+              <nav><a href="insurance.html">О страховании ВСК</a><a href="404.html">Расcчитать стоимость	</a></nav>
+            </div>
+          </div>
+        </section>
+        <section id="footerBottom">
+          <div class="row">
+            <div class="col">
+              <div class="copyright">© 2018 ООО &laquo;Туристическое агентство &bdquo;Компас&ldquo;&raquo;</div>
+            </div>
+            <div class="col">
+              <div class="d-flex justify-content-end flex-column flex-md-row" id="exchangeRates">
+                <div class="date">27.10.18</div>
+                <div class="usd">USD<span class="arrow increase">65.80</span></div>
+                <div class="eur">EUR<span class="arrow decrease">75.08</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </footer>
+    <!-- Optional JavaScript-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="assets/js/scripts.js"></script>
+    <div class="modal" id="request" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваш телефон">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalData" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalData">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn w-100" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestCruise" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Оставьте заявку на тур<small>И мы вам перезвоним в течение 15 минут</small></div>
+            <form>
+              <div class="form-group">
+                <div class="row">
+                  <div class="col-12 col-md mb-4 mb-md-0">
+                    <div id="customerDate">
+                      <input class="form-control" type="text" placeholder="Выберите дату">
+                    </div>
+                  </div>
+                  <div class="col-12 col-md">
+                    <div id="customerTime">
+                      <input class="form-control" type="text" placeholder="Выберите время">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerEmail" type="email" placeholder="Введите ваш email">
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataCruise" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataCruise">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="requestConsult" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="modal-body">
+            <div class="modal-title">Запись на консультацию</div>
+            <form>
+              <div class="form-group">
+                <input class="form-control" id="customerName" type="text" placeholder="Введите ваше имя">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerPhone" type="text" placeholder="Введите ваше телефон">
+              </div>
+              <div class="form-group">
+                <input class="form-control" id="customerDestination" type="text" placeholder="Город или страна, куда хотите отправиться">
+              </div>
+              <div class="form-group" id="customerDateRange">
+                <div class="date-range-wrapper">
+                  <div class="placeholder">Выберите дату</div>
+                  <div class="date-range">
+                    <div class="date">
+                      <div class="day">12</div>
+                      <div>
+                        <div class="month">Апрель</div>
+                        <div class="day-of-week">Вторник</div>
+                      </div>
+                    </div>
+                    <div class="divider">&ndash;</div>
+                    <div class="date">
+                      <div class="day">28</div>
+                      <div>
+                        <div class="month">Май</div>
+                        <div class="day-of-week">Воскресенье</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <!--input#customerDateRange.form-control(type='text' placeholder='Выберите дату')-->
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerAdults" type="text" placeholder="Взрослые">
+                      <option selected>Взрослые</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-group">
+                    <select class="custom-select" id="customerChildren" type="text" placeholder="Дети">
+                      <option selected>Дети</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" id="customerWishes" placeholder="Пожелания к туру"></textarea>
+              </div>
+              <div class="custom-control custom-checkbox">
+                <input class="custom-control-input" id="agreedToProcessPersonalDataConsult" type="checkbox" value="">
+                <label class="custom-control-label" for="agreedToProcessPersonalDataConsult">Я даю согласие на обработку моих персональных данных</label>
+              </div>
+              <button class="btn no-arr w-100 text-center" type="submit">Отправить</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="ytplayer" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="showCruiseOnMap" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="mask-16-9">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d206525.2643467698!2d-5.513846406652724!3d36.021337196777296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0xd0ca3e55b7b92b5%3A0x49819bd6225c2007!2sCeuta!3m2!1d35.895039!2d-5.321664!4m5!1s0xd0c94d7a479c8f3%3A0x5dbc93317cb51823!2sAlgeciras%2C+11201%2C+C%C3%A1diz%2C+Spain!3m2!1d36.130778!2d-5.438018!5e0!3m2!1sen!2s!4v1541488272523" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="imgLightbox" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <button class="modal-close" type="button" data-dismiss="modal" aria-label="Закрыть"><span class="modal-close-icon"></span></button>
+          <div class="img-wrapper"><img src=""></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

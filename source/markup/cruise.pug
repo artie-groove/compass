@@ -1,0 +1,140 @@
+extends ../templates/page-light.tpl.pug
+
+block request-button
+	a.nav-link.request(data-toggle='modal' data-target='#requestCruise') Оставить заявку
+		span.d-md-none.d-lg-inline  на тур
+
+append scripts-delayed
+	script(src='assets/js/pickmeup.min.js')
+	script(src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js')
+
+
+block content
+	#content-cruise.layout-sidebar
+		.container
+			.row
+				.col-md-4.col-lg-3.order-1.order-md-0
+					h3 Мы познакомим вас с&nbsp;Японией
+					+staff-card('totchilina', 'Точилина Кристина', 'г. Благовещенск', true)
+					+staff-card('matviytchuck', 'Матвийчук Юлия', 'г. Благовещенск', true)
+					.btn.rounded-0.btn-request(href='#' data-toggle="modal" data-target="#requestConsult") Заявка на подбор подходящих круизов
+				.col-md-8.col-lg-9.order-0.order-md-1
+					nav
+						#nav-cruise.nav.nav-tabs.flex-nowrap(role='tablist')
+							a#nav-catalogue-tab.nav-item.nav-link.active(data-toggle='tab', href='#nav-catalogue', role='tab', aria-controls='nav-catalogue', aria-selected='true')
+								div Каталог
+							a#nav-early-booking-tab.nav-item.nav-link(data-toggle='tab', href='#nav-early-booking', role='tab', aria-controls='nav-early-booking', aria-selected='false')
+								div Раннее бронирование
+							a#nav-promo-tab.nav-item.nav-link(data-toggle='tab', href='#nav-promo', role='tab', aria-controls='nav-promo', aria-selected='false')
+								div Акции
+							a#nav-howto-tab.nav-item.nav-link(data-toggle='tab', href='#nav-howto', role='tab', aria-controls='nav-howto', aria-selected='false')
+								div Как выбрать круиз
+					#nav-cruiseContent.tab-content
+						#nav-catalogue.tab-pane.fade.show.active(role='tabpanel', aria-labelledby='nav-catalogue-tab')
+							.cruise-gallery
+								.container-fluid
+									.row
+										.col-md-4
+											.cruise-gallery-header
+												img.d-block(src='assets/img/cruises/cover.jpg')
+										.col-md-8
+											.cruise-gallery-description
+												h5 Япония&nbsp;&mdash; восточный рай
+												p Страна восходящего солнца Япония&nbsp;&mdash; кладезь утонченной экзотики. Суперсовременный Токио и&nbsp;живописная провинция, снежная шапка Фудзи и&nbsp;сакура в&nbsp;цвету, великолепные пляжи островов Окинава и&nbsp;древние памятники синтоизма&nbsp;&mdash; все о&nbsp;Японии: фото, карта, туры, цены и&nbsp;отзывы.
+									.row
+										.col-12
+											hr.mb-4.mt-0
+									.row
+										each card, i in data.cruises.gallery
+											.col-md-6.col-xl-4
+												+cover-card(normalizeNumber(i+1), 'cruises/covers', card.title, card.subtitle, null, true)
+									.row
+										.col-12
+											#top5
+												h5 Топ-5 популярных круизов
+												+cruise-card('01', 'Морской круиз Испания и Корсика')
+												+cruise-card('02', 'Морской круиз по бухте Халонг Бей')
+												+cruise-card('03', 'Речной круиз по Волге')
+
+						#nav-early-booking.tab-pane.fade(role='tabpanel', aria-labelledby='nav-early-booking-tab')
+							.card.text-white#earlyBookingHeader
+								.card-img
+									img(src='assets/img/cruises/bg-early-booking.jpg')
+								.card-img-overlay
+									.container-fluid
+										.row
+											.col-12.col-lg-9.col-xl-7
+												h5.card-title 5 причин забронировать круиз заранее
+												.card-text
+													ul.list-positive.list-positive-simplified
+														li Экономьте на&nbsp;стоимости. Цены предпродаж ниже сезонных
+														li Вы гарантированно бронируете место на&nbsp;судне
+														li Бюджет, который вы&nbsp;выделяете, зарезервирован
+														li Запланированное путешествие дарит вам недели желанного предвкушения
+														li У вас будет достаточно времени подумать, что взять с&nbsp;собой
+							h2 2018
+							+early-booking-offer('Восточный экспресс', { name: 'Рим-Монако-Барселона-Порту', id: '01' }, ['guide', 'promo'], { name: 'Royal Carribean', imgid: '01'})
+							+early-booking-offer('Трансатлантик', { name: 'Барселона-Тенерифе-Рио-де-Жанейро', id: '02' }, ['new'], { name: 'Empress Ki', imgid: '02'})
+							h2 2019
+							+early-booking-offer('Восточный экспресс', { name: 'Рим-Монако-Барселона-Порту', id: '01' }, ['new'], { name: 'Royal Carribean', imgid: '01'})
+							h2 2020
+							+early-booking-offer('Трансатлантик', { name: 'Барселона-Тенерифе-Рио-де-Жанейро', id: '02' }, ['guide', 'promo'], { name: 'Empress Ki', imgid: '02'})
+							+early-booking-offer('Восточный экспресс', { name: 'Рим-Монако-Барселона-Порту', id: '01' }, ['new'], { name: 'Royal Carribean', imgid: '01'})
+
+						#nav-promo.tab-pane.fade(role='tabpanel', aria-labelledby='nav-promo-tab')
+							+promo-card('01', 'Ребенок до 16-ти лет&nbsp;&mdash; БЕСПЛАТНО', '30.04.2019')
+								p Компания Royal Carribean lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Уникальная акция lorem
+							+promo-card('02', 'Балкон в подарок!', '15.10.2019')
+								p Уникальная акция lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Уникальная акция lorem ipsum
+							+promo-card('03', 'Выиграй круиз на современном лайнере', '8.12.2018')
+								p Получи путёвку на двоих lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Уникальная акция lorem
+							+promo-card('04', 'Получи 20%-скидку на теплоход Александр Невский', '25.01.2019')
+								p При бронировании билета до 25 января lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Уникальная акция lorem ipsum
+
+
+						#nav-howto.tab-pane.fade(role='tabpanel', aria-labelledby='nav-howto-tab')
+							.container-fluid
+								.row
+									.col-12
+										h3 4 простых шага как выбрать свой круиз
+								.row
+									.col-6.col-lg-3
+										+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMyAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2LjUwNDQgMjcuNTkzNUMxMC4zOTUzIDI3LjU5MzUgNS40MDk3OSAyMi42MDg0IDUuNDA5NzkgMTYuNDk5OUM1LjQwOTc5IDEwLjM5MTQgMTAuMzk1MyA1LjQwNjI1IDE2LjUwNDQgNS40MDYyNUMyMi42MTM0IDUuNDA2MjUgMjcuNTk5IDEwLjM5MTQgMjcuNTk5IDE2LjQ5OTlDMjcuNTk5IDIyLjYwODQgMjIuNjEzNCAyNy41OTM1IDE2LjUwNDQgMjcuNTkzNVpNMTYuNTA0NCA4LjE0NDU1QzExLjg2OTkgOC4xNDQ1NSA4LjE0ODMzIDExLjg2NTggOC4xNDgzMyAxNi40OTk5QzguMTQ4MzMgMjEuMTMzOSAxMS44Njk5IDI0Ljg1NTIgMTYuNTA0NCAyNC44NTUyQzIxLjEzODggMjQuODU1MiAyNC44NjA0IDIxLjEzMzkgMjQuODYwNCAxNi40OTk5QzI0Ljg2MDQgMTEuODY1OCAyMS4xMzg4IDguMTQ0NTUgMTYuNTA0NCA4LjE0NDU1WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMTYuNTAyMSA0LjkxNDg5QzE1LjcyOTcgNC45MTQ4OSAxNS4wOTc3IDQuMjgyOTggMTUuMDk3NyAzLjUxMDY0VjEuNDA0MjZDMTUuMDk3NyAwLjYzMTkxNSAxNS43Mjk3IDAgMTYuNTAyMSAwQzE3LjI3NDUgMCAxNy45MDY1IDAuNjMxOTE1IDE3LjkwNjUgMS40MDQyNlYzLjU4MDg1QzE3LjkwNjUgNC4zNTMxOSAxNy4yNzQ1IDQuOTE0ODkgMTYuNTAyMSA0LjkxNDg5WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMTYuNTAyMiAzMy4wMDA3QzE1LjcyOTcgMzMuMDAwNyAxNS4wOTc4IDMyLjM2ODggMTUuMDk3OCAzMS41OTY1VjI5LjQxOTlDMTUuMDk3OCAyOC42NDc1IDE1LjcyOTcgMjguMDE1NiAxNi41MDIyIDI4LjAxNTZDMTcuMjc0NiAyOC4wMTU2IDE3LjkwNjUgMjguNjQ3NSAxNy45MDY1IDI5LjQxOTlWMzEuNTk2NUMxNy45MDY1IDMyLjM2ODggMTcuMjc0NiAzMy4wMDA3IDE2LjUwMjIgMzMuMDAwN1oiIGZpbGw9IiNGRjlBMDEiLz4KPHBhdGggZD0iTTMxLjU5NjEgMTcuOTA2MkgyOS40MTkzQzI4LjY0NjkgMTcuOTA2MiAyOC4wMTUgMTcuMjc0MyAyOC4wMTUgMTYuNTAxOUMyOC4wMTUgMTUuNzI5NiAyOC42NDY5IDE1LjA5NzcgMjkuNDE5MyAxNS4wOTc3SDMxLjU5NjFDMzIuMzY4NSAxNS4wOTc3IDMzLjAwMDUgMTUuNzI5NiAzMy4wMDA1IDE2LjUwMTlDMzMuMDAwNSAxNy4yNzQzIDMyLjM2ODUgMTcuOTA2MiAzMS41OTYxIDE3LjkwNjJaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik0zLjU4MTE3IDE3LjkwNjJIMS40MDQzOEMwLjYzMTk3MSAxNy45MDYyIDAgMTcuMjc0MyAwIDE2LjUwMTlDMCAxNS43Mjk2IDAuNjMxOTcxIDE1LjA5NzcgMS40MDQzOCAxNS4wOTc3SDMuNTgxMTdDNC4zNTM1OCAxNS4wOTc3IDQuOTg1NTUgMTUuNzI5NiA0Ljk4NTU1IDE2LjUwMTlDNC45ODU1NSAxNy4yNzQzIDQuMzUzNTggMTcuOTA2MiAzLjU4MTE3IDE3LjkwNjJaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik0yNS42MjYxIDguNzA0NzVDMjUuMjc1IDguNzA0NzUgMjQuOTIzOSA4LjU2NDMzIDI0LjY0MyA4LjI4MzQ4QzI0LjA4MTIgNy43MjE3OCAyNC4wODEyIDYuODc5MjIgMjQuNjQzIDYuMzE3NTJMMjYuMTg3OCA0Ljc3Mjg0QzI2Ljc0OTYgNC4yMTExNCAyNy41OTIyIDQuMjExMTQgMjguMTUzOSA0Ljc3Mjg0QzI4LjcxNTcgNS4zMzQ1NCAyOC43MTU3IDYuMTc3MDkgMjguMTUzOSA2LjczODhMMjYuNjA5MSA4LjI4MzQ4QzI2LjMyODMgOC41NjQzMyAyNS45NzcyIDguNzA0NzUgMjUuNjI2MSA4LjcwNDc1WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNNS44MjUyOCAyOC41NzU5QzUuNDc0MTggMjguNTc1OSA1LjEyMzA5IDI4LjQzNTQgNC44NDIyMSAyOC4xNTQ2QzQuMjgwNDYgMjcuNTkyOSA0LjI4MDQ2IDI2Ljc1MDMgNC44NDIyMSAyNi4xODg2TDYuMzg3MDMgMjQuNjQzOUM2Ljk0ODc4IDI0LjA4MjIgNy43OTE0MSAyNC4wODIyIDguMzUzMTYgMjQuNjQzOUM4LjkxNDkxIDI1LjIwNTYgOC45MTQ5MSAyNi4wNDgyIDguMzUzMTYgMjYuNjA5OUw2LjgwODM0IDI4LjE1NDZDNi41Mjc0NyAyOC40MzU0IDYuMTc2MzcgMjguNTc1OSA1LjgyNTI4IDI4LjU3NTlaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik0yNy4xNzA5IDI4LjU3NTlDMjYuODE5OCAyOC41NzU5IDI2LjQ2ODcgMjguNDM1NCAyNi4xODc5IDI4LjE1NDZMMjQuNjQzMSAyNi42MDk5QzI0LjA4MTMgMjYuMDQ4MiAyNC4wODEzIDI1LjIwNTYgMjQuNjQzMSAyNC42NDM5QzI1LjIwNDggMjQuMDgyMiAyNi4wNDc0IDI0LjA4MjIgMjYuNjA5MiAyNC42NDM5TDI4LjE1NCAyNi4xODg2QzI4LjcxNTggMjYuNzUwMyAyOC43MTU4IDI3LjU5MjkgMjguMTU0IDI4LjE1NDZDMjcuODczMSAyOC40MzU0IDI3LjUyMiAyOC41NzU5IDI3LjE3MDkgMjguNTc1OVoiIGZpbGw9IiNGRjlBMDEiLz4KPHBhdGggZD0iTTcuMzcwNTggOC43MDQ3NUM3LjAxOTQ5IDguNzA0NzUgNi42NjgzOSA4LjU2NDMzIDYuMzg3NTIgOC4yODM0OEw0Ljg0MjcgNi43Mzg4QzQuMjgwOTUgNi4xNzcwOSA0LjI4MDk1IDUuMzM0NTQgNC44NDI3IDQuNzcyODRDNS40MDQ0NSA0LjIxMTE0IDYuMjQ3MDggNC4yMTExNCA2LjgwODgzIDQuNzcyODRMOC4zNTM2NSA2LjMxNzUyQzguOTE1NCA2Ljg3OTIyIDguOTE1NCA3LjcyMTc4IDguMzUzNjUgOC4yODM0OEM4LjA3Mjc3IDguNTY0MzMgNy43MjE2OCA4LjcwNDc1IDcuMzcwNTggOC43MDQ3NVoiIGZpbGw9IiNGRjlBMDEiLz4KPC9zdmc+Cg==')
+											p
+												span 1.
+												|
+												|
+												| Выбрать сезон и регион плавания
+									.col-6.col-lg-3
+										+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMyAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE2LjUgMzNDNy4zNzIzNCAzMyAwIDI1LjYyNzcgMCAxNi41QzAgNy4zNzIzNCA3LjM3MjM0IDAgMTYuNSAwQzI1LjYyNzcgMCAzMyA3LjM3MjM0IDMzIDE2LjVDMzMgMjUuNjI3NyAyNS42Mjc3IDMzIDE2LjUgMzNaTTE2LjUgMi42NjgwOUM4Ljg0NjgxIDIuNjY4MDkgMi42NjgwOSA4Ljg0NjgxIDIuNjY4MDkgMTYuNUMyLjY2ODA5IDI0LjE1MzIgOC44NDY4MSAzMC4zMzE5IDE2LjUgMzAuMzMxOUMyNC4xNTMyIDMwLjMzMTkgMzAuMzMxOSAyNC4xNTMyIDMwLjMzMTkgMTYuNUMzMC4zMzE5IDguODQ2ODEgMjQuMTUzMiAyLjY2ODA5IDE2LjUgMi42NjgwOVoiIGZpbGw9IiNGRjlBMDEiLz4KPHBhdGggZD0iTTIyLjc1MzUgMTcuODM0OEgxNi41MDQ1QzE1LjczMjIgMTcuODM0OCAxNS4xNzA1IDE3LjIwMjkgMTUuMTcwNSAxNi41MDA4VjcuMzczMUMxNS4xNzA1IDYuNjAwNzYgMTUuODAyNCA2LjAzOTA2IDE2LjUwNDUgNi4wMzkwNkMxNy4yMDY2IDYuMDM5MDYgMTcuODM4NiA2LjY3MDk4IDE3LjgzODYgNy4zNzMxVjE1LjE2NjdIMjIuNzUzNUMyMy41MjU4IDE1LjE2NjcgMjQuMDg3NSAxNS43OTg2IDI0LjA4NzUgMTYuNTAwOEMyNC4wODc1IDE3LjIwMjkgMjMuNTI1OCAxNy44MzQ4IDIyLjc1MzUgMTcuODM0OFoiIGZpbGw9IiNGRjlBMDEiLz4KPC9zdmc+Cg==')
+											p
+												span 2.
+												|
+												|
+												| Выбрать продолжительность круиза
+									.col-6.col-lg-3
+										+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzMiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzMyAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTI4LjE2NTYgMjUuNzY5MUg0Ljc2NDMzQzQuMTMzNzYgMjUuNzY5MSAzLjY0MzMxIDI1LjM0NzggMy40MzMxMiAyNC43ODYxTDAuMDcwMDYzNyAxMy40ODE5Qy0wLjA3MDA2MzcgMTMuMDYwNiAtMi4wODgwNmUtMDggMTIuNjM5MyAwLjI4MDI1NSAxMi4yODgzQzAuNTYwNTEgMTEuOTM3MiAwLjk4MDg5MiAxMS43MjY2IDEuNDAxMjcgMTEuNzI2NkgzMS41OTg3QzMyLjAxOTEgMTEuNzI2NiAzMi40Mzk1IDExLjkzNzIgMzIuNzE5NyAxMi4yODgzQzMzIDEyLjYzOTMgMzMuMDcwMSAxMy4wNjA2IDMyLjkyOTkgMTMuNDgxOUwyOS40OTY4IDI0Ljc4NjFDMjkuMjg2NiAyNS4zNDc4IDI4LjcyNjEgMjUuNzY5MSAyOC4xNjU2IDI1Ljc2OTFaTTUuODE1MjkgMjMuMDMwOEgyNy4xMTQ3TDI5LjcwNyAxNC40NjQ5SDMuMjIyOTNMNS44MTUyOSAyMy4wMzA4WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjMuMzMxOCAxNC40NjM4SDQuNzY0OTJDMy45OTQyMiAxNC40NjM4IDMuMzYzNjUgMTMuODMxOSAzLjM2MzY1IDEzLjA1OTZWMS40MDQyNkMzLjM2MzY1IDAuNjMxOTE1IDMuOTk0MjIgMCA0Ljc2NDkyIDBIMTguMTQ3MUMyMS43OTA0IDAgMjQuNzMzMSAyLjk0ODk0IDI0LjczMzEgNi42VjEzLjA1OTZDMjQuNzMzMSAxMy44MzE5IDI0LjEwMjUgMTQuNDYzOCAyMy4zMzE4IDE0LjQ2MzhaTTYuMDk2MTMgMTEuNzI1NUgyMS45MzA1VjYuNkMyMS45MzA1IDQuNDkzNjIgMjAuMTc4OSAyLjczODMgMTguMDc3IDIuNzM4M0g2LjA5NjEzVjExLjcyNTVaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik04LjQ3ODc5IDguNjM0NzZDOC4xMjg0NyA4LjYzNDc2IDcuNzc4MTUgOC40OTQzMyA3LjQ5NzkgOC4yMTM0OEM3LjIxNzY0IDcuOTMyNjMgNy4wNzc1MSA3LjU4MTU3IDcuMDc3NTEgNy4yMzA1QzcuMDc3NTEgNi44Nzk0NCA3LjIxNzY0IDYuNTI4MzcgNy40OTc5IDYuMjQ3NTJDNy45ODgzNCA1Ljc1NjAzIDguODk5MTcgNS43NTYwMyA5LjQ1OTY4IDYuMjQ3NTJDOS43Mzk5MyA2LjUyODM3IDkuODgwMDYgNi44Nzk0NCA5Ljg4MDA2IDcuMjMwNUM5Ljg4MDA2IDcuNTgxNTcgOS43Mzk5MyA3LjkzMjYzIDkuNDU5NjggOC4yMTM0OEM5LjI0OTQ5IDguNDI0MTIgOC44OTkxNyA4LjYzNDc2IDguNDc4NzkgOC42MzQ3NloiIGZpbGw9IiNGRjlBMDEiLz4KPHBhdGggZD0iTTE0LjAxMDMgOC42MzQ3NkMxMy42NiA4LjYzNDc2IDEzLjMwOTYgOC40OTQzMyAxMy4wMjk0IDguMjEzNDhDMTIuNzQ5MSA3LjkzMjYzIDEyLjYwOSA3LjU4MTU3IDEyLjYwOSA3LjIzMDVDMTIuNjA5IDYuODc5NDQgMTIuNzQ5MSA2LjUyODM3IDEzLjAyOTQgNi4yNDc1MkMxMy41MTk4IDUuNzU2MDMgMTQuNDMwNyA1Ljc1NjAzIDE0Ljk5MTIgNi4yNDc1MkMxNS4yNzE0IDYuNTI4MzcgMTUuNDExNiA2Ljg3OTQ0IDE1LjQxMTYgNy4yMzA1QzE1LjQxMTYgNy41ODE1NyAxNS4yNzE0IDcuOTMyNjMgMTQuOTkxMiA4LjIxMzQ4QzE0Ljc4MSA4LjQyNDEyIDE0LjM2MDYgOC42MzQ3NiAxNC4wMTAzIDguNjM0NzZaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik0xOS41NDg5IDguNjM0NzZDMTkuMTk4NSA4LjYzNDc2IDE4Ljg0ODIgOC40OTQzMyAxOC41NjggOC4yMTM0OEMxOC4yODc3IDcuOTMyNjMgMTguMTQ3NiA3LjU4MTU3IDE4LjE0NzYgNy4yMzA1QzE4LjE0NzYgNi44Nzk0NCAxOC4yODc3IDYuNTI4MzcgMTguNTY4IDYuMjQ3NTJDMTkuMDU4NCA1Ljc1NjAzIDE5Ljk2OTIgNS43NTYwMyAyMC41Mjk3IDYuMjQ3NTJDMjAuODEgNi41MjgzNyAyMC45NTAxIDYuODc5NDQgMjAuOTUwMSA3LjIzMDVDMjAuOTUwMSA3LjU4MTU3IDIwLjgxIDcuOTMyNjMgMjAuNTI5NyA4LjIxMzQ4QzIwLjI0OTUgOC40MjQxMiAxOS44OTkyIDguNjM0NzYgMTkuNTQ4OSA4LjYzNDc2WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMTguOTg3NyAzMy4wMDAzQzE4Ljc3NzUgMzMuMDAwMyAxOC41NjczIDMzLjAwMDMgMTguMzU3MSAzMy4wMDAzQzE2LjUzNTUgMzIuODU5OSAxNC45MjQgMzIuMjI4IDEzLjMxMjUgMzEuNjY2M0wxMy4wMzIzIDMxLjU5NjFDMTEuNDkwOSAzMS4wMzQ0IDEwLjAxOTYgMzAuNTQyOSA4LjU0ODIyIDMwLjU0MjlDNy4xNDY5NCAzMC41NDI5IDUuODg1OCAzMS4xNzQ4IDUuMzI1MjkgMzIuMDg3NkM0LjkwNDkxIDMyLjcxOTUgNC4wNjQxNCAzMi45MzAxIDMuNDMzNTcgMzIuNTc5MUMyLjg3MzA2IDMyLjA4NzYgMi42NjI4NyAzMS4yNDUgMy4wMTMxOSAzMC41NDI5QzQuMDY0MTQgMjguNzg3NiA2LjE2NjA1IDI3LjczNDQgOC41NDgyMiAyNy43MzQ0QzEwLjQzOTkgMjcuNzM0NCAxMi4xOTE1IDI4LjI5NjEgMTQuMDEzMiAyOC45OTgyTDE0LjI5MzQgMjkuMDY4NEMxNS43NjQ4IDI5LjYzMDEgMTcuMTY2MSAzMC4xMjE2IDE4LjU2NzMgMzAuMjYyQzE5LjMzOCAzMC4zMzIyIDIwLjAzODcgMzAuMTkxOCAyMC40NTkgMjkuOTgxMkMyMC41OTkyIDI5LjkxMSAyMC44MDk0IDI5Ljc3MDUgMjEuMDE5NiAyOS42MzAxQzIxLjIyOTcgMjkuNDg5NyAyMS40Mzk5IDI5LjM0OTMgMjEuNjUwMSAyOS4yMDg4QzIzLjgyMjEgMjcuODc0OCAyNi40MTQ1IDI4LjIyNTkgMjguODY2NyAyOC43ODc2QzI5LjYzNzQgMjguOTI4IDMwLjA1NzggMjkuNzAwMyAyOS45MTc2IDMwLjQwMjVDMjkuNzc3NSAzMS4xNzQ4IDI5LjAwNjggMzEuNTk2MSAyOC4zMDYyIDMxLjQ1NTdDMjYuMzQ0NCAzMS4wMzQ0IDI0LjM4MjYgMzAuNzUzNSAyMy4wNTE0IDMxLjUyNTlDMjIuOTExMyAzMS41OTYxIDIyLjc3MTEgMzEuNzM2NSAyMi41NjEgMzEuODA2N0MyMi4zNTA4IDMyLjAxNzQgMjIuMDcwNSAzMi4xNTc4IDIxLjcyMDIgMzIuMzY4NEMyMS4wMTk2IDMyLjc4OTcgMjAuMDM4NyAzMy4wMDAzIDE4Ljk4NzcgMzMuMDAwM1oiIGZpbGw9IiNGRjlBMDEiLz4KPC9zdmc+Cg==')
+											p
+												span 3.
+												|
+												|
+												| Выбрать лайнер и каюту
+									.col-6.col-lg-3
+										+info-item('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzMiIHZpZXdCb3g9IjAgMCAzNCAzMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTMxLjUyODcgMzIuOTk5OEgxLjQwMTI3QzAuNjMwNTczIDMyLjk5OTggMCAzMi4zNjggMCAzMS41OTU4VjEwLjA0NDZDMCA5LjI3MjQyIDAuNjMwNTczIDguNjQwNjIgMS40MDEyNyA4LjY0MDYySDMxLjU5ODdDMzIuMzY5NCA4LjY0MDYyIDMzIDkuMjcyNDIgMzMgMTAuMDQ0NlYzMS42NjZDMzIuOTI5OSAzMi4zNjggMzIuMjk5NCAzMi45OTk4IDMxLjUyODcgMzIuOTk5OFpNMi43MzI0OCAzMC4yNjJIMzAuMTk3NVYxMS4zNzg0SDIuNzMyNDhWMzAuMjYyWiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMzEuNTI5OCAyNi42ODAySDIyLjA3MTJDMjAuMzg5NyAyNi42ODAyIDE4Ljk4ODQgMjUuMjc2MiAxOC45ODg0IDIzLjU5MTRWMTcuOTc1NUMxOC45ODg0IDE2LjI5MDcgMjAuMzg5NyAxNC44ODY3IDIyLjA3MTIgMTQuODg2N0gzMS41OTk5QzMyLjM3MDYgMTQuODg2NyAzMy4wMDExIDE1LjUxODUgMzMuMDAxMSAxNi4yOTA3VjI1LjI3NjJDMzIuOTMxMSAyNi4wNDg0IDMyLjMwMDUgMjYuNjgwMiAzMS41Mjk4IDI2LjY4MDJaTTIyLjA3MTIgMTcuNjk0N0MyMS45MzExIDE3LjY5NDcgMjEuNzIwOSAxNy44MzUxIDIxLjcyMDkgMTguMDQ1N1YyMy42NjE2QzIxLjcyMDkgMjMuODAyIDIxLjg2MSAyNC4wMTI2IDIyLjA3MTIgMjQuMDEyNkgzMC4xOTg2VjE3Ljc2NDlIMjIuMDcxMlYxNy42OTQ3WiIgZmlsbD0iI0ZGOUEwMSIvPgo8cGF0aCBkPSJNMjQuNTkzNCAyMi44MjE2QzIzLjgyMjcgMjIuODIxNiAyMy4xOTIxIDIyLjE4OTggMjMuMTkyMSAyMS40MTc2VjIwLjE1NEMyMy4xOTIxIDE5LjM4MTggMjMuODIyNyAxOC43NSAyNC41OTM0IDE4Ljc1QzI1LjM2NDEgMTguNzUgMjUuOTk0NyAxOS4zODE4IDI1Ljk5NDcgMjAuMTU0VjIxLjQxNzZDMjUuOTI0NiAyMi4xODk4IDI1LjM2NDEgMjIuODIxNiAyNC41OTM0IDIyLjgyMTZaIiBmaWxsPSIjRkY5QTAxIi8+CjxwYXRoIGQ9Ik03Ljc3NjIzIDExLjAyNzZDNy41NjYwMyAxMS4wMjc2IDcuMzU1ODQgMTAuOTU3NCA3LjIxNTcyIDEwLjg4NzJDNi41MTUwOCAxMC41MzYyIDYuMjM0ODIgOS43NjQwMyA2LjU4NTE0IDkuMDYyMDRMMTAuNDM4NiAwLjc3ODUyMkMxMC41Nzg4IDAuNDI3NTI2IDEwLjg1OSAwLjIxNjkyOCAxMS4yMDkzIDAuMDc2NTI5MkMxMS41NTk3IC0wLjA2Mzg2OTQgMTEuOTEgMC4wMDYzMjk4NSAxMi4yNjAzIDAuMTQ2NzI4TDI1LjM2MjIgNi40NjQ2N0MyNi4wNjI4IDYuODE1NjYgMjYuMzQzMSA3LjU4Nzg1IDI1Ljk5MjggOC4yODk4NUwyNS4xNTIgMTAuMTg1MkMyNC44MDE3IDEwLjg4NzIgMjQuMDMxIDExLjE2OCAyMy4zMzA0IDEwLjgxN0MyMi42Mjk3IDEwLjQ2NiAyMi4zNDk1IDkuNjkzODMgMjIuNjk5OCA4Ljk5MTg0TDIzLjA1MDEgOC4yODk4NUwxMi4zMzA0IDMuMjM1NUw5LjAzNzM3IDEwLjI1NTRDOC44MjcxOCAxMC43NDY4IDguMzM2NzQgMTEuMDI3NiA3Ljc3NjIzIDExLjAyNzZaIiBmaWxsPSIjRkY5QTAxIi8+Cjwvc3ZnPgo=')
+											p
+												span 4.
+												|
+												|
+												| Подсчитать стоимость со всеми доплатами
+							.card#worldMap
+								.card-body
+									h4.card-title Выбираем сезон для путешествия
+									img.img-fluid(src='assets/img/cruises/world-map.jpg')
+									h6 Европа
+									p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+									h6 Карибские острова
+									p Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium
+									h6 Южная Америка
+									p Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
+									h6 Азия
+									p Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
